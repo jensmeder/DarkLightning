@@ -8,15 +8,15 @@
 4. [OSX](README.md#4-osx)
 4. [License](README.md#5-license)
 
-## System requirements
+## 1. System requirements
 
 iOS 8.0+ or Mac OS X 10.10+
 
-## Installation
+## 2. Installation
 
-## iOS
+## 3. iOS
 
-## OSX
+## 4. OSX
 
 ## 5. License
 
