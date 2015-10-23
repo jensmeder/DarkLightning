@@ -2,23 +2,26 @@
 
 ## Overview
 
-1. [System requirements](README.md#1-system-requirements)
-2. [Installation](README.md#2-installation)
-3. [iOS](README.md#3-ios)
-4. [OSX](README.md#4-osx)
-4. [License](README.md#5-license)
+1. [Features](README.md#1-features)
+2. [System requirements](README.md#2-requirements)
+3. [Installation](README.md#3-cocoapods)
+4. [iOS](README.md#4-ios)
+5. [OSX](README.md#5-osx)
+6. [License](README.md#6-license)
 
-## 1. System requirements
+## 1. Features
+
+## 2. Requirements
 
 iOS 8.0+ or Mac OS X 10.10+
 
-## 2. Installation
+## 3. Cocoapods
 
-## 3. iOS
+## 4. iOS
 
-## 4. OSX
+## 5. OSX
 
-## 5. License
+## 6. License
 
 The MIT License (MIT)
 
