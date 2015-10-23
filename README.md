@@ -2,23 +2,23 @@
 
 ## Overview
 
-1. [System requirements](README.md#system-requirements)
-2. [Installation](README.md#installation)
-3. [iOS](README.md#ios)
-4. [OSX](README.md#osx)
-4. [License](README.md#license)
+1. [System requirements](README.md#1.-system-requirements)
+2. [Installation](README.md#2.-installation)
+3. [iOS](README.md#3.-ios)
+4. [OSX](README.md#4.-osx)
+4. [License](README.md#5.-license)
 
-## 1. System requirements
+## System requirements
 
 iOS 8.0+ or Mac OS X 10.10+
 
-## 2. Installation
+## Installation
 
-## 3. iOS
+## iOS
 
-## 4. OSX
+## OSX
 
-## 5. License
+## License
 
 The MIT License (MIT)
 
