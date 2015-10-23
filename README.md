@@ -4,8 +4,8 @@
 
 1. [Features](README.md#1-features)
 2. [System requirements](README.md#2-requirements)
-3. [Installation](README.md#3-cocoapods)
-4. [iOS](README.md#4-usage)
+3. [Installation](README.md#3-installation)
+4. [Usage](README.md#4-usage)
 5. [License](README.md#5-license)
 
 ## 1. Features
@@ -14,7 +14,7 @@
 
 iOS 8.0+ or Mac OS X 10.10+
 
-## 3. Cocoapods
+## 3. Installation
 
 ## 4. Usage
 
