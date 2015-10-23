@@ -2,11 +2,11 @@
 
 ## Overview
 
-1. [System requirements](README.md#1.-system-requirements)
-2. [Installation](README.md#2.-installation)
-3. [iOS](README.md#3.-ios)
-4. [OSX](README.md#4.-osx)
-4. [License](README.md#5.-license)
+1. [System requirements](README.md#1-system-requirements)
+2. [Installation](README.md#2-installation)
+3. [iOS](README.md#3-ios)
+4. [OSX](README.md#4-osx)
+4. [License](README.md#5-license)
 
 ## System requirements
 
