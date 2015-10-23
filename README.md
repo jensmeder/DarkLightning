@@ -18,7 +18,7 @@ iOS 8.0+ or Mac OS X 10.10+
 
 ## OSX
 
-## License
+## 5. License
 
 The MIT License (MIT)
 
