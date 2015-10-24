@@ -10,11 +10,22 @@
 
 ## 1. Features
 
+* iOS und OSX implementations to transmit data at 480 MBit via USB between iOS and OSX
+* Information on connected iOS devices on OSX
+* Callbacks for newly connected and disconnected iOS devices on OSX
+
 ## 2. Requirements
 
 iOS 8.0+ or Mac OS X 10.10+
 
 ## 3. Installation
+
+DarkLightning is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "DarkLightning"
+```
 
 ## 4. Usage
 
