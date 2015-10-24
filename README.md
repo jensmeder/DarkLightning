@@ -13,7 +13,7 @@ DarkLightning is a lightweight Objective-C library to allow data transmission be
 
 ## 1. Features
 
-* iOS und OSX implementations to transmit data at 480 MBit via USB between iOS and OSX
+* iOS und OSX implementations to transmit data with up to 480 MBit via USB between iOS and OSX
 * Information on connected iOS devices on OSX
 * Callbacks for newly connected and disconnected iOS devices on OSX
 
