@@ -1,6 +1,6 @@
 # DarkLightning
 
-DarkLightning is a lightweight Objective-C library to allow data transmission between iOS devices (Lightning port or Dock connector) and OSX (USB) at 480MBit. It uses the usbmuxd service on OSX to open a TCP socket connection to the iOS device. 
+DarkLightning is a lightweight Objective-C library to allow data transmission between iOS devices (Lightning port or Dock connector) and OSX (USB) at 480MBit - without jailbreaking your iOS device. It uses the usbmuxd service on OSX to open a TCP socket connection to the iOS device. 
 
 ## Overview
 
