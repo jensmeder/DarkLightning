@@ -30,6 +30,35 @@ pod "DarkLightning"
 ## 4. Usage
 
 ### 4.1 iOS
+
+#### 4.1.1 Initialization
+
+```objc
+JMMobileDevicePort* devicePort = [[JMMobileDevicePort alloc]initWithPort:2346];
+devicePort.delegate = self;
+[devicePort open];
+
+```
+#### 4.1.2 Receiving Data
+
+```objc
+devicePort.delegate = self;
+```
+
+```objc
+-(void) mobileDevicePort:(nonnull JMMobileDevicePort*)port didReceiveData:(nonnull NSData*)data
+{
+  // Do something with the data
+}
+```
+
+#### 4.1.3 Sending Data
+
+```objc
+NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
+[devicePort writeData:data];
+```
+
 ### 4.2 OSX
 
 ## 5. License
