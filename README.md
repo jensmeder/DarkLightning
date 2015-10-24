@@ -27,6 +27,7 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "DarkLightning"
 ```
+There are two subspecs included: `iOS` and `OSX`. Cocoapods automatically selects the correct subspec depending on the platform you are developing for. That means that `pod "DarkLightning"` and `pod "DarkLightning/iOS"` have the same effect if you are developing an iOS app.
 
 ## 4. Usage
 
