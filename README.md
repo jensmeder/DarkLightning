@@ -35,14 +35,11 @@ pod "DarkLightning"
 
 ```objc
 JMMobileDevicePort* devicePort = [[JMMobileDevicePort alloc]initWithPort:2346];
+devicePort.delegate = self;
 [devicePort open];
 
 ```
 #### 4.1.2 Receiving Data
-
-```objc
-devicePort.delegate = self;
-```
 
 ```objc
 -(void) mobileDevicePort:(nonnull JMMobileDevicePort*)port didReceiveData:(nonnull NSData*)data
@@ -59,6 +56,62 @@ NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 ```
 
 ### 4.2 OSX
+
+#### 4.2.1 Initialization
+
+```objc
+JMUSBDeviceManager* manager = [[JMUSBDeviceManager alloc]init];
+[manager start];
+```
+
+#### 4.2.2 Device Discovery
+
+```objc
+JMUSBDevice* _myDevice;
+```
+
+```objc
+-(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidAttach:(nonnull JMUSBDevice*)device
+{
+  // Save the device for later usage
+  
+  _myDevice = device;
+}
+-(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidDetach:(nonnull JMUSBDevice*)device
+{
+  // Device is no longer attached to the system. Cleanup any connections and references to it.
+  
+  _myDevice = nil;
+}
+```
+#### 4.2.3 Connections
+
+```objc
+JMUSBDeviceConnection* myDeviceConnection = [[JMUSBDeviceConnection alloc] initWithDevice:_myDevice andPort:2345];
+myDeviceConnection.delegate = self;
+[myDeviceConnection connect];
+```
+
+```objc
+[myDeviceConnection disconnect];
+myDeviceConnection = nil;
+```
+
+#### 4.2.4 Receiving Data
+
+```objc
+-(void) connection:(nonnull JMUSBDeviceConnection*)connection didReceiveData:(nonnull NSData*)data
+{
+  // Do something with the data
+}
+```
+
+#### 4.2.3 Sending Data
+
+```objc
+NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
+[_myDeviceConnection writeData:data];
+```
 
 ## 5. License
 
