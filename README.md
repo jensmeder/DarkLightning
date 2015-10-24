@@ -116,6 +116,7 @@ NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 ## 5. What's next
 
 * example applications for iOS and OSX
+* enhanced documentation
 
 ## 6. License
 
