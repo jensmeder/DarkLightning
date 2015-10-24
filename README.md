@@ -16,7 +16,7 @@
 
 ## 2. Requirements
 
-iOS 8.0+ or Mac OS X 10.10+
+iOS 8.0+ or Mac OS X 10.9+
 
 ## 3. Installation
 
