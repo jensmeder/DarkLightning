@@ -113,11 +113,11 @@ myDeviceConnection = nil;
 NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 [_myDeviceConnection writeData:data];
 ```
-## 6. What's next
+## 5. What's next
 
 * example applications for iOS and OSX
 
-## 5. License
+## 6. License
 
 The MIT License (MIT)
 
