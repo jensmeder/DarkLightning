@@ -35,7 +35,6 @@ pod "DarkLightning"
 
 ```objc
 JMMobileDevicePort* devicePort = [[JMMobileDevicePort alloc]initWithPort:2346];
-devicePort.delegate = self;
 [devicePort open];
 
 ```
