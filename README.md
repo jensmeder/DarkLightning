@@ -6,7 +6,8 @@
 2. [System requirements](README.md#2-requirements)
 3. [Installation](README.md#3-installation)
 4. [Usage](README.md#4-usage)
-5. [License](README.md#5-license)
+5. [What's next](README.md#5-whats-next)
+6. [License](README.md#6-license)
 
 ## 1. Features
 
@@ -112,6 +113,9 @@ myDeviceConnection = nil;
 NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 [_myDeviceConnection writeData:data];
 ```
+## 6. What's next
+
+* example applications for iOS and OSX
 
 ## 5. License
 
