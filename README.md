@@ -35,6 +35,12 @@ There are two subspecs included: `iOS` and `OSX`. Cocoapods automatically select
 
 ## 4. Usage
 
+The basic procedure to open a connection between iOS and OSX looks like this:
+
+1. Start a `JMMobileDevicePort` on a port on iOS
+2. Discover the device on OSX
+3. Establish a connection to the previously defined port on iOS
+
 ### 4.1 iOS
 
 #### 4.1.1 Initialization
