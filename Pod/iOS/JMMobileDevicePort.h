@@ -59,6 +59,9 @@ typedef NS_ENUM(NSUInteger, JMMobileDevicePortState)
 
 @end
 
+/**
+ *  A mobile device port serves as a server to accept incoming connections from USB.
+ */
 @interface JMMobileDevicePort : NSObject
 
 /**

@@ -66,8 +66,8 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 {
 	JMMobileDevicePort* devicePort = (__bridge JMMobileDevicePort*)info;
 
-	CFReadStreamRef readStream;
-	CFWriteStreamRef writeStream;
+	CFReadStreamRef readStream = NULL;
+	CFWriteStreamRef writeStream = NULL;
 
 	CFStreamCreatePairWithSocket(kCFAllocatorDefault, *(CFSocketNativeHandle *)data, &readStream, &writeStream);
 
@@ -90,6 +90,7 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 -(void)open
 {
 		CFSocketContext context;
+	memset(&context, 0, sizeof(CFSocketContext));
 		context.info = (__bridge void *)(self);
 		_socket = CFSocketCreate(
 								 kCFAllocatorDefault,

@@ -44,7 +44,7 @@
 	JMUSBMuxDecoder* _decoder;
 	JMUSBMuxEncoder* _encoder;
 
-	NSMutableDictionary* _devices;
+	NSMutableDictionary<NSNumber*, JMUSBDevice*>* _devices;
 }
 
 -(instancetype)init
@@ -84,7 +84,7 @@
 
 #pragma mark - Properties
 
--(NSArray *)attachedDevices
+-(NSArray<JMUSBDevice*> *)attachedDevices
 {
 	return _devices.allValues;
 }

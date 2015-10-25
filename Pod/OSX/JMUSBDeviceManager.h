@@ -61,7 +61,7 @@
 /**
  *  A collection of all devices that are currently attached to the system.
  */
-@property (nonnull, nonatomic, copy, readonly) NSArray* attachedDevices;
+@property (nonnull, nonatomic, copy, readonly) NSArray<JMUSBDevice*>* attachedDevices;
 @property (nonatomic, weak) id<JMUSBDeviceManagerDelegate> delegate;
 
 /**
