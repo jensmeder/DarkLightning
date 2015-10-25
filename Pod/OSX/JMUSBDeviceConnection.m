@@ -126,8 +126,8 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 {
 	if (resultCode == JMUSBMuxResultCodeOK)
 	{
-		self.state = JMUSBDeviceConnectionStateConnected;
 		_tcpMode = YES;
+		self.state = JMUSBDeviceConnectionStateConnected;
 	}
 	else
 	{
@@ -135,7 +135,9 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 		
 		if ([_delegate respondsToSelector:@selector(connection:didFailToConnect:)])
 		{
-			NSError* error = [NSError errorWithDomain:JMUSBDeviceConnectionErrorDomain code:JMUSBDeviceConnectionErrorCodeDeviceNotAvailable userInfo:nil];
+			NSError* error = [NSError errorWithDomain:JMUSBDeviceConnectionErrorDomain
+                                                 code:JMUSBDeviceConnectionErrorCodeDeviceNotAvailable
+                                             userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Device not available.", nil)}];
 			[_delegate connection:self didFailToConnect:error];
 		}
 	}
@@ -157,7 +159,9 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 	
 	if ([_delegate respondsToSelector:@selector(connection:didFailToConnect:)])
 	{
-		NSError* error = [NSError errorWithDomain:JMUSBDeviceConnectionErrorDomain code:JMUSBDeviceConnectionErrorCodeDataStreamError userInfo:nil];
+		NSError* error = [NSError errorWithDomain:JMUSBDeviceConnectionErrorDomain
+                                             code:JMUSBDeviceConnectionErrorCodeDataStreamError
+                                         userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Data stream error.", nil)}];
 		[_delegate connection:self didFailToConnect:error];
 	}
 }

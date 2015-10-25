@@ -89,8 +89,7 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 -(void)open
 {
-		CFSocketContext context;
-		context.info = (__bridge void *)(self);
+		CFSocketContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
 		_socket = CFSocketCreate(
 								 kCFAllocatorDefault,
 								 PF_INET,
