@@ -41,7 +41,7 @@ The basic procedure to open a connection between iOS and OSX looks like this:
 2. Discover the device on OSX
 3. Establish a connection to the previously defined port on iOS
 
-You can send an arbitrary amount of bytes between iOS and OSX. Data are being send using [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol).
+You can send an arbitrary amount of bytes between iOS and OSX. The Data are being sent using [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol).
 
 ### 4.1 iOS
 
