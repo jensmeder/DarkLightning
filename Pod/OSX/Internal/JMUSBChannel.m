@@ -40,7 +40,9 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	{
 		if([_delegate respondsToSelector:@selector(channel:didFailToOpen:)])
 		{
-			NSError* error = [[NSError alloc] initWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
+            NSError* error = [[NSError alloc] initWithDomain:NSPOSIXErrorDomain
+                                                        code:errno
+                                                    userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithUTF8String:strerror(errno)]}];
 			[_delegate channel:self didFailToOpen:error];
 		}
 
@@ -66,7 +68,9 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	{
 		if([_delegate respondsToSelector:@selector(channel:didFailToOpen:)])
 		{
-			NSError* error = [[NSError alloc] initWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
+            NSError* error = [[NSError alloc] initWithDomain:NSPOSIXErrorDomain
+                                                        code:errno
+                                                    userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithUTF8String:strerror(errno)]}];
 			[_delegate channel:self didFailToOpen:error];
 		}
 
