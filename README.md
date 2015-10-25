@@ -99,7 +99,7 @@ JMUSBDevice* _myDevice;
 ```
 #### 4.2.3 Connections
 
-With the help of a discovered iOS device you can now establish a connection.
+With the help of a discovered `JMUSBDevice` you can now establish a connection.
 
 ```objc
 JMUSBDeviceConnection* myDeviceConnection = [[JMUSBDeviceConnection alloc] initWithDevice:_myDevice andPort:2345];
