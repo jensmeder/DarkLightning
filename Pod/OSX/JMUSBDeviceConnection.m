@@ -126,8 +126,8 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 {
 	if (resultCode == JMUSBMuxResultCodeOK)
 	{
-		self.state = JMUSBDeviceConnectionStateConnected;
 		_tcpMode = YES;
+		self.state = JMUSBDeviceConnectionStateConnected;
 	}
 	else
 	{
