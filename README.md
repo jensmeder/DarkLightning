@@ -1,5 +1,7 @@
 # DarkLightning
 
+DarkLightning is a lightweight Objective-C library to allow data transmission between iOS devices (Lightning port or Dock connector) and OSX (USB) at 480MBit - without jailbreaking your iOS device. It uses the usbmuxd service on OSX to open a TCP socket connection to the iOS device. 
+
 ## Overview
 
 1. [Features](README.md#1-features)
@@ -11,13 +13,15 @@
 
 ## 1. Features
 
-* iOS und OSX implementations to transmit data at 480 MBit via USB between iOS and OSX
+* iOS und OSX implementations to transmit data with up to 480 MBit via USB between iOS and OSX
 * Information on connected iOS devices on OSX
 * Callbacks for newly connected and disconnected iOS devices on OSX
 
 ## 2. Requirements
 
-iOS 8.0+ or Mac OS X 10.9+
+* iOS 8.0+
+* Mac OS X 10.9+
+* XCode 7+ (due to new Objective-C syntax with nullability and generics)
 
 ## 3. Installation
 
@@ -27,8 +31,17 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "DarkLightning"
 ```
+There are two subspecs included: `iOS` and `OSX`. Cocoapods automatically selects the correct subspec depending on the platform you are developing for. That means that `pod "DarkLightning"` and `pod "DarkLightning/iOS"` have the same effect if you are developing an iOS app.
 
 ## 4. Usage
+
+The basic procedure to open a connection between iOS and OSX looks like this:
+
+1. Start a `JMMobileDevicePort` on a port on iOS
+2. Discover the device on OSX
+3. Establish a connection to the previously defined port on iOS
+
+You can send an arbitrary amount of bytes between iOS and OSX. The data are being sent using [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol).
 
 ### 4.1 iOS
 
@@ -67,17 +80,24 @@ JMUSBDeviceManager* manager = [[JMUSBDeviceManager alloc]init];
 
 #### 4.2.2 Device Discovery
 
-```objc
-JMUSBDevice* _myDevice;
-```
+As soon as you plug in or out an iOS device to your Mac you will receive a callback on the corresponding delegate method (`deviceManager:deviceDidAttach:` or `deviceManager:deviceDidDetach:`) of `JMUSBDeviceManager*`. You will also receive a callback on `deviceManager:deviceDidAttach:` for every iOS device that was already attached to OSX when you started the discovery via `[manager start];`.
 
 ```objc
+JMUSBDevice* _myDevice;
+
+...
+
+// Called for every device that is or will be attached to the system
+
 -(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidAttach:(nonnull JMUSBDevice*)device
 {
   // Save the device for later usage
   
   _myDevice = device;
 }
+
+// Called for every iOS device that has been detached from the system
+
 -(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidDetach:(nonnull JMUSBDevice*)device
 {
   // Device is no longer attached to the system. Cleanup any connections and references to it.
@@ -87,11 +107,16 @@ JMUSBDevice* _myDevice;
 ```
 #### 4.2.3 Connections
 
+With the help of a discovered `JMUSBDevice` and a port number you can now establish a connection to your iOS app.
+
+_Note:_ The port number needs to be identical to the one you have used to open a `JMMobileDevicePort` on iOS.
+
 ```objc
 JMUSBDeviceConnection* myDeviceConnection = [[JMUSBDeviceConnection alloc] initWithDevice:_myDevice andPort:2345];
 myDeviceConnection.delegate = self;
 [myDeviceConnection connect];
 ```
+When you are done with the connection make sure to close it properly.
 
 ```objc
 [myDeviceConnection disconnect];
@@ -116,6 +141,7 @@ NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 ## 5. What's next
 
 * example applications for iOS and OSX
+* enhanced documentation
 
 ## 6. License
 
