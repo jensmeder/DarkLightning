@@ -105,14 +105,16 @@ JMUSBDevice* _myDevice;
 ```
 #### 4.2.3 Connections
 
-With the help of a discovered `JMUSBDevice` you can now establish a connection.
+With the help of a discovered `JMUSBDevice` and a port number you can now establish a connection to your iOS app.
+
+_Note:_ The port number needs to be identical to the one you have used to open a `JMMobileDevicePort` on iOS.
 
 ```objc
 JMUSBDeviceConnection* myDeviceConnection = [[JMUSBDeviceConnection alloc] initWithDevice:_myDevice andPort:2345];
 myDeviceConnection.delegate = self;
 [myDeviceConnection connect];
 ```
-When you are done with the connection make sure to close it.
+When you are done with the connection make sure to close it properly.
 
 ```objc
 [myDeviceConnection disconnect];
