@@ -82,9 +82,9 @@ As soon as you plug in or out an iOS device to your Mac you will receive a callb
 
 ```objc
 JMUSBDevice* _myDevice;
-```
 
-```objc
+...
+
 // Called for every device that is or will be attached to the system
 
 -(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidAttach:(nonnull JMUSBDevice*)device
