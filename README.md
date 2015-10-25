@@ -72,17 +72,24 @@ JMUSBDeviceManager* manager = [[JMUSBDeviceManager alloc]init];
 
 #### 4.2.2 Device Discovery
 
+As soon as you plug in or out an iOS device to your Mac you will receive a callback on the corresponding delegate method (`deviceManager:deviceDidAttach:` or `deviceManager:deviceDidDetach:`) of `JMUSBDeviceManager*`. You will also receive a callback on `deviceManager:deviceDidAttach:` for every iOS device that was already attached to OSX when you started the discovery via `[manager start];`.
+
 ```objc
 JMUSBDevice* _myDevice;
 ```
 
 ```objc
+// Called for every device that is or will be attached to the system
+
 -(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidAttach:(nonnull JMUSBDevice*)device
 {
   // Save the device for later usage
   
   _myDevice = device;
 }
+
+// Called for every iOS device that has been detached from the system
+
 -(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidDetach:(nonnull JMUSBDevice*)device
 {
   // Device is no longer attached to the system. Cleanup any connections and references to it.
@@ -92,11 +99,14 @@ JMUSBDevice* _myDevice;
 ```
 #### 4.2.3 Connections
 
+With the help of a discovered iOS device you can now establish a connection.
+
 ```objc
 JMUSBDeviceConnection* myDeviceConnection = [[JMUSBDeviceConnection alloc] initWithDevice:_myDevice andPort:2345];
 myDeviceConnection.delegate = self;
 [myDeviceConnection connect];
 ```
+When you are done with the connection make sure to close it.
 
 ```objc
 [myDeviceConnection disconnect];
