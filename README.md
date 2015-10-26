@@ -75,6 +75,7 @@ NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 
 ```objc
 JMUSBDeviceManager* manager = [[JMUSBDeviceManager alloc]init];
+manager.delegate = self;
 [manager start];
 ```
 
