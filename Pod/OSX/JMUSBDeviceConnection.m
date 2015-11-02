@@ -112,6 +112,11 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 
 -(void)setState:(JMUSBDeviceConnectionState)state
 {
+	if (_state == state)
+	{
+		return;
+	}
+
 	_state = state;
 	
 	if ([_delegate respondsToSelector:@selector(connection:didChangeState:)])
@@ -150,6 +155,10 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 	if (state == JMUSBChannelStateConnected)
 	{
 		[_channel writeData:[_encoder encodeConnectPacketForDeviceId:_device.deviceID andPort:_port]];
+	}
+	else if(state == JMUSBChannelStateDisconnected)
+	{
+		[self disconnect];
 	}
 }
 

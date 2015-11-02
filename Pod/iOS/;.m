@@ -48,8 +48,9 @@ static const NSUInteger JMMobileDevicePortBufferSize = 2048;
 	
 	CFSocketNativeHandle _connectionHandle;
 	NSData* _handle;
+	NSRunLoop* _backgroundRunLoop;
 
-	CFRunLoopSourceRef _socketSource;
+	CFRunLoopSourceRef _socketsource;
 }
 
 -(instancetype)initWithPort:(uint32_t)port
@@ -76,17 +77,23 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	devicePort->_inputStream = (__bridge NSInputStream *)(readStream);
 	devicePort->_outputStream = (__bridge NSOutputStream *)(writeStream);
 
-	CFReadStreamSetProperty(readStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanFalse);
-	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanFalse);
-
-	[devicePort->_inputStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-	[devicePort->_outputStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+	CFReadStreamSetProperty(readStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
+	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
 
 	devicePort->_inputStream.delegate = devicePort;
 	devicePort->_outputStream.delegate = devicePort;
 
-	[devicePort->_inputStream open];
-	[devicePort->_outputStream open];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+	^{
+		devicePort->_backgroundRunLoop = [NSRunLoop currentRunLoop];
+		[devicePort->_inputStream scheduleInRunLoop:devicePort->_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+		[devicePort->_outputStream scheduleInRunLoop:devicePort->_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+
+		[devicePort->_inputStream open];
+		[devicePort->_outputStream open];
+
+		[devicePort->_backgroundRunLoop run];
+	});
 }
 
 -(void)open
@@ -112,27 +119,20 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 										kCFAllocatorDefault,
 										(UInt8 *)&sin,
 										sizeof(sin));
-	// Reuse address and port
 
-	int reuseAddress = true;
-	setsockopt(CFSocketGetNative(_socket), SOL_SOCKET, SO_REUSEADDR, (void *)&reuseAddress, sizeof(reuseAddress));
+		CFSocketSetAddress(_socket, sincfd);
+		CFRelease(sincfd);
 
-	int reusePort = true;
-	setsockopt(CFSocketGetNative(_socket), SOL_SOCKET, SO_REUSEPORT, (const char*)&reusePort, sizeof(reusePort));
+		// Start Listening
 
-	CFSocketSetAddress(_socket, sincfd);
-	CFRelease(sincfd);
-
-	// Start Listening
-
-	_socketSource = CFSocketCreateRunLoopSource(
+		_socketsource = CFSocketCreateRunLoopSource(
 																	  kCFAllocatorDefault,
 																	  _socket,
 																	  0);
 
-	CFRunLoopAddSource(
+		CFRunLoopAddSource(
 						   CFRunLoopGetMain(),
-						   _socketSource,
+						   _socketsource,
 						   kCFRunLoopDefaultMode);
 
 	self.state = JMMobileDevicePortStateWaitingForConnection;
@@ -146,18 +146,21 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	[_inputStream close];
 	[_outputStream close];
 	
-	[_inputStream removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-	[_outputStream removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+	[_inputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+	[_outputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+
+	_backgroundRunLoop = nil;
 	
 	_inputStream = nil;
 	_outputStream = nil;
 
-	CFRunLoopRemoveSource(CFRunLoopGetMain(), _socketSource, kCFRunLoopDefaultMode);
-
-	CFSocketInvalidate(_socket);
-	CFRelease(_socket);
-
+	CFRunLoopRemoveSource(CFRunLoopGetMain(), _socketsource, kCFRunLoopDefaultMode);
+	_socketsource = NULL;
 	self.state = JMMobileDevicePortStateIdle;
+
+
+
+
 }
 
 -(BOOL)writeData:(NSData *)data
@@ -192,48 +195,48 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 -(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-	dispatch_async(dispatch_get_main_queue(),
-	^{
-		if(eventCode == NSStreamEventHasBytesAvailable)
+	if(eventCode == NSStreamEventHasBytesAvailable)
+	{
+		uint8_t buffer[JMMobileDevicePortBufferSize];
+	
+		NSMutableData* output = [NSMutableData data];
+		
+		while (_inputStream.hasBytesAvailable)
 		{
-			uint8_t buffer[JMMobileDevicePortBufferSize];
-
-			NSMutableData* output = [NSMutableData data];
-
-			while (_inputStream.hasBytesAvailable)
+			NSInteger bytesRead = [_inputStream read:buffer maxLength:JMMobileDevicePortBufferSize];
+			
+			if (bytesRead > 0)
 			{
-				NSInteger bytesRead = [_inputStream read:buffer maxLength:JMMobileDevicePortBufferSize];
-
-				if (bytesRead > 0)
-				{
-					[output appendBytes:buffer length:bytesRead];
-				}
-			}
-
-			if (output.length > 0 && [_delegate respondsToSelector:@selector(mobileDevicePort:didReceiveData:)])
-			{
-				[_delegate mobileDevicePort:self didReceiveData:output];
+				[output appendBytes:buffer length:bytesRead];
 			}
 		}
-		else if(eventCode == NSStreamEventEndEncountered)
+		
+		if (output.length > 0 && [_delegate respondsToSelector:@selector(mobileDevicePort:didReceiveData:)])
 		{
-			if (aStream.streamStatus == NSStreamStatusClosed || aStream.streamStatus == NSStreamStatusAtEnd)
-			{
-				self.state = JMMobileDevicePortStateWaitingForConnection;
-
-				[self close];
-				[self open];
-			}
+			[_delegate mobileDevicePort:self didReceiveData:output];
 		}
-		else if(eventCode == NSStreamEventHasSpaceAvailable)
+	}
+	else if(eventCode == NSStreamEventEndEncountered)
+	{
+		if (aStream.streamStatus == NSStreamStatusClosed || aStream.streamStatus == NSStreamStatusAtEnd)
 		{
-			if (_state != JMMobileDevicePortStateConnected && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
-			{
-				self.state = JMMobileDevicePortStateConnected;
-			}
-		}
-	});
+			self.state = JMMobileDevicePortStateWaitingForConnection;
 
+			[self close];
+			[self open];
+		}
+	}
+	else if(eventCode == NSStreamEventErrorOccurred)
+	{
+		[self close];
+	}
+	else if(eventCode == NSStreamEventHasSpaceAvailable)
+	{
+		if (_state != JMMobileDevicePortStateConnected && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
+		{
+			self.state = JMMobileDevicePortStateConnected;
+		}
+	}
 }
 
 @end

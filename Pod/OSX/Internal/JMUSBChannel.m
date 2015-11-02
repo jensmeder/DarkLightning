@@ -55,6 +55,15 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 
 	int on = 1;
 	setsockopt(_socketHandle, SOL_SOCKET, SO_NOSIGPIPE, &on, sizeof(on));
+
+
+	// Reuse address and port
+
+	int reuseAddress = true;
+	setsockopt(_socketHandle, SOL_SOCKET, SO_REUSEADDR, (void *)&reuseAddress, sizeof(reuseAddress));
+
+	int reusePort = true;
+	setsockopt(_socketHandle, SOL_SOCKET, SO_REUSEPORT, (const char*)&reusePort, sizeof(reusePort));
 	
 	// Connect socket
 
@@ -160,30 +169,33 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 
 -(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-	if (eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
-	{
-		[self setConnectionState:JMUSBChannelStateConnected];
-	}
-	else if(eventCode == NSStreamEventHasBytesAvailable)
-	{
-		NSMutableData* data = [NSMutableData data];
-		uint8_t buffer[JMUSBChannelBufferSize];
-		
-		while (_inputStream.hasBytesAvailable)
+	dispatch_async(dispatch_get_main_queue(),
+	^{
+		if (eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
 		{
-			NSInteger length = [_inputStream read:buffer maxLength:JMUSBChannelBufferSize];
-			[data appendBytes:buffer length:length];
+			[self setConnectionState:JMUSBChannelStateConnected];
 		}
+		else if(eventCode == NSStreamEventHasBytesAvailable)
+		{
+			NSMutableData* data = [NSMutableData data];
+			uint8_t buffer[JMUSBChannelBufferSize];
 
-		if ([_delegate respondsToSelector:@selector(channel:didReceiveData:)])
-		{
-			[_delegate channel:self didReceiveData:data];
+			while (_inputStream.hasBytesAvailable)
+			{
+				NSInteger length = [_inputStream read:buffer maxLength:JMUSBChannelBufferSize];
+				[data appendBytes:buffer length:length];
+			}
+
+			if ([_delegate respondsToSelector:@selector(channel:didReceiveData:)])
+			{
+				[_delegate channel:self didReceiveData:data];
+			}
 		}
-	}
-	else if (eventCode == NSStreamEventEndEncountered)
-	{
-		[self setConnectionState:JMUSBChannelStateDisconnected];
-	}
+		else if (eventCode == NSStreamEventEndEncountered)
+		{
+			[self setConnectionState:JMUSBChannelStateDisconnected];
+		}
+	});
 }
 
 @end
