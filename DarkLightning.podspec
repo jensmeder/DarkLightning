@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   	s.source           = { :git => "https://github.com/jensmeder/DarkLightning.git", :tag => s.version.to_s }
 
   	s.requires_arc = true
-  	s.platform     = :osx, '10.10'
-  	s.platform     = :ios, '8.0'
+  	s.ios.deployment_target = '8.0'
+  	s.osx.deployment_target = '10.9'
 
 	s.subspec "OSX" do |sp|
 
