@@ -2,6 +2,12 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.1.3
+
+### Fixed
+
+* Fixed a bug that prevented automatic CocoaPods subspec selection based on deployment platform
+
 ## 0.1.2
 
 ### Fixed

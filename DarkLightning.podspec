@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   	s.name             = "DarkLightning"
-  	s.version          = "0.1.2"
+  	s.version          = "0.1.3"
   	s.summary          = "Simply the fastest way to transmit data between iOS and OSX"
   	s.description      = <<-DESC
   	DarkLightning is a lightweight Objective-C library to allow data transmission between iOS devices (Lightning port or Dock connector) and OSX (USB) at 480MBit. 
