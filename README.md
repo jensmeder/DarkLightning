@@ -160,7 +160,7 @@ simulatorConnection.delegate = self;
 ## 5. Packet Protocols
 
 DarkLightning uses a stream based approach to transmit and receive data via TCP. If you write a data chunk on one end the bytes will arrive in the right order but they might not be in one piece. If you send data chunks very fast they might even arrive as a bigger chunk. 
-As of [0.2.0]() DarkLightning comes with a simple packet protocol to en- and decode packets. The protocol allows you to send data packets of up to 4GB in size. 
+As of [0.2.0](https://github.com/jensmeder/DarkLightning/releases/tag/0.2.0) DarkLightning comes with a simple packet protocol to en- and decode packets. The protocol allows you to send data packets of up to 4GB in size. 
 
 ### 5.1 Encoding
 
