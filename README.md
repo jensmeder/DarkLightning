@@ -8,7 +8,7 @@ DarkLightning is a lightweight Objective-C library to allow data transmission be
 2. [System requirements](README.md#2-requirements)
 3. [Installation](README.md#3-installation)
 4. [Usage](README.md#4-usage)
-5. [What's next](README.md#5-whats-next)
+5. [Packet Protocols](README.md#5-packet-protocols)
 6. [License](README.md#6-license)
 
 ## 1. Features
@@ -139,10 +139,42 @@ myDeviceConnection = nil;
 NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 [_myDeviceConnection writeData:data];
 ```
-## 5. What's next
+## 5. Packet Protocols
 
-* example applications for iOS and OSX
-* enhanced documentation
+DarkLightning uses a stream based approach to transmit and receive data via TCP. If you write a data chunk on one end the bytes will arrive in the right order but they might not be in one piece. If you send data chunks very fast they might even arrive as a bigger chunk. 
+As of [0.2.0]() DarkLightning comes with a simple packet protocol to en- and decode packets. The protocol allows you to send data packets of up to 4GB in size. 
+
+### 5.1 Encoding
+
+```objc
+JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
+```
+
+```objc
+NSData* message = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
+NSData* packet = [packetProtocol encodePacket:data]
+[_myDeviceConnection writeData:packet];
+```
+
+### 5.2 Decoding
+
+
+
+```objc
+JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
+```
+
+```objc
+-(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data
+{
+	NSArray<NSData*>* packets = [packetProtocol processData:data];
+	
+	for (NSData* packet in packets)
+	{
+		// Do something with the packet
+	}
+}
+```
 
 ## 6. License
 
