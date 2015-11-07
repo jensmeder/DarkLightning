@@ -13,6 +13,6 @@
 
 @property (nonnull, nonatomic, strong, readonly) JMRootViewModel* viewModel;
 
--(instancetype)initWithViewModel:(JMRootViewModel*)viewModel;
+-(nonnull instancetype)initWithViewModel:(nonnull JMRootViewModel*)viewModel;
 
 @end

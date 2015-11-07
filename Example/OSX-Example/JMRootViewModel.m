@@ -10,7 +10,7 @@
 #import <DarkLightning/JMUSBDeviceConnection.h>
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
 
-@interface JMRootViewModel () <JMUSBDeviceManagerDelegate, JMUSBDeviceConnectionDelegate>
+@interface JMRootViewModel () <JMUSBDeviceManagerDelegate, JMDeviceConnectionDelegate>
 
 @end
 
@@ -62,9 +62,9 @@
 
 #pragma mark - Device Connection Delegate
 
--(void)connection:(JMUSBDeviceConnection *)connection didChangeState:(JMUSBDeviceConnectionState)state
+-(void)connection:(JMDeviceConnection *)connection didChangeState:(JMDeviceConnectionState)state
 {
-	if(state == JMUSBDeviceConnectionStateConnected)
+	if(state == JMDeviceConnectionStateConnected)
 	{
 		for (int i = 0; i < 50; i++)
 		{
@@ -79,12 +79,12 @@
 	}
 }
 
--(void)connection:(JMUSBDeviceConnection *)connection didFailToConnect:(NSError *)error
+-(void)connection:(JMDeviceConnection *)connection didFailToConnect:(NSError *)error
 {
 	
 }
 
--(void)connection:(JMUSBDeviceConnection *)connection didReceiveData:(NSData *)data
+-(void)connection:(JMDeviceConnection *)connection didReceiveData:(NSData *)data
 {
 	NSArray<NSData*>* packets = [_packetProtocol processData:data];
 	
