@@ -31,11 +31,6 @@
 #import "JMUSBMuxEncoder.h"
 #import "JMUSBMuxDecoder.h"
 
-NSString* const JMUSBDeviceConnectionErrorDomain 			= @"JMUSBDeviceConnectionError";
-
-NSInteger JMUSBDeviceConnectionErrorCodeDeviceNotAvailable 	= 100;
-NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
-
 @interface JMUSBDeviceConnection()<JMUSBChannelDelegate, JMUSBMuxDecoderDelegate>
 
 @end
@@ -141,8 +136,8 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 		
 		if ([self.delegate respondsToSelector:@selector(connection:didFailToConnect:)])
 		{
-			NSError* error = [NSError errorWithDomain:JMUSBDeviceConnectionErrorDomain
-                                                 code:JMUSBDeviceConnectionErrorCodeDeviceNotAvailable
+			NSError* error = [NSError errorWithDomain:JMDeviceConnectionErrorDomain
+                                                 code:JMDeviceConnectionErrorCodeDeviceNotAvailable
                                              userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Device not available.", nil)}];
 			[self.delegate connection:self didFailToConnect:error];
 		}
@@ -169,8 +164,8 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 	
 	if ([self.delegate respondsToSelector:@selector(connection:didFailToConnect:)])
 	{
-		NSError* error = [NSError errorWithDomain:JMUSBDeviceConnectionErrorDomain
-                                             code:JMUSBDeviceConnectionErrorCodeDataStreamError
+		NSError* error = [NSError errorWithDomain:JMDeviceConnectionErrorDomain
+                                             code:JMDeviceConnectionErrorCodeDataStreamError
                                          userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Data stream error.", nil)}];
 		[self.delegate connection:self didFailToConnect:error];
 	}
