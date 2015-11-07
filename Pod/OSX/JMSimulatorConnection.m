@@ -14,6 +14,7 @@
 #import <err.h>
 
 static NSUInteger JMSimulatorConnectionBufferSize = 2048;
+static NSString* const JMSimulatorConnectionHost = @"localhost";
 
 @interface JMSimulatorConnection () <NSStreamDelegate>
 
@@ -38,7 +39,7 @@ static NSUInteger JMSimulatorConnectionBufferSize = 2048;
 	CFReadStreamRef readStream;
 	CFWriteStreamRef writeStream;
 	
-	CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef) @"localhost", self.port, &readStream, &writeStream);
+	CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef) JMSimulatorConnectionHost, self.port, &readStream, &writeStream);
 	
 	_inputStream = (__bridge NSInputStream *)(readStream);
 	_outputStream = (__bridge NSOutputStream *)(writeStream);
@@ -121,34 +122,33 @@ static NSUInteger JMSimulatorConnectionBufferSize = 2048;
 
 -(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-
-					   if (eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
-					   {
-						   self.state = JMDeviceConnectionStateConnected;
-					   }
-					   else if(eventCode == NSStreamEventHasBytesAvailable)
-					   {
-						   NSMutableData* data = [NSMutableData data];
-						   uint8_t buffer[JMSimulatorConnectionBufferSize];
+	if (eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
+	{
+		self.state = JMDeviceConnectionStateConnected;
+	}
+	else if(eventCode == NSStreamEventHasBytesAvailable)
+	{
+		NSMutableData* data = [NSMutableData data];
+		uint8_t buffer[JMSimulatorConnectionBufferSize];
 						   
-						   while (_inputStream.hasBytesAvailable)
-						   {
-							   NSInteger length = [_inputStream read:buffer maxLength:JMSimulatorConnectionBufferSize];
-							   [data appendBytes:buffer length:length];
-						   }
+		while (_inputStream.hasBytesAvailable)
+		{
+			NSInteger length = [_inputStream read:buffer maxLength:JMSimulatorConnectionBufferSize];
+			[data appendBytes:buffer length:length];
+		}
 						   
-						   if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
-						   {
-							   dispatch_async(dispatch_get_main_queue(),
-											  ^{
-												  [self.delegate connection:self didReceiveData:data];
-											  });
-						   }
-					   }
-					   else if (eventCode == NSStreamEventEndEncountered)
-					   {
-						   self.state = JMDeviceConnectionStateDisconnected;
-					   }
+		if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
+		{
+			dispatch_async(dispatch_get_main_queue(),
+			^{
+				[self.delegate connection:self didReceiveData:data];
+			});
+		}
+	}
+	else if (eventCode == NSStreamEventEndEncountered)
+	{
+		self.state = JMDeviceConnectionStateDisconnected;
+	}
 }
 
 
