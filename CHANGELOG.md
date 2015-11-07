@@ -2,6 +2,18 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.2.0
+
+### Additions
+
+* Added examples for iOS and OSX
+* Added a simple packet protocol
+* Added a simulator connection to allow usage of DarkLightning with iOS Simulator
+
+### Changes
+
+* All connections now run on a separate thread to keep the main thread responsive
+
 ## 0.1.3
 
 ### Fixed
