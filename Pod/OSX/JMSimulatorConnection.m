@@ -31,18 +31,6 @@ static NSUInteger JMSimulatorConnectionBufferSize = 2048;
 
 @synthesize state = _state;
 
--(instancetype)initWithHost:(NSString *)host andPort:(uint32_t)port
-{
-	self = [super initWithPort:port];
-	
-	if (self)
-	{
-		_host = host;
-	}
-	
-	return self;
-}
-
 -(void)connect
 {
 	self.state = JMDeviceConnectionStateConnecting;
@@ -50,7 +38,7 @@ static NSUInteger JMSimulatorConnectionBufferSize = 2048;
 	CFReadStreamRef readStream;
 	CFWriteStreamRef writeStream;
 	
-	CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef) self.host, self.port, &readStream, &writeStream);
+	CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef) @"localhost", self.port, &readStream, &writeStream);
 	
 	_inputStream = (__bridge NSInputStream *)(readStream);
 	_outputStream = (__bridge NSOutputStream *)(writeStream);

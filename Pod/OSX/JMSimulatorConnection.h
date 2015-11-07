@@ -11,8 +11,4 @@
 
 @interface JMSimulatorConnection : JMDeviceConnection
 
-@property (nonnull, nonatomic, strong, readonly) NSString* host;
-
--(nullable instancetype)initWithHost:(nonnull NSString*)host andPort:(uint32_t)port;
-
 @end

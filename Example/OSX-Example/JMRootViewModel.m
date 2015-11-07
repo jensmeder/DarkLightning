@@ -9,6 +9,7 @@
 #import "JMRootViewModel.h"
 #import <DarkLightning/JMUSBDeviceConnection.h>
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
+#import <DarkLightning/JMSimulatorConnection.h>
 
 @interface JMRootViewModel () <JMUSBDeviceManagerDelegate, JMDeviceConnectionDelegate>
 
@@ -19,6 +20,8 @@
 	@private
 	
 	JMUSBDeviceConnection* _deviceConnection;
+	JMSimulatorConnection* _simulatorConnection;
+	
 	id<JMDataPacketProtocol> _packetProtocol;
 }
 
@@ -30,6 +33,10 @@
 	{
 		_deviceManager = deviceManager;
 		_deviceManager.delegate = self;
+		
+		_simulatorConnection = [[JMSimulatorConnection alloc]initWithPort:2347];
+		_simulatorConnection.delegate = self;
+		[_simulatorConnection connect];
 		
 		_packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
 	}
