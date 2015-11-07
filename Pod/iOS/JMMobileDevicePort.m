@@ -50,6 +50,8 @@ static const NSUInteger JMMobileDevicePortBufferSize = 2048;
 	NSData* _handle;
 
 	CFRunLoopSourceRef _socketSource;
+	
+	NSRunLoop* _backgroundRunLoop;
 }
 
 -(instancetype)initWithPort:(uint32_t)port
@@ -79,8 +81,8 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	CFReadStreamSetProperty(readStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanFalse);
 	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanFalse);
 
-	[devicePort->_inputStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-	[devicePort->_outputStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+	[devicePort->_inputStream scheduleInRunLoop:devicePort->_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+	[devicePort->_outputStream scheduleInRunLoop:devicePort->_backgroundRunLoop forMode:NSDefaultRunLoopMode];
 
 	devicePort->_inputStream.delegate = devicePort;
 	devicePort->_outputStream.delegate = devicePort;
@@ -130,12 +132,18 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 																	  _socket,
 																	  0);
 
-	CFRunLoopAddSource(
-						   CFRunLoopGetMain(),
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+	^{
+		_backgroundRunLoop = [NSRunLoop currentRunLoop];
+		
+		CFRunLoopAddSource(
+						   _backgroundRunLoop.getCFRunLoop,
 						   _socketSource,
 						   kCFRunLoopDefaultMode);
-
-	self.state = JMMobileDevicePortStateWaitingForConnection;
+		[_backgroundRunLoop run];
+		
+		self.state = JMMobileDevicePortStateWaitingForConnection;
+	});
 }
 
 -(void)close
@@ -146,16 +154,18 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	[_inputStream close];
 	[_outputStream close];
 	
-	[_inputStream removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-	[_outputStream removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+	[_inputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+	[_outputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
 	
 	_inputStream = nil;
 	_outputStream = nil;
 
-	CFRunLoopRemoveSource(CFRunLoopGetMain(), _socketSource, kCFRunLoopDefaultMode);
+	CFRunLoopRemoveSource(_backgroundRunLoop.getCFRunLoop, _socketSource, kCFRunLoopDefaultMode);
 
 	CFSocketInvalidate(_socket);
 	CFRelease(_socket);
+	
+	_backgroundRunLoop = nil;
 
 	self.state = JMMobileDevicePortStateIdle;
 }
@@ -184,7 +194,11 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 	if ([_delegate respondsToSelector:@selector(mobileDevicePort:didChangeState:)])
 	{
-		[_delegate mobileDevicePort:self didChangeState:_state];
+		dispatch_async(dispatch_get_main_queue(),
+		^{
+			[_delegate mobileDevicePort:self didChangeState:_state];
+		});
+		
 	}
 }
 
@@ -192,8 +206,6 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 -(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-	dispatch_async(dispatch_get_main_queue(),
-	^{
 		if(eventCode == NSStreamEventHasBytesAvailable)
 		{
 			uint8_t buffer[JMMobileDevicePortBufferSize];
@@ -212,7 +224,10 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 			if (output.length > 0 && [_delegate respondsToSelector:@selector(mobileDevicePort:didReceiveData:)])
 			{
-				[_delegate mobileDevicePort:self didReceiveData:output];
+				dispatch_async(dispatch_get_main_queue(),
+				^{
+					[_delegate mobileDevicePort:self didReceiveData:output];
+				});
 			}
 		}
 		else if(eventCode == NSStreamEventEndEncountered)
@@ -232,8 +247,6 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 				self.state = JMMobileDevicePortStateConnected;
 			}
 		}
-	});
-
 }
 
 @end

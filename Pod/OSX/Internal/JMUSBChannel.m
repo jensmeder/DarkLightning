@@ -29,6 +29,8 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	
 	NSInputStream* 		_inputStream;
 	NSOutputStream* 	_outputStream;
+	
+	NSRunLoop* _backgroundRunLoop;
 }
 
 - (void)open
@@ -49,7 +51,7 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 		return;
 	}
 	
-	[self setConnectionState:JMUSBChannelStateConnecting];
+	self.connectionState = JMUSBChannelStateConnecting;
 	
 	// Prevent SIGPIPE
 
@@ -83,7 +85,7 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 			[_delegate channel:self didFailToOpen:error];
 		}
 
-		[self setConnectionState:JMUSBChannelStateDisconnected];
+		self.connectionState = JMUSBChannelStateDisconnected;
 
 		return;
 	}
@@ -106,14 +108,21 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	CFReadStreamSetProperty(readStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
 	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
 	
-	[_inputStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-	[_outputStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+	^{
+		_backgroundRunLoop = [NSRunLoop currentRunLoop];
+		[_inputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+		[_outputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+		
+		_inputStream.delegate = self;
+		_outputStream.delegate = self;
+		
+		[_inputStream open];
+		[_outputStream open];
+		
+		[_backgroundRunLoop run];
+	});
 	
-	_inputStream.delegate = self;
-	_outputStream.delegate = self;
-	
-	[_inputStream open];
-	[_outputStream open];
 }
 
 -(BOOL)writeData:(NSData *)data
@@ -138,8 +147,8 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	_inputStream.delegate = self;
 	_outputStream.delegate = self;
 	
-	[_inputStream removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-	[_outputStream removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+	[_inputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+	[_outputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
 	
 	[_inputStream close];
 	[_outputStream close];
@@ -147,7 +156,9 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	_inputStream = nil;
 	_outputStream = nil;
 	
-	[self setConnectionState:JMUSBChannelStateDisconnected];
+	_backgroundRunLoop = nil;
+	
+	self.connectionState = JMUSBChannelStateDisconnected;
 }
 
 -(void) setConnectionState:(JMUSBChannelState)connectionState
@@ -161,7 +172,10 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 
 	if([_delegate respondsToSelector:@selector(channel:didChangeState:)])
 	{
-		[_delegate channel:self didChangeState:_connectionState];
+		dispatch_async(dispatch_get_main_queue(),
+		^{
+			[_delegate channel:self didChangeState:_connectionState];
+		});
 	}
 }
 
@@ -173,7 +187,7 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	^{
 		if (eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
 		{
-			[self setConnectionState:JMUSBChannelStateConnected];
+			self.connectionState = JMUSBChannelStateConnected;
 		}
 		else if(eventCode == NSStreamEventHasBytesAvailable)
 		{
@@ -188,12 +202,15 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 
 			if ([_delegate respondsToSelector:@selector(channel:didReceiveData:)])
 			{
-				[_delegate channel:self didReceiveData:data];
+				dispatch_async(dispatch_get_main_queue(),
+				^{
+					[_delegate channel:self didReceiveData:data];
+				});
 			}
 		}
 		else if (eventCode == NSStreamEventEndEncountered)
 		{
-			[self setConnectionState:JMUSBChannelStateDisconnected];
+			self.connectionState = JMUSBChannelStateDisconnected;
 		}
 	});
 }

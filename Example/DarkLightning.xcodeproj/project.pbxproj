@@ -116,6 +116,17 @@
 			name = Root;
 			sourceTree = "<group>";
 		};
+		B419E3C41BEE303700C4EB0A /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				B4D7872B1BED50D9002C09B0 /* JMRootViewController.h */,
+				B4D7872C1BED50D9002C09B0 /* JMRootViewController.m */,
+				B4D7872E1BED50ED002C09B0 /* JMRootViewModel.h */,
+				B4D7872F1BED50ED002C09B0 /* JMRootViewModel.m */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
 		B4D786DE1BED4DC0002C09B0 = {
 			isa = PBXGroup;
 			children = (
@@ -145,10 +156,7 @@
 				B4D7870F1BED4EF8002C09B0 /* LaunchScreen.storyboard */,
 				B4D787121BED4EF8002C09B0 /* Info.plist */,
 				B4D787011BED4EF8002C09B0 /* Supporting Files */,
-				B4D7872B1BED50D9002C09B0 /* JMRootViewController.h */,
-				B4D7872C1BED50D9002C09B0 /* JMRootViewController.m */,
-				B4D7872E1BED50ED002C09B0 /* JMRootViewModel.h */,
-				B4D7872F1BED50ED002C09B0 /* JMRootViewModel.m */,
+				B419E3C41BEE303700C4EB0A /* Root */,
 			);
 			path = "iOS-Example";
 			sourceTree = "<group>";

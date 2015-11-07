@@ -64,7 +64,19 @@
 
 -(void)connection:(JMUSBDeviceConnection *)connection didChangeState:(JMUSBDeviceConnectionState)state
 {
-	
+	if(state == JMUSBDeviceConnectionStateConnected)
+	{
+		for (int i = 0; i < 50; i++)
+		{
+			NSData* data = [@"World" dataUsingEncoding:NSUTF8StringEncoding];
+			
+			[connection writeData:[_packetProtocol encodePacket:data]];
+		}
+	}
+	else
+	{
+		[_packetProtocol reset];
+	}
 }
 
 -(void)connection:(JMUSBDeviceConnection *)connection didFailToConnect:(NSError *)error

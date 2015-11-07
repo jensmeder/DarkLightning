@@ -56,7 +56,12 @@
 
 -(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data
 {
+	NSArray<NSData*>* packets = [_packetProtocol processData:data];
 	
+	for (NSData* packet in packets)
+	{
+		NSLog(@"%@",[[NSString alloc]initWithData:packet encoding:NSUTF8StringEncoding]);
+	}
 }
 
 @end
