@@ -133,8 +133,7 @@ static NSUInteger JMSimulatorConnectionBufferSize = 2048;
 
 -(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-	dispatch_async(dispatch_get_main_queue(),
-				   ^{
+
 					   if (eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
 					   {
 						   self.state = JMDeviceConnectionStateConnected;
@@ -162,7 +161,6 @@ static NSUInteger JMSimulatorConnectionBufferSize = 2048;
 					   {
 						   self.state = JMDeviceConnectionStateDisconnected;
 					   }
-				   });
 }
 
 

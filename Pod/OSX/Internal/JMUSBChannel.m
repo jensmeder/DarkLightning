@@ -183,8 +183,7 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 
 -(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-	dispatch_async(dispatch_get_main_queue(),
-	^{
+
 		if (eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
 		{
 			self.connectionState = JMUSBChannelStateConnected;
@@ -212,7 +211,6 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 		{
 			self.connectionState = JMUSBChannelStateDisconnected;
 		}
-	});
 }
 
 @end
