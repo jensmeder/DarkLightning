@@ -83,6 +83,18 @@ manager.delegate = self;
 
 As soon as you plug in or out an iOS device to your Mac you will receive a callback on the corresponding delegate method (`deviceManager:deviceDidAttach:` or `deviceManager:deviceDidDetach:`) of `JMUSBDeviceManager*`. You will also receive a callback on `deviceManager:deviceDidAttach:` for every iOS device that was already attached to OSX when you started the discovery via `[manager start];`.
 
+### 4.3 iOS Simulator
+
+If you do not want to keep your iOS device connect all the time you can also use the iOS Simulator during development. 
+
+#### 4.3.1 iOS
+
+There are no changes required to your iOS app to use DarkLightning in the iOS Simulator. :)
+
+#### 4.3.2 OSX
+
+To connect to the iOS Simulator you need to use `JMSimulatorConnection` instead of `JMUSBDeviceConnection`. `JMSimulatorConnection` and `JMUSBDeviceConnection` inherit from the same base class `JMDeviceConnection` thus having the same interface. The delegate callbacks are the same as well.  
+
 ```objc
 JMUSBDevice* _myDevice;
 
