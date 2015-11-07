@@ -51,14 +51,15 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 	BOOL 				_tcpMode;
 }
 
+@synthesize state = _state;
+
 -(instancetype)initWithDevice:(JMUSBDevice *)device andPort:(uint32_t)port
 {
-	self = [super init];
+	self = [super initWithPort:port];
 	
 	if (self)
 	{
 		_device = device;
-		_port = port;
 		
 		_decoder = [[JMUSBMuxDecoder alloc]init];
 		_decoder.delegate = self;
@@ -66,7 +67,7 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 		_encoder = [[JMUSBMuxEncoder alloc]init];
 		
 		_tcpMode = NO;
-		_state = JMUSBDeviceConnectionStateDisconnected;
+		_state = JMDeviceConnectionStateDisconnected;
 	}
 	
 	return self;
@@ -81,7 +82,7 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 	_channel = [[JMUSBChannel alloc]init];
 	_channel.delegate = self;
 	[_channel open];
-	self.state = JMUSBDeviceConnectionStateConnecting;
+	self.state = JMDeviceConnectionStateConnecting;
 }
 
 -(void)disconnect
@@ -94,7 +95,7 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 	[_channel close];
 	_channel = nil;
 	_tcpMode = NO;
-	self.state = JMUSBDeviceConnectionStateDisconnected;
+	self.state = JMDeviceConnectionStateDisconnected;
 }
 
 -(BOOL)writeData:(NSData *)data
@@ -110,7 +111,7 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 
 #pragma mark - Properties
 
--(void)setState:(JMUSBDeviceConnectionState)state
+-(void)setState:(JMDeviceConnectionState)state
 {
 	if (_state == state)
 	{
@@ -119,9 +120,9 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 
 	_state = state;
 	
-	if ([_delegate respondsToSelector:@selector(connection:didChangeState:)])
+	if ([self.delegate respondsToSelector:@selector(connection:didChangeState:)])
 	{
-		[_delegate connection:self didChangeState:_state];
+		[self.delegate connection:self didChangeState:_state];
 	}
 }
 
@@ -132,18 +133,18 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 	if (resultCode == JMUSBMuxResultCodeOK)
 	{
 		_tcpMode = YES;
-		self.state = JMUSBDeviceConnectionStateConnected;
+		self.state = JMDeviceConnectionStateConnected;
 	}
 	else
 	{
 		[self disconnect];
 		
-		if ([_delegate respondsToSelector:@selector(connection:didFailToConnect:)])
+		if ([self.delegate respondsToSelector:@selector(connection:didFailToConnect:)])
 		{
 			NSError* error = [NSError errorWithDomain:JMUSBDeviceConnectionErrorDomain
                                                  code:JMUSBDeviceConnectionErrorCodeDeviceNotAvailable
                                              userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Device not available.", nil)}];
-			[_delegate connection:self didFailToConnect:error];
+			[self.delegate connection:self didFailToConnect:error];
 		}
 	}
 }
@@ -154,7 +155,7 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 {
 	if (state == JMUSBChannelStateConnected)
 	{
-		[_channel writeData:[_encoder encodeConnectPacketForDeviceId:_device.deviceID andPort:_port]];
+		[_channel writeData:[_encoder encodeConnectPacketForDeviceId:_device.deviceID andPort:self.port]];
 	}
 	else if(state == JMUSBChannelStateDisconnected)
 	{
@@ -166,12 +167,12 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 {
 	[self disconnect];
 	
-	if ([_delegate respondsToSelector:@selector(connection:didFailToConnect:)])
+	if ([self.delegate respondsToSelector:@selector(connection:didFailToConnect:)])
 	{
 		NSError* error = [NSError errorWithDomain:JMUSBDeviceConnectionErrorDomain
                                              code:JMUSBDeviceConnectionErrorCodeDataStreamError
                                          userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Data stream error.", nil)}];
-		[_delegate connection:self didFailToConnect:error];
+		[self.delegate connection:self didFailToConnect:error];
 	}
 }
 
@@ -179,9 +180,9 @@ NSInteger JMUSBDeviceConnectionErrorCodeDataStreamError 	= 200;
 {
 	if (_tcpMode)
 	{
-		if ([_delegate respondsToSelector:@selector(connection:didReceiveData:)])
+		if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
 		{
-			[_delegate connection:self didReceiveData:data];
+			[self.delegate connection:self didReceiveData:data];
 		}
 		
 		return;
