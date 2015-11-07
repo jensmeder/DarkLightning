@@ -10,4 +10,8 @@
 
 @protocol JMDataPacketProtocol <NSObject>
 
+-(nonnull NSData*) encodePacket:(nonnull NSData*)packet;
+-(nonnull NSArray<NSData*>*) processData:(nonnull NSData*)data;
+-(void) reset;
+
 @end

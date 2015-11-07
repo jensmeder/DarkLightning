@@ -20,6 +20,8 @@ Pod::Spec.new do |s|
 		sp.source_files = 'Pod/OSX/**/*'
 		sp.platform     = :osx, '10.9'
 		sp.private_header_files = "Pod/OSX/Internal/**/*.h"
+		
+		sp.dependency 'DarkLightning/PacketProtocol'
 
 	end
 
@@ -27,6 +29,16 @@ Pod::Spec.new do |s|
 
 		sp.source_files = 'Pod/iOS/**/*'
 		sp.platform     = :ios, '8.0'
+		
+		sp.dependency 'DarkLightning/PacketProtocol'
+
+	end
+	
+	s.subspec "PacketProtocol" do |sp|
+
+		sp.source_files = 'Pod/PacketProtocol/**/*'
+		sp.ios.deployment_target = '8.0'
+  		sp.osx.deployment_target = '10.9'
 
 	end
 

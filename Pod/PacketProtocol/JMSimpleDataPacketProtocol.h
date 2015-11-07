@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JMDataPacketProtocol.h"
 
-@interface JMSimpleDataPacketProtocol : NSObject
+@interface JMSimpleDataPacketProtocol : NSObject<JMDataPacketProtocol>
 
 @end
