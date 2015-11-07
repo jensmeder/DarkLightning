@@ -8,6 +8,7 @@
 
 #import "JMRootViewModel.h"
 #import <DarkLightning/JMUSBDeviceConnection.h>
+#import <DarkLightning/JMSimpleDataPacketProtocol.h>
 
 @interface JMRootViewModel () <JMUSBDeviceManagerDelegate, JMUSBDeviceConnectionDelegate>
 
@@ -18,6 +19,7 @@
 	@private
 	
 	JMUSBDeviceConnection* _deviceConnection;
+	id<JMDataPacketProtocol> _packetProtocol;
 }
 
 -(instancetype)initWithDeviceManager:(JMUSBDeviceManager *)deviceManager
@@ -28,6 +30,8 @@
 	{
 		_deviceManager = deviceManager;
 		_deviceManager.delegate = self;
+		
+		_packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
 	}
 	
 	return self;
@@ -51,6 +55,7 @@
 	{
 		_deviceConnection.delegate = nil;
 		[_deviceConnection disconnect];
+		[_packetProtocol reset];
 		_deviceConnection = nil;
 	}
 }
@@ -69,6 +74,12 @@
 
 -(void)connection:(JMUSBDeviceConnection *)connection didReceiveData:(NSData *)data
 {
+	NSArray<NSData*>* packets = [_packetProtocol processData:data];
+	
+	for (NSData* packet in packets)
+	{
+		NSLog(@"%@",[[NSString alloc]initWithData:packet encoding:NSUTF8StringEncoding]);
+	}
 	
 }
 

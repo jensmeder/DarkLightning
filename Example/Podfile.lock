@@ -2,8 +2,12 @@ PODS:
   - DarkLightning (0.1.3):
     - DarkLightning/iOS (= 0.1.3)
     - DarkLightning/OSX (= 0.1.3)
-  - DarkLightning/iOS (0.1.3)
-  - DarkLightning/OSX (0.1.3)
+    - DarkLightning/PacketProtocol (= 0.1.3)
+  - DarkLightning/iOS (0.1.3):
+    - DarkLightning/PacketProtocol
+  - DarkLightning/OSX (0.1.3):
+    - DarkLightning/PacketProtocol
+  - DarkLightning/PacketProtocol (0.1.3)
 
 DEPENDENCIES:
   - DarkLightning (from `../`)
@@ -13,6 +17,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  DarkLightning: 26e4e805a3b1016c2f5d88be47130db637e04a84
+  DarkLightning: 89d71c32e8ef1b6f5c7829cb1d94ecb4539cb7d0
 
 COCOAPODS: 0.39.0
