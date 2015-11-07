@@ -158,7 +158,7 @@ NSData* packet = [packetProtocol encodePacket:data]
 
 ### 5.2 Decoding
 
-
+The packet protocol object keeps track of all incoming data. If a packet has been split into smaller pieces the packet protocol object buffers the data. The next time you call `processData:` it tries to decode the packet again. This process continues until all parts of the packet have arrived and the packet can be decoded. Therefore, it is necessary to keep a reference to the packet protocol object.
 
 ```objc
 JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
