@@ -28,10 +28,24 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * These constants indicate the state of a given JMMobileDevicePort.
+ */
 typedef NS_ENUM(NSUInteger, JMMobileDevicePortState)
 {
+	/**
+	 *  Indicates that the mobile device port has not been opened yet.
+	 */
 	JMMobileDevicePortStateIdle = 0,
+	
+	/**
+	 *  Indicates that the mobile device port is waiting for an incoming connection.
+	 */
 	JMMobileDevicePortStateWaitingForConnection,
+	
+	/**
+	 *  Indicates that the mobile device port has a connection to a remote client.
+	 */
 	JMMobileDevicePortStateConnected
 };
 
