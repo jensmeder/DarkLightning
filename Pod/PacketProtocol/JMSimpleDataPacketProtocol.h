@@ -1,9 +1,4 @@
 /**
- *	JMSimpleDataPacketProtocol.h
- * 	DarkLightning
- *
- *
- *
  *	The MIT License (MIT)
  *
  *	Copyright (c) 2015 Jens Meder
@@ -29,6 +24,10 @@
 #import <Foundation/Foundation.h>
 #import "JMDataPacketProtocol.h"
 
+/**
+ *  Represents a simple packet procotol that allows packets with a size of up to
+ *  2^32 bytes (~ 4GB).
+ */
 @interface JMSimpleDataPacketProtocol : NSObject<JMDataPacketProtocol>
 
 @end

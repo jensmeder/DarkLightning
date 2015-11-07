@@ -23,6 +23,11 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXPORT NSString* _Nonnull const JMDeviceConnectionErrorDomain;
+
+FOUNDATION_EXPORT NSInteger JMDeviceConnectionErrorCodeDeviceNotAvailable;
+FOUNDATION_EXPORT NSInteger JMDeviceConnectionErrorCodeDataStreamError;
+
 /**
  * These constants indicate the state of a given JMDeviceConnection.
  */
@@ -43,11 +48,6 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
 	 */
 	JMDeviceConnectionStateConnected
 };
-
-FOUNDATION_EXPORT NSString* _Nonnull const JMDeviceConnectionErrorDomain;
-
-FOUNDATION_EXPORT NSInteger JMDeviceConnectionErrorCodeDeviceNotAvailable;
-FOUNDATION_EXPORT NSInteger JMDeviceConnectionErrorCodeDataStreamError;
 
 @class JMDeviceConnection;
 
