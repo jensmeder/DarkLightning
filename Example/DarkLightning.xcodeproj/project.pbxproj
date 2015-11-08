@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		859188BA5E5556803130E7A8 /* libPods-iOS-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 317C5EFFE5A55B0914ED329A /* libPods-iOS-Example.a */; };
 		A4DA27239E32BB4A8B8ECD71 /* libPods-OSX-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C079AAF3BB211082B28CDEFB /* libPods-OSX-Example.a */; };
+		B4134E6B1BEF83430034DFB6 /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4134E6A1BEF83430034DFB6 /* JMConcreteRootViewModel.m */; };
 		B456C7841BEF616000444BEC /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B456C7831BEF616000444BEC /* JMRootView.m */; };
 		B456C7851BEF6E0800444BEC /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3B81BEE089900C4EB0A /* JMRootView.m */; };
 		B456C7871BEF6E0800444BEC /* JMRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3AD1BEDF52300C4EB0A /* JMRootViewModel.m */; };
@@ -22,7 +23,6 @@
 		B4D787231BED4F3F002C09B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D787221BED4F3F002C09B0 /* Assets.xcassets */; };
 		B4D787261BED4F3F002C09B0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D787241BED4F3F002C09B0 /* MainMenu.xib */; };
 		B4D7872D1BED50D9002C09B0 /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7872C1BED50D9002C09B0 /* JMRootViewController.m */; };
-		B4D787301BED50ED002C09B0 /* JMRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7872F1BED50ED002C09B0 /* JMRootViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +31,8 @@
 		589A01F28F467E999F92DF8F /* Pods-DarkLightning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarkLightning.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DarkLightning/Pods-DarkLightning.debug.xcconfig"; sourceTree = "<group>"; };
 		6C16AF5C3697FB77823D012A /* Pods-OSX-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSX-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSX-Example/Pods-OSX-Example.release.xcconfig"; sourceTree = "<group>"; };
 		83E93529BDD0C342FBA8938D /* libPods-DarkLightning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarkLightning.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4134E691BEF83430034DFB6 /* JMConcreteRootViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMConcreteRootViewModel.h; sourceTree = "<group>"; };
+		B4134E6A1BEF83430034DFB6 /* JMConcreteRootViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMConcreteRootViewModel.m; sourceTree = "<group>"; };
 		B419E3AC1BEDF52300C4EB0A /* JMRootViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootViewModel.h; sourceTree = "<group>"; };
 		B419E3AD1BEDF52300C4EB0A /* JMRootViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootViewModel.m; sourceTree = "<group>"; };
 		B419E3B21BEDF58C00C4EB0A /* JMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootViewController.h; sourceTree = "<group>"; };
@@ -57,7 +59,6 @@
 		B4D7872B1BED50D9002C09B0 /* JMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootViewController.h; sourceTree = "<group>"; };
 		B4D7872C1BED50D9002C09B0 /* JMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootViewController.m; sourceTree = "<group>"; };
 		B4D7872E1BED50ED002C09B0 /* JMRootViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootViewModel.h; sourceTree = "<group>"; };
-		B4D7872F1BED50ED002C09B0 /* JMRootViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootViewModel.m; sourceTree = "<group>"; };
 		C079AAF3BB211082B28CDEFB /* libPods-OSX-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OSX-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F145A5D0CE80379D228E1B2C /* Pods-DarkLightning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DarkLightning.release.xcconfig"; path = "Pods/Target Support Files/Pods-DarkLightning/Pods-DarkLightning.release.xcconfig"; sourceTree = "<group>"; };
 		F8E1A927DA7F897F30809917 /* Pods-OSX-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSX-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSX-Example/Pods-OSX-Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,7 +128,8 @@
 				B4D7872B1BED50D9002C09B0 /* JMRootViewController.h */,
 				B4D7872C1BED50D9002C09B0 /* JMRootViewController.m */,
 				B4D7872E1BED50ED002C09B0 /* JMRootViewModel.h */,
-				B4D7872F1BED50ED002C09B0 /* JMRootViewModel.m */,
+				B4134E691BEF83430034DFB6 /* JMConcreteRootViewModel.h */,
+				B4134E6A1BEF83430034DFB6 /* JMConcreteRootViewModel.m */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -394,11 +396,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4134E6B1BEF83430034DFB6 /* JMConcreteRootViewModel.m in Sources */,
 				B4D7872D1BED50D9002C09B0 /* JMRootViewController.m in Sources */,
 				B4D787061BED4EF8002C09B0 /* AppDelegate.m in Sources */,
 				B4D787031BED4EF8002C09B0 /* main.m in Sources */,
 				B456C7841BEF616000444BEC /* JMRootView.m in Sources */,
-				B4D787301BED50ED002C09B0 /* JMRootViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

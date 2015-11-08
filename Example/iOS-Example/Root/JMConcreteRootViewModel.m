@@ -21,19 +21,23 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "JMRootViewModel.h"
+#import "JMConcreteRootViewModel.h"
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
 
-@interface JMRootViewModel () <JMMobileDevicePortDelegate>
+@interface JMConcreteRootViewModel () <JMMobileDevicePortDelegate>
 
 @end
 
-@implementation JMRootViewModel
+@implementation JMConcreteRootViewModel
 {
 	@private
 	
 	id<JMDataPacketProtocol> _packetProtocol;
 }
+
+@synthesize connectionState = _connectionState;
+@synthesize delegate = _delegate;
+@synthesize message = _message;
 
 -(instancetype)initWithDevicePort:(JMMobileDevicePort *)devicePort
 {

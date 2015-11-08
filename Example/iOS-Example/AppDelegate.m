@@ -23,7 +23,7 @@
 
 #import "AppDelegate.h"
 #import <DarkLightning/JMMobileDevicePort.h>
-#import "JMRootViewModel.h"
+#import "JMConcreteRootViewModel.h"
 #import "JMRootViewController.h"
 
 @implementation AppDelegate
@@ -38,7 +38,7 @@
 {
 	_devicePort = [[JMMobileDevicePort alloc]initWithPort:2347];
 	
-	JMRootViewModel* viewModel = [[JMRootViewModel alloc]initWithDevicePort:_devicePort];
+	id<JMRootViewModel> viewModel = [[JMConcreteRootViewModel alloc]initWithDevicePort:_devicePort];
 	JMRootViewController* viewController = [[JMRootViewController alloc]initWithViewModel:viewModel];
 	UINavigationController* navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
 	

@@ -36,7 +36,7 @@
 	NSArray* _connectionStates;
 }
 
--(instancetype)initWithViewModel:(JMRootViewModel *)viewModel
+-(instancetype)initWithViewModel:(id<JMRootViewModel>)viewModel
 {
 	self = [super init];
 	
@@ -89,12 +89,12 @@
 
 #pragma mark - Root View Model Delegate
 
--(void)rootViewModel:(JMRootViewModel *)viewModel didChangeConnectionState:(JMRootViewModelConnectionState)state
+-(void)rootViewModel:(id<JMRootViewModel>)viewModel didChangeConnectionState:(JMRootViewModelConnectionState)state
 {
 	self.title = _connectionStates[state];
 }
 
--(void)rootViewModel:(JMRootViewModel *)viewModel didReceiveMessage:(NSString *)message
+-(void)rootViewModel:(id<JMRootViewModel>)viewModel didReceiveMessage:(NSString *)message
 {
 	_rootView.messageLogTextView.text = [NSString stringWithFormat:@"%@\r\n%@", _rootView.messageLogTextView.text, message];
 }

@@ -21,13 +21,14 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <DarkLightning/JMMobileDevicePort.h>
 #import "JMRootViewModel.h"
 
-@interface JMRootViewController : UIViewController
+@interface JMConcreteRootViewModel : NSObject<JMRootViewModel>
 
-@property (nonnull, nonatomic, strong, readonly) id<JMRootViewModel> viewModel;
+@property (nonnull, nonatomic, strong, readonly) JMMobileDevicePort* devicePort;
 
--(nonnull instancetype)initWithViewModel:(nonnull id<JMRootViewModel>)viewModel;
+-(nonnull instancetype)initWithDevicePort:(nonnull JMMobileDevicePort*)devicePort;
 
 @end

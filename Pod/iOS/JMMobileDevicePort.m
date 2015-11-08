@@ -61,6 +61,7 @@ static const NSUInteger JMMobileDevicePortBufferSize = 2048;
 	if (self)
 	{
 		_port = port;
+		_state = JMMobileDevicePortStateIdle;
 	}
 	
 	return self;
@@ -140,9 +141,8 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 						   _backgroundRunLoop.getCFRunLoop,
 						   _socketSource,
 						   kCFRunLoopDefaultMode);
-		[_backgroundRunLoop run];
-		
 		self.state = JMMobileDevicePortStateWaitingForConnection;
+		[_backgroundRunLoop run];
 	});
 }
 
