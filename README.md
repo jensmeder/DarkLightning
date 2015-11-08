@@ -8,7 +8,7 @@ DarkLightning is a lightweight Objective-C library to allow data transmission be
 2. [System requirements](README.md#2-requirements)
 3. [Installation](README.md#3-installation)
 4. [Usage](README.md#4-usage)
-5. [What's next](README.md#5-whats-next)
+5. [Packet Protocols](README.md#5-packet-protocols)
 6. [License](README.md#6-license)
 
 ## 1. Features
@@ -139,10 +139,60 @@ myDeviceConnection = nil;
 NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 [_myDeviceConnection writeData:data];
 ```
-## 5. What's next
+### 4.3 iOS Simulator
 
-* example applications for iOS and OSX
-* enhanced documentation
+If you do not want to keep your iOS device connect all the time you can also use the iOS Simulator during development. 
+
+#### 4.3.1 iOS
+
+There are no changes required to your iOS app to use DarkLightning in the iOS Simulator. :)
+
+#### 4.3.2 OSX
+
+To connect to the iOS Simulator you need to use `JMSimulatorConnection` instead of `JMUSBDeviceConnection`. `JMSimulatorConnection` and `JMUSBDeviceConnection` inherit from the same base class `JMDeviceConnection` thus having the same interface. The delegate callbacks are the same as well. 
+
+```objc
+JMSimulatorConnection* simulatorConnection = [[JMSimulatorConnection alloc]initWithPort:2347];
+simulatorConnection.delegate = self;
+[simulatorConnection connect];
+```
+
+## 5. Packet Protocols
+
+DarkLightning uses a stream based approach to transmit and receive data via TCP. If you write a data chunk on one end the bytes will arrive in the right order but they might not be in one piece. If you send data chunks very fast they might even arrive as a bigger chunk. 
+DarkLightning comes with a simple packet protocol to en- and decode packets. The protocol allows you to send data packets of up to 4GB in size. 
+
+### 5.1 Encoding
+
+```objc
+JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
+```
+
+```objc
+NSData* message = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
+NSData* packet = [packetProtocol encodePacket:data]
+[_myDeviceConnection writeData:packet];
+```
+
+### 5.2 Decoding
+
+The packet protocol object keeps track of all incoming data. If a packet has been split into smaller pieces the packet protocol object buffers the data. The next time you call `processData:` it tries to decode the packet again. This process continues until all parts of the packet have arrived and the packet can be decoded. Therefore, it is necessary to keep a reference to the packet protocol object.
+
+```objc
+JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
+```
+
+```objc
+-(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data
+{
+	NSArray<NSData*>* packets = [packetProtocol processData:data];
+	
+	for (NSData* packet in packets)
+	{
+		// Do something with the packet
+	}
+}
+```
 
 ## 6. License
 
