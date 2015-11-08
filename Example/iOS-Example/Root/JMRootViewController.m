@@ -38,6 +38,11 @@
 
 -(instancetype)initWithViewModel:(id<JMRootViewModel>)viewModel
 {
+	if(!viewModel)
+	{
+		return nil;
+	}
+		
 	self = [super init];
 	
 	if (self)
@@ -45,8 +50,6 @@
 		_viewModel = viewModel;
 		_viewModel.delegate = self;
 		_connectionStates = @[@"Disconnected", @"Waiting for connection", @"Connected"];
-		
-		self.title = _connectionStates[_viewModel.connectionState];
 	}
 	
 	return self;
@@ -68,6 +71,14 @@
 	_rootView.sendMessageTextField.delegate = self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	
+	[self updateTitle];
+	[self updateButton];
+}
+
 -(void) textDidChange:(UITextField*)textField
 {
 	_viewModel.message = textField.text;
@@ -79,11 +90,30 @@
 	_rootView.sendMessageTextField.text = nil;
 }
 
+#pragma mark - Internal
+
+-(void) updateButton
+{
+	BOOL connected = _viewModel.connectionState == JMRootViewModelConnectionStateConnected ? YES: NO;
+	_rootView.sendMessageButton.enabled = connected;
+}
+
+-(void) updateTitle
+{
+	self.title = _connectionStates[_viewModel.connectionState];
+}
+
 #pragma mark - Text field delegate
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+	if (_viewModel.connectionState != JMRootViewModelConnectionStateConnected)
+	{
+		return NO;
+	}
+	
 	[self sendMessage:_rootView.sendMessageButton];
+	
 	return YES;
 }
 
@@ -91,7 +121,8 @@
 
 -(void)rootViewModel:(id<JMRootViewModel>)viewModel didChangeConnectionState:(JMRootViewModelConnectionState)state
 {
-	self.title = _connectionStates[state];
+	[self updateTitle];
+	[self updateButton];
 }
 
 -(void)rootViewModel:(id<JMRootViewModel>)viewModel didReceiveMessage:(NSString *)message

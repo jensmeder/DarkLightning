@@ -33,52 +33,68 @@
 	{
 		self.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
 		
-		_sendMessageButton = [[UIButton alloc]init];
-		_sendMessageButton.translatesAutoresizingMaskIntoConstraints = NO;
-		[_sendMessageButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-		[_sendMessageButton setTitle:@"Send" forState:UIControlStateNormal];
-		_sendMessageButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
-		
-		_sendMessageTextField = [[UITextField alloc]init];
-		_sendMessageTextField.translatesAutoresizingMaskIntoConstraints = NO;
-		[_sendMessageTextField setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
-		_sendMessageTextField.backgroundColor = [UIColor whiteColor];
-		_sendMessageTextField.borderStyle = UITextBorderStyleRoundedRect;
-		_sendMessageTextField.placeholder = @"Your message";
-		_sendMessageTextField.font = [UIFont systemFontOfSize:16.0];
-		
-		_messageLogTextView = [[UITextView alloc]init];
-		_messageLogTextView.translatesAutoresizingMaskIntoConstraints = NO;
-		[_messageLogTextView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
-		
-		[self addSubview:_messageLogTextView];
-		[self addSubview:_sendMessageTextField];
-		[self addSubview:_sendMessageButton];
-		
-		
-		NSMutableArray* constraints = [NSMutableArray array];
-		
-		NSArray* verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_messageLogTextView]-5-[_sendMessageTextField]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendMessageTextField, _messageLogTextView)];
-		
-		[constraints addObjectsFromArray:verticalConstraints];
-		
-		NSArray* horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[_messageLogTextView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_messageLogTextView)];
-		
-		[constraints addObjectsFromArray:horizontalConstraints];
-		
-		horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-5-[_sendMessageTextField]-5-[_sendMessageButton]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendMessageTextField, _sendMessageButton)];
-		
-		[constraints addObjectsFromArray:horizontalConstraints];
-		
-		[constraints addObject:[NSLayoutConstraint constraintWithItem:_sendMessageButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_sendMessageTextField attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
-		
-		for (NSLayoutConstraint* constraint in constraints)
-		{
-			constraint.active = YES;
-		}
+		[self addSubviews];
 	}
 	
 	return self;
+}
+
+-(void) addSubviews
+{
+	_sendMessageButton = [[UIButton alloc]init];
+	_sendMessageButton.translatesAutoresizingMaskIntoConstraints = NO;
+	[_sendMessageButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+	[_sendMessageButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+	[_sendMessageButton setTitle:@"Send" forState:UIControlStateNormal];
+	_sendMessageButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
+	
+	_sendMessageTextField = [[UITextField alloc]init];
+	_sendMessageTextField.translatesAutoresizingMaskIntoConstraints = NO;
+	[_sendMessageTextField setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+	_sendMessageTextField.backgroundColor = [UIColor whiteColor];
+	_sendMessageTextField.borderStyle = UITextBorderStyleRoundedRect;
+	_sendMessageTextField.placeholder = @"Your message";
+	_sendMessageTextField.font = [UIFont systemFontOfSize:16.0];
+	
+	_messageLogTextView = [[UITextView alloc]init];
+	_messageLogTextView.translatesAutoresizingMaskIntoConstraints = NO;
+	[_messageLogTextView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+	
+	[self addSubview:_messageLogTextView];
+	[self addSubview:_sendMessageTextField];
+	[self addSubview:_sendMessageButton];
+	
+	[self attachConstraints];
+}
+
+-(void) attachConstraints
+{
+	NSMutableArray* constraints = [NSMutableArray array];
+	
+	// Vertical constraints
+	
+	NSArray* verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_messageLogTextView]-5-[_sendMessageTextField]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendMessageTextField, _messageLogTextView)];
+	
+	[constraints addObjectsFromArray:verticalConstraints];
+	
+	[constraints addObject:[NSLayoutConstraint constraintWithItem:_sendMessageButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_sendMessageTextField attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
+	
+	// Horizontal constraints
+	
+	NSArray* horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[_messageLogTextView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_messageLogTextView)];
+	
+	[constraints addObjectsFromArray:horizontalConstraints];
+	
+	horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-5-[_sendMessageTextField]-5-[_sendMessageButton]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_sendMessageTextField, _sendMessageButton)];
+	
+	[constraints addObjectsFromArray:horizontalConstraints];
+
+	// Add  constraints
+	
+	for (NSLayoutConstraint* constraint in constraints)
+	{
+		constraint.active = YES;
+	}
 }
 
 @end

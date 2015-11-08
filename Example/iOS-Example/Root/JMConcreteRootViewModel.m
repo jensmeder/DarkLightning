@@ -41,6 +41,11 @@
 
 -(instancetype)initWithDevicePort:(JMMobileDevicePort *)devicePort
 {
+	if (!devicePort)
+	{
+		return nil;
+	}
+	
 	self = [super init];
 	
 	if (self)
@@ -76,6 +81,8 @@
 	{
 		[_packetProtocol reset];
 	}
+	
+	_connectionState = (JMRootViewModelConnectionState) _devicePort.state;
 	
 	[_delegate rootViewModel:self didChangeConnectionState:(JMRootViewModelConnectionState)state];
 }
