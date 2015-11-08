@@ -32,6 +32,7 @@
 	
 	NSWindow* _mainWindow;
 	JMUSBDeviceManager* _deviceManager;
+	NSProcessInfo* _processInfo;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -47,6 +48,9 @@
 	[_mainWindow makeKeyAndOrderFront:nil];
 	
 	[_deviceManager start];
+	
+	_processInfo = [[NSProcessInfo alloc]init];
+	[_processInfo beginActivityWithOptions:NSActivityUserInitiated reason:@"asd"];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

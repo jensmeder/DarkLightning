@@ -21,31 +21,12 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "JMRootViewController.h"
+#import <UIKit/UIKit.h>
 
-@implementation JMRootViewController
+@interface JMRootView : UIView
 
--(instancetype)initWithViewModel:(JMRootViewModel *)viewModel
-{
-	self = [super init];
-	
-	if (self)
-	{
-		_viewModel = viewModel;
-	}
-	
-	return self;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+@property (nonnull, nonatomic, strong, readonly) UIButton* sendMessageButton;
+@property (nonnull, nonatomic, strong, readonly) UITextField* sendMessageTextField;
+@property (nonnull, nonatomic, strong, readonly) UITextView* messageLogTextView;
 
 @end

@@ -43,6 +43,7 @@
 	{
 		_devicePort = devicePort;
 		_devicePort.delegate = self;
+		_connectionState = (JMRootViewModelConnectionState) _devicePort.state;
 		
 		_packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
 	}
@@ -50,23 +51,29 @@
 	return self;
 }
 
+-(BOOL)sendMessage
+{
+	if (_devicePort.state != JMMobileDevicePortStateConnected)
+	{
+		return NO;
+	}
+	
+	NSData* messageData = [_message dataUsingEncoding:NSUTF8StringEncoding];
+	NSData* packet = [_packetProtocol encodePacket:messageData];
+	
+	return [_devicePort writeData:packet];
+}
+
 #pragma mark - Delegate
 
 -(void)mobileDevicePort:(JMMobileDevicePort *)port didChangeState:(JMMobileDevicePortState)state
 {
-	if(state == JMMobileDevicePortStateConnected)
-	{
-		for (int i = 0; i < 50; i++)
-		{
-			NSData* data = [@"Hello" dataUsingEncoding:NSUTF8StringEncoding];
-			
-			[port writeData:[_packetProtocol encodePacket:data]];
-		}
-	}
-	else
+	if(state != JMMobileDevicePortStateConnected)
 	{
 		[_packetProtocol reset];
 	}
+	
+	[_delegate rootViewModel:self didChangeConnectionState:(JMRootViewModelConnectionState)state];
 }
 
 -(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data
@@ -75,7 +82,9 @@
 	
 	for (NSData* packet in packets)
 	{
-		NSLog(@"%@",[[NSString alloc]initWithData:packet encoding:NSUTF8StringEncoding]);
+		NSString* message = [[NSString alloc]initWithData:packet encoding:NSUTF8StringEncoding];
+		
+		[_delegate rootViewModel:self didReceiveMessage:message];
 	}
 }
 

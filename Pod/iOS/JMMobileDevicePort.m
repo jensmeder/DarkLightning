@@ -178,6 +178,7 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	}
 	
 	NSInteger bytesWritten = [_outputStream write:data.bytes maxLength:data.length];
+	
 	if (bytesWritten)
 	{
 		return YES;

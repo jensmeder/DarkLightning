@@ -24,10 +24,31 @@
 #import <Foundation/Foundation.h>
 #import <DarkLightning/JMMobileDevicePort.h>
 
+typedef NS_ENUM(NSUInteger, JMRootViewModelConnectionState)
+{
+	JMRootViewModelConnectionStateDisconnected = 0,
+	JMRootViewModelConnectionStateWaitingForConnection,
+	JMRootViewModelConnectionStateConnected
+};
+
+@class JMRootViewModel;
+
+@protocol JMRootViewModelDelegate <NSObject>
+
+-(void) rootViewModel:(nonnull JMRootViewModel*)viewModel didReceiveMessage:(nonnull NSString*)message;
+-(void) rootViewModel:(nonnull JMRootViewModel*)viewModel didChangeConnectionState:(JMRootViewModelConnectionState)state;
+
+@end
+
 @interface JMRootViewModel : NSObject
 
+@property (nullable, nonatomic, strong) NSString* message;
+@property (nonatomic, weak) id<JMRootViewModelDelegate> delegate;
+@property (readonly) JMRootViewModelConnectionState connectionState;
 @property (nonnull, nonatomic, strong, readonly) JMMobileDevicePort* devicePort;
 
 -(nonnull instancetype)initWithDevicePort:(nonnull JMMobileDevicePort*)devicePort;
+
+-(BOOL) sendMessage;
 
 @end

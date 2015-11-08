@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		859188BA5E5556803130E7A8 /* libPods-iOS-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 317C5EFFE5A55B0914ED329A /* libPods-iOS-Example.a */; };
 		A4DA27239E32BB4A8B8ECD71 /* libPods-OSX-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C079AAF3BB211082B28CDEFB /* libPods-OSX-Example.a */; };
-		B419E3AE1BEDF52300C4EB0A /* JMRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3AD1BEDF52300C4EB0A /* JMRootViewModel.m */; };
-		B419E3B41BEDF58C00C4EB0A /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3B31BEDF58C00C4EB0A /* JMRootViewController.m */; };
-		B419E3B91BEE089900C4EB0A /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3B81BEE089900C4EB0A /* JMRootView.m */; };
+		B456C7841BEF616000444BEC /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B456C7831BEF616000444BEC /* JMRootView.m */; };
+		B456C7851BEF6E0800444BEC /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3B81BEE089900C4EB0A /* JMRootView.m */; };
+		B456C7871BEF6E0800444BEC /* JMRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3AD1BEDF52300C4EB0A /* JMRootViewModel.m */; };
+		B456C7881BEF6E0800444BEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D787201BED4F3F002C09B0 /* main.m */; };
+		B456C7891BEF6E0800444BEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7871D1BED4F3F002C09B0 /* AppDelegate.m */; };
+		B47B26471BEF6E8D002DFD7D /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3B31BEDF58C00C4EB0A /* JMRootViewController.m */; };
 		B4D787031BED4EF8002C09B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D787021BED4EF8002C09B0 /* main.m */; };
 		B4D787061BED4EF8002C09B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D787051BED4EF8002C09B0 /* AppDelegate.m */; };
 		B4D7870E1BED4EF8002C09B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D7870D1BED4EF8002C09B0 /* Assets.xcassets */; };
 		B4D787111BED4EF8002C09B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D7870F1BED4EF8002C09B0 /* LaunchScreen.storyboard */; };
-		B4D7871E1BED4F3F002C09B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7871D1BED4F3F002C09B0 /* AppDelegate.m */; };
-		B4D787211BED4F3F002C09B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D787201BED4F3F002C09B0 /* main.m */; };
 		B4D787231BED4F3F002C09B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D787221BED4F3F002C09B0 /* Assets.xcassets */; };
 		B4D787261BED4F3F002C09B0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D787241BED4F3F002C09B0 /* MainMenu.xib */; };
 		B4D7872D1BED50D9002C09B0 /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7872C1BED50D9002C09B0 /* JMRootViewController.m */; };
@@ -36,6 +37,8 @@
 		B419E3B31BEDF58C00C4EB0A /* JMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootViewController.m; sourceTree = "<group>"; };
 		B419E3B71BEE089900C4EB0A /* JMRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootView.h; sourceTree = "<group>"; };
 		B419E3B81BEE089900C4EB0A /* JMRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootView.m; sourceTree = "<group>"; };
+		B456C7821BEF616000444BEC /* JMRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootView.h; sourceTree = "<group>"; };
+		B456C7831BEF616000444BEC /* JMRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootView.m; sourceTree = "<group>"; };
 		B486395813A102E697D0DEA7 /* Pods-iOS-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Example/Pods-iOS-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D786FF1BED4EF8002C09B0 /* iOS-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D787021BED4EF8002C09B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,25 +109,27 @@
 		B419E3AB1BEDF47800C4EB0A /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				B419E3AC1BEDF52300C4EB0A /* JMRootViewModel.h */,
-				B419E3AD1BEDF52300C4EB0A /* JMRootViewModel.m */,
-				B419E3B21BEDF58C00C4EB0A /* JMRootViewController.h */,
-				B419E3B31BEDF58C00C4EB0A /* JMRootViewController.m */,
 				B419E3B71BEE089900C4EB0A /* JMRootView.h */,
 				B419E3B81BEE089900C4EB0A /* JMRootView.m */,
+				B419E3B21BEDF58C00C4EB0A /* JMRootViewController.h */,
+				B419E3B31BEDF58C00C4EB0A /* JMRootViewController.m */,
+				B419E3AC1BEDF52300C4EB0A /* JMRootViewModel.h */,
+				B419E3AD1BEDF52300C4EB0A /* JMRootViewModel.m */,
 			);
-			name = Root;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		B419E3C41BEE303700C4EB0A /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				B456C7821BEF616000444BEC /* JMRootView.h */,
+				B456C7831BEF616000444BEC /* JMRootView.m */,
 				B4D7872B1BED50D9002C09B0 /* JMRootViewController.h */,
 				B4D7872C1BED50D9002C09B0 /* JMRootViewController.m */,
 				B4D7872E1BED50ED002C09B0 /* JMRootViewModel.h */,
 				B4D7872F1BED50ED002C09B0 /* JMRootViewModel.m */,
 			);
-			name = Root;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		B4D786DE1BED4DC0002C09B0 = {
@@ -132,9 +137,9 @@
 			children = (
 				B4D787001BED4EF8002C09B0 /* iOS-Example */,
 				B4D7871B1BED4F3F002C09B0 /* OSX-Example */,
-				B4D786E81BED4DC0002C09B0 /* Products */,
-				56651772C8F437ED07952CBB /* Pods */,
 				1268E16A09B4ABEB0EB4999D /* Frameworks */,
+				56651772C8F437ED07952CBB /* Pods */,
+				B4D786E81BED4DC0002C09B0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,13 +155,13 @@
 		B4D787001BED4EF8002C09B0 /* iOS-Example */ = {
 			isa = PBXGroup;
 			children = (
+				B419E3C41BEE303700C4EB0A /* Root */,
+				B4D787011BED4EF8002C09B0 /* Supporting Files */,
 				B4D787041BED4EF8002C09B0 /* AppDelegate.h */,
 				B4D787051BED4EF8002C09B0 /* AppDelegate.m */,
 				B4D7870D1BED4EF8002C09B0 /* Assets.xcassets */,
-				B4D7870F1BED4EF8002C09B0 /* LaunchScreen.storyboard */,
 				B4D787121BED4EF8002C09B0 /* Info.plist */,
-				B4D787011BED4EF8002C09B0 /* Supporting Files */,
-				B419E3C41BEE303700C4EB0A /* Root */,
+				B4D7870F1BED4EF8002C09B0 /* LaunchScreen.storyboard */,
 			);
 			path = "iOS-Example";
 			sourceTree = "<group>";
@@ -166,19 +171,19 @@
 			children = (
 				B4D787021BED4EF8002C09B0 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B4D7871B1BED4F3F002C09B0 /* OSX-Example */ = {
 			isa = PBXGroup;
 			children = (
 				B419E3AB1BEDF47800C4EB0A /* Root */,
+				B4D7871F1BED4F3F002C09B0 /* Supporting Files */,
 				B4D7871C1BED4F3F002C09B0 /* AppDelegate.h */,
 				B4D7871D1BED4F3F002C09B0 /* AppDelegate.m */,
 				B4D787221BED4F3F002C09B0 /* Assets.xcassets */,
-				B4D787241BED4F3F002C09B0 /* MainMenu.xib */,
 				B4D787271BED4F3F002C09B0 /* Info.plist */,
-				B4D7871F1BED4F3F002C09B0 /* Supporting Files */,
+				B4D787241BED4F3F002C09B0 /* MainMenu.xib */,
 			);
 			path = "OSX-Example";
 			sourceTree = "<group>";
@@ -188,7 +193,7 @@
 			children = (
 				B4D787201BED4F3F002C09B0 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +397,7 @@
 				B4D7872D1BED50D9002C09B0 /* JMRootViewController.m in Sources */,
 				B4D787061BED4EF8002C09B0 /* AppDelegate.m in Sources */,
 				B4D787031BED4EF8002C09B0 /* main.m in Sources */,
+				B456C7841BEF616000444BEC /* JMRootView.m in Sources */,
 				B4D787301BED50ED002C09B0 /* JMRootViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,11 +406,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4D787211BED4F3F002C09B0 /* main.m in Sources */,
-				B4D7871E1BED4F3F002C09B0 /* AppDelegate.m in Sources */,
-				B419E3AE1BEDF52300C4EB0A /* JMRootViewModel.m in Sources */,
-				B419E3B91BEE089900C4EB0A /* JMRootView.m in Sources */,
-				B419E3B41BEDF58C00C4EB0A /* JMRootViewController.m in Sources */,
+				B456C7851BEF6E0800444BEC /* JMRootView.m in Sources */,
+				B456C7871BEF6E0800444BEC /* JMRootViewModel.m in Sources */,
+				B47B26471BEF6E8D002DFD7D /* JMRootViewController.m in Sources */,
+				B456C7881BEF6E0800444BEC /* main.m in Sources */,
+				B456C7891BEF6E0800444BEC /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +423,7 @@
 				B4D787101BED4EF8002C09B0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B4D787241BED4F3F002C09B0 /* MainMenu.xib */ = {
@@ -425,6 +432,7 @@
 				B4D787251BED4F3F002C09B0 /* Base */,
 			);
 			name = MainMenu.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -515,6 +523,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/DarkLightning\"",
+				);
 				INFOPLIST_FILE = "iOS-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -522,6 +535,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-Example/**";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -531,6 +546,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/DarkLightning\"",
+				);
 				INFOPLIST_FILE = "iOS-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -538,6 +558,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/iOS-Example/**";
+				USE_HEADERMAP = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -553,6 +575,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.jensmeder.OSX-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/OSX-Example/**";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
@@ -567,6 +591,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.jensmeder.OSX-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/OSX-Example/**";
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};

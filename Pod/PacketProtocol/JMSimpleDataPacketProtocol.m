@@ -44,12 +44,12 @@
 
 -(NSData *)encodePacket:(NSData *)packet
 {
-	if (!packet || packet.length > UINT32_MAX)
+	if (!packet || packet.length == 0 || packet.length > UINT32_MAX)
 	{
 		return nil;
 	}
 	
-	uint32_t packetLength = (uint32_t)packet.length;
+	uint32_t packetLength = CFSwapInt32HostToBig((uint32_t)packet.length);
 	
 	NSMutableData* data = [NSMutableData dataWithBytes:&packetLength length:sizeof(uint32_t)];
 	[data appendData:packet];
@@ -67,19 +67,21 @@
 	{
 		return nil;
 	}
-	
-	memcpy(&length, _buffer.bytes, sizeof(length));
-	
+
+	[_buffer getBytes:&length length:sizeof(length)];
+	length = CFSwapInt32BigToHost(length);
 	NSMutableArray* packets = [NSMutableArray array];
 	
-	while (sizeof(length) + length < _buffer.length)
+	while (sizeof(length) + length <= _buffer.length)
 	{
 		NSData* packet = [_buffer subdataWithRange:NSMakeRange(sizeof(length), length)];
 		[packets addObject:packet];
 		
 		[_buffer replaceBytesInRange:NSMakeRange(0, sizeof(length) + length) withBytes:NULL length:0];
+		[_buffer getBytes:&length length:sizeof(length)];
+		length = CFSwapInt32BigToHost(length);
 	}
-	
+
 	return packets;
 }
 
