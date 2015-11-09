@@ -166,6 +166,13 @@ static NSString* const JMSimulatorConnectionHost = @"localhost";
 		{
 			self.state = JMDeviceConnectionStateDisconnected;
 		}
+		else if(eventCode == NSStreamEventErrorOccurred && self.state == JMDeviceConnectionStateConnecting)
+		{
+			self.state = JMDeviceConnectionStateDisconnected;
+
+			NSError* error = [NSError errorWithDomain:JMDeviceConnectionErrorDomain code:JMDeviceConnectionErrorCodeDataStreamError userInfo:nil];
+			[self.delegate connection:self didFailToConnect:error];
+		}
 	});
 }
 
