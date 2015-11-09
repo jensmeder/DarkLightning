@@ -57,6 +57,7 @@
 	_sendMessageTextField.font = [UIFont systemFontOfSize:16.0];
 	
 	_messageLogTextView = [[UITextView alloc]init];
+	_messageLogTextView.userInteractionEnabled = NO;
 	_messageLogTextView.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	[self addSubview:_messageLogTextView];

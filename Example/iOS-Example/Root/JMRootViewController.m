@@ -34,6 +34,7 @@
 	
 	__weak JMRootView* _rootView;
 	NSArray* _connectionStates;
+	NSLayoutConstraint* _bottomConstraint;
 }
 
 -(instancetype)initWithViewModel:(id<JMRootViewModel>)viewModel
@@ -57,9 +58,34 @@
 
 -(void)loadView
 {
+	UIView* containerView = [[UIView alloc]init];
+	self.view = containerView;
+	
 	JMRootView* rootView = [[JMRootView alloc]init];
 	_rootView = rootView;
-	self.view = rootView;
+	_rootView.translatesAutoresizingMaskIntoConstraints = NO;
+	
+	[containerView addSubview:rootView];
+	
+	
+	
+	NSMutableArray<NSLayoutConstraint*>* constraints = [NSMutableArray array];
+	
+	// Vertical Constraints
+	
+	[constraints addObject:[NSLayoutConstraint constraintWithItem:rootView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:containerView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+	_bottomConstraint = [NSLayoutConstraint constraintWithItem:rootView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:containerView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+	[constraints addObject:_bottomConstraint];
+	
+	// Horizontal Constraints
+	
+	NSArray<NSLayoutConstraint*>* horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[rootView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(rootView)];
+	[constraints addObjectsFromArray:horizontalConstraints];
+	
+	for (NSLayoutConstraint* constraint in constraints)
+	{
+		constraint.active = YES;
+	}
 }
 
 -(void)viewDidLoad
@@ -77,6 +103,52 @@
 	
 	[self updateTitle];
 	[self updateButton];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(keyboardWillShow:)
+												 name:UIKeyboardWillShowNotification
+											   object:nil];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(keyboardWillHide:)
+												 name:UIKeyboardWillHideNotification
+											   object:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:self
+												 name:UIKeyboardDidShowNotification
+											   object:nil];
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:self
+												 name:UIKeyboardDidHideNotification
+											   object:nil];
+}
+
+- (void)keyboardWillShow: (NSNotification *) notification
+{
+	NSValue* rect = notification.userInfo[UIKeyboardFrameEndUserInfoKey];
+	CGRect frame = rect.CGRectValue;
+	
+	[UIView animateWithDuration:0.25 animations:
+	 ^{
+		 _bottomConstraint.constant = -frame.size.height;
+		 
+		 [self.view layoutIfNeeded];
+	}];
+}
+
+- (void)keyboardWillHide: (NSNotification *) notification
+{
+	[UIView animateWithDuration:0.25 animations:
+	 ^{
+		 _bottomConstraint.constant = 0;
+		 
+		 [self.view layoutIfNeeded];
+	 }];
 }
 
 -(void) textDidChange:(UITextField*)textField
