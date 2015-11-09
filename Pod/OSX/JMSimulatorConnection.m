@@ -47,6 +47,23 @@ static NSString* const JMSimulatorConnectionHost = @"localhost";
 
 @synthesize state = _state;
 
+-(instancetype)initWithHost:(NSString *)host andPort:(uint32_t)port
+{
+	self = [super initWithPort:port];
+
+	if (self)
+	{
+		_host = host;
+	}
+
+	return self;
+}
+
+-(instancetype)initWithPort:(uint32_t)port
+{
+	return [self initWithHost:JMSimulatorConnectionHost andPort:port];
+}
+
 -(void)connect
 {
 	self.state = JMDeviceConnectionStateConnecting;
@@ -54,7 +71,7 @@ static NSString* const JMSimulatorConnectionHost = @"localhost";
 	CFReadStreamRef readStream;
 	CFWriteStreamRef writeStream;
 	
-	CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef) JMSimulatorConnectionHost, self.port, &readStream, &writeStream);
+	CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef) self.host, self.port, &readStream, &writeStream);
 	
 	_inputStream = (__bridge NSInputStream *)(readStream);
 	_outputStream = (__bridge NSOutputStream *)(writeStream);

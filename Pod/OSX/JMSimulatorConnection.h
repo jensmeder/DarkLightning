@@ -29,4 +29,9 @@
  */
 @interface JMSimulatorConnection : JMDeviceConnection
 
+@property (nonatomic, strong, readonly) NSString* host;
+
+
+-(instancetype)initWithHost:(NSString*)host andPort:(uint32_t)port;
+
 @end
