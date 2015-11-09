@@ -29,9 +29,32 @@
  */
 @interface JMSimulatorConnection : JMDeviceConnection
 
-@property (nonatomic, strong, readonly) NSString* host;
+/**
+ *  The host the connection tries to connect to. Default is localhost.
+ */
+@property (nonnull, nonatomic, strong, readonly) NSString* host;
 
+///---------------------
+/// @name Initialization
+///---------------------
 
--(instancetype)initWithHost:(NSString*)host andPort:(uint32_t)port;
+/**
+ *  Initializes a simulator connection with the given port on localhost
+ *
+ *  @param port   The port the connection is listening on.
+ *
+ *  @return A newly initialized device if port is valid, nil otherwise
+ */
+-(nullable instancetype)initWithPort:(uint32_t)port;
+
+/**
+ *  Initializes a simulator connection with the given port and host
+ *
+ *  @param host	  The host the connection tries to connect to
+ *  @param port   The port the connection is listening on.
+ *
+ *  @return A newly initialized device if port is valid, nil otherwise
+ */
+-(nullable instancetype)initWithHost:(nonnull NSString*)host andPort:(uint32_t)port;
 
 @end

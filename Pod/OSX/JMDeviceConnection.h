@@ -103,7 +103,7 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
 /**
  *  Initializes a connection with the given port.
  *
- *  @param port   The port the iOS device is listening on.
+ *  @param port   The port the connection is listening on.
  *
  *  @return A newly initialized device if port is valid, nil otherwise
  */
