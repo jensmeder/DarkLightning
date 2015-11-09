@@ -28,8 +28,8 @@
 #import <sys/un.h>
 #import <err.h>
 
-static NSUInteger JMSimulatorConnectionBufferSize = 2048;
-static NSString* const JMSimulatorConnectionHost = @"localhost";
+static NSUInteger JMSimulatorConnectionBufferSize	= 1 << 16;
+static NSString* const JMSimulatorConnectionHost	= @"localhost";
 
 @interface JMSimulatorConnection () <NSStreamDelegate>
 
@@ -156,7 +156,10 @@ static NSString* const JMSimulatorConnectionHost = @"localhost";
 {
 	dispatch_async(dispatch_get_main_queue(),
 	^{
-		if (_state != JMDeviceConnectionStateConnected && eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
+		if (_state != JMDeviceConnectionStateConnected &&
+			eventCode == NSStreamEventHasSpaceAvailable &&
+			_inputStream.streamStatus == NSStreamStatusOpen &&
+			_outputStream.streamStatus == NSStreamStatusOpen)
 		{
 			self.state = JMDeviceConnectionStateConnected;
 		}

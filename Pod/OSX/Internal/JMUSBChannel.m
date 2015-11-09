@@ -219,7 +219,10 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 {
 	dispatch_async(dispatch_get_main_queue(),
 	^{
-		if (self.connectionState != JMUSBChannelStateConnected && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
+		if (self.connectionState != JMUSBChannelStateConnected &&
+			eventCode == NSStreamEventHasSpaceAvailable &&
+			_inputStream.streamStatus == NSStreamStatusOpen &&
+			_outputStream.streamStatus == NSStreamStatusOpen)
 		{
 			self.connectionState = JMUSBChannelStateConnected;
 		}
@@ -247,6 +250,13 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 		else if (eventCode == NSStreamEventEndEncountered)
 		{
 			self.connectionState = JMUSBChannelStateDisconnected;
+		}
+		else if(eventCode == NSStreamEventErrorOccurred && self.connectionState == JMUSBChannelStateConnecting)
+		{
+			self.connectionState = JMUSBChannelStateDisconnected;
+			
+			NSError* error = [NSError errorWithDomain:@"error" code:1 userInfo:nil];
+			[self.delegate channel:self didFailToOpen:error];
 		}
 	});
 
