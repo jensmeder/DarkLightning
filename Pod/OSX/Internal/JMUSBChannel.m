@@ -29,7 +29,7 @@
 #import <err.h>
 #import "usbmux_packet.h"
 
-static NSUInteger JMUSBChannelBufferSize = 2048;
+static NSUInteger JMUSBChannelBufferSize = 1 << 16;
 static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 
 @interface JMUSBChannel () <NSStreamDelegate>
@@ -46,6 +46,21 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	NSOutputStream* 	_outputStream;
 	
 	NSRunLoop* _backgroundRunLoop;
+
+	dispatch_queue_t _internalQueue;
+}
+
+-(instancetype)init
+{
+	self = [super init];
+
+	if (self)
+	{
+		_internalQueue = dispatch_queue_create("a", 0);
+
+	}
+
+	return self;
 }
 
 - (void)open
@@ -60,7 +75,10 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
             NSError* error = [[NSError alloc] initWithDomain:NSPOSIXErrorDomain
                                                         code:errno
                                                     userInfo:@{NSLocalizedDescriptionKey: [NSString stringWithUTF8String:strerror(errno)]}];
-			[_delegate channel:self didFailToOpen:error];
+			dispatch_async(dispatch_get_main_queue(),
+			^{
+				[_delegate channel:self didFailToOpen:error];
+			});
 		}
 
 		return;
@@ -123,7 +141,7 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	CFReadStreamSetProperty(readStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
 	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
 	
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+	dispatch_async(_internalQueue,
 	^{
 		_backgroundRunLoop = [NSRunLoop currentRunLoop];
 		[_inputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
@@ -134,8 +152,9 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 		
 		[_inputStream open];
 		[_outputStream open];
-		
+
 		[_backgroundRunLoop run];
+		
 	});
 	
 }
@@ -198,8 +217,9 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 
 -(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-
-		if (eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
+	dispatch_async(dispatch_get_main_queue(),
+	^{
+		if (self.connectionState != JMUSBChannelStateConnected && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
 		{
 			self.connectionState = JMUSBChannelStateConnected;
 		}
@@ -214,18 +234,22 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 				[data appendBytes:buffer length:length];
 			}
 
+			if (!data.length)
+			{
+				return;
+			}
+
 			if ([_delegate respondsToSelector:@selector(channel:didReceiveData:)])
 			{
-				dispatch_async(dispatch_get_main_queue(),
-				^{
-					[_delegate channel:self didReceiveData:data];
-				});
+				[_delegate channel:self didReceiveData:data];
 			}
 		}
 		else if (eventCode == NSStreamEventEndEncountered)
 		{
 			self.connectionState = JMUSBChannelStateDisconnected;
 		}
+	});
+
 }
 
 @end

@@ -61,4 +61,16 @@ static NSString* const JMUSBDeviceDictionaryKeyLocationID 		= @"LocationID";
 	return [NSString stringWithFormat:@"DeviceID: %@, SerialNumber: %@, ConnectionSpeed: %@, ProductID: %@, LocationID: %@", _deviceID, _serialNumber, _connectionSpeed, _productID, _locationID];
 }
 
+-(BOOL)isEqual:(id)object
+{
+	if (![object isKindOfClass:[JMUSBDevice class]])
+	{
+		return NO;
+	}
+
+	JMUSBDevice* device = object;
+
+	return [device.deviceID isEqual:self.deviceID];
+}
+
 @end

@@ -34,9 +34,8 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 
 @implementation JMUSBMuxDecoder
 
--(void) decodePacket:(usbmux_packet_t*)packet
+-(void) decodePacket:(NSData*)data
 {
-	NSData* data = [NSData dataWithBytes:packet->data length:usbmux_packet_get_payload_size(packet)];
 	NSError* error = nil;
 	NSDictionary* plist = [NSPropertyListSerialization propertyListWithData:data options:NSPropertyListImmutable format:NULL error:&error];
 
@@ -74,17 +73,26 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 	}
 }
 
--(void)processData:(NSData *)data
+-(void)processData:(NSData *)aData
 {
-	int index = 0;
-	
-	do
+	NSData* data = aData;
+
+	while (data.length)
 	{
-		usbmux_packet_t* packet = (usbmux_packet_t*)&data.bytes[index];
-		[self decodePacket:packet];
-		index += packet->size;
+		usbmux_packet_t packet;
+		memset(&packet, 0, sizeof(packet));
+		[data getBytes:&packet length:16];
+
+		if (packet.size > data.length)
+		{
+			return;
+		}
+
+		NSData* dataPacket = [data subdataWithRange:NSMakeRange(16, packet.size - 16)];
+
+		[self decodePacket:dataPacket];
+		data = [data subdataWithRange:NSMakeRange(packet.size, data.length - packet.size)];
 	}
-	while (index < data.length);
 }
 
 @end

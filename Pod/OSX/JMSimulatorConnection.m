@@ -137,33 +137,36 @@ static NSString* const JMSimulatorConnectionHost = @"localhost";
 
 -(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-	if (_state != JMDeviceConnectionStateConnected && eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
-	{
-		self.state = JMDeviceConnectionStateConnected;
-	}
-	else if(eventCode == NSStreamEventHasBytesAvailable)
-	{
-		NSMutableData* data = [NSMutableData data];
-		uint8_t buffer[JMSimulatorConnectionBufferSize];
-						   
-		while (_inputStream.hasBytesAvailable)
+	dispatch_async(dispatch_get_main_queue(),
+	^{
+		if (_state != JMDeviceConnectionStateConnected && eventCode == NSStreamEventHasSpaceAvailable && _inputStream.streamStatus == NSStreamStatusOpen && _outputStream.streamStatus == NSStreamStatusOpen)
 		{
-			NSInteger length = [_inputStream read:buffer maxLength:JMSimulatorConnectionBufferSize];
-			[data appendBytes:buffer length:length];
+			self.state = JMDeviceConnectionStateConnected;
 		}
-						   
-		if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
+		else if(eventCode == NSStreamEventHasBytesAvailable)
 		{
-			dispatch_async(dispatch_get_main_queue(),
-			^{
-				[self.delegate connection:self didReceiveData:data];
-			});
+			NSMutableData* data = [NSMutableData data];
+			uint8_t buffer[JMSimulatorConnectionBufferSize];
+						   
+			while (_inputStream.hasBytesAvailable)
+			{
+				NSInteger length = [_inputStream read:buffer maxLength:JMSimulatorConnectionBufferSize];
+				[data appendBytes:buffer length:length];
+			}
+						   
+			if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
+			{
+				dispatch_async(dispatch_get_main_queue(),
+				^{
+					[self.delegate connection:self didReceiveData:data];
+				});
+			}
 		}
-	}
-	else if (eventCode == NSStreamEventEndEncountered)
-	{
-		self.state = JMDeviceConnectionStateDisconnected;
-	}
+		else if (eventCode == NSStreamEventEndEncountered)
+		{
+			self.state = JMDeviceConnectionStateDisconnected;
+		}
+	});
 }
 
 

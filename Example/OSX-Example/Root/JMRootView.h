@@ -25,4 +25,6 @@
 
 @interface JMRootView : NSView
 
+@property (nonnull, nonatomic, strong, readonly) NSOutlineView* deviceListView;
+
 @end

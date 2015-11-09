@@ -24,10 +24,23 @@
 #import <Foundation/Foundation.h>
 #import <DarkLightning/JMUSBDeviceManager.h>
 
+@class JMRootViewModel;
+
+@protocol JMRootViewModelDelegate <NSObject>
+
+-(void) rootViewModel:(nonnull JMRootViewModel*)viewModel didAttachDeviceAtIndex:(NSUInteger)index;
+-(void) rootViewModel:(nonnull JMRootViewModel*)viewModel didDetachDeviceAtIndex:(NSUInteger)index;
+
+@end
+
 @interface JMRootViewModel : NSObject
 
+@property (readonly) NSUInteger numberOfDevices;
+@property (nonatomic, weak) id<JMRootViewModelDelegate> delegate;
 @property (nonnull, nonatomic, strong, readonly) JMUSBDeviceManager* deviceManager;
 
 -(nonnull instancetype)initWithDeviceManager:(nonnull JMUSBDeviceManager*)deviceManager;
+
+-(nullable NSString*)nameOfDeviceAtIndex:(NSUInteger)index;
 
 @end

@@ -115,6 +115,12 @@
 -(void)decoder:(JMUSBMuxDecoder *)decoder didDecodeDetachPacket:(NSNumber *)deviceID
 {
 	JMUSBDevice* device = _devices[deviceID];
+
+	if (!device)
+	{
+		return;
+	}
+
 	[_devices removeObjectForKey:deviceID];
 	[_delegate deviceManager:self deviceDidDetach:device];
 }

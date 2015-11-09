@@ -24,11 +24,18 @@
 #import "JMRootViewController.h"
 #import "JMRootView.h"
 
-@interface JMRootViewController ()
+static NSString* const JMRootViewControllerDeviceListHeaderTitle = @"DEVICES";
+
+@interface JMRootViewController () <NSOutlineViewDelegate, NSOutlineViewDataSource, JMRootViewModelDelegate>
 
 @end
 
 @implementation JMRootViewController
+{
+	@private
+	
+	__weak JMRootView* _rootView;
+}
 
 -(instancetype)initWithViewModel:(JMRootViewModel *)viewModel
 {
@@ -37,6 +44,7 @@
 	if (self)
 	{
 		_viewModel = viewModel;
+		_viewModel.delegate = self;
 	}
 	
 	return self;
@@ -46,7 +54,120 @@
 {
 	JMRootView* rootView = [[JMRootView alloc]initWithFrame:NSMakeRect(0, 0, 400, 400)];
 	
+	
+	
+	
+	
+	_rootView = rootView;
+	
+	
+	
+	
+	
 	self.view = rootView;
+}
+
+-(void)viewWillAppear
+{
+	[super viewWillAppear];
+	
+	NSTableColumn *tc = [[NSTableColumn alloc] initWithIdentifier:@"blah"];
+
+	_rootView.deviceListView.indentationPerLevel = 0;
+	
+	_rootView.deviceListView.delegate = self;
+	_rootView.deviceListView.dataSource = self;
+	
+	[_rootView.deviceListView addTableColumn:tc];
+	
+	[_rootView.deviceListView sizeLastColumnToFit];
+	_rootView.deviceListView.floatsGroupRows = NO;
+	
+	[_rootView.deviceListView reloadData];
+	
+	[_rootView.deviceListView.headerView setNeedsDisplay:YES];
+	
+	[_rootView.deviceListView expandItem:JMRootViewControllerDeviceListHeaderTitle];
+}
+
+#pragma mark - Root View Model Delegate
+
+-(void)rootViewModel:(JMRootViewModel *)viewModel didAttachDeviceAtIndex:(NSUInteger)index
+{
+	[_rootView.deviceListView reloadData];
+}
+
+-(void)rootViewModel:(JMRootViewModel *)viewModel didDetachDeviceAtIndex:(NSUInteger)index
+{
+	[_rootView.deviceListView reloadData];
+}
+
+#pragma mark - Table View Data source
+
+-(BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
+{
+	return ![item isEqualToString:JMRootViewControllerDeviceListHeaderTitle];
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
+{
+	if (!item)
+	{
+		return JMRootViewControllerDeviceListHeaderTitle;
+	}
+	
+	return [_viewModel nameOfDeviceAtIndex:0];
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
+{
+	if ([item isEqualToString:JMRootViewControllerDeviceListHeaderTitle])
+	{
+		return YES;
+	}
+	
+	return NO;
+}
+
+-(BOOL)outlineView:(NSOutlineView *)outlineView shouldShowOutlineCellForItem:(id)item
+{
+	return NO;
+}
+
+-(BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item
+{
+	if ([item isEqualToString:JMRootViewControllerDeviceListHeaderTitle])
+	{
+		return YES;
+	}
+	
+	return NO;
+}
+
+- (NSInteger) outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+{
+	if ([item isEqualToString:JMRootViewControllerDeviceListHeaderTitle])
+	{
+		return _viewModel.numberOfDevices;
+	}
+	
+	return 1;
+}
+
+-(NSTableRowView *)outlineView:(NSOutlineView *)outlineView rowViewForItem:(id)item
+{
+	return [[NSTableRowView alloc]init];
+}
+
+-(NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
+{
+	NSTextField *result = [[NSTextField alloc]init];
+	result.bordered = NO;
+	result.backgroundColor = [NSColor clearColor];
+	
+	result.stringValue = item;
+	
+	return result;
 }
 
 @end

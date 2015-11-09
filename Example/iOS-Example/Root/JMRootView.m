@@ -50,7 +50,7 @@
 	
 	_sendMessageTextField = [[UITextField alloc]init];
 	_sendMessageTextField.translatesAutoresizingMaskIntoConstraints = NO;
-	[_sendMessageTextField setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+	
 	_sendMessageTextField.backgroundColor = [UIColor whiteColor];
 	_sendMessageTextField.borderStyle = UITextBorderStyleRoundedRect;
 	_sendMessageTextField.placeholder = @"Your message";
@@ -58,7 +58,6 @@
 	
 	_messageLogTextView = [[UITextView alloc]init];
 	_messageLogTextView.translatesAutoresizingMaskIntoConstraints = NO;
-	[_messageLogTextView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 	
 	[self addSubview:_messageLogTextView];
 	[self addSubview:_sendMessageTextField];
@@ -70,6 +69,11 @@
 -(void) attachConstraints
 {
 	NSMutableArray* constraints = [NSMutableArray array];
+	
+	// Content Hugging and compression
+	
+	[_sendMessageTextField setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+	[_messageLogTextView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 	
 	// Vertical constraints
 	

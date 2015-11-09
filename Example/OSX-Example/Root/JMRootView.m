@@ -25,6 +25,56 @@
 
 @implementation JMRootView
 
+-(instancetype)initWithFrame:(NSRect)frameRect
+{
+	self = [super initWithFrame:frameRect];
+	
+	if (self)
+	{
+		[self addSubviews];
+	}
+	
+	return self;
+}
 
+-(void) addSubviews
+{
+	_deviceListView = [[NSOutlineView alloc]init];
+	_deviceListView.translatesAutoresizingMaskIntoConstraints = NO;
+	_deviceListView.columnAutoresizingStyle = NSTableViewUniformColumnAutoresizingStyle;
+	
+	[self addSubview:_deviceListView];
+	
+	[self addSubviewConstraints];
+}
+
+-(void)addSubviewConstraints
+{
+	NSMutableArray<NSLayoutConstraint*>* constraints = [NSMutableArray array];
+	
+	// Content Hugging and compression
+	
+	[_deviceListView setContentHuggingPriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationVertical];
+	[_deviceListView setContentHuggingPriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
+	
+	// Vertical constraints
+	
+	NSArray* verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_deviceListView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_deviceListView)];
+	
+	[constraints addObjectsFromArray:verticalConstraints];
+	
+	// Horizontal constraints
+	
+	NSArray* horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[_deviceListView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_deviceListView)];
+	
+	[constraints addObjectsFromArray:horizontalConstraints];
+	
+	// Add constraints
+	
+	for (NSLayoutConstraint* constraint in constraints)
+	{
+		constraint.active = YES;
+	}
+}
 
 @end

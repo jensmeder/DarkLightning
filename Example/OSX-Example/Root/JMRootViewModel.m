@@ -59,10 +59,21 @@
 	return self;
 }
 
+-(NSUInteger)numberOfDevices
+{
+	return _deviceManager.attachedDevices.count;
+}
+
+-(NSString *)nameOfDeviceAtIndex:(NSUInteger)index
+{
+	return _deviceManager.attachedDevices[index].serialNumber;
+}
+
 #pragma mark - Device Manager Delegate
 
 -(void)deviceManager:(JMUSBDeviceManager *)manager deviceDidAttach:(JMUSBDevice *)device
 {
+	[_delegate rootViewModel:self didAttachDeviceAtIndex:0];
 	if (!_deviceConnection)
 	{
 		_deviceConnection = [[JMUSBDeviceConnection alloc]initWithDevice:device andPort:2347];
@@ -73,6 +84,8 @@
 
 -(void)deviceManager:(JMUSBDeviceManager *)manager deviceDidDetach:(JMUSBDevice *)device
 {
+	[_delegate rootViewModel:self didDetachDeviceAtIndex:0];
+	
 	if ([_deviceConnection.device isEqual:device])
 	{
 		_deviceConnection.delegate = nil;
