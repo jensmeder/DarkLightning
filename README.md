@@ -141,7 +141,7 @@ NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 ```
 ### 4.3 iOS Simulator
 
-If you do not want to keep your iOS device connect all the time you can also use the iOS Simulator during development. 
+If you do not want to keep your iOS device connected at all time you can also use the iOS Simulator during development. 
 
 #### 4.3.1 iOS
 
@@ -155,6 +155,12 @@ To connect to the iOS Simulator you need to use `JMSimulatorConnection` instead 
 JMSimulatorConnection* simulatorConnection = [[JMSimulatorConnection alloc]initWithPort:2347];
 simulatorConnection.delegate = self;
 [simulatorConnection connect];
+```
+
+You can also use `JMSimulatorConnection` to connect to your iPhone or iPhone Simulator via network. 
+
+```objc
+JMSimulatorConnection* simulatorConnection = [[JMSimulatorConnection alloc]initWithHost:@"192.168.1.5" andPort:2347];
 ```
 
 ## 5. Packet Protocols
