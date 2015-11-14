@@ -88,7 +88,7 @@
 {
 	if (!_deviceConnection)
 	{
-		[_simulatorConnection disconnect];
+		
 		_deviceConnection = [[JMUSBDeviceConnection alloc]initWithDevice:device andPort:2347];
 		_deviceConnection.delegate = self;
 		[_deviceConnection connect];
@@ -99,7 +99,6 @@
 {
 	if ([_deviceConnection.device isEqual:device])
 	{
-		[_simulatorConnection connect];
 		[_deviceConnection disconnect];
 		_deviceConnection.delegate = nil;
 		[_packetProtocol reset];
@@ -115,6 +114,7 @@
 	{
 		if (connection == _deviceConnection)
 		{
+			[_simulatorConnection disconnect];
 			[_delegate rootViewModel:self didConnectToDeviceWithName:_deviceConnection.device.serialNumber];
 		}
 		else
@@ -122,10 +122,16 @@
 			[_delegate rootViewModel:self didConnectToDeviceWithName:@"Simulator"];
 		}
 		
-		[self sendMessage:[NSString stringWithFormat:@"Hello, I am %@",[[NSHost currentHost] localizedName]]];
+		NSProcessInfo *pInfo = [NSProcessInfo processInfo];
+		NSString *version = [pInfo operatingSystemVersionString];
+		[self sendMessage:[NSString stringWithFormat:@"Hello, I am %@ running OSX %@",[[NSHost currentHost] localizedName], version]];
 	}
 	else if(state == JMDeviceConnectionStateDisconnected)
 	{
+		if (connection == _deviceConnection)
+		{
+			[_simulatorConnection connect];
+		}
 		[_delegate rootViewModelDidDisconnectFromDevice:self];
 	}
 	else

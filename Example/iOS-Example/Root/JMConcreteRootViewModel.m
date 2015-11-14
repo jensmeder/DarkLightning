@@ -24,6 +24,7 @@
 #import "JMConcreteRootViewModel.h"
 #import <UIKit/UIkit.h>
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
+#import <sys/utsname.h>
 
 @interface JMConcreteRootViewModel () <JMMobileDevicePortDelegate>
 
@@ -86,7 +87,7 @@
 	}
 	else if(state == JMMobileDevicePortStateConnected)
 	{
-		NSString* helloMessage = [NSString stringWithFormat:@"Hello, I am %@",[UIDevice currentDevice].name];
+		NSString* helloMessage = [NSString stringWithFormat:@"Hello, I am %@ running iOS %@",[UIDevice currentDevice].name, [UIDevice currentDevice].systemVersion];
 		NSData* messageData = [helloMessage dataUsingEncoding:NSUTF8StringEncoding];
 		[port writeData:[_packetProtocol encodePacket:messageData]];
 	}
