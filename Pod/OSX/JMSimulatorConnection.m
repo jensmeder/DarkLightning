@@ -98,7 +98,7 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 
 -(BOOL)writeData:(NSData *)data
 {
-	if (_state != JMDeviceConnectionStateConnected)
+	if (!data || data.length == 0 || _state != JMDeviceConnectionStateConnected)
 	{
 		return NO;
 	}
@@ -187,7 +187,7 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 				});
 			}
 		}
-		else if (aStream == _inputStream && eventCode == NSStreamEventEndEncountered)
+		else if (eventCode == NSStreamEventEndEncountered)
 		{
 			self.state = JMDeviceConnectionStateDisconnected;
 		}

@@ -172,7 +172,7 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 -(BOOL)writeData:(NSData *)data
 {
-	if (!data || _state != JMMobileDevicePortStateConnected)
+	if (!data || data.length == 0 ||  _state != JMMobileDevicePortStateConnected)
 	{
 		return NO;
 	}

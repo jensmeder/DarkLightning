@@ -62,13 +62,15 @@
 
 -(BOOL)sendMessage
 {
-	if (_devicePort.state != JMMobileDevicePortStateConnected)
+	if (_message && _devicePort.state != JMMobileDevicePortStateConnected)
 	{
 		return NO;
 	}
 	
 	NSData* messageData = [_message dataUsingEncoding:NSUTF8StringEncoding];
 	NSData* packet = [_packetProtocol encodePacket:messageData];
+	
+	_message = nil;
 	
 	return [_devicePort writeData:packet];
 }

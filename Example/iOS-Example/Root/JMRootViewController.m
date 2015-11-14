@@ -200,6 +200,7 @@
 -(void)rootViewModel:(id<JMRootViewModel>)viewModel didReceiveMessage:(NSString *)message
 {
 	_rootView.messageLogTextView.text = [NSString stringWithFormat:@"%@\r\n%@", _rootView.messageLogTextView.text, message];
+	[_rootView.messageLogTextView scrollRangeToVisible:NSMakeRange(_rootView.messageLogTextView.text.length -1 , 1)];
 }
 
 

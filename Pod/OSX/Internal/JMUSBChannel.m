@@ -161,7 +161,7 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 
 -(BOOL)writeData:(NSData *)data
 {
-	if (_connectionState != JMUSBChannelStateConnected)
+	if (!data || data.length == 0 || _connectionState != JMUSBChannelStateConnected)
 	{
 		return NO;
 	}
@@ -247,7 +247,7 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 				[_delegate channel:self didReceiveData:data];
 			}
 		}
-		else if (aStream == _inputStream && eventCode == NSStreamEventEndEncountered)
+		else if (eventCode == NSStreamEventEndEncountered)
 		{
 			self.connectionState = JMUSBChannelStateDisconnected;
 		}

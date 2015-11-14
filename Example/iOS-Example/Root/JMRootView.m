@@ -58,6 +58,7 @@
 	
 	_messageLogTextView = [[UITextView alloc]init];
 	[_messageLogTextView setEditable:NO];
+	_messageLogTextView.font = [UIFont systemFontOfSize:16.0];
 	_messageLogTextView.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	[self addSubview:_messageLogTextView];
