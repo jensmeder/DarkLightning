@@ -247,7 +247,7 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 				[_delegate channel:self didReceiveData:data];
 			}
 		}
-		else if (eventCode == NSStreamEventEndEncountered)
+		else if (aStream == _inputStream && eventCode == NSStreamEventEndEncountered)
 		{
 			self.connectionState = JMUSBChannelStateDisconnected;
 		}

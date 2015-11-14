@@ -85,16 +85,6 @@
 	_connectionState = (JMRootViewModelConnectionState) _devicePort.state;
 	
 	[_delegate rootViewModel:self didChangeConnectionState:(JMRootViewModelConnectionState)state];
-	
-	if (state == JMMobileDevicePortStateConnected)
-	{
-		for (int i = 0; i < 50; i++)
-		{
-			NSData* data = [@"World" dataUsingEncoding:NSUTF8StringEncoding];
-			
-			[port writeData:[_packetProtocol encodePacket:data]];
-		}
-	}
 }
 
 -(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data

@@ -231,7 +231,7 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 				});
 			}
 		}
-		else if(eventCode == NSStreamEventEndEncountered)
+		else if(aStream == _inputStream && eventCode == NSStreamEventEndEncountered)
 		{
 			if (aStream.streamStatus == NSStreamStatusClosed || aStream.streamStatus == NSStreamStatusAtEnd)
 			{
