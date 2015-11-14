@@ -200,7 +200,15 @@
 -(void)rootViewModel:(id<JMRootViewModel>)viewModel didReceiveMessage:(NSString *)message
 {
 	_rootView.messageLogTextView.text = [NSString stringWithFormat:@"%@\r\n%@", _rootView.messageLogTextView.text, message];
-	[_rootView.messageLogTextView scrollRangeToVisible:NSMakeRange(_rootView.messageLogTextView.text.length -1 , 1)];
+	
+	[_rootView.messageLogTextView.layoutManager ensureLayoutForTextContainer:_rootView.messageLogTextView.textContainer];
+	
+	CGFloat yOffset = _rootView.messageLogTextView.contentSize.height - _rootView.messageLogTextView.frame.size.height;
+	
+	if (yOffset > -_rootView.messageLogTextView.contentInset.top)
+	{
+		[_rootView.messageLogTextView setContentOffset:CGPointMake(0.0, yOffset) animated:YES];
+	}
 }
 
 
