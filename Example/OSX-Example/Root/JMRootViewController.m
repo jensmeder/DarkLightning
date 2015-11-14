@@ -24,8 +24,6 @@
 #import "JMRootViewController.h"
 #import "JMRootView.h"
 
-static NSString* const JMRootViewControllerDeviceListHeaderTitle = @"DEVICES";
-
 @interface JMRootViewController () <NSOutlineViewDelegate, NSOutlineViewDataSource, JMRootViewModelDelegate, NSTextFieldDelegate>
 
 @end
@@ -37,7 +35,7 @@ static NSString* const JMRootViewControllerDeviceListHeaderTitle = @"DEVICES";
 	__weak JMRootView* _rootView;
 }
 
--(instancetype)initWithViewModel:(JMRootViewModel *)viewModel
+-(instancetype)initWithViewModel:(id<JMRootViewModel>)viewModel
 {
 	self = [super init];
 	
@@ -63,24 +61,44 @@ static NSString* const JMRootViewControllerDeviceListHeaderTitle = @"DEVICES";
 {
 	[super viewWillAppear];
 	
+	_rootView.messageTextField.placeholderString = @"Type a message here";
 	self.view.window.title = @"Disconnected";
+	
+	NSToolbar* toolbar = [[NSToolbar alloc]initWithIdentifier:@"Toolbar"];
+	
+	self.view.window.toolbar = toolbar;
 }
 
 #pragma mark - Root View Model Delegate
 
--(void)rootViewModel:(JMRootViewModel *)viewModel didConnectToDeviceWithName:(nonnull NSString *)name
+-(void)rootViewModel:(id<JMRootViewModel>)viewModel didConnectToDeviceWithName:(NSString *)name
 {
 	self.view.window.title = [NSString stringWithFormat:@"Connected to %@",name];
 }
 
--(void)rootViewModelDidDisconnectFromDevice:(JMRootViewModel *)viewModel
+-(void)rootViewModelDidDisconnectFromDevice:(id<JMRootViewModel>)viewModel
 {
 	self.view.window.title = @"Disconnected";
 }
 
--(void)rootViewModel:(JMRootViewModel *)viewModel didReceiveMessage:(NSString *)message
+-(void)rootViewModel:(id<JMRootViewModel>)viewModel didReceiveMessage:(NSString *)message
 {
-	_rootView.messageTextView.string = [NSString stringWithFormat:@"%@\r\n%@", _rootView.messageTextView.string, message];
+	NSDateComponents* components = [[NSCalendar currentCalendar]components:NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:[NSDate date]];
+	
+	NSString* timeString = [NSString stringWithFormat:@"%02ld:%02ld:%02ld\r\n", (long) components.hour, (long) components.minute, (long)components.second];
+	NSDictionary* timeAttributes = @{NSForegroundColorAttributeName: [NSColor lightGrayColor]};
+	NSAttributedString* time = [[NSAttributedString alloc]initWithString:timeString attributes:timeAttributes];
+	
+	[_rootView.messageTextView.textStorage appendAttributedString:time];
+	
+	NSMutableParagraphStyle* paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+
+	paragraphStyle.paragraphSpacing = 8.0f;
+	NSDictionary* messageAttributes = @{NSFontAttributeName: [NSFont systemFontOfSize:14.0], NSParagraphStyleAttributeName:paragraphStyle, NSBackgroundColorAttributeName: [NSColor lightGrayColor]};
+	NSAttributedString* messageString = [[NSAttributedString alloc]initWithString:[message stringByAppendingString:@"\r\n"] attributes:messageAttributes];
+	
+	[_rootView.messageTextView.textStorage appendAttributedString:messageString];
+	
 	[_rootView.messageTextView scrollToEndOfDocument:nil];
 }
 

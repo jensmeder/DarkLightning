@@ -26,8 +26,8 @@
 
 @interface JMRootViewController : NSViewController
 
-@property (nonnull, nonatomic, strong, readonly) JMRootViewModel* viewModel;
+@property (nonnull, nonatomic, strong, readonly) id<JMRootViewModel> viewModel;
 
--(nonnull instancetype)initWithViewModel:(nonnull JMRootViewModel*)viewModel;
+-(nonnull instancetype)initWithViewModel:(nonnull id<JMRootViewModel>)viewModel;
 
 @end

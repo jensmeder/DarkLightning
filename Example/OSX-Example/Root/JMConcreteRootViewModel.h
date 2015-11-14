@@ -21,41 +21,14 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "AppDelegate.h"
-#import "JMConcreteRootViewModel.h"
-#import "JMRootViewController.h"
+#import <Foundation/Foundation.h>
 #import <DarkLightning/JMUSBDeviceManager.h>
+#import "JMRootViewModel.h"
 
-@implementation AppDelegate
-{
-	@private
-	
-	NSWindow* _mainWindow;
-	JMUSBDeviceManager* _deviceManager;
-	NSProcessInfo* _processInfo;
-}
+@interface JMConcreteRootViewModel : NSObject<JMRootViewModel>
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-	_deviceManager = [[JMUSBDeviceManager alloc]init];
-	
-	JMConcreteRootViewModel* viewModel = [[JMConcreteRootViewModel alloc]initWithDeviceManager:_deviceManager];
-	JMRootViewController* viewController = [[JMRootViewController alloc]initWithViewModel:viewModel];
-	
-	_mainWindow = [[NSWindow alloc]initWithContentRect:NSMakeRect(40, -500, 600, 400) styleMask:NSTitledWindowMask|NSClosableWindowMask|NSMiniaturizableWindowMask backing:NSBackingStoreBuffered defer:YES];
-	_mainWindow.contentViewController = viewController;
-	
-	[_mainWindow makeKeyAndOrderFront:nil];
-	
-	[_deviceManager start];
-	
-	_processInfo = [[NSProcessInfo alloc]init];
-	[_processInfo beginActivityWithOptions:NSActivityUserInitiated reason:@"asd"];
-}
+@property (nonnull, nonatomic, strong, readonly) JMUSBDeviceManager* deviceManager;
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification
-{
-	[_deviceManager stop];
-}
+-(nonnull instancetype)initWithDeviceManager:(nonnull JMUSBDeviceManager*)deviceManager;
 
 @end

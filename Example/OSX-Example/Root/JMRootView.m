@@ -28,6 +28,7 @@
 	@private
 	
 	NSScrollView* _scrollView;
+	NSView* _borderView;
 }
 
 -(instancetype)initWithFrame:(NSRect)frameRect
@@ -36,36 +37,83 @@
 	
 	if (self)
 	{
+		CALayer *viewLayer = [CALayer layer];
+		[viewLayer setBackgroundColor:CGColorCreateGenericRGB(1.0, 1.0, 1.0, 1.0)];
+		[self setWantsLayer:YES];
+		[self setLayer:viewLayer];
+		
 		[self addSubviews];
 	}
 	
 	return self;
 }
 
+-(instancetype)init
+{
+	return [self initWithFrame:NSZeroRect];
+}
+
+-(NSTextField*) buildTextField
+{
+	NSTextField* textField = [[NSTextField alloc]init];
+	
+	textField.translatesAutoresizingMaskIntoConstraints = NO;
+	textField.focusRingType = NSFocusRingTypeNone;
+	textField.bezeled = NO;
+	textField.font = [NSFont systemFontOfSize:14.0];
+
+	[textField setContentHuggingPriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationVertical];
+	
+	return textField;
+}
+
+-(NSTextView*) buildTextView
+{
+	NSTextView* textView = [[NSTextView alloc] init];
+	
+	[textView setEditable:NO];
+	[textView setVerticallyResizable:YES];
+	[textView setHorizontallyResizable:YES];
+	textView.font = [NSFont systemFontOfSize:14.0];
+	
+	return textView;
+}
+
+-(NSScrollView*) buildScrollView:(NSView*)documentView
+{
+	NSScrollView* scrollView = [[NSScrollView alloc]init];
+	
+	scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+	scrollView.hasVerticalScroller = YES;
+	[scrollView setContentCompressionResistancePriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
+	scrollView.contentView.autoresizingMask = NSViewHeightSizable;
+	scrollView.documentView = documentView;
+	
+	return scrollView;
+}
+
+-(NSView*) buildBorderView
+{
+	NSView* view = [[NSView alloc]init];
+	view.translatesAutoresizingMaskIntoConstraints = NO;
+	CALayer *viewLayer = [CALayer layer];
+	[viewLayer setBackgroundColor:CGColorCreateGenericRGB(0.8, 0.8, 0.8, 1.0)];
+	[view setWantsLayer:YES];
+	[view setLayer:viewLayer];
+	
+	return view;
+}
+
 -(void) addSubviews
 {
-	_messageTextField = [[NSTextField alloc]init];
-	_messageTextField.translatesAutoresizingMaskIntoConstraints = NO;
-	_messageTextField.focusRingType = NSFocusRingTypeNone;
-	_messageTextField.bezeled = YES;
-	_messageTextField.bezelStyle = NSTextFieldRoundedBezel;
-	[_messageTextField setContentHuggingPriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationVertical];
-	
-	_scrollView = [[NSScrollView alloc]init];
-	_scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-	_scrollView.hasVerticalScroller = YES;
-	[_scrollView setContentCompressionResistancePriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
-	
-	_scrollView.contentView.autoresizingMask = NSViewHeightSizable;
-
-	_messageTextView = [[NSTextView alloc] init];
-	[_messageTextView setEditable:NO];
-	[_messageTextView setVerticallyResizable:YES];
-	[_messageTextView setHorizontallyResizable:YES];
+	_messageTextField = [self buildTextField];
+	_messageTextView = [self buildTextView];
+	_scrollView = [self buildScrollView:_messageTextView];
+	_borderView = [self buildBorderView];
 	
 	[self addSubview:_messageTextField];
 	[self addSubview:_scrollView];
-	_scrollView.documentView = _messageTextView;
+	[self addSubview:_borderView];
 	
 	[self addSubviewConstraints];
 }
@@ -74,15 +122,19 @@
 {
 	NSMutableArray<NSLayoutConstraint*>* constraints = [NSMutableArray array];
 	
-	NSArray* horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-5-[_messageTextField]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_messageTextField)];
+	NSArray* horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-20-[_messageTextField]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_messageTextField)];
 	
 	[constraints addObjectsFromArray:horizontalConstraints];
 	
-	horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-5-[_scrollView]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_scrollView)];
+	horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[_scrollView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_scrollView)];
 	
 	[constraints addObjectsFromArray:horizontalConstraints];
 	
-	NSArray* verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[_scrollView]-5-[_messageTextField]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_messageTextField, _scrollView)];
+	horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-20-[_borderView]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_borderView)];
+	
+	[constraints addObjectsFromArray:horizontalConstraints];
+	
+	NSArray* verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_scrollView]-5-[_borderView(1)]-20-[_messageTextField]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_messageTextField, _scrollView, _borderView)];
 	
 	[constraints addObjectsFromArray:verticalConstraints];
 	

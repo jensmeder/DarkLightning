@@ -21,16 +21,16 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "JMRootViewModel.h"
+#import "JMConcreteRootViewModel.h"
 #import <DarkLightning/JMUSBDeviceConnection.h>
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
 #import <DarkLightning/JMSimulatorConnection.h>
 
-@interface JMRootViewModel () <JMUSBDeviceManagerDelegate, JMDeviceConnectionDelegate>
+@interface JMConcreteRootViewModel () <JMUSBDeviceManagerDelegate, JMDeviceConnectionDelegate>
 
 @end
 
-@implementation JMRootViewModel
+@implementation JMConcreteRootViewModel
 {
 	@private
 	
@@ -39,6 +39,8 @@
 	
 	id<JMDataPacketProtocol> _packetProtocol;
 }
+
+@synthesize delegate = _delegate;
 
 -(instancetype)initWithDeviceManager:(JMUSBDeviceManager *)deviceManager
 {
@@ -119,6 +121,8 @@
 		{
 			[_delegate rootViewModel:self didConnectToDeviceWithName:@"Simulator"];
 		}
+		
+		[self sendMessage:[NSString stringWithFormat:@"Hello, I am %@",[[NSHost currentHost] localizedName]]];
 	}
 	else if(state == JMDeviceConnectionStateDisconnected)
 	{

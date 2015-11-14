@@ -12,7 +12,7 @@
 		B4134E6B1BEF83430034DFB6 /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4134E6A1BEF83430034DFB6 /* JMConcreteRootViewModel.m */; };
 		B456C7841BEF616000444BEC /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B456C7831BEF616000444BEC /* JMRootView.m */; };
 		B456C7851BEF6E0800444BEC /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3B81BEE089900C4EB0A /* JMRootView.m */; };
-		B456C7871BEF6E0800444BEC /* JMRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3AD1BEDF52300C4EB0A /* JMRootViewModel.m */; };
+		B456C7871BEF6E0800444BEC /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3AD1BEDF52300C4EB0A /* JMConcreteRootViewModel.m */; };
 		B456C7881BEF6E0800444BEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D787201BED4F3F002C09B0 /* main.m */; };
 		B456C7891BEF6E0800444BEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7871D1BED4F3F002C09B0 /* AppDelegate.m */; };
 		B47B26471BEF6E8D002DFD7D /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B419E3B31BEDF58C00C4EB0A /* JMRootViewController.m */; };
@@ -33,14 +33,15 @@
 		83E93529BDD0C342FBA8938D /* libPods-DarkLightning.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DarkLightning.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4134E691BEF83430034DFB6 /* JMConcreteRootViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMConcreteRootViewModel.h; sourceTree = "<group>"; };
 		B4134E6A1BEF83430034DFB6 /* JMConcreteRootViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMConcreteRootViewModel.m; sourceTree = "<group>"; };
-		B419E3AC1BEDF52300C4EB0A /* JMRootViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootViewModel.h; sourceTree = "<group>"; };
-		B419E3AD1BEDF52300C4EB0A /* JMRootViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootViewModel.m; sourceTree = "<group>"; };
+		B419E3AC1BEDF52300C4EB0A /* JMConcreteRootViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMConcreteRootViewModel.h; sourceTree = "<group>"; };
+		B419E3AD1BEDF52300C4EB0A /* JMConcreteRootViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMConcreteRootViewModel.m; sourceTree = "<group>"; };
 		B419E3B21BEDF58C00C4EB0A /* JMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootViewController.h; sourceTree = "<group>"; };
 		B419E3B31BEDF58C00C4EB0A /* JMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootViewController.m; sourceTree = "<group>"; };
 		B419E3B71BEE089900C4EB0A /* JMRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootView.h; sourceTree = "<group>"; };
 		B419E3B81BEE089900C4EB0A /* JMRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootView.m; sourceTree = "<group>"; };
 		B456C7821BEF616000444BEC /* JMRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootView.h; sourceTree = "<group>"; };
 		B456C7831BEF616000444BEC /* JMRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMRootView.m; sourceTree = "<group>"; };
+		B459C9021BF793C9003EB7B3 /* JMRootViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMRootViewModel.h; sourceTree = "<group>"; };
 		B486395813A102E697D0DEA7 /* Pods-iOS-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Example/Pods-iOS-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D786FF1BED4EF8002C09B0 /* iOS-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D787021BED4EF8002C09B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,8 +115,9 @@
 				B419E3B81BEE089900C4EB0A /* JMRootView.m */,
 				B419E3B21BEDF58C00C4EB0A /* JMRootViewController.h */,
 				B419E3B31BEDF58C00C4EB0A /* JMRootViewController.m */,
-				B419E3AC1BEDF52300C4EB0A /* JMRootViewModel.h */,
-				B419E3AD1BEDF52300C4EB0A /* JMRootViewModel.m */,
+				B419E3AC1BEDF52300C4EB0A /* JMConcreteRootViewModel.h */,
+				B419E3AD1BEDF52300C4EB0A /* JMConcreteRootViewModel.m */,
+				B459C9021BF793C9003EB7B3 /* JMRootViewModel.h */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -409,7 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B456C7851BEF6E0800444BEC /* JMRootView.m in Sources */,
-				B456C7871BEF6E0800444BEC /* JMRootViewModel.m in Sources */,
+				B456C7871BEF6E0800444BEC /* JMConcreteRootViewModel.m in Sources */,
 				B47B26471BEF6E8D002DFD7D /* JMRootViewController.m in Sources */,
 				B456C7881BEF6E0800444BEC /* main.m in Sources */,
 				B456C7891BEF6E0800444BEC /* AppDelegate.m in Sources */,
