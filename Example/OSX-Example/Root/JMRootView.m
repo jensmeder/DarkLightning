@@ -74,6 +74,7 @@
 	[textView setEditable:NO];
 	[textView setVerticallyResizable:YES];
 	[textView setHorizontallyResizable:YES];
+	textView.textContainerInset = NSMakeSize(20, 20);
 	textView.font = [NSFont systemFontOfSize:14.0];
 	
 	return textView;

@@ -199,7 +199,21 @@
 
 -(void)rootViewModel:(id<JMRootViewModel>)viewModel didReceiveMessage:(NSString *)message
 {
-	_rootView.messageLogTextView.text = [NSString stringWithFormat:@"%@\r\n%@", _rootView.messageLogTextView.text, message];
+	NSDateComponents* components = [[NSCalendar currentCalendar]components:NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:[NSDate date]];
+	
+	NSString* timeString = [NSString stringWithFormat:@"%02ld:%02ld:%02ld\r\n", (long) components.hour, (long) components.minute, (long)components.second];
+	NSDictionary* timeAttributes = @{NSForegroundColorAttributeName: [UIColor lightGrayColor]};
+	NSAttributedString* time = [[NSAttributedString alloc]initWithString:timeString attributes:timeAttributes];
+	
+	[_rootView.messageLogTextView.textStorage appendAttributedString:time];
+	
+	NSMutableParagraphStyle* paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+	
+	paragraphStyle.paragraphSpacing = 8.0f;
+	NSDictionary* messageAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:16.0], NSParagraphStyleAttributeName:paragraphStyle};
+	NSAttributedString* messageString = [[NSAttributedString alloc]initWithString:[message stringByAppendingString:@"\r\n"] attributes:messageAttributes];
+	
+	[_rootView.messageLogTextView.textStorage appendAttributedString:messageString];
 	
 	[_rootView.messageLogTextView.layoutManager ensureLayoutForTextContainer:_rootView.messageLogTextView.textContainer];
 	
@@ -207,7 +221,7 @@
 	
 	if (yOffset > -_rootView.messageLogTextView.contentInset.top)
 	{
-		[_rootView.messageLogTextView setContentOffset:CGPointMake(0.0, yOffset) animated:YES];
+		[_rootView.messageLogTextView setContentOffset:CGPointMake(_rootView.messageLogTextView.contentOffset.x, yOffset) animated:YES];
 	}
 }
 

@@ -94,7 +94,7 @@
 	NSMutableParagraphStyle* paragraphStyle = [[NSMutableParagraphStyle alloc]init];
 
 	paragraphStyle.paragraphSpacing = 8.0f;
-	NSDictionary* messageAttributes = @{NSFontAttributeName: [NSFont systemFontOfSize:14.0], NSParagraphStyleAttributeName:paragraphStyle, NSBackgroundColorAttributeName: [NSColor lightGrayColor]};
+	NSDictionary* messageAttributes = @{NSFontAttributeName: [NSFont systemFontOfSize:14.0], NSParagraphStyleAttributeName:paragraphStyle};
 	NSAttributedString* messageString = [[NSAttributedString alloc]initWithString:[message stringByAppendingString:@"\r\n"] attributes:messageAttributes];
 	
 	[_rootView.messageTextView.textStorage appendAttributedString:messageString];

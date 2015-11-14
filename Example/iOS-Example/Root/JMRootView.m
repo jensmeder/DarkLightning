@@ -31,7 +31,7 @@
 	
 	if (self)
 	{
-		self.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
+		self.backgroundColor = [UIColor whiteColor];
 		
 		[self addSubviews];
 	}
@@ -52,14 +52,16 @@
 	_sendMessageTextField.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	_sendMessageTextField.backgroundColor = [UIColor whiteColor];
-	_sendMessageTextField.borderStyle = UITextBorderStyleRoundedRect;
+	_sendMessageTextField.borderStyle = UITextBorderStyleNone;
 	_sendMessageTextField.placeholder = @"Your message";
 	_sendMessageTextField.font = [UIFont systemFontOfSize:16.0];
 	
 	_messageLogTextView = [[UITextView alloc]init];
 	[_messageLogTextView setEditable:NO];
 	_messageLogTextView.font = [UIFont systemFontOfSize:16.0];
+	_messageLogTextView.textContainerInset = UIEdgeInsetsMake(20, 20, 0, 20);
 	_messageLogTextView.translatesAutoresizingMaskIntoConstraints = NO;
+	
 	
 	[self addSubview:_messageLogTextView];
 	[self addSubview:_sendMessageTextField];
