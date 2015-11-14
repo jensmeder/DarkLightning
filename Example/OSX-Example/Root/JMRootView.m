@@ -24,6 +24,11 @@
 #import "JMRootView.h"
 
 @implementation JMRootView
+{
+	@private
+	
+	NSScrollView* _scrollView;
+}
 
 -(instancetype)initWithFrame:(NSRect)frameRect
 {
@@ -39,11 +44,28 @@
 
 -(void) addSubviews
 {
-	_deviceListView = [[NSOutlineView alloc]init];
-	_deviceListView.translatesAutoresizingMaskIntoConstraints = NO;
-	_deviceListView.columnAutoresizingStyle = NSTableViewUniformColumnAutoresizingStyle;
+	_messageTextField = [[NSTextField alloc]init];
+	_messageTextField.translatesAutoresizingMaskIntoConstraints = NO;
+	_messageTextField.focusRingType = NSFocusRingTypeNone;
+	_messageTextField.bezeled = YES;
+	_messageTextField.bezelStyle = NSTextFieldRoundedBezel;
+	[_messageTextField setContentHuggingPriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationVertical];
 	
-	[self addSubview:_deviceListView];
+	_scrollView = [[NSScrollView alloc]init];
+	_scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+	_scrollView.hasVerticalScroller = YES;
+	[_scrollView setContentCompressionResistancePriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
+	
+	_scrollView.contentView.autoresizingMask = NSViewHeightSizable;
+
+	_messageTextView = [[NSTextView alloc] init];
+	[_messageTextView setEditable:NO];
+	[_messageTextView setVerticallyResizable:YES];
+	[_messageTextView setHorizontallyResizable:YES];
+	
+	[self addSubview:_messageTextField];
+	[self addSubview:_scrollView];
+	_scrollView.documentView = _messageTextView;
 	
 	[self addSubviewConstraints];
 }
@@ -52,22 +74,17 @@
 {
 	NSMutableArray<NSLayoutConstraint*>* constraints = [NSMutableArray array];
 	
-	// Content Hugging and compression
-	
-	[_deviceListView setContentHuggingPriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationVertical];
-	[_deviceListView setContentHuggingPriority:NSLayoutPriorityDefaultLow forOrientation:NSLayoutConstraintOrientationHorizontal];
-	
-	// Vertical constraints
-	
-	NSArray* verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_deviceListView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_deviceListView)];
-	
-	[constraints addObjectsFromArray:verticalConstraints];
-	
-	// Horizontal constraints
-	
-	NSArray* horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[_deviceListView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_deviceListView)];
+	NSArray* horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-5-[_messageTextField]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_messageTextField)];
 	
 	[constraints addObjectsFromArray:horizontalConstraints];
+	
+	horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-5-[_scrollView]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_scrollView)];
+	
+	[constraints addObjectsFromArray:horizontalConstraints];
+	
+	NSArray* verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[_scrollView]-5-[_messageTextField]-5-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_messageTextField, _scrollView)];
+	
+	[constraints addObjectsFromArray:verticalConstraints];
 	
 	// Add constraints
 	

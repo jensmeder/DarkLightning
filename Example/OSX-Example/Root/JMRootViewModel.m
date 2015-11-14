@@ -59,23 +59,34 @@
 	return self;
 }
 
--(NSUInteger)numberOfDevices
+-(BOOL)sendMessage:(NSString *)message
 {
-	return _deviceManager.attachedDevices.count;
-}
-
--(NSString *)nameOfDeviceAtIndex:(NSUInteger)index
-{
-	return _deviceManager.attachedDevices[index].serialNumber;
+	NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
+	data = [_packetProtocol encodePacket:data];
+	
+	if (_deviceConnection.state == JMDeviceConnectionStateConnected)
+	{
+		[_deviceConnection writeData:data];
+		
+		return YES;
+	}
+	else if(_simulatorConnection.state == JMDeviceConnectionStateConnected)
+	{
+		[_simulatorConnection writeData:data];
+		
+		return YES;
+	}
+	
+	return NO;
 }
 
 #pragma mark - Device Manager Delegate
 
 -(void)deviceManager:(JMUSBDeviceManager *)manager deviceDidAttach:(JMUSBDevice *)device
 {
-	[_delegate rootViewModel:self didAttachDeviceAtIndex:0];
 	if (!_deviceConnection)
 	{
+		[_simulatorConnection disconnect];
 		_deviceConnection = [[JMUSBDeviceConnection alloc]initWithDevice:device andPort:2347];
 		_deviceConnection.delegate = self;
 		[_deviceConnection connect];
@@ -84,12 +95,11 @@
 
 -(void)deviceManager:(JMUSBDeviceManager *)manager deviceDidDetach:(JMUSBDevice *)device
 {
-	[_delegate rootViewModel:self didDetachDeviceAtIndex:0];
-	
 	if ([_deviceConnection.device isEqual:device])
 	{
-		_deviceConnection.delegate = nil;
+		[_simulatorConnection connect];
 		[_deviceConnection disconnect];
+		_deviceConnection.delegate = nil;
 		[_packetProtocol reset];
 		_deviceConnection = nil;
 	}
@@ -101,12 +111,18 @@
 {
 	if(state == JMDeviceConnectionStateConnected)
 	{
-		for (int i = 0; i < 50; i++)
+		if (connection == _deviceConnection)
 		{
-			NSData* data = [@"World" dataUsingEncoding:NSUTF8StringEncoding];
-			
-			[connection writeData:[_packetProtocol encodePacket:data]];
+			[_delegate rootViewModel:self didConnectToDeviceWithName:_deviceConnection.device.serialNumber];
 		}
+		else
+		{
+			[_delegate rootViewModel:self didConnectToDeviceWithName:@"Simulator"];
+		}
+	}
+	else if(state == JMDeviceConnectionStateDisconnected)
+	{
+		[_delegate rootViewModelDidDisconnectFromDevice:self];
 	}
 	else
 	{
@@ -125,7 +141,8 @@
 	
 	for (NSData* packet in packets)
 	{
-		NSLog(@"%@",[[NSString alloc]initWithData:packet encoding:NSUTF8StringEncoding]);
+		NSString* message = [[NSString alloc]initWithData:packet encoding:NSUTF8StringEncoding];
+		[_delegate rootViewModel:self didReceiveMessage:message];
 	}
 	
 }

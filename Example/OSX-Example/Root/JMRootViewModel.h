@@ -28,19 +28,19 @@
 
 @protocol JMRootViewModelDelegate <NSObject>
 
--(void) rootViewModel:(nonnull JMRootViewModel*)viewModel didAttachDeviceAtIndex:(NSUInteger)index;
--(void) rootViewModel:(nonnull JMRootViewModel*)viewModel didDetachDeviceAtIndex:(NSUInteger)index;
+-(void) rootViewModel:(nonnull JMRootViewModel*)viewModel didConnectToDeviceWithName:(nonnull NSString*)name;
+-(void) rootViewModelDidDisconnectFromDevice:(nonnull JMRootViewModel*)viewModel;
+-(void) rootViewModel:(nonnull JMRootViewModel*)viewModel didReceiveMessage:(nonnull NSString*)message;
 
 @end
 
 @interface JMRootViewModel : NSObject
 
-@property (readonly) NSUInteger numberOfDevices;
 @property (nonatomic, weak) id<JMRootViewModelDelegate> delegate;
 @property (nonnull, nonatomic, strong, readonly) JMUSBDeviceManager* deviceManager;
 
 -(nonnull instancetype)initWithDeviceManager:(nonnull JMUSBDeviceManager*)deviceManager;
 
--(nullable NSString*)nameOfDeviceAtIndex:(NSUInteger)index;
+-(BOOL) sendMessage:(nonnull NSString*)message;
 
 @end

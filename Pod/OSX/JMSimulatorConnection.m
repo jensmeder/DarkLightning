@@ -173,6 +173,11 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 				NSInteger length = [_inputStream read:buffer maxLength:JMSimulatorConnectionBufferSize];
 				[data appendBytes:buffer length:length];
 			}
+			
+			if (!data.length)
+			{
+				return;
+			}
 						   
 			if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
 			{
@@ -182,7 +187,7 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 				});
 			}
 		}
-		else if (eventCode == NSStreamEventEndEncountered)
+		else if (aStream == _inputStream && eventCode == NSStreamEventEndEncountered)
 		{
 			self.state = JMDeviceConnectionStateDisconnected;
 		}

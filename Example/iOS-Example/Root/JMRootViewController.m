@@ -50,7 +50,9 @@
 	{
 		_viewModel = viewModel;
 		_viewModel.delegate = self;
-		_connectionStates = @[@"Disconnected", @"Waiting for connection", @"Connected"];
+		_connectionStates = @[@"Disconnected",
+							  @"Waiting for connection",
+							  @"Connected"];
 	}
 	
 	return self;
@@ -66,8 +68,6 @@
 	_rootView.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	[containerView addSubview:rootView];
-	
-	
 	
 	NSMutableArray<NSLayoutConstraint*>* constraints = [NSMutableArray array];
 	

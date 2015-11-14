@@ -25,6 +25,7 @@
 
 @interface JMRootView : NSView
 
-@property (nonnull, nonatomic, strong, readonly) NSOutlineView* deviceListView;
+@property (nonnull, nonatomic, strong, readonly) NSTextView* messageTextView;
+@property (nonnull, nonatomic, strong, readonly) NSTextField* messageTextField;
 
 @end

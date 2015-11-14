@@ -26,7 +26,7 @@
 
 static NSString* const JMRootViewControllerDeviceListHeaderTitle = @"DEVICES";
 
-@interface JMRootViewController () <NSOutlineViewDelegate, NSOutlineViewDataSource, JMRootViewModelDelegate>
+@interface JMRootViewController () <NSOutlineViewDelegate, NSOutlineViewDataSource, JMRootViewModelDelegate, NSTextFieldDelegate>
 
 @end
 
@@ -52,18 +52,10 @@ static NSString* const JMRootViewControllerDeviceListHeaderTitle = @"DEVICES";
 
 -(void)loadView
 {
-	JMRootView* rootView = [[JMRootView alloc]initWithFrame:NSMakeRect(0, 0, 400, 400)];
-	
-	
-	
-	
-	
+	JMRootView* rootView = [[JMRootView alloc]initWithFrame:NSMakeRect(0, 0, 600, 400)];
 	_rootView = rootView;
-	
-	
-	
-	
-	
+	_rootView.messageTextField.delegate = self;
+
 	self.view = rootView;
 }
 
@@ -71,103 +63,34 @@ static NSString* const JMRootViewControllerDeviceListHeaderTitle = @"DEVICES";
 {
 	[super viewWillAppear];
 	
-	NSTableColumn *tc = [[NSTableColumn alloc] initWithIdentifier:@"blah"];
-
-	_rootView.deviceListView.indentationPerLevel = 0;
-	
-	_rootView.deviceListView.delegate = self;
-	_rootView.deviceListView.dataSource = self;
-	
-	[_rootView.deviceListView addTableColumn:tc];
-	
-	[_rootView.deviceListView sizeLastColumnToFit];
-	_rootView.deviceListView.floatsGroupRows = NO;
-	
-	[_rootView.deviceListView reloadData];
-	
-	[_rootView.deviceListView.headerView setNeedsDisplay:YES];
-	
-	[_rootView.deviceListView expandItem:JMRootViewControllerDeviceListHeaderTitle];
+	self.view.window.title = @"Disconnected";
 }
 
 #pragma mark - Root View Model Delegate
 
--(void)rootViewModel:(JMRootViewModel *)viewModel didAttachDeviceAtIndex:(NSUInteger)index
+-(void)rootViewModel:(JMRootViewModel *)viewModel didConnectToDeviceWithName:(nonnull NSString *)name
 {
-	[_rootView.deviceListView reloadData];
+	self.view.window.title = [NSString stringWithFormat:@"Connected to %@",name];
 }
 
--(void)rootViewModel:(JMRootViewModel *)viewModel didDetachDeviceAtIndex:(NSUInteger)index
+-(void)rootViewModelDidDisconnectFromDevice:(JMRootViewModel *)viewModel
 {
-	[_rootView.deviceListView reloadData];
+	self.view.window.title = @"Disconnected";
 }
 
-#pragma mark - Table View Data source
-
--(BOOL)outlineView:(NSOutlineView *)outlineView shouldSelectItem:(id)item
+-(void)rootViewModel:(JMRootViewModel *)viewModel didReceiveMessage:(NSString *)message
 {
-	return ![item isEqualToString:JMRootViewControllerDeviceListHeaderTitle];
+	_rootView.messageTextView.string = [NSString stringWithFormat:@"%@\r\n%@", _rootView.messageTextView.string, message];
+	[_rootView.messageTextView scrollToEndOfDocument:nil];
 }
 
-- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
+#pragma mark - Text Field Delegate
+
+-(void)controlTextDidEndEditing:(NSNotification *)obj
 {
-	if (!item)
-	{
-		return JMRootViewControllerDeviceListHeaderTitle;
-	}
+	[_viewModel sendMessage:_rootView.messageTextField.stringValue];
 	
-	return [_viewModel nameOfDeviceAtIndex:0];
-}
-
-- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
-{
-	if ([item isEqualToString:JMRootViewControllerDeviceListHeaderTitle])
-	{
-		return YES;
-	}
-	
-	return NO;
-}
-
--(BOOL)outlineView:(NSOutlineView *)outlineView shouldShowOutlineCellForItem:(id)item
-{
-	return NO;
-}
-
--(BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item
-{
-	if ([item isEqualToString:JMRootViewControllerDeviceListHeaderTitle])
-	{
-		return YES;
-	}
-	
-	return NO;
-}
-
-- (NSInteger) outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
-{
-	if ([item isEqualToString:JMRootViewControllerDeviceListHeaderTitle])
-	{
-		return _viewModel.numberOfDevices;
-	}
-	
-	return 1;
-}
-
--(NSTableRowView *)outlineView:(NSOutlineView *)outlineView rowViewForItem:(id)item
-{
-	return [[NSTableRowView alloc]init];
-}
-
--(NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
-{
-	NSTextField *result = [[NSTextField alloc]init];
-	result.bordered = NO;
-	result.backgroundColor = [NSColor clearColor];
-	
-	result.stringValue = item;
-	
-	return result;
+	_rootView.messageTextField.stringValue = @"";
 }
 
 @end
