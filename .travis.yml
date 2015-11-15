@@ -1,4 +1,4 @@
 language: objective-c
 xcode_project: DarkLightning.xcodeproj
-xcode_scheme: "DarkLightning OSXTests"
+xcode_scheme: "DarkLightning-OSX"
 osx_image: xcode7.1
