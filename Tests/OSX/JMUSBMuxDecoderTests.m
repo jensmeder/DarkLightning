@@ -21,11 +21,11 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "Kiwi.h"
+#import <Kiwi/Kiwi.h>
 #import "JMUSBMuxDecoder.h"
 #import "JMUSBMuxPacketFactory.h"
 
-SPEC_BEGIN(SpecName)
+SPEC_BEGIN(JMUSBMuxDecoderTests)
 
 describe(@"JMUSBMuxDecoder",
 ^{

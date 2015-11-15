@@ -51,6 +51,10 @@
 		B427FDB71BF8E41C005DC0B8 /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D9D1BF8E0A800DA2019 /* JMConcreteRootViewModel.m */; };
 		B427FDB81BF8E41C005DC0B8 /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D9F1BF8E0A800DA2019 /* JMRootView.m */; };
 		B427FDB91BF8E41C005DC0B8 /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238DA11BF8E0A800DA2019 /* JMRootViewController.m */; };
+		B427FDBF1BF8E881005DC0B8 /* JMUSBMuxPacketFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D0B1BF8D50400DA2019 /* JMUSBMuxPacketFactory.m */; };
+		B427FDC21BF8E980005DC0B8 /* JMUSBMuxDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D091BF8D50400DA2019 /* JMUSBMuxDecoderTests.m */; };
+		B427FDCB1BF8EDF6005DC0B8 /* Kiwi.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B427FDCC1BF8EDFE005DC0B8 /* Kiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +86,27 @@
 			remoteGlobalIDString = B4238CD11BF8C92A00DA2019;
 			remoteInfo = "DarkLightning OSX";
 		};
+		B427FDC01BF8E94E005DC0B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4238CB91BF8C8F200DA2019 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4238D2D1BF8D72600DA2019;
+			remoteInfo = "OSX Example";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B427FDC91BF8ED95005DC0B8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B427FDCB1BF8EDF6005DC0B8 /* Kiwi.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B4238CD21BF8C92A00DA2019 /* DarkLightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +173,7 @@
 		B4238DAD1BF8E0E000DA2019 /* JMDataPacketProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMDataPacketProtocol.h; path = Source/PacketProtocol/JMDataPacketProtocol.h; sourceTree = SOURCE_ROOT; };
 		B4238DAE1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSimpleDataPacketProtocol.h; path = Source/PacketProtocol/JMSimpleDataPacketProtocol.h; sourceTree = SOURCE_ROOT; };
 		B4238DAF1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMSimpleDataPacketProtocol.m; path = Source/PacketProtocol/JMSimpleDataPacketProtocol.m; sourceTree = SOURCE_ROOT; };
+		B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kiwi.framework; path = Libraries/Kiwi/Kiwi.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4238CDC1BF8C92A00DA2019 /* DarkLightning.framework in Frameworks */,
+				B427FDCC1BF8EDFE005DC0B8 /* Kiwi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +228,7 @@
 		B4238CB81BF8C8F200DA2019 = {
 			isa = PBXGroup;
 			children = (
+				B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */,
 				B4238CD31BF8C92A00DA2019 /* OSX */,
 				B4238CEF1BF8C94200DA2019 /* iOS */,
 				B4238D141BF8D70900DA2019 /* iOS Example */,
@@ -464,11 +491,13 @@
 				B4238CD71BF8C92A00DA2019 /* Sources */,
 				B4238CD81BF8C92A00DA2019 /* Frameworks */,
 				B4238CD91BF8C92A00DA2019 /* Resources */,
+				B427FDC91BF8ED95005DC0B8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B4238CDE1BF8C92A00DA2019 /* PBXTargetDependency */,
+				B427FDC11BF8E94E005DC0B8 /* PBXTargetDependency */,
 			);
 			name = "DarkLightning OSXTests";
 			productName = "DarkLightning-OSXTests";
@@ -670,6 +699,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B427FDBF1BF8E881005DC0B8 /* JMUSBMuxPacketFactory.m in Sources */,
+				B427FDC21BF8E980005DC0B8 /* JMUSBMuxDecoderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +766,11 @@
 			isa = PBXTargetDependency;
 			target = B4238CD11BF8C92A00DA2019 /* DarkLightning OSX */;
 			targetProxy = B4238DB61BF8E16C00DA2019 /* PBXContainerItemProxy */;
+		};
+		B427FDC11BF8E94E005DC0B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4238D2D1BF8D72600DA2019 /* OSX Example */;
+			targetProxy = B427FDC01BF8E94E005DC0B8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -851,6 +887,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries",
+				);
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Source/**";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/OSX/Info.plist";
@@ -872,6 +912,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries",
+				);
 				FRAMEWORK_VERSION = A;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Source/**";
 				INFOPLIST_FILE = "$(SRCROOT)/Source/OSX/Info.plist";
@@ -889,6 +933,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries",
+					"$(PROJECT_DIR)/Libraries/Kiwi",
+				);
 				INFOPLIST_FILE = Tests/OSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.jensmeder.DarkLightning-OSXTests";
@@ -900,6 +949,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries",
+					"$(PROJECT_DIR)/Libraries/Kiwi",
+				);
 				INFOPLIST_FILE = Tests/OSX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.jensmeder.DarkLightning-OSXTests";
