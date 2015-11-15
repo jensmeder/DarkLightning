@@ -9,7 +9,8 @@ DarkLightning is a lightweight Objective-C library to allow data transmission be
 3. [Installation](README.md#3-installation)
 4. [Usage](README.md#4-usage)
 5. [Packet Protocols](README.md#5-packet-protocols)
-6. [License](README.md#6-license)
+6. [Example](README.md#6-example)
+7. [License](README.md#7-license)
 
 ## 1. Features
 
@@ -200,7 +201,13 @@ JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]
 }
 ```
 
-## 6. License
+## 6. Example
+
+The Example (see _Example_ folder) is a simple messenger that uses DarkLightning to send text messages from iOS to OSX and vice versa. 
+
+_Note_: The iOS application needs to be launched before the OSX part. The OSX part will try to connect to the first device that has been attached via USB. If there are no attached devices it tries to connect to the iOS Simulator.
+
+## 7. License
 
 The MIT License (MIT)
 
