@@ -2,6 +2,17 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.2.1
+
+### Additions
+
+* Travis CI integration added
+* More unit tests added
+
+### Changes
+
+* Restructured repository to support independent build
+
 ## 0.2.0
 
 ### Additions
