@@ -40,12 +40,22 @@ static NSString* const JMUSBDeviceDictionaryKeyLocationID 		= @"LocationID";
 
 -(instancetype)initWithPList:(NSDictionary *)plist
 {
+	if (!plist)
+	{
+		return nil;
+	}
+	
+	NSDictionary* properties = plist[JMUSBDeviceDictionaryKeyProperties];
+	
+	if (!properties || !properties[JMUSBDeviceDictionaryKeyDeviceID])
+	{
+		return nil;
+	}
+	
 	self = [super init];
 	
 	if (self)
 	{
-		NSDictionary* properties = plist[JMUSBDeviceDictionaryKeyProperties];
-		
 		_deviceID			= properties[JMUSBDeviceDictionaryKeyDeviceID];
 		_serialNumber		= properties[JMUSBDeviceDictionaryKeySerialNumber];
 		_connectionSpeed	= properties[JMUSBDeviceDictionaryKeyConnectionSpeed];

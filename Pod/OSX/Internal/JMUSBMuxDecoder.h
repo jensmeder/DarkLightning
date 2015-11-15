@@ -49,6 +49,6 @@ typedef NS_ENUM(uint32_t, JMUSBMuxResultCode)
 
 @property (nonatomic, weak) id<JMUSBMuxDecoderDelegate> delegate;
 
--(void) processData:(nonnull NSData*)data;
+-(BOOL) processData:(nonnull NSData*)data;
 
 @end

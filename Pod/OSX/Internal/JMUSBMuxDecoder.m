@@ -43,9 +43,19 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 	{
 		NSString *messageType = plist[JMUSBMuxDecoderDictionaryKeyMessageType];
 		
+		if (!messageType)
+		{
+			return;
+		}
+		
 		if ([JMUSBMuxEncoderMessageTypeAttached isEqualToString:messageType])
 		{
 			JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:plist];
+			
+			if (!device)
+			{
+				return;
+			}
 
 			if ([_delegate respondsToSelector:@selector(decoder:didDecodeAttachPacket:)])
 			{
@@ -55,6 +65,11 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 		else if ([JMUSBMuxEncoderMessageTypeDetached isEqualToString:messageType])
 		{
 			NSNumber* deviceID = plist[JMUSBMuxDecoderDictionaryKeyDeviceID];
+			
+			if (!deviceID)
+			{
+				return;
+			}
 
 			if ([_delegate respondsToSelector:@selector(decoder:didDecodeDetachPacket:)])
 			{
@@ -65,6 +80,11 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 		{
 			NSNumber* resultCode = plist[JMUSBMuxDecoderDictionaryKeyNumber];
 			
+			if (!resultCode)
+			{
+				return;
+			}
+			
 			if ([_delegate respondsToSelector:@selector(decoder:didDecodeResultPacket:)])
 			{
 				[_delegate decoder:self didDecodeResultPacket:(JMUSBMuxResultCode)resultCode.unsignedIntegerValue];
@@ -73,8 +93,13 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 	}
 }
 
--(void)processData:(NSData *)aData
+-(BOOL)processData:(NSData *)aData
 {
+	if (!aData || !aData.length)
+	{
+		return NO;
+	}
+	
 	NSData* data = aData;
 
 	while (data.length)
@@ -85,7 +110,7 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 
 		if (packet.size > data.length)
 		{
-			return;
+			break;
 		}
 
 		NSData* dataPacket = [data subdataWithRange:NSMakeRange(16, packet.size - 16)];
@@ -93,6 +118,8 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 		[self decodePacket:dataPacket];
 		data = [data subdataWithRange:NSMakeRange(packet.size, data.length - packet.size)];
 	}
+	
+	return YES;
 }
 
 @end

@@ -8,9 +8,11 @@ PODS:
   - DarkLightning/OSX (0.2.0):
     - DarkLightning/PacketProtocol
   - DarkLightning/PacketProtocol (0.2.0)
+  - Kiwi (2.4.0)
 
 DEPENDENCIES:
   - DarkLightning (from `../`)
+  - Kiwi
 
 EXTERNAL SOURCES:
   DarkLightning:
@@ -18,5 +20,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   DarkLightning: ca8470975b6d3a419758361e083763aeeae366ed
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
 
 COCOAPODS: 0.39.0

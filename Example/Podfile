@@ -1,6 +1,5 @@
 # Uncomment this line to define a global platform for your project
 
-
 target 'iOS-Example' do
 
 	platform :ios, '8.0'
@@ -14,5 +13,15 @@ target 'OSX-Example' do
 	platform :osx, '10.10'
 	
 	pod 'DarkLightning', :path => '../'
+	
+end
+
+target 'OSX-Tests', :exclusive => true do
+	
+	platform :osx, '10.10'
+	
+	pod 'Kiwi'
+	pod 'DarkLightning', :path => '../'
+	
 	
 end

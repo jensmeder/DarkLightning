@@ -64,7 +64,7 @@ static NSString* const JMUSBMuxEncoderMessageTypeConnect 		= @"Connect";
 
 -(NSData *)encodeConnectPacketForDeviceId:(NSNumber *)deviceId andPort:(uint32_t)port
 {
-	port = ((port<<8) & 0xFF00) | (port>>8); // limit
+	port = ((port<<8) & 0xFF00) | (port>>8);
 
 	NSDictionary *plist = @{JMUSBMuxEncoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeConnect,
 							JMUSBMuxEncoderDictionaryKeyDeviceID: deviceId,
