@@ -9,21 +9,20 @@
 #import "JMUSBMuxPacketFactory.h"
 #import "usbmux_packet.h"
 
-static NSString* const JMUSBMuxDecoderDictionaryKeyMessageType 	= @"MessageType";
-static NSString* const JMUSBMuxDecoderDictionaryKeyDeviceID 	= @"DeviceID";
-static NSString* const JMUSBMuxDecoderDictionaryKeyNumber 		= @"Number";
+static NSString* const JMDictionaryKeyMessageType 	= @"MessageType";
+static NSString* const JMDictionaryKeyDeviceID 	= @"DeviceID";
+static NSString* const JMDictionaryKeyNumber 		= @"Number";
 
-static NSString* const JMUSBMuxEncoderMessageTypeAttached 		= @"Attached";
-static NSString* const JMUSBMuxEncoderMessageTypeDetached 		= @"Detached";
-static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
+static NSString* const JMMessageTypeAttached 		= @"Attached";
+static NSString* const JMMessageTypeDetached 		= @"Detached";
+static NSString* const JMMessageTypeResult 		= @"Result";
 
-static NSString* const JMUSBDeviceDictionaryKeyProperties 		= @"Properties";
+static NSString* const JMDictionaryKeyProperties 		= @"Properties";
 
-static NSString* const JMUSBDeviceDictionaryKeyDeviceID 		= @"DeviceID";
-static NSString* const JMUSBDeviceDictionaryKeySerialNumber 	= @"SerialNumber";
-static NSString* const JMUSBDeviceDictionaryKeyConnectionSpeed 	= @"ConnectionSpeed";
-static NSString* const JMUSBDeviceDictionaryKeyProductID 		= @"ProductID";
-static NSString* const JMUSBDeviceDictionaryKeyLocationID 		= @"LocationID";
+static NSString* const JMDictionaryKeySerialNumber 	= @"SerialNumber";
+static NSString* const JMDictionaryKeyConnectionSpeed 	= @"ConnectionSpeed";
+static NSString* const JMDictionaryKeyProductID 		= @"ProductID";
+static NSString* const JMDictionaryKeyLocationID 		= @"LocationID";
 
 @implementation JMUSBMuxPacketFactory
 
@@ -48,43 +47,43 @@ static NSString* const JMUSBDeviceDictionaryKeyLocationID 		= @"LocationID";
 
 +(NSData *)validAttachPacket
 {
-	NSDictionary* properties = @{JMUSBDeviceDictionaryKeyDeviceID:@1};
-	NSDictionary* dictionary = @{JMUSBMuxDecoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeAttached, JMUSBDeviceDictionaryKeyProperties:properties};
+	NSDictionary* properties = @{JMDictionaryKeyDeviceID:@1};
+	NSDictionary* dictionary = @{JMDictionaryKeyMessageType:JMMessageTypeAttached, JMDictionaryKeyProperties:properties};
 	
 	return [JMUSBMuxPacketFactory packetForDictionary:dictionary];
 }
 
 +(NSData *)invalidAttachPacket
 {
-	NSDictionary* dictionary = @{JMUSBMuxDecoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeAttached};
+	NSDictionary* dictionary = @{JMDictionaryKeyMessageType:JMMessageTypeAttached};
 	
 	return [JMUSBMuxPacketFactory packetForDictionary:dictionary];
 }
 
 +(NSData *)validDetachPacket
 {
-	NSDictionary* dictionary = @{JMUSBMuxDecoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeDetached, JMUSBMuxDecoderDictionaryKeyDeviceID:@1};
+	NSDictionary* dictionary = @{JMDictionaryKeyMessageType:JMMessageTypeDetached, JMDictionaryKeyDeviceID:@1};
 	
 	return [JMUSBMuxPacketFactory packetForDictionary:dictionary];
 }
 
 +(NSData *)invalidDetachPacket
 {
-	NSDictionary* dictionary = @{JMUSBMuxDecoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeDetached};
+	NSDictionary* dictionary = @{JMDictionaryKeyMessageType:JMMessageTypeDetached};
 	
 	return [JMUSBMuxPacketFactory packetForDictionary:dictionary];
 }
 
 +(NSData *)validResultPacket
 {
-	NSDictionary* dictionary = @{JMUSBMuxDecoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeResult, JMUSBMuxDecoderDictionaryKeyNumber:@1};
+	NSDictionary* dictionary = @{JMDictionaryKeyMessageType:JMMessageTypeResult, JMDictionaryKeyNumber:@1};
 	
 	return [JMUSBMuxPacketFactory packetForDictionary:dictionary];
 }
 
 +(NSData *)invalidResultPacket
 {
-	NSDictionary* dictionary = @{JMUSBMuxDecoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeResult};
+	NSDictionary* dictionary = @{JMDictionaryKeyMessageType:JMMessageTypeResult};
 	
 	return [JMUSBMuxPacketFactory packetForDictionary:dictionary];
 }
