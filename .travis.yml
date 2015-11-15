@@ -2,5 +2,5 @@ language: objective-c
 osx_image: xcode7.1
 before_install:
     - brew update
-    - brew install xctool
+    - brew upgrade xctool
 script: xctool -workspace DarkLightning.xcworkspace -scheme DarkLightning-OSX test
