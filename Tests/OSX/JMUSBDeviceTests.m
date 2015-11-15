@@ -9,10 +9,6 @@
 #import <Kiwi/Kiwi.h>
 #import "JMUSBDevice.h"
 
-static NSString* const JMUSBDeviceDictionaryKeyProperties 		= @"Properties";
-
-static NSString* const JMUSBDeviceDictionaryKeyDeviceID 		= @"DeviceID";
-
 SPEC_BEGIN(JMUSBMuxDeviceTests)
 
 describe(@"JMUSBDevice",
@@ -35,7 +31,7 @@ describe(@"JMUSBDevice",
 		
 		it(@"should return a device if the plist dictionary is valid",
 		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{JMUSBDeviceDictionaryKeyProperties:@{JMUSBDeviceDictionaryKeyDeviceID:@1}}];
+			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"Properties":@{@"DeviceID":@1}}];
 			   
 			   [[device shouldNot] beNil];
 		   });
