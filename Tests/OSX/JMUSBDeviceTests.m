@@ -24,7 +24,7 @@ describe(@"JMUSBDevice",
 		
 		it(@"should return nil if plist dictionary does not contain a device id",
 		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{}];
+			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"a":@1}];
 			   
 			   [[device should] beNil];
 		   });
