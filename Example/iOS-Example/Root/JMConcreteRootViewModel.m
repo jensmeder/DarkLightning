@@ -24,7 +24,6 @@
 #import "JMConcreteRootViewModel.h"
 #import <UIKit/UIkit.h>
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
-#import <sys/utsname.h>
 
 @interface JMConcreteRootViewModel () <JMMobileDevicePortDelegate>
 

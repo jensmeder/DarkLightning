@@ -45,7 +45,6 @@
 	_sendMessageButton.translatesAutoresizingMaskIntoConstraints = NO;
 	[_sendMessageButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 	[_sendMessageButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-	[_sendMessageButton setTitle:@"Send" forState:UIControlStateNormal];
 	_sendMessageButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
 	
 	_sendMessageTextField = [[UITextField alloc]init];
@@ -53,7 +52,6 @@
 	
 	_sendMessageTextField.backgroundColor = [UIColor whiteColor];
 	_sendMessageTextField.borderStyle = UITextBorderStyleRoundedRect;
-	_sendMessageTextField.placeholder = @"Your message";
 	_sendMessageTextField.font = [UIFont systemFontOfSize:16.0];
 	
 	_messageLogTextView = [[UITextView alloc]init];

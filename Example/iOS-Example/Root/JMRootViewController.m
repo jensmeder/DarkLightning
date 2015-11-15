@@ -95,6 +95,9 @@
 	[_rootView.sendMessageButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
 	[_rootView.sendMessageTextField addTarget:self action:@selector(textDidChange:) forControlEvents:UIControlEventEditingChanged];
 	_rootView.sendMessageTextField.delegate = self;
+	
+	_rootView.sendMessageTextField.placeholder = @"Type a message here";
+	[_rootView.sendMessageButton setTitle:@"Send" forState:UIControlStateNormal];
 }
 
 -(void)viewWillAppear:(BOOL)animated

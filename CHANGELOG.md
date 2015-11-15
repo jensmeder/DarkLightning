@@ -12,7 +12,11 @@
 
 ### Changes
 
-* All connections now run on a separate thread to keep the main thread responsive
+* All connections now run on a separate thread
+
+### Bugfixes
+
+* Fixed a bug that closed the JMMobileDevicePort or JMUSBChannel connection if an empty NSData object was written to it
 
 ## 0.1.3
 
