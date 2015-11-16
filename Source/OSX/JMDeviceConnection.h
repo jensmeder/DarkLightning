@@ -105,7 +105,7 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
  *
  *  @param port   The port the connection is listening on.
  *
- *  @return A newly initialized device if port is valid, nil otherwise
+ *  @return A newly initialized connection
  */
 -(nullable instancetype)initWithPort:(uint32_t)port;
 
@@ -116,12 +116,12 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
 /**
  *  Attempts to connect to the device.
  */
--(void) connect;
+-(BOOL) connect;
 
 /**
  *  Disconnects from the device.
  */
--(void) disconnect;
+-(BOOL) disconnect;
 
 ///------------------------
 /// @name Data Transmission

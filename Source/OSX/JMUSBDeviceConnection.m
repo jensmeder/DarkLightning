@@ -63,33 +63,43 @@
 	return self;
 }
 
--(void)connect
+-(BOOL)connect
 {
-	if (_channel)
+	if (self.state != JMDeviceConnectionStateDisconnected)
 	{
-		return;
+		return NO;
 	}
+	
 	_channel = [[JMUSBChannel alloc]init];
 	_channel.delegate = self;
 	[_channel open];
 	self.state = JMDeviceConnectionStateConnecting;
+	
+	return YES;
 }
 
--(void)disconnect
+-(BOOL)disconnect
 {
-	if (!_channel)
+	if (self.state == JMDeviceConnectionStateDisconnected)
 	{
-		return;
+		return NO;
 	}
 	
 	[_channel close];
 	_channel = nil;
 	_tcpMode = NO;
 	self.state = JMDeviceConnectionStateDisconnected;
+	
+	return YES;
 }
 
 -(BOOL)writeData:(NSData *)data
 {
+	if (self.state != JMDeviceConnectionStateConnected)
+	{
+		return NO;
+	}
+	
 	if (_tcpMode)
 	{
 		[_channel writeData:data];

@@ -55,6 +55,7 @@
 		B427FDC21BF8E980005DC0B8 /* JMUSBMuxDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D091BF8D50400DA2019 /* JMUSBMuxDecoderTests.m */; };
 		B427FDCB1BF8EDF6005DC0B8 /* Kiwi.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B427FDCC1BF8EDFE005DC0B8 /* Kiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */; };
+		B43721C41BFA47B700203BAC /* JMDeviceConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B43721C31BFA47B700203BAC /* JMDeviceConnectionTests.m */; };
 		B47272AD1BF8FB9D0076C56F /* JMUSBDeviceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47272AC1BF8FB9D0076C56F /* JMUSBDeviceTests.m */; };
 		B47272AF1BF9036C0076C56F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47272AE1BF9036C0076C56F /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -176,6 +177,7 @@
 		B4238DAE1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSimpleDataPacketProtocol.h; path = Source/PacketProtocol/JMSimpleDataPacketProtocol.h; sourceTree = SOURCE_ROOT; };
 		B4238DAF1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMSimpleDataPacketProtocol.m; path = Source/PacketProtocol/JMSimpleDataPacketProtocol.m; sourceTree = SOURCE_ROOT; };
 		B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kiwi.framework; path = Libraries/Kiwi/Kiwi.framework; sourceTree = "<group>"; };
+		B43721C31BFA47B700203BAC /* JMDeviceConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMDeviceConnectionTests.m; sourceTree = "<group>"; };
 		B47272AC1BF8FB9D0076C56F /* JMUSBDeviceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMUSBDeviceTests.m; sourceTree = "<group>"; };
 		B47272AE1BF9036C0076C56F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -313,6 +315,7 @@
 				B4238D0B1BF8D50400DA2019 /* JMUSBMuxPacketFactory.m */,
 				B4238CE21BF8C92A00DA2019 /* Info.plist */,
 				B47272AC1BF8FB9D0076C56F /* JMUSBDeviceTests.m */,
+				B43721C31BFA47B700203BAC /* JMDeviceConnectionTests.m */,
 			);
 			name = Tests;
 			path = ../../Tests/OSX;
@@ -708,6 +711,7 @@
 			files = (
 				B47272AD1BF8FB9D0076C56F /* JMUSBDeviceTests.m in Sources */,
 				B427FDBF1BF8E881005DC0B8 /* JMUSBMuxPacketFactory.m in Sources */,
+				B43721C41BFA47B700203BAC /* JMDeviceConnectionTests.m in Sources */,
 				B427FDC21BF8E980005DC0B8 /* JMUSBMuxDecoderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

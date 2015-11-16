@@ -30,26 +30,37 @@ NSInteger JMDeviceConnectionErrorCodeDataStreamError 	= 200;
 
 @implementation JMDeviceConnection
 
+-(instancetype)init
+{
+	return [self initWithPort:0];
+}
+
 -(instancetype)initWithPort:(uint32_t)port
 {
+	if ([self isMemberOfClass:[JMDeviceConnection class]])
+	{
+		return nil;
+	}
+	
 	self = [super init];
 	
 	if (self)
 	{
 		_port = port;
+		_state = JMDeviceConnectionStateDisconnected;
 	}
 	
 	return self;
 }
 
--(void)connect
+-(BOOL)connect
 {
-	
+	return NO;
 }
 
--(void)disconnect
+-(BOOL)disconnect
 {
-	
+	return NO;
 }
 
 -(BOOL)writeData:(NSData *)data

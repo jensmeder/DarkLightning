@@ -49,6 +49,11 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 
 -(instancetype)initWithHost:(NSString *)host andPort:(uint32_t)port
 {
+	if (!host || host.length == 0)
+	{
+		return nil;
+	}
+	
 	self = [super initWithPort:port];
 
 	if (self)
@@ -64,8 +69,13 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 	return [self initWithHost:JMSimulatorConnectionHost andPort:port];
 }
 
--(void)connect
+-(BOOL)connect
 {
+	if (self.state != JMDeviceConnectionStateDisconnected)
+	{
+		return NO;
+	}
+	
 	self.state = JMDeviceConnectionStateConnecting;
 
 	CFReadStreamRef readStream;
@@ -94,6 +104,7 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 					   [_backgroundRunLoop run];
 				   });
 	
+	return YES;
 }
 
 -(BOOL)writeData:(NSData *)data
@@ -113,8 +124,13 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 	return NO;
 }
 
--(void)disconnect
+-(BOOL)disconnect
 {
+	if (self.state == JMDeviceConnectionStateDisconnected)
+	{
+		return NO;
+	}
+	
 	_inputStream.delegate = self;
 	_outputStream.delegate = self;
 	
@@ -130,6 +146,8 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 	_backgroundRunLoop = nil;
 	
 	self.state = JMDeviceConnectionStateDisconnected;
+	
+	return YES;
 }
 
 -(void) setState:(JMDeviceConnectionState)connectionState
