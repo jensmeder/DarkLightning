@@ -138,6 +138,9 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 	_inputStream = (__bridge NSInputStream *)(readStream);
 	_outputStream = (__bridge NSOutputStream *)(writeStream);
 	
+	_inputStream.delegate = self;
+	_outputStream.delegate = self;
+	
 	CFReadStreamSetProperty(readStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
 	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
 	
@@ -146,9 +149,6 @@ static const char* JMUSBChannelUSBMUXDServicePath = "/var/run/usbmuxd";
 		_backgroundRunLoop = [NSRunLoop currentRunLoop];
 		[_inputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
 		[_outputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
-		
-		_inputStream.delegate = self;
-		_outputStream.delegate = self;
 		
 		[_inputStream open];
 		[_outputStream open];

@@ -86,23 +86,24 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 	_inputStream = (__bridge NSInputStream *)(readStream);
 	_outputStream = (__bridge NSOutputStream *)(writeStream);
 	
+	_inputStream.delegate = self;
+	_outputStream.delegate = self;
+	
 	CFReadStreamSetProperty(readStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanFalse);
 	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanFalse);
 	
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-				   ^{
-					   _backgroundRunLoop = [NSRunLoop currentRunLoop];
-					   [_inputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
-					   [_outputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+	^{
+		_backgroundRunLoop = [NSRunLoop currentRunLoop];
+		
+		[_inputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
+		[_outputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
 					   
-					   _inputStream.delegate = self;
-					   _outputStream.delegate = self;
+		[_inputStream open];
+		[_outputStream open];
 					   
-					   [_inputStream open];
-					   [_outputStream open];
-					   
-					   [_backgroundRunLoop run];
-				   });
+		[_backgroundRunLoop run];
+	});
 	
 	return YES;
 }
@@ -162,9 +163,9 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 	if([self.delegate respondsToSelector:@selector(connection:didChangeState:)])
 	{
 		dispatch_async(dispatch_get_main_queue(),
-					   ^{
-						   [self.delegate connection:self didChangeState:_state];
-					   });
+		^{
+			[self.delegate connection:self didChangeState:_state];
+		});
 	}
 }
 
