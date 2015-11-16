@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/jensmeder/DarkLightning.svg)](https://travis-ci.org/jensmeder/DarkLightning)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/DarkLightning.svg)](https://img.shields.io/cocoapods/v/DarkLightning.svg)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 # DarkLightning
 
