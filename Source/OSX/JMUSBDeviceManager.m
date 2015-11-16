@@ -37,7 +37,6 @@
 	
 	JMUSBChannel* _channel;
 	JMUSBMuxDecoder* _decoder;
-	JMUSBMuxEncoder* _encoder;
 
 	NSMutableDictionary<NSNumber*, JMUSBDevice*>* _devices;
 }
@@ -50,8 +49,6 @@
 	{
 		_decoder = [[JMUSBMuxDecoder alloc]init];
 		_decoder.delegate = self;
-
-		_encoder = [[JMUSBMuxEncoder alloc]init];
 
 		_devices = [NSMutableDictionary dictionary];
 	}
@@ -100,7 +97,7 @@
 {
 	if (state == JMUSBChannelStateConnected)
 	{
-		[_channel writeData:[_encoder encodeListeningPacket]];
+		[_channel writeData:[JMUSBMuxEncoder encodeListeningPacket]];
 	}
 }
 

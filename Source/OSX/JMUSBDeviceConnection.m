@@ -36,7 +36,6 @@
 	
 	JMUSBChannel* 		_channel;
 	JMUSBMuxDecoder* 	_decoder;
-	JMUSBMuxEncoder* 	_encoder;
 	
 	BOOL 				_tcpMode;
 }
@@ -53,8 +52,6 @@
 		
 		_decoder = [[JMUSBMuxDecoder alloc]init];
 		_decoder.delegate = self;
-
-		_encoder = [[JMUSBMuxEncoder alloc]init];
 		
 		_tcpMode = NO;
 		_state = JMDeviceConnectionStateDisconnected;
@@ -155,7 +152,7 @@
 {
 	if (state == JMUSBChannelStateConnected)
 	{
-		[_channel writeData:[_encoder encodeConnectPacketForDeviceId:_device.deviceID andPort:self.port]];
+		[_channel writeData:[JMUSBMuxEncoder encodeConnectPacketForDeviceId:_device.deviceID andPort:self.port]];
 	}
 	else if(state == JMUSBChannelStateDisconnected)
 	{

@@ -11,7 +11,7 @@
 
 SPEC_BEGIN(JMDeviceConnectionTests)
 
-describe(@"JMUSBDevice",
+describe(@"JMDeviceConnection",
 ^{
 	context(@"when initializing",
 	^{

@@ -25,7 +25,7 @@
 
 @interface JMUSBMuxEncoder : NSObject
 
--(nonnull NSData*) encodeListeningPacket;
--(nullable NSData*) encodeConnectPacketForDeviceId:(nonnull NSNumber*)deviceId andPort:(uint32_t)port;
++(nonnull NSData*) encodeListeningPacket;
++(nullable NSData*) encodeConnectPacketForDeviceId:(nonnull NSNumber*)deviceId andPort:(uint32_t)port;
 
 @end
