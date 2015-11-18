@@ -115,11 +115,16 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
 
 /**
  *  Attempts to connect to the device.
+ *
+ *  @return YES if the connect was successful, NO otherwise
  */
+
 -(BOOL) connect;
 
 /**
  *  Disconnects from the device.
+ *
+ *  @return YES if the disconnect was successful, NO otherwise
  */
 -(BOOL) disconnect;
 

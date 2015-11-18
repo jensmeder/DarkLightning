@@ -69,6 +69,13 @@
  */
 - (void) stop;
 
+/**
+ *  Returns the JMUSBDevice for the given serial number.
+ *
+ *  @param serialNumber The serial number of the device to be retrieved
+ *
+ *  @return The JMUSBDevice for the given serial number, nil otherwise.
+ */
 -(nullable JMUSBDevice*) deviceWithSerialNumber:(nonnull NSString*)serialNumber;
 
 @end

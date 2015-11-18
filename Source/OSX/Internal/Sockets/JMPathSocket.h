@@ -24,28 +24,22 @@
 #import "JMSocket.h"
 
 /**
- *  Represents a socket to a given host.
+ *  Represents a socket to a given path.
  */
-@interface JMHostSocket : NSObject<JMSocket>
+@interface JMPathSocket : NSObject<JMSocket>
 
 /**
- *  The port to which the socket is bound to.
+ *  The path to which the socket is bound to.
  */
-@property (readonly) uint32_t port;
+@property (nonnull, nonatomic, strong, readonly) NSString* path;
 
 /**
- *  The host to which the socket is bound to.
- */
-@property (nonnull, nonatomic, strong, readonly) NSString* host;
-
-/**
- *  Initializes and returns a newly
+ *  Initializes a socket with the given path.
  *
- *  @param host The host to which the socket should be bound to.
- *  @param port The port to which the socket should be bound to.
+ *  @param path The path to which the socket should be bound to.
  *
- *  @return A newly initialized socket if the given host and port are valid, nil otherwise.
+ *  @return A newly initialized socket if the given path is valid, nil otherwise.
  */
--(nullable instancetype)initWithHost:(nonnull NSString*)host andPort:(uint32_t)port;
+-(nullable instancetype)initWithPath:(nonnull NSString*)path;
 
 @end

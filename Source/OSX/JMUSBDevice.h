@@ -62,7 +62,7 @@
  *
  *  @param plist The NSDictionary representation of the plist data
  *
- *  @return A new and initialize device
+ *  @return A newly initialized device
  */
 -(nullable instancetype)initWithPList:(nonnull NSDictionary*)plist NS_DESIGNATED_INITIALIZER;
 
