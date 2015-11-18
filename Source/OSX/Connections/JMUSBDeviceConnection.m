@@ -22,7 +22,7 @@
  */
 
 #import "JMUSBDeviceConnection.h"
-#import "JMServiceSocket.h"
+#import "JMPathSocket.h"
 #import "JMSocketConnection.h"
 #import "JMUSBMuxEncoder.h"
 #import "JMUSBMuxDecoder.h"
@@ -59,7 +59,7 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 		_tcpMode = NO;
 		_state = JMDeviceConnectionStateDisconnected;
 		
-		JMServiceSocket* socket = [[JMServiceSocket alloc]initWithPath:JMServicePath];
+		JMPathSocket* socket = [[JMPathSocket alloc]initWithPath:JMServicePath];
 		_connection = [[JMSocketConnection alloc]initWithSocket:socket];
 		_connection.delegate = self;
 	}
