@@ -97,6 +97,10 @@ typedef NS_ENUM(NSUInteger, JMSocketConnectionState)
  */
 @property (nonatomic, weak) id<JMSocketConnectionDelegate> delegate;
 
+///---------------------
+/// @name Initialization
+///---------------------
+
 /**
  *  Creates a new connection with the given socket.
  *
@@ -105,6 +109,10 @@ typedef NS_ENUM(NSUInteger, JMSocketConnectionState)
  *  @return A newly created socket connection if the socket is valid, nil otherwise.
  */
 -(nullable instancetype)initWithSocket:(nonnull id<JMSocket>)socket;
+
+///----------------------------
+/// @name Connection Management
+///----------------------------
 
 /**
  *  Attempts to connect to the socket.
@@ -120,6 +128,10 @@ typedef NS_ENUM(NSUInteger, JMSocketConnectionState)
  *  @return YES if the disconnect was successful, NO otherwise
  */
 -(BOOL) disconnect;
+
+///------------------------
+/// @name Data Transmission
+///------------------------
 
 /**
  *  Writes data to the connection if connected.

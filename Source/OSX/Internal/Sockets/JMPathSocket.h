@@ -33,6 +33,10 @@
  */
 @property (nonnull, nonatomic, strong, readonly) NSString* path;
 
+///---------------------
+/// @name Initialization
+///---------------------
+
 /**
  *  Initializes a socket with the given path.
  *

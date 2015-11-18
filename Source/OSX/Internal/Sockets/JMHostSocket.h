@@ -38,6 +38,10 @@
  */
 @property (nonnull, nonatomic, strong, readonly) NSString* host;
 
+///---------------------
+/// @name Initialization
+///---------------------
+
 /**
  *  Initializes and returns a newly
  *

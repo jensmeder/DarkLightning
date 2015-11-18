@@ -63,6 +63,10 @@
  */
 @property (nonatomic, weak) id<JMUSBDeviceManagerDelegate> delegate;
 
+///----------------------------
+/// @name Listening for devices
+///----------------------------
+
 /**
  *  Start listening for attach and detach events.
  */
@@ -72,6 +76,10 @@
  *  Stop listening for attach and detach events.
  */
 - (void) stop;
+
+///------------------------
+/// @name Device Management
+///------------------------
 
 /**
  *  Returns the JMUSBDevice for the given serial number.
