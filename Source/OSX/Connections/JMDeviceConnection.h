@@ -81,6 +81,10 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
 
 @end
 
+/**
+ *  JMDeviceConnection is an abstract class for objects representing connections to devices. Its interface is common to 
+ *  all device connection classes, including its concrete subclasses JMSimulatorConnection and JMUSBDeviceConnection.
+ */
 @interface JMDeviceConnection : NSObject
 
 /**
@@ -93,7 +97,9 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
  */
 @property (nonatomic, assign, readonly) JMDeviceConnectionState state;
 
-
+/**
+ *  The object that acts as the delegate of the connection.
+ */
 @property (nonatomic, weak) id<JMDeviceConnectionDelegate> delegate;
 
 ///---------------------

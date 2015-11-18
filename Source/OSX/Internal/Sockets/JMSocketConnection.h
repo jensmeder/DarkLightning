@@ -91,6 +91,10 @@ typedef NS_ENUM(NSUInteger, JMSocketConnectionState)
  *  The current state of the connection.
  */
 @property (readonly) JMSocketConnectionState connectionState;
+
+/**
+ *  The object that acts as the delegate of the connection.
+ */
 @property (nonatomic, weak) id<JMSocketConnectionDelegate> delegate;
 
 /**
