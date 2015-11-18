@@ -25,12 +25,6 @@
 		B4238D5E1BF8D86300DA2019 /* JMUSBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D531BF8D86300DA2019 /* JMUSBDeviceManager.m */; };
 		B4238D5F1BF8D86E00DA2019 /* JMMobileDevicePort.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238D451BF8D84D00DA2019 /* JMMobileDevicePort.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4238D601BF8D8AD00DA2019 /* JMMobileDevicePort.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D461BF8D84D00DA2019 /* JMMobileDevicePort.m */; };
-		B4238D841BF8DF4A00DA2019 /* JMUSBMuxDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238D7C1BF8DF4A00DA2019 /* JMUSBMuxDecoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		B4238D851BF8DF4A00DA2019 /* JMUSBMuxDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D7D1BF8DF4A00DA2019 /* JMUSBMuxDecoder.m */; };
-		B4238D861BF8DF4A00DA2019 /* JMUSBMuxEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238D7E1BF8DF4A00DA2019 /* JMUSBMuxEncoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		B4238D871BF8DF4A00DA2019 /* JMUSBMuxEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D7F1BF8DF4A00DA2019 /* JMUSBMuxEncoder.m */; };
-		B4238D881BF8DF4A00DA2019 /* usbmux_packet.c in Sources */ = {isa = PBXBuildFile; fileRef = B4238D801BF8DF4A00DA2019 /* usbmux_packet.c */; };
-		B4238D891BF8DF4A00DA2019 /* usbmux_packet.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238D811BF8DF4A00DA2019 /* usbmux_packet.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B4238D991BF8E03E00DA2019 /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D8C1BF8E01300DA2019 /* JMConcreteRootViewModel.m */; };
 		B4238D9A1BF8E03E00DA2019 /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D8E1BF8E01300DA2019 /* JMRootView.m */; };
 		B4238D9B1BF8E03E00DA2019 /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D901BF8E01300DA2019 /* JMRootViewController.m */; };
@@ -40,11 +34,6 @@
 		B4238DB31BF8E0F000DA2019 /* JMDataPacketProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238DAD1BF8E0E000DA2019 /* JMDataPacketProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4238DB41BF8E0F000DA2019 /* JMSimpleDataPacketProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238DAE1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4238DB51BF8E11D00DA2019 /* JMSimpleDataPacketProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238DAF1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.m */; };
-		B425DDDA1BFC623800D62AE4 /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B425DDD81BFC623800D62AE4 /* JMSocket.h */; };
-		B425DDDE1BFC632D00D62AE4 /* JMHostSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B425DDDC1BFC632D00D62AE4 /* JMHostSocket.h */; };
-		B425DDDF1BFC632D00D62AE4 /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B425DDDD1BFC632D00D62AE4 /* JMHostSocket.m */; };
-		B425DDE21BFC633900D62AE4 /* JMServiceSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B425DDE01BFC633900D62AE4 /* JMServiceSocket.h */; };
-		B425DDE31BFC633900D62AE4 /* JMServiceSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B425DDE11BFC633900D62AE4 /* JMServiceSocket.m */; };
 		B425DDE41BFC6F4300D62AE4 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; };
 		B425DDE51BFC6F5800D62AE4 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; };
 		B425DDE61BFC6F5800D62AE4 /* DarkLightning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -56,6 +45,19 @@
 		B426386C1BFCF9240054C8B6 /* JMSimulatorConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B42638661BFCF9240054C8B6 /* JMSimulatorConnection.m */; };
 		B426386D1BFCF9240054C8B6 /* JMUSBDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638671BFCF9240054C8B6 /* JMUSBDeviceConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B426386E1BFCF9240054C8B6 /* JMUSBDeviceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B42638681BFCF9240054C8B6 /* JMUSBDeviceConnection.m */; };
+		B426387E1BFD00640054C8B6 /* JMUSBMuxDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638781BFD00640054C8B6 /* JMUSBMuxDecoder.h */; };
+		B426387F1BFD00640054C8B6 /* JMUSBMuxDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = B42638791BFD00640054C8B6 /* JMUSBMuxDecoder.m */; };
+		B42638801BFD00640054C8B6 /* JMUSBMuxEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = B426387A1BFD00640054C8B6 /* JMUSBMuxEncoder.h */; };
+		B42638811BFD00640054C8B6 /* JMUSBMuxEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = B426387B1BFD00640054C8B6 /* JMUSBMuxEncoder.m */; };
+		B42638821BFD00640054C8B6 /* usbmux_packet.c in Sources */ = {isa = PBXBuildFile; fileRef = B426387C1BFD00640054C8B6 /* usbmux_packet.c */; };
+		B42638831BFD00640054C8B6 /* usbmux_packet.h in Headers */ = {isa = PBXBuildFile; fileRef = B426387D1BFD00640054C8B6 /* usbmux_packet.h */; };
+		B426388B1BFD006E0054C8B6 /* JMHostSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638841BFD006E0054C8B6 /* JMHostSocket.h */; };
+		B426388C1BFD006E0054C8B6 /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B42638851BFD006E0054C8B6 /* JMHostSocket.m */; };
+		B426388D1BFD006E0054C8B6 /* JMServiceSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638861BFD006E0054C8B6 /* JMServiceSocket.h */; };
+		B426388E1BFD006E0054C8B6 /* JMServiceSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B42638871BFD006E0054C8B6 /* JMServiceSocket.m */; };
+		B426388F1BFD006E0054C8B6 /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638881BFD006E0054C8B6 /* JMSocket.h */; };
+		B42638901BFD006E0054C8B6 /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638891BFD006E0054C8B6 /* JMSocketConnection.h */; };
+		B42638911BFD006E0054C8B6 /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B426388A1BFD006E0054C8B6 /* JMSocketConnection.m */; };
 		B427FDB71BF8E41C005DC0B8 /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D9D1BF8E0A800DA2019 /* JMConcreteRootViewModel.m */; };
 		B427FDB81BF8E41C005DC0B8 /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D9F1BF8E0A800DA2019 /* JMRootView.m */; };
 		B427FDB91BF8E41C005DC0B8 /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238DA11BF8E0A800DA2019 /* JMRootViewController.m */; };
@@ -66,8 +68,6 @@
 		B43721C81BFA4DA200203BAC /* JMUSBMuxPacketFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = B43721C61BFA4DA200203BAC /* JMUSBMuxPacketFactory.h */; };
 		B43721C91BFA4DA200203BAC /* JMUSBMuxPacketFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B43721C71BFA4DA200203BAC /* JMUSBMuxPacketFactory.m */; };
 		B43721CB1BFA4DC000203BAC /* JMUSBMuxEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B43721CA1BFA4DC000203BAC /* JMUSBMuxEncoderTests.m */; };
-		B45234E91BFBD8AE00FD651C /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B45234E71BFBD8AE00FD651C /* JMSocketConnection.h */; };
-		B45234EA1BFBD8AE00FD651C /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B45234E81BFBD8AE00FD651C /* JMSocketConnection.m */; };
 		B47272AD1BF8FB9D0076C56F /* JMUSBDeviceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47272AC1BF8FB9D0076C56F /* JMUSBDeviceTests.m */; };
 		B47272AF1BF9036C0076C56F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47272AE1BF9036C0076C56F /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -177,12 +177,6 @@
 		B4238D4F1BF8D86300DA2019 /* JMUSBDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMUSBDevice.m; path = Source/OSX/JMUSBDevice.m; sourceTree = SOURCE_ROOT; };
 		B4238D521BF8D86300DA2019 /* JMUSBDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMUSBDeviceManager.h; path = Source/OSX/JMUSBDeviceManager.h; sourceTree = SOURCE_ROOT; };
 		B4238D531BF8D86300DA2019 /* JMUSBDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMUSBDeviceManager.m; path = Source/OSX/JMUSBDeviceManager.m; sourceTree = SOURCE_ROOT; };
-		B4238D7C1BF8DF4A00DA2019 /* JMUSBMuxDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMUSBMuxDecoder.h; path = Source/OSX/Internal/JMUSBMuxDecoder.h; sourceTree = SOURCE_ROOT; };
-		B4238D7D1BF8DF4A00DA2019 /* JMUSBMuxDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMUSBMuxDecoder.m; path = Source/OSX/Internal/JMUSBMuxDecoder.m; sourceTree = SOURCE_ROOT; };
-		B4238D7E1BF8DF4A00DA2019 /* JMUSBMuxEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMUSBMuxEncoder.h; path = Source/OSX/Internal/JMUSBMuxEncoder.h; sourceTree = SOURCE_ROOT; };
-		B4238D7F1BF8DF4A00DA2019 /* JMUSBMuxEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMUSBMuxEncoder.m; path = Source/OSX/Internal/JMUSBMuxEncoder.m; sourceTree = SOURCE_ROOT; };
-		B4238D801BF8DF4A00DA2019 /* usbmux_packet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = usbmux_packet.c; path = Source/OSX/Internal/usbmux_packet.c; sourceTree = SOURCE_ROOT; };
-		B4238D811BF8DF4A00DA2019 /* usbmux_packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = usbmux_packet.h; path = Source/OSX/Internal/usbmux_packet.h; sourceTree = SOURCE_ROOT; };
 		B4238D8B1BF8E01300DA2019 /* JMConcreteRootViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMConcreteRootViewModel.h; path = Root/JMConcreteRootViewModel.h; sourceTree = "<group>"; };
 		B4238D8C1BF8E01300DA2019 /* JMConcreteRootViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMConcreteRootViewModel.m; path = Root/JMConcreteRootViewModel.m; sourceTree = "<group>"; };
 		B4238D8D1BF8E01300DA2019 /* JMRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMRootView.h; path = Root/JMRootView.h; sourceTree = "<group>"; };
@@ -200,24 +194,30 @@
 		B4238DAD1BF8E0E000DA2019 /* JMDataPacketProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMDataPacketProtocol.h; path = Source/PacketProtocol/JMDataPacketProtocol.h; sourceTree = SOURCE_ROOT; };
 		B4238DAE1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSimpleDataPacketProtocol.h; path = Source/PacketProtocol/JMSimpleDataPacketProtocol.h; sourceTree = SOURCE_ROOT; };
 		B4238DAF1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMSimpleDataPacketProtocol.m; path = Source/PacketProtocol/JMSimpleDataPacketProtocol.m; sourceTree = SOURCE_ROOT; };
-		B425DDD81BFC623800D62AE4 /* JMSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSocket.h; path = Internal/JMSocket.h; sourceTree = "<group>"; };
-		B425DDDC1BFC632D00D62AE4 /* JMHostSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMHostSocket.h; path = Internal/JMHostSocket.h; sourceTree = "<group>"; };
-		B425DDDD1BFC632D00D62AE4 /* JMHostSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMHostSocket.m; path = Internal/JMHostSocket.m; sourceTree = "<group>"; };
-		B425DDE01BFC633900D62AE4 /* JMServiceSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMServiceSocket.h; path = Internal/JMServiceSocket.h; sourceTree = "<group>"; };
-		B425DDE11BFC633900D62AE4 /* JMServiceSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMServiceSocket.m; path = Internal/JMServiceSocket.m; sourceTree = "<group>"; };
 		B42638631BFCF9240054C8B6 /* JMDeviceConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMDeviceConnection.h; path = Connections/JMDeviceConnection.h; sourceTree = "<group>"; };
 		B42638641BFCF9240054C8B6 /* JMDeviceConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMDeviceConnection.m; path = Connections/JMDeviceConnection.m; sourceTree = "<group>"; };
 		B42638651BFCF9240054C8B6 /* JMSimulatorConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSimulatorConnection.h; path = Connections/JMSimulatorConnection.h; sourceTree = "<group>"; };
 		B42638661BFCF9240054C8B6 /* JMSimulatorConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMSimulatorConnection.m; path = Connections/JMSimulatorConnection.m; sourceTree = "<group>"; };
 		B42638671BFCF9240054C8B6 /* JMUSBDeviceConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMUSBDeviceConnection.h; path = Connections/JMUSBDeviceConnection.h; sourceTree = "<group>"; };
 		B42638681BFCF9240054C8B6 /* JMUSBDeviceConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMUSBDeviceConnection.m; path = Connections/JMUSBDeviceConnection.m; sourceTree = "<group>"; };
+		B42638781BFD00640054C8B6 /* JMUSBMuxDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMUSBMuxDecoder.h; path = Internal/USBMux/JMUSBMuxDecoder.h; sourceTree = "<group>"; };
+		B42638791BFD00640054C8B6 /* JMUSBMuxDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMUSBMuxDecoder.m; path = Internal/USBMux/JMUSBMuxDecoder.m; sourceTree = "<group>"; };
+		B426387A1BFD00640054C8B6 /* JMUSBMuxEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMUSBMuxEncoder.h; path = Internal/USBMux/JMUSBMuxEncoder.h; sourceTree = "<group>"; };
+		B426387B1BFD00640054C8B6 /* JMUSBMuxEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMUSBMuxEncoder.m; path = Internal/USBMux/JMUSBMuxEncoder.m; sourceTree = "<group>"; };
+		B426387C1BFD00640054C8B6 /* usbmux_packet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = usbmux_packet.c; path = Internal/USBMux/usbmux_packet.c; sourceTree = "<group>"; };
+		B426387D1BFD00640054C8B6 /* usbmux_packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = usbmux_packet.h; path = Internal/USBMux/usbmux_packet.h; sourceTree = "<group>"; };
+		B42638841BFD006E0054C8B6 /* JMHostSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMHostSocket.h; path = Internal/Sockets/JMHostSocket.h; sourceTree = "<group>"; };
+		B42638851BFD006E0054C8B6 /* JMHostSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMHostSocket.m; path = Internal/Sockets/JMHostSocket.m; sourceTree = "<group>"; };
+		B42638861BFD006E0054C8B6 /* JMServiceSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMServiceSocket.h; path = Internal/Sockets/JMServiceSocket.h; sourceTree = "<group>"; };
+		B42638871BFD006E0054C8B6 /* JMServiceSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMServiceSocket.m; path = Internal/Sockets/JMServiceSocket.m; sourceTree = "<group>"; };
+		B42638881BFD006E0054C8B6 /* JMSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSocket.h; path = Internal/Sockets/JMSocket.h; sourceTree = "<group>"; };
+		B42638891BFD006E0054C8B6 /* JMSocketConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSocketConnection.h; path = Internal/Sockets/JMSocketConnection.h; sourceTree = "<group>"; };
+		B426388A1BFD006E0054C8B6 /* JMSocketConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMSocketConnection.m; path = Internal/Sockets/JMSocketConnection.m; sourceTree = "<group>"; };
 		B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kiwi.framework; path = Libraries/Kiwi/Kiwi.framework; sourceTree = "<group>"; };
 		B43721C31BFA47B700203BAC /* JMDeviceConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMDeviceConnectionTests.m; sourceTree = "<group>"; };
 		B43721C61BFA4DA200203BAC /* JMUSBMuxPacketFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMUSBMuxPacketFactory.h; path = Utils/JMUSBMuxPacketFactory.h; sourceTree = "<group>"; };
 		B43721C71BFA4DA200203BAC /* JMUSBMuxPacketFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMUSBMuxPacketFactory.m; path = Utils/JMUSBMuxPacketFactory.m; sourceTree = "<group>"; };
 		B43721CA1BFA4DC000203BAC /* JMUSBMuxEncoderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxEncoderTests.m; sourceTree = "<group>"; };
-		B45234E71BFBD8AE00FD651C /* JMSocketConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSocketConnection.h; path = Internal/JMSocketConnection.h; sourceTree = "<group>"; };
-		B45234E81BFBD8AE00FD651C /* JMSocketConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMSocketConnection.m; path = Internal/JMSocketConnection.m; sourceTree = "<group>"; };
 		B47272AC1BF8FB9D0076C56F /* JMUSBDeviceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMUSBDeviceTests.m; sourceTree = "<group>"; };
 		B47272AE1BF9036C0076C56F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -333,7 +333,7 @@
 		B4238D051BF8CACC00DA2019 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				B4238D791BF8DF1C00DA2019 /* Internal */,
+				B42638711BFD00350054C8B6 /* Internal */,
 				B42638621BFCF9030054C8B6 /* Connections */,
 				B4238D4E1BF8D86300DA2019 /* JMUSBDevice.h */,
 				B4238D4F1BF8D86300DA2019 /* JMUSBDevice.m */,
@@ -416,26 +416,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B4238D791BF8DF1C00DA2019 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				B4238D7C1BF8DF4A00DA2019 /* JMUSBMuxDecoder.h */,
-				B4238D7D1BF8DF4A00DA2019 /* JMUSBMuxDecoder.m */,
-				B4238D7E1BF8DF4A00DA2019 /* JMUSBMuxEncoder.h */,
-				B4238D7F1BF8DF4A00DA2019 /* JMUSBMuxEncoder.m */,
-				B4238D801BF8DF4A00DA2019 /* usbmux_packet.c */,
-				B4238D811BF8DF4A00DA2019 /* usbmux_packet.h */,
-				B45234E71BFBD8AE00FD651C /* JMSocketConnection.h */,
-				B45234E81BFBD8AE00FD651C /* JMSocketConnection.m */,
-				B425DDD81BFC623800D62AE4 /* JMSocket.h */,
-				B425DDDC1BFC632D00D62AE4 /* JMHostSocket.h */,
-				B425DDDD1BFC632D00D62AE4 /* JMHostSocket.m */,
-				B425DDE01BFC633900D62AE4 /* JMServiceSocket.h */,
-				B425DDE11BFC633900D62AE4 /* JMServiceSocket.m */,
-			);
-			name = Internal;
-			sourceTree = "<group>";
-		};
 		B4238D8A1BF8E00900DA2019 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +476,42 @@
 			name = Connections;
 			sourceTree = "<group>";
 		};
+		B42638711BFD00350054C8B6 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				B42638771BFD00580054C8B6 /* USBMux */,
+				B42638761BFD00540054C8B6 /* Sockets */,
+			);
+			name = Internal;
+			sourceTree = "<group>";
+		};
+		B42638761BFD00540054C8B6 /* Sockets */ = {
+			isa = PBXGroup;
+			children = (
+				B42638841BFD006E0054C8B6 /* JMHostSocket.h */,
+				B42638851BFD006E0054C8B6 /* JMHostSocket.m */,
+				B42638861BFD006E0054C8B6 /* JMServiceSocket.h */,
+				B42638871BFD006E0054C8B6 /* JMServiceSocket.m */,
+				B42638881BFD006E0054C8B6 /* JMSocket.h */,
+				B42638891BFD006E0054C8B6 /* JMSocketConnection.h */,
+				B426388A1BFD006E0054C8B6 /* JMSocketConnection.m */,
+			);
+			name = Sockets;
+			sourceTree = "<group>";
+		};
+		B42638771BFD00580054C8B6 /* USBMux */ = {
+			isa = PBXGroup;
+			children = (
+				B42638781BFD00640054C8B6 /* JMUSBMuxDecoder.h */,
+				B42638791BFD00640054C8B6 /* JMUSBMuxDecoder.m */,
+				B426387A1BFD00640054C8B6 /* JMUSBMuxEncoder.h */,
+				B426387B1BFD00640054C8B6 /* JMUSBMuxEncoder.m */,
+				B426387C1BFD00640054C8B6 /* usbmux_packet.c */,
+				B426387D1BFD00640054C8B6 /* usbmux_packet.h */,
+			);
+			name = USBMux;
+			sourceTree = "<group>";
+		};
 		B43721C51BFA4D9700203BAC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,8 +528,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4238D841BF8DF4A00DA2019 /* JMUSBMuxDecoder.h in Headers */,
-				B425DDDE1BFC632D00D62AE4 /* JMHostSocket.h in Headers */,
+				B426387E1BFD00640054C8B6 /* JMUSBMuxDecoder.h in Headers */,
 				B4238DB01BF8E0E000DA2019 /* JMDataPacketProtocol.h in Headers */,
 				B426386D1BFCF9240054C8B6 /* JMUSBDeviceConnection.h in Headers */,
 				B42638691BFCF9240054C8B6 /* JMDeviceConnection.h in Headers */,
@@ -521,13 +536,14 @@
 				B43721C81BFA4DA200203BAC /* JMUSBMuxPacketFactory.h in Headers */,
 				B4238DB11BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.h in Headers */,
 				B4238D591BF8D86300DA2019 /* JMUSBDevice.h in Headers */,
-				B45234E91BFBD8AE00FD651C /* JMSocketConnection.h in Headers */,
+				B426388D1BFD006E0054C8B6 /* JMServiceSocket.h in Headers */,
+				B42638831BFD00640054C8B6 /* usbmux_packet.h in Headers */,
+				B42638901BFD006E0054C8B6 /* JMSocketConnection.h in Headers */,
 				B4238D5D1BF8D86300DA2019 /* JMUSBDeviceManager.h in Headers */,
-				B425DDE21BFC633900D62AE4 /* JMServiceSocket.h in Headers */,
-				B4238D891BF8DF4A00DA2019 /* usbmux_packet.h in Headers */,
-				B4238D861BF8DF4A00DA2019 /* JMUSBMuxEncoder.h in Headers */,
+				B42638801BFD00640054C8B6 /* JMUSBMuxEncoder.h in Headers */,
 				B4238CD51BF8C92A00DA2019 /* DarkLightning.h in Headers */,
-				B425DDDA1BFC623800D62AE4 /* JMSocket.h in Headers */,
+				B426388B1BFD006E0054C8B6 /* JMHostSocket.h in Headers */,
+				B426388F1BFD006E0054C8B6 /* JMSocket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,18 +780,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4238D5A1BF8D86300DA2019 /* JMUSBDevice.m in Sources */,
+				B42638911BFD006E0054C8B6 /* JMSocketConnection.m in Sources */,
+				B426388E1BFD006E0054C8B6 /* JMServiceSocket.m in Sources */,
+				B42638821BFD00640054C8B6 /* usbmux_packet.c in Sources */,
 				B43721C91BFA4DA200203BAC /* JMUSBMuxPacketFactory.m in Sources */,
-				B4238D881BF8DF4A00DA2019 /* usbmux_packet.c in Sources */,
-				B425DDE31BFC633900D62AE4 /* JMServiceSocket.m in Sources */,
+				B42638811BFD00640054C8B6 /* JMUSBMuxEncoder.m in Sources */,
 				B426386C1BFCF9240054C8B6 /* JMSimulatorConnection.m in Sources */,
 				B426386E1BFCF9240054C8B6 /* JMUSBDeviceConnection.m in Sources */,
 				B4238D5E1BF8D86300DA2019 /* JMUSBDeviceManager.m in Sources */,
+				B426387F1BFD00640054C8B6 /* JMUSBMuxDecoder.m in Sources */,
+				B426388C1BFD006E0054C8B6 /* JMHostSocket.m in Sources */,
 				B426386A1BFCF9240054C8B6 /* JMDeviceConnection.m in Sources */,
-				B425DDDF1BFC632D00D62AE4 /* JMHostSocket.m in Sources */,
-				B4238D851BF8DF4A00DA2019 /* JMUSBMuxDecoder.m in Sources */,
 				B4238DB21BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.m in Sources */,
-				B4238D871BF8DF4A00DA2019 /* JMUSBMuxEncoder.m in Sources */,
-				B45234EA1BFBD8AE00FD651C /* JMSocketConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
