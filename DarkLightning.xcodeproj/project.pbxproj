@@ -50,13 +50,11 @@
 		B425DDE61BFC6F5800D62AE4 /* DarkLightning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B425DDE81BFC6F9100D62AE4 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CD21BF8C92A00DA2019 /* DarkLightning.framework */; };
 		B425DDE91BFC6F9100D62AE4 /* DarkLightning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CD21BF8C92A00DA2019 /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B42638601BFCF8A70054C8B6 /* JMDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = B426385E1BFCF8A70054C8B6 /* JMDevice.h */; };
-		B42638611BFCF8A70054C8B6 /* JMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = B426385F1BFCF8A70054C8B6 /* JMDevice.m */; };
-		B42638691BFCF9240054C8B6 /* JMDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638631BFCF9240054C8B6 /* JMDeviceConnection.h */; };
+		B42638691BFCF9240054C8B6 /* JMDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638631BFCF9240054C8B6 /* JMDeviceConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B426386A1BFCF9240054C8B6 /* JMDeviceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B42638641BFCF9240054C8B6 /* JMDeviceConnection.m */; };
-		B426386B1BFCF9240054C8B6 /* JMSimulatorConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638651BFCF9240054C8B6 /* JMSimulatorConnection.h */; };
+		B426386B1BFCF9240054C8B6 /* JMSimulatorConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638651BFCF9240054C8B6 /* JMSimulatorConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B426386C1BFCF9240054C8B6 /* JMSimulatorConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B42638661BFCF9240054C8B6 /* JMSimulatorConnection.m */; };
-		B426386D1BFCF9240054C8B6 /* JMUSBDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638671BFCF9240054C8B6 /* JMUSBDeviceConnection.h */; };
+		B426386D1BFCF9240054C8B6 /* JMUSBDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638671BFCF9240054C8B6 /* JMUSBDeviceConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B426386E1BFCF9240054C8B6 /* JMUSBDeviceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B42638681BFCF9240054C8B6 /* JMUSBDeviceConnection.m */; };
 		B427FDB71BF8E41C005DC0B8 /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D9D1BF8E0A800DA2019 /* JMConcreteRootViewModel.m */; };
 		B427FDB81BF8E41C005DC0B8 /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D9F1BF8E0A800DA2019 /* JMRootView.m */; };
@@ -207,8 +205,6 @@
 		B425DDDD1BFC632D00D62AE4 /* JMHostSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMHostSocket.m; path = Internal/JMHostSocket.m; sourceTree = "<group>"; };
 		B425DDE01BFC633900D62AE4 /* JMServiceSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMServiceSocket.h; path = Internal/JMServiceSocket.h; sourceTree = "<group>"; };
 		B425DDE11BFC633900D62AE4 /* JMServiceSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMServiceSocket.m; path = Internal/JMServiceSocket.m; sourceTree = "<group>"; };
-		B426385E1BFCF8A70054C8B6 /* JMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMDevice.h; sourceTree = "<group>"; };
-		B426385F1BFCF8A70054C8B6 /* JMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMDevice.m; sourceTree = "<group>"; };
 		B42638631BFCF9240054C8B6 /* JMDeviceConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMDeviceConnection.h; path = Connections/JMDeviceConnection.h; sourceTree = "<group>"; };
 		B42638641BFCF9240054C8B6 /* JMDeviceConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JMDeviceConnection.m; path = Connections/JMDeviceConnection.m; sourceTree = "<group>"; };
 		B42638651BFCF9240054C8B6 /* JMSimulatorConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSimulatorConnection.h; path = Connections/JMSimulatorConnection.h; sourceTree = "<group>"; };
@@ -337,8 +333,6 @@
 		B4238D051BF8CACC00DA2019 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				B426385E1BFCF8A70054C8B6 /* JMDevice.h */,
-				B426385F1BFCF8A70054C8B6 /* JMDevice.m */,
 				B4238D791BF8DF1C00DA2019 /* Internal */,
 				B42638621BFCF9030054C8B6 /* Connections */,
 				B4238D4E1BF8D86300DA2019 /* JMUSBDevice.h */,
@@ -519,13 +513,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4238D841BF8DF4A00DA2019 /* JMUSBMuxDecoder.h in Headers */,
-				B42638601BFCF8A70054C8B6 /* JMDevice.h in Headers */,
-				B426386D1BFCF9240054C8B6 /* JMUSBDeviceConnection.h in Headers */,
 				B425DDDE1BFC632D00D62AE4 /* JMHostSocket.h in Headers */,
 				B4238DB01BF8E0E000DA2019 /* JMDataPacketProtocol.h in Headers */,
+				B426386D1BFCF9240054C8B6 /* JMUSBDeviceConnection.h in Headers */,
+				B42638691BFCF9240054C8B6 /* JMDeviceConnection.h in Headers */,
 				B426386B1BFCF9240054C8B6 /* JMSimulatorConnection.h in Headers */,
 				B43721C81BFA4DA200203BAC /* JMUSBMuxPacketFactory.h in Headers */,
-				B42638691BFCF9240054C8B6 /* JMDeviceConnection.h in Headers */,
 				B4238DB11BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.h in Headers */,
 				B4238D591BF8D86300DA2019 /* JMUSBDevice.h in Headers */,
 				B45234E91BFBD8AE00FD651C /* JMSocketConnection.h in Headers */,
@@ -777,7 +770,6 @@
 				B426386C1BFCF9240054C8B6 /* JMSimulatorConnection.m in Sources */,
 				B426386E1BFCF9240054C8B6 /* JMUSBDeviceConnection.m in Sources */,
 				B4238D5E1BF8D86300DA2019 /* JMUSBDeviceManager.m in Sources */,
-				B42638611BFCF8A70054C8B6 /* JMDevice.m in Sources */,
 				B426386A1BFCF9240054C8B6 /* JMDeviceConnection.m in Sources */,
 				B425DDDF1BFC632D00D62AE4 /* JMHostSocket.m in Sources */,
 				B4238D851BF8DF4A00DA2019 /* JMUSBMuxDecoder.m in Sources */,
