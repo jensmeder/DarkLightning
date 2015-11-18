@@ -69,4 +69,6 @@
  */
 - (void) stop;
 
+-(nullable JMUSBDevice*) deviceWithSerialNumber:(nonnull NSString*)serialNumber;
+
 @end

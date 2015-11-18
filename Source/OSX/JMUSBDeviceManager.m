@@ -78,6 +78,24 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	_connection = nil;
 }
 
+-(JMUSBDevice *)deviceWithSerialNumber:(NSString *)serialNumber
+{
+	if (!serialNumber || !serialNumber.length)
+	{
+		return nil;
+	}
+	
+	for (JMUSBDevice* device in _devices.allValues)
+	{
+		if ([device.serialNumber isEqualToString:serialNumber])
+		{
+			return device;
+		}
+	}
+	
+	return nil;
+}
+
 #pragma mark - Properties
 
 -(NSArray<JMUSBDevice*> *)attachedDevices
