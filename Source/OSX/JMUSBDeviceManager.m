@@ -23,11 +23,14 @@
 
 #import "JMUSBDeviceManager.h"
 
-#import "JMUSBChannel.h"
+#import "JMServiceSocket.h"
+#import "JMSocketConnection.h"
 #import "JMUSBMuxDecoder.h"
 #import "JMUSBMuxEncoder.h"
 
-@interface JMUSBDeviceManager () <JMUSBChannelDelegate, JMUSBMuxDecoderDelegate>
+static NSString* const JMServicePath = @"/var/run/usbmuxd";
+
+@interface JMUSBDeviceManager () <JMSocketConnectionDelegate, JMUSBMuxDecoderDelegate>
 
 @end
 
@@ -35,7 +38,7 @@
 {
 	@private
 	
-	JMUSBChannel* _channel;
+	JMSocketConnection* _connection;
 	JMUSBMuxDecoder* _decoder;
 
 	NSMutableDictionary<NSNumber*, JMUSBDevice*>* _devices;
@@ -58,20 +61,21 @@
 
 - (void)start
 {
-	if (_channel)
+	if (_connection)
 	{
 		return;
 	}
-	_channel = [[JMUSBChannel alloc]init];
-	_channel.delegate = self;
+	JMServiceSocket* socket = [[JMServiceSocket alloc]initWithPath:JMServicePath];
+	_connection = [[JMSocketConnection alloc]initWithSocket:socket];
+	_connection.delegate = self;
 
-	[_channel open];
+	[_connection connect];
 }
 
 -(void)stop
 {
-	[_channel close];
-	_channel = nil;
+	[_connection disconnect];
+	_connection = nil;
 }
 
 #pragma mark - Properties
@@ -83,21 +87,21 @@
 
 #pragma mark - Delegate
 
--(void)channel:(JMUSBChannel *)channel didReceiveData:(NSData *)data
+-(void)connection:(JMSocketConnection *)connection didReceiveData:(NSData *)data
 {
 	[_decoder processData:data];
 }
 
--(void)channel:(JMUSBChannel *)channel didFailToOpen:(NSError *)error
+-(void)connection:(JMSocketConnection *)connection didFailToConnect:(NSError *)error
 {
 	
 }
 
--(void)channel:(JMUSBChannel *)channel didChangeState:(JMUSBChannelState)state
+-(void)connection:(JMSocketConnection *)connection didChangeState:(JMSocketConnectionState)state
 {
-	if (state == JMUSBChannelStateConnected)
+	if (state == JMSocketConnectionStateConnected)
 	{
-		[_channel writeData:[JMUSBMuxEncoder encodeListeningPacket]];
+		[_connection writeData:[JMUSBMuxEncoder encodeListeningPacket]];
 	}
 }
 

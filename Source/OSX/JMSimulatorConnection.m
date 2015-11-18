@@ -22,16 +22,12 @@
  */
 
 #import "JMSimulatorConnection.h"
-#import <netinet/in.h>
-#import <sys/socket.h>
-#import <sys/ioctl.h>
-#import <sys/un.h>
-#import <err.h>
+#import "JMHostSocket.h"
+#import "JMSocketConnection.h"
 
-static NSUInteger JMSimulatorConnectionBufferSize	= 1 << 16;
 static NSString* const JMSimulatorConnectionHost	= @"localhost";
 
-@interface JMSimulatorConnection () <NSStreamDelegate>
+@interface JMSimulatorConnection () <JMSocketConnectionDelegate>
 
 @end
 
@@ -39,10 +35,7 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 {
 	@private
 	
-	NSInputStream* 		_inputStream;
-	NSOutputStream* 	_outputStream;
-	
-	NSRunLoop* _backgroundRunLoop;
+	JMSocketConnection* _connection;
 }
 
 @synthesize state = _state;
@@ -58,7 +51,9 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 
 	if (self)
 	{
-		_host = host;
+		JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:host andPort:port];
+		_connection = [[JMSocketConnection alloc]initWithSocket:socket];
+		_connection.delegate = self;
 	}
 
 	return self;
@@ -71,84 +66,17 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 
 -(BOOL)connect
 {
-	if (self.state != JMDeviceConnectionStateDisconnected)
-	{
-		return NO;
-	}
-	
-	self.state = JMDeviceConnectionStateConnecting;
-
-	CFReadStreamRef readStream;
-	CFWriteStreamRef writeStream;
-	
-	CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef) self.host, self.port, &readStream, &writeStream);
-	
-	_inputStream = (__bridge NSInputStream *)(readStream);
-	_outputStream = (__bridge NSOutputStream *)(writeStream);
-	
-	_inputStream.delegate = self;
-	_outputStream.delegate = self;
-	
-	CFReadStreamSetProperty(readStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanFalse);
-	CFWriteStreamSetProperty(writeStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanFalse);
-	
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-	^{
-		_backgroundRunLoop = [NSRunLoop currentRunLoop];
-		
-		[_inputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
-		[_outputStream scheduleInRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
-					   
-		[_inputStream open];
-		[_outputStream open];
-					   
-		[_backgroundRunLoop run];
-	});
-	
-	return YES;
+	return [_connection connect];
 }
 
 -(BOOL)writeData:(NSData *)data
 {
-	if (!data || data.length == 0 || _state != JMDeviceConnectionStateConnected)
-	{
-		return NO;
-	}
-	
-	NSInteger bytesWritten = [_outputStream write:data.bytes maxLength:data.length];
-	
-	if(bytesWritten > 0)
-	{
-		return YES;
-	}
-	
-	return NO;
+	return [_connection writeData:data];
 }
 
 -(BOOL)disconnect
 {
-	if (self.state == JMDeviceConnectionStateDisconnected)
-	{
-		return NO;
-	}
-	
-	_inputStream.delegate = self;
-	_outputStream.delegate = self;
-	
-	[_inputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
-	[_outputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
-	
-	[_inputStream close];
-	[_outputStream close];
-	
-	_inputStream = nil;
-	_outputStream = nil;
-	
-	_backgroundRunLoop = nil;
-	
-	self.state = JMDeviceConnectionStateDisconnected;
-	
-	return YES;
+	return [_connection disconnect];
 }
 
 -(void) setState:(JMDeviceConnectionState)connectionState
@@ -169,55 +97,24 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 	}
 }
 
-#pragma mark - Stream Delegate
+#pragma mark - Socket Connection Delegate
 
--(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
+-(void)connection:(JMSocketConnection *)connection didChangeState:(JMSocketConnectionState)state
 {
-	dispatch_async(dispatch_get_main_queue(),
-	^{
-		if (_state != JMDeviceConnectionStateConnected &&
-			eventCode == NSStreamEventHasSpaceAvailable &&
-			_inputStream.streamStatus == NSStreamStatusOpen &&
-			_outputStream.streamStatus == NSStreamStatusOpen)
-		{
-			self.state = JMDeviceConnectionStateConnected;
-		}
-		else if(eventCode == NSStreamEventHasBytesAvailable)
-		{
-			NSMutableData* data = [NSMutableData data];
-			uint8_t buffer[JMSimulatorConnectionBufferSize];
-						   
-			while (_inputStream.hasBytesAvailable)
-			{
-				NSInteger length = [_inputStream read:buffer maxLength:JMSimulatorConnectionBufferSize];
-				[data appendBytes:buffer length:length];
-			}
-			
-			if (!data.length)
-			{
-				return;
-			}
-						   
-			if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
-			{
-				dispatch_async(dispatch_get_main_queue(),
-				^{
-					[self.delegate connection:self didReceiveData:data];
-				});
-			}
-		}
-		else if (eventCode == NSStreamEventEndEncountered)
-		{
-			self.state = JMDeviceConnectionStateDisconnected;
-		}
-		else if(eventCode == NSStreamEventErrorOccurred && self.state == JMDeviceConnectionStateConnecting)
-		{
-			self.state = JMDeviceConnectionStateDisconnected;
+	self.state = (JMDeviceConnectionState)state;
+}
 
-			NSError* error = [NSError errorWithDomain:JMDeviceConnectionErrorDomain code:JMDeviceConnectionErrorCodeDataStreamError userInfo:nil];
-			[self.delegate connection:self didFailToConnect:error];
-		}
-	});
+-(void)connection:(JMSocketConnection *)connection didFailToConnect:(NSError *)error
+{
+	[self disconnect];
+}
+
+-(void)connection:(JMSocketConnection *)connection didReceiveData:(NSData *)data
+{
+	if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
+	{
+		[self.delegate connection:self didReceiveData:data];
+	}
 }
 
 

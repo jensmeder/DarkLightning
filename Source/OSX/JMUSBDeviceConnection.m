@@ -22,11 +22,14 @@
  */
 
 #import "JMUSBDeviceConnection.h"
-#import "JMUSBChannel.h"
+#import "JMServiceSocket.h"
+#import "JMSocketConnection.h"
 #import "JMUSBMuxEncoder.h"
 #import "JMUSBMuxDecoder.h"
 
-@interface JMUSBDeviceConnection()<JMUSBChannelDelegate, JMUSBMuxDecoderDelegate>
+static NSString* const JMServicePath = @"/var/run/usbmuxd";
+
+@interface JMUSBDeviceConnection()<JMSocketConnectionDelegate, JMUSBMuxDecoderDelegate>
 
 @end
 
@@ -34,7 +37,7 @@
 {
 	@private
 	
-	JMUSBChannel* 		_channel;
+	JMSocketConnection* _connection;
 	JMUSBMuxDecoder* 	_decoder;
 	
 	BOOL 				_tcpMode;
@@ -55,6 +58,10 @@
 		
 		_tcpMode = NO;
 		_state = JMDeviceConnectionStateDisconnected;
+		
+		JMServiceSocket* socket = [[JMServiceSocket alloc]initWithPath:JMServicePath];
+		_connection = [[JMSocketConnection alloc]initWithSocket:socket];
+		_connection.delegate = self;
 	}
 	
 	return self;
@@ -66,13 +73,10 @@
 	{
 		return NO;
 	}
-	
-	_channel = [[JMUSBChannel alloc]init];
-	_channel.delegate = self;
-	[_channel open];
+
 	self.state = JMDeviceConnectionStateConnecting;
 	
-	return YES;
+	return [_connection connect];
 }
 
 -(BOOL)disconnect
@@ -82,8 +86,8 @@
 		return NO;
 	}
 	
-	[_channel close];
-	_channel = nil;
+	[_connection disconnect];
+
 	_tcpMode = NO;
 	self.state = JMDeviceConnectionStateDisconnected;
 	
@@ -99,8 +103,7 @@
 	
 	if (_tcpMode)
 	{
-		[_channel writeData:data];
-		return YES;
+		return [_connection writeData:data];
 	}
 
 	return NO;
@@ -148,19 +151,19 @@
 
 #pragma mark - USB Delegate
 
--(void)channel:(JMUSBChannel *)channel didChangeState:(JMUSBChannelState)state
+-(void)connection:(JMSocketConnection *)connection didChangeState:(JMSocketConnectionState)state
 {
-	if (state == JMUSBChannelStateConnected)
+	if (state == JMSocketConnectionStateConnected)
 	{
-		[_channel writeData:[JMUSBMuxEncoder encodeConnectPacketForDeviceId:_device.deviceID andPort:self.port]];
+		[_connection writeData:[JMUSBMuxEncoder encodeConnectPacketForDeviceId:_device.deviceID andPort:self.port]];
 	}
-	else if(state == JMUSBChannelStateDisconnected)
+	else if(state == JMSocketConnectionStateDisconnected)
 	{
 		[self disconnect];
 	}
 }
 
--(void)channel:(JMUSBChannel *)channel didFailToOpen:(NSError *)internalError
+-(void)connection:(JMSocketConnection *)connection didFailToConnect:(NSError *)error
 {
 	[self disconnect];
 	
@@ -173,7 +176,7 @@
 	}
 }
 
--(void)channel:(JMUSBChannel *)channel didReceiveData:(NSData *)data
+-(void)connection:(JMSocketConnection *)connection didReceiveData:(NSData *)data
 {
 	if (_tcpMode)
 	{
