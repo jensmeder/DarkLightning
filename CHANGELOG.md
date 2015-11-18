@@ -2,6 +2,12 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.2.3
+
+### Bugfixes
+
+* Fixed a bug that prevented the example apps to load the embedded frameworks
+
 ## 0.2.2
 
 ### Additions

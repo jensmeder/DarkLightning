@@ -55,6 +55,10 @@
 		B427FDC21BF8E980005DC0B8 /* JMUSBMuxDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D091BF8D50400DA2019 /* JMUSBMuxDecoderTests.m */; };
 		B427FDCB1BF8EDF6005DC0B8 /* Kiwi.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B427FDCC1BF8EDFE005DC0B8 /* Kiwi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */; };
+		B45CDAF31BFC842600EB7188 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; };
+		B45CDAF41BFC842600EB7188 /* DarkLightning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B45CDAF61BFC843600EB7188 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CD21BF8C92A00DA2019 /* DarkLightning.framework */; };
+		B45CDAF71BFC843600EB7188 /* DarkLightning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CD21BF8C92A00DA2019 /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B47272AD1BF8FB9D0076C56F /* JMUSBDeviceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47272AC1BF8FB9D0076C56F /* JMUSBDeviceTests.m */; };
 		B47272AF1BF9036C0076C56F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47272AE1BF9036C0076C56F /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +110,28 @@
 			files = (
 				B427FDCB1BF8EDF6005DC0B8 /* Kiwi.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B45CDAF51BFC842600EB7188 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B45CDAF41BFC842600EB7188 /* DarkLightning.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B45CDAF81BFC843700EB7188 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B45CDAF71BFC843600EB7188 /* DarkLightning.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -217,6 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B45CDAF31BFC842600EB7188 /* DarkLightning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B45CDAF61BFC843600EB7188 /* DarkLightning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +582,7 @@
 				B4238D0F1BF8D70900DA2019 /* Sources */,
 				B4238D101BF8D70900DA2019 /* Frameworks */,
 				B4238D111BF8D70900DA2019 /* Resources */,
+				B45CDAF51BFC842600EB7188 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -572,6 +601,7 @@
 				B4238D2A1BF8D72600DA2019 /* Sources */,
 				B4238D2B1BF8D72600DA2019 /* Frameworks */,
 				B4238D2C1BF8D72600DA2019 /* Resources */,
+				B45CDAF81BFC843700EB7188 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -974,7 +1004,7 @@
 		B4238D001BF8C94200DA2019 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -995,7 +1025,7 @@
 		B4238D011BF8C94200DA2019 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
