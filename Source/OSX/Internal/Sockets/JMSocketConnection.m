@@ -151,8 +151,7 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 	^{
 		if (self.connectionState != JMSocketConnectionStateConnected &&
 			eventCode == NSStreamEventHasSpaceAvailable &&
-			_socket.inputStream.streamStatus == NSStreamStatusOpen &&
-			_socket.outputStream.streamStatus == NSStreamStatusOpen)
+			aStream.streamStatus == NSStreamStatusOpen)
 		{
 			self.connectionState = JMSocketConnectionStateConnected;
 		}

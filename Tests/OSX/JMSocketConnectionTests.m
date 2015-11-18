@@ -22,38 +22,24 @@
  */
 
 #import <Kiwi/Kiwi.h>
-#import "JMUSBMuxEncoder.h"
+#import "JMSocketConnection.h"
+#import "JMSocketMock.h"
+#include <dispatch/dispatch.h>
 
-SPEC_BEGIN(JMUSBMuxEncoderTests)
+SPEC_BEGIN(JMSocketConnectionTests)
 
-describe(@"JMUSBMuxEncoder",
+describe(@"JMSocketConnection",
 ^{
 	context(@"when initializing",
 	^{
-		it(@"should return nil",
+		it(@"should return nil if no valid socket is passed in",
 		^{
-			JMUSBMuxEncoder* encoder = [[JMUSBMuxEncoder alloc]init];
+			JMSocketConnection* connection = [[JMSocketConnection alloc]initWithSocket:nil];
 								
-			[[encoder should] beNil];
+			[[connection should] beNil];
 		});
 	});
-	
-	context(@"when requesting connect packet",
-	^{
-		it(@"should return nil if device id is nil",
-		^{
-			NSData* data = [JMUSBMuxEncoder encodeConnectPacketForDeviceId:nil andPort:1234];
-								
-			[[data should] beNil];
-		});
-		
-		it(@"should return a packet if device id is a valid NSNumber object",
-		^{
-			NSData* data = [JMUSBMuxEncoder encodeConnectPacketForDeviceId:@1 andPort:1234];
-			   
-			[[data shouldNot] beNil];
-		});
-	});
+			
 });
 
 SPEC_END
