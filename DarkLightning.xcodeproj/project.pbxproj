@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B40417811BFF2A1D00DF49C3 /* JMUSBMuxPacketFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B43721C71BFA4DA200203BAC /* JMUSBMuxPacketFactory.m */; };
+		B40417821BFF2A1D00DF49C3 /* JMSocketMock.m in Sources */ = {isa = PBXBuildFile; fileRef = B42638951BFD08BC0054C8B6 /* JMSocketMock.m */; };
 		B4238CD51BF8C92A00DA2019 /* DarkLightning.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238CD41BF8C92A00DA2019 /* DarkLightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4238CDC1BF8C92A00DA2019 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CD21BF8C92A00DA2019 /* DarkLightning.framework */; };
 		B4238CF11BF8C94200DA2019 /* DarkLightning.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238CF01BF8C94200DA2019 /* DarkLightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -824,6 +826,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B40417811BFF2A1D00DF49C3 /* JMUSBMuxPacketFactory.m in Sources */,
+				B40417821BFF2A1D00DF49C3 /* JMSocketMock.m in Sources */,
 				B47272AD1BF8FB9D0076C56F /* JMUSBDeviceTests.m in Sources */,
 				B42638931BFD07D50054C8B6 /* JMSocketConnectionTests.m in Sources */,
 				B43721C41BFA47B700203BAC /* JMDeviceConnectionTests.m in Sources */,
@@ -1066,6 +1070,7 @@
 		B4238CE71BF8C92A00DA2019 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1082,6 +1087,7 @@
 		B4238CE81BF8C92A00DA2019 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
