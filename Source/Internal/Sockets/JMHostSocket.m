@@ -31,7 +31,7 @@
 
 -(instancetype)initWithHost:(NSString *)host andPort:(uint32_t)port
 {
-	if (!host)
+	if (!host || !host.length)
 	{
 		return nil;
 	}

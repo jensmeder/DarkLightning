@@ -41,7 +41,7 @@
 
 -(instancetype)initWithPath:(NSString *)path
 {
-	if (!path)
+	if (!path || !path.length)
 	{
 		return nil;
 	}
