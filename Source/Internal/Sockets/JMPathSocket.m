@@ -21,17 +21,27 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "JMHostSocket.h"
+#import "JMPathSocket.h"
+#import <netinet/in.h>
+#import <sys/socket.h>
+#import <sys/ioctl.h>
+#import <sys/un.h>
+#import <err.h>
 
-@implementation JMHostSocket
+@implementation JMPathSocket
+{
+	@private
+	
+	dispatch_fd_t 		_socketHandle;
+}
 
 @synthesize inputStream = _inputStream;
 @synthesize outputStream = _outputStream;
 @synthesize state = _state;
 
--(instancetype)initWithHost:(NSString *)host andPort:(uint32_t)port
+-(instancetype)initWithPath:(NSString *)path
 {
-	if (!host)
+	if (!path)
 	{
 		return nil;
 	}
@@ -40,8 +50,7 @@
 	
 	if (self)
 	{
-		_host = host;
-		_port = port;
+		_path = path;
 	}
 	
 	return self;
@@ -55,11 +64,49 @@
 	}
 	
 	self.state = JMSocketStateConnecting;
+	// Create socket
 	
+	_socketHandle = socket(AF_UNIX, SOCK_STREAM, 0);
+	if (_socketHandle == -1)
+	{
+		self.state = JMSocketStateDisconnected;
+		
+		return NO;
+	}
+	
+	// Prevent SIGPIPE
+	
+	int on = 1;
+	setsockopt(_socketHandle, SOL_SOCKET, SO_NOSIGPIPE, &on, sizeof(on));
+	
+	
+	// Reuse address and port
+	
+	int reuseAddress = true;
+	setsockopt(_socketHandle, SOL_SOCKET, SO_REUSEADDR, (void *)&reuseAddress, sizeof(reuseAddress));
+	
+	int reusePort = true;
+	setsockopt(_socketHandle, SOL_SOCKET, SO_REUSEPORT, (const char*)&reusePort, sizeof(reusePort));
+	
+	// Connect socket
+	
+	struct sockaddr_un addr;
+	memset(&addr, 0, sizeof(addr));
+	addr.sun_family = AF_UNIX;
+	strcpy(addr.sun_path, [self.path cStringUsingEncoding:NSUTF8StringEncoding]);
+	socklen_t socklen = sizeof(addr);
+	
+	if (connect(_socketHandle, (struct sockaddr*)&addr, socklen) == -1)
+	{
+		self.state = JMSocketStateDisconnected;
+		
+		return NO;
+	}
+
 	CFReadStreamRef readStream;
 	CFWriteStreamRef writeStream;
 	
-	CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef) self.host, self.port, &readStream, &writeStream);
+	CFStreamCreatePairWithSocket(kCFAllocatorDefault, _socketHandle, &readStream, &writeStream);
 	
 	_inputStream = (__bridge NSInputStream *)(readStream);
 	_outputStream = (__bridge NSOutputStream *)(writeStream);
@@ -78,8 +125,13 @@
 	
 	self.state = JMSocketStateDisconnected;
 	
+	[_inputStream close];
+	[_outputStream close];
+	
 	_inputStream = nil;
 	_outputStream = nil;
+	
+	close(_socketHandle);
 	
 	return YES;
 }
