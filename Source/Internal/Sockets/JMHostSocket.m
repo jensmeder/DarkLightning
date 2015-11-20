@@ -73,7 +73,7 @@
 {
 	if (self.state == JMSocketStateDisconnected)
 	{
-		return NO;
+		return YES;
 	}
 	
 	self.state = JMSocketStateDisconnected;

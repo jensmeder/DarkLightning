@@ -104,12 +104,12 @@ typedef NS_ENUM(NSUInteger, JMUSBDeviceManagerState)
 /**
  *  Start listening for attach and detach events.
  */
-- (void) start;
+- (BOOL) start;
 
 /**
  *  Stop listening for attach and detach events.
  */
-- (void) stop;
+- (BOOL) stop;
 
 ///------------------------
 /// @name Device Management

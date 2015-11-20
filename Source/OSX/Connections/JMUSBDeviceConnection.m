@@ -83,7 +83,7 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 {
 	if (self.state == JMDeviceConnectionStateDisconnected)
 	{
-		return NO;
+		return YES;
 	}
 	
 	[_connection disconnect];

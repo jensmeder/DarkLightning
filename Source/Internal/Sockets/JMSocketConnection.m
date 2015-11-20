@@ -89,7 +89,7 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 {
 	if (self.connectionState == JMSocketConnectionStateDisconnected)
 	{
-		return NO;
+		return YES;
 	}
 	
 	_socket.inputStream.delegate = nil;

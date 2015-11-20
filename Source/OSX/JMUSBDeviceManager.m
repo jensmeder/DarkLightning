@@ -61,11 +61,11 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	return self;
 }
 
-- (void)start
+- (BOOL)start
 {
 	if (self.state != JMUSBDeviceManagerStateDisconnected)
 	{
-		return;
+		return NO;
 	}
 	
 	self.state = JMUSBDeviceManagerStateConnecting;
@@ -75,14 +75,23 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	_connection.delegate = self;
 
 	[_connection connect];
+	
+	return YES;
 }
 
--(void)stop
+-(BOOL)stop
 {
+	if (self.state == JMSocketConnectionStateDisconnected)
+	{
+		return YES;
+	}
+	
 	[_connection disconnect];
 	_connection = nil;
 	
 	self.state = JMUSBDeviceManagerStateDisconnected;
+	
+	return YES;
 }
 
 -(JMUSBDevice *)deviceWithSerialNumber:(NSString *)serialNumber
