@@ -33,8 +33,6 @@
 #import "JMSocketConnection.h"
 #import "JMNativeSocket.h"
 
-static const NSUInteger JMMobileDevicePortBufferSize = 2048;
-
 @interface JMMobileDevicePort () <JMSocketConnectionDelegate>
 
 @end
@@ -46,12 +44,7 @@ static const NSUInteger JMMobileDevicePortBufferSize = 2048;
 	JMSocketConnection* _connection;
 	
 	CFSocketRef _socket;
-	
-	CFSocketNativeHandle _connectionHandle;
-	NSData* _handle;
-
 	CFRunLoopSourceRef _socketSource;
-	
 	NSRunLoop* _backgroundRunLoop;
 }
 
@@ -72,11 +65,6 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 {
 	JMMobileDevicePort* devicePort = (__bridge JMMobileDevicePort*)info;
 
-	CFReadStreamRef readStream = NULL;
-	CFWriteStreamRef writeStream = NULL;
-
-	CFStreamCreatePairWithSocket(kCFAllocatorDefault, *(CFSocketNativeHandle *)data, &readStream, &writeStream);
-
 	JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:*(CFSocketNativeHandle *)data];
 	devicePort->_connection = [[JMSocketConnection alloc]initWithSocket:socket];
 	devicePort->_connection.delegate = devicePort;
@@ -86,27 +74,25 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 -(void)open
 {
-		CFSocketContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
+	CFSocketContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
 
-		_socket = CFSocketCreate(
-								 kCFAllocatorDefault,
-								 PF_INET,
-								 SOCK_STREAM,
-								 IPPROTO_TCP,
-								 kCFSocketAcceptCallBack, handleConnect, &context);
+	_socket = CFSocketCreate(	kCFAllocatorDefault,
+								PF_INET,
+								SOCK_STREAM,
+								IPPROTO_TCP,
+								kCFSocketAcceptCallBack, handleConnect, &context);
 
-		struct sockaddr_in sin;
+	struct sockaddr_in sin;
 
-		memset(&sin, 0, sizeof(sin));
-		sin.sin_len = sizeof(sin);
-		sin.sin_family = AF_INET;
-		sin.sin_port = htons(_port);
-		sin.sin_addr.s_addr= htonl(INADDR_LOOPBACK);
+	memset(&sin, 0, sizeof(sin));
+	sin.sin_len = sizeof(sin);
+	sin.sin_family = AF_INET;
+	sin.sin_port = htons(_port);
+	sin.sin_addr.s_addr= htonl(INADDR_LOOPBACK);
 
-		CFDataRef sincfd = CFDataCreate(
-										kCFAllocatorDefault,
-										(UInt8 *)&sin,
-										sizeof(sin));
+	CFDataRef sincfd = CFDataCreate(kCFAllocatorDefault,
+									(UInt8 *)&sin,
+									sizeof(sin));
 	// Reuse address and port
 
 	int reuseAddress = true;
@@ -120,10 +106,9 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 	// Start Listening
 
-	_socketSource = CFSocketCreateRunLoopSource(
-																	  kCFAllocatorDefault,
-																	  _socket,
-																	  0);
+	_socketSource = CFSocketCreateRunLoopSource(	kCFAllocatorDefault,
+													_socket,
+													0);
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
 	^{
