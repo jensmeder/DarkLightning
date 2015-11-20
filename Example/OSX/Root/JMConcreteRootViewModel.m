@@ -84,6 +84,11 @@
 
 #pragma mark - Device Manager Delegate
 
+-(void)deviceManager:(JMUSBDeviceManager *)manager deviceDidChangeState:(JMUSBDeviceManagerState)state
+{
+
+}
+
 -(void)deviceManager:(JMUSBDeviceManager *)manager deviceDidAttach:(JMUSBDevice *)device
 {
 	if (!_deviceConnection)

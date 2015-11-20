@@ -22,48 +22,31 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <CoreFoundation/CoreFoundation.h>
+#import "JMSocket.h"
+
 
 /**
- *  Represents a single iOS device that has been discovered by usbmuxd
+ *  Represents a socket to a native socket.
  */
-@interface JMUSBDevice : NSObject
+@interface JMNativeSocket : NSObject<JMSocket>
 
 /**
- *  The device identifier of the device. Used to identify the device within usbmuxd service.
+ *  The native socket to which the socket is bound to.
  */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* deviceID;
-
-/**
- *  The serial number of the device, e.g., @"32b595e5cd1f122c7687bcf953bd1af120b176c6"
- */
-@property (nonnull, nonatomic, strong, readonly) NSString* serialNumber;
-
-/**
- *  The connection speed to the device. Default is 480000000.
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* connectionSpeed;
-
-/**
- *  The product identifier of the device, e.g., 4776
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* productID;
-
-/**
- *  The location identifier of the device, e.g., 337641472
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* locationID;
+@property (readonly) CFSocketNativeHandle nativeSocket;
 
 ///---------------------
 /// @name Initialization
 ///---------------------
 
 /**
- *  Creates and initializes a new device using a plist based NSDictionary
+ *  Initializes a socket with the given native socket.
  *
- *  @param plist The NSDictionary representation of the plist data
+ *  @param nativeSocket The native socket to which the socket is bound to.
  *
- *  @return A newly initialized device
+ *  @return A newly initialized socket if the given native socket is valid, nil otherwise.
  */
--(nullable instancetype)initWithPList:(nonnull NSDictionary*)plist NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithNativeSocket:(CFSocketNativeHandle)nativeSocket;
 
 @end

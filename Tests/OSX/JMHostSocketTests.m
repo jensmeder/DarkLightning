@@ -22,35 +22,36 @@
  */
 
 #import <Kiwi/Kiwi.h>
-#import "JMUSBDevice.h"
+#import "JMHostSocket.h"
 
-SPEC_BEGIN(JMUSBMuxDeviceTests)
+SPEC_BEGIN(JMHostSocketTests)
 
-describe(@"JMUSBDevice",
-^{
-	context(@"when initializing",
-	^{
-		it(@"should return nil if no plist dictionary has been passed",
-		^{
-			JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:nil];
-			
-			[[device should] beNil];
-		});
-		
-		it(@"should return nil if plist dictionary does not contain a device id",
-		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"a":@1}];
-			   
-			   [[device should] beNil];
-		   });
-		
-		it(@"should return a device if the plist dictionary is valid",
-		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"Properties":@{@"DeviceID":@1}}];
-			   
-			   [[device shouldNot] beNil];
-		   });
-	});
-});
+describe(@"JMHostSocket",
+		 ^{
+			 context(@"when initializing",
+					 ^{
+						 it(@"should return nil if host is nil",
+							^{
+								JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:nil andPort:0];
+								
+								[[socket should] beNil];
+							});
+						 
+						 it(@"should return nil if host is empty string",
+							^{
+								JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"" andPort:0];
+								
+								[[socket should] beNil];
+							});
+						 
+						 it(@"should return a new socket if host is valid",
+							^{
+								JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:0];
+								
+								[[socket shouldNot] beNil];
+							});
+						 
+					 });
+		 });
 
 SPEC_END

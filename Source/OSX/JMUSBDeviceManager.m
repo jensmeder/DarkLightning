@@ -23,11 +23,14 @@
 
 #import "JMUSBDeviceManager.h"
 
-#import "JMUSBChannel.h"
+#import "JMPathSocket.h"
+#import "JMSocketConnection.h"
 #import "JMUSBMuxDecoder.h"
 #import "JMUSBMuxEncoder.h"
 
-@interface JMUSBDeviceManager () <JMUSBChannelDelegate, JMUSBMuxDecoderDelegate>
+static NSString* const JMServicePath = @"/var/run/usbmuxd";
+
+@interface JMUSBDeviceManager () <JMSocketConnectionDelegate, JMUSBMuxDecoderDelegate>
 
 @end
 
@@ -35,9 +38,8 @@
 {
 	@private
 	
-	JMUSBChannel* _channel;
+	JMSocketConnection* _connection;
 	JMUSBMuxDecoder* _decoder;
-	JMUSBMuxEncoder* _encoder;
 
 	NSMutableDictionary<NSNumber*, JMUSBDevice*>* _devices;
 }
@@ -51,30 +53,63 @@
 		_decoder = [[JMUSBMuxDecoder alloc]init];
 		_decoder.delegate = self;
 
-		_encoder = [[JMUSBMuxEncoder alloc]init];
-
 		_devices = [NSMutableDictionary dictionary];
+		
+		_state = JMUSBDeviceManagerStateDisconnected;
 	}
 	
 	return self;
 }
 
-- (void)start
+- (BOOL)start
 {
-	if (_channel)
+	if (self.state != JMUSBDeviceManagerStateDisconnected)
 	{
-		return;
+		return NO;
 	}
-	_channel = [[JMUSBChannel alloc]init];
-	_channel.delegate = self;
+	
+	self.state = JMUSBDeviceManagerStateConnecting;
+	
+	JMPathSocket* socket = [[JMPathSocket alloc]initWithPath:JMServicePath];
+	_connection = [[JMSocketConnection alloc]initWithSocket:socket];
+	_connection.delegate = self;
 
-	[_channel open];
+	[_connection connect];
+	
+	return YES;
 }
 
--(void)stop
+-(BOOL)stop
 {
-	[_channel close];
-	_channel = nil;
+	if (self.state == JMSocketConnectionStateDisconnected)
+	{
+		return YES;
+	}
+	
+	[_connection disconnect];
+	_connection = nil;
+	
+	self.state = JMUSBDeviceManagerStateDisconnected;
+	
+	return YES;
+}
+
+-(JMUSBDevice *)deviceWithSerialNumber:(NSString *)serialNumber
+{
+	if (!serialNumber || !serialNumber.length)
+	{
+		return nil;
+	}
+	
+	for (JMUSBDevice* device in _devices.allValues)
+	{
+		if ([device.serialNumber isEqualToString:serialNumber])
+		{
+			return device;
+		}
+	}
+	
+	return nil;
 }
 
 #pragma mark - Properties
@@ -84,23 +119,44 @@
 	return _devices.allValues;
 }
 
+-(void)setState:(JMUSBDeviceManagerState)state
+{
+	if (state == _state)
+	{
+		return;
+	}
+	
+	_state = state;
+	
+	if ([_delegate respondsToSelector:@selector(deviceManager:deviceDidChangeState:)])
+	{
+		[_delegate deviceManager:self deviceDidChangeState:_state];
+	}
+}
+
 #pragma mark - Delegate
 
--(void)channel:(JMUSBChannel *)channel didReceiveData:(NSData *)data
+-(void)connection:(JMSocketConnection *)connection didReceiveData:(NSData *)data
 {
 	[_decoder processData:data];
 }
 
--(void)channel:(JMUSBChannel *)channel didFailToOpen:(NSError *)error
+-(void)connection:(JMSocketConnection *)connection didFailToConnect:(NSError *)error
 {
-	
+	[self stop];
 }
 
--(void)channel:(JMUSBChannel *)channel didChangeState:(JMUSBChannelState)state
+-(void)connection:(JMSocketConnection *)connection didChangeState:(JMSocketConnectionState)state
 {
-	if (state == JMUSBChannelStateConnected)
+	if (state == JMSocketConnectionStateConnected)
 	{
-		[_channel writeData:[_encoder encodeListeningPacket]];
+		self.state = JMUSBDeviceManagerStateConnected;
+		
+		[_connection writeData:[JMUSBMuxEncoder encodeListeningPacket]];
+	}
+	else if(state == JMSocketConnectionStateDisconnected)
+	{
+		[self stop];
 	}
 }
 

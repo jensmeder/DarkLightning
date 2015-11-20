@@ -22,33 +22,26 @@
  */
 
 #import <Kiwi/Kiwi.h>
-#import "JMUSBDevice.h"
+#import "JMDeviceConnection.h"
 
-SPEC_BEGIN(JMUSBMuxDeviceTests)
+SPEC_BEGIN(JMDeviceConnectionTests)
 
-describe(@"JMUSBDevice",
+describe(@"JMDeviceConnection",
 ^{
 	context(@"when initializing",
 	^{
-		it(@"should return nil if no plist dictionary has been passed",
+		it(@"should return nil when initializing without port",
 		^{
-			JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:nil];
+			JMDeviceConnection* connection = [[JMDeviceConnection alloc]init];
 			
-			[[device should] beNil];
+			[[connection should] beNil];
 		});
 		
-		it(@"should return nil if plist dictionary does not contain a device id",
+		it(@"should return nil when initializing with a port",
 		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"a":@1}];
+			   JMDeviceConnection* connection = [[JMDeviceConnection alloc]initWithPort:1234];
 			   
-			   [[device should] beNil];
-		   });
-		
-		it(@"should return a device if the plist dictionary is valid",
-		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"Properties":@{@"DeviceID":@1}}];
-			   
-			   [[device shouldNot] beNil];
+			   [[connection should] beNil];
 		   });
 	});
 });

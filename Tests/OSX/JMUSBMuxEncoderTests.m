@@ -21,40 +21,39 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "JMDeviceConnection.h"
+#import <Kiwi/Kiwi.h>
+#import "JMUSBMuxEncoder.h"
 
-NSString* const JMDeviceConnectionErrorDomain 			= @"JMDeviceConnectionError";
+SPEC_BEGIN(JMUSBMuxEncoderTests)
 
-NSInteger JMDeviceConnectionErrorCodeDeviceNotAvailable = 100;
-NSInteger JMDeviceConnectionErrorCodeDataStreamError 	= 200;
-
-@implementation JMDeviceConnection
-
--(instancetype)initWithPort:(uint32_t)port
-{
-	self = [super init];
+describe(@"JMUSBMuxEncoder",
+^{
+	context(@"when initializing",
+	^{
+		it(@"should return nil",
+		^{
+			JMUSBMuxEncoder* encoder = [[JMUSBMuxEncoder alloc]init];
+								
+			[[encoder should] beNil];
+		});
+	});
 	
-	if (self)
-	{
-		_port = port;
-	}
-	
-	return self;
-}
+	context(@"when requesting connect packet",
+	^{
+		it(@"should return nil if device id is nil",
+		^{
+			NSData* data = [JMUSBMuxEncoder encodeConnectPacketForDeviceId:nil andPort:1234];
+								
+			[[data should] beNil];
+		});
+		
+		it(@"should return a packet if device id is a valid NSNumber object",
+		^{
+			NSData* data = [JMUSBMuxEncoder encodeConnectPacketForDeviceId:@1 andPort:1234];
+			   
+			[[data shouldNot] beNil];
+		});
+	});
+});
 
--(void)connect
-{
-	
-}
-
--(void)disconnect
-{
-	
-}
-
--(BOOL)writeData:(NSData *)data
-{
-	return NO;
-}
-
-@end
+SPEC_END

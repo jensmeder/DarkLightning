@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   	s.name             = "DarkLightning"
-  	s.version          = "0.2.3"
+  	s.version          = "0.3.0"
   	s.summary          = "Simply the fastest way to transmit data between iOS and OSX"
   	s.description      = <<-DESC
   	DarkLightning is a lightweight Objective-C library to allow data transmission between iOS devices (Lightning port or Dock connector) and OSX (USB) at 480MBit. 
@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
 
 	s.subspec "OSX" do |sp|
 
-		sp.source_files = 'Source/OSX/**/*{h,m,c}'
+		sp.source_files = 'Source/OSX/**/*{h,m,c}','Source/Internal/**/*{h,m,c}'
 		sp.platform     = :osx, '10.9'
-		sp.private_header_files = "Source/OSX/Internal/**/*.h"
+		sp.private_header_files = "Source/Internal/**/*.h"
 		
 		sp.dependency 'DarkLightning/PacketProtocol'
 
@@ -27,8 +27,9 @@ Pod::Spec.new do |s|
 
 	s.subspec "iOS" do |sp|
 
-		sp.source_files = 'Source/iOS/**/*{h,m,c}'
+		sp.source_files = 'Source/iOS/**/*{h,m,c}','Source/Internal/**/*{h,m,c}'
 		sp.platform     = :ios, '8.0'
+		sp.private_header_files = "Source/Internal/**/*.h"
 		
 		sp.dependency 'DarkLightning/PacketProtocol'
 

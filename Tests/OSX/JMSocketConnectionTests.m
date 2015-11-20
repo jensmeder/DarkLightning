@@ -21,11 +21,25 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#import <Kiwi/Kiwi.h>
+#import "JMSocketConnection.h"
+#import "JMSocketMock.h"
+#include <dispatch/dispatch.h>
 
-@interface JMUSBMuxEncoder : NSObject
+SPEC_BEGIN(JMSocketConnectionTests)
 
--(nonnull NSData*) encodeListeningPacket;
--(nullable NSData*) encodeConnectPacketForDeviceId:(nonnull NSNumber*)deviceId andPort:(uint32_t)port;
+describe(@"JMSocketConnection",
+^{
+	context(@"when initializing",
+	^{
+		it(@"should return nil if no valid socket is passed in",
+		^{
+			JMSocketConnection* connection = [[JMSocketConnection alloc]initWithSocket:nil];
+								
+			[[connection should] beNil];
+		});
+	});
+			
+});
 
-@end
+SPEC_END

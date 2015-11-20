@@ -21,49 +21,35 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
+#import "JMSocket.h"
 
 /**
- *  Represents a single iOS device that has been discovered by usbmuxd
+ *  Represents a socket to a given host.
  */
-@interface JMUSBDevice : NSObject
+@interface JMHostSocket : NSObject<JMSocket>
 
 /**
- *  The device identifier of the device. Used to identify the device within usbmuxd service.
+ *  The port to which the socket is bound to.
  */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* deviceID;
+@property (readonly) uint32_t port;
 
 /**
- *  The serial number of the device, e.g., @"32b595e5cd1f122c7687bcf953bd1af120b176c6"
+ *  The host to which the socket is bound to.
  */
-@property (nonnull, nonatomic, strong, readonly) NSString* serialNumber;
-
-/**
- *  The connection speed to the device. Default is 480000000.
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* connectionSpeed;
-
-/**
- *  The product identifier of the device, e.g., 4776
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* productID;
-
-/**
- *  The location identifier of the device, e.g., 337641472
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* locationID;
+@property (nonnull, nonatomic, strong, readonly) NSString* host;
 
 ///---------------------
 /// @name Initialization
 ///---------------------
 
 /**
- *  Creates and initializes a new device using a plist based NSDictionary
+ *  Initializes and returns a newly
  *
- *  @param plist The NSDictionary representation of the plist data
+ *  @param host The host to which the socket should be bound to.
+ *  @param port The port to which the socket should be bound to.
  *
- *  @return A newly initialized device
+ *  @return A newly initialized socket if the given host and port are valid, nil otherwise.
  */
--(nullable instancetype)initWithPList:(nonnull NSDictionary*)plist NS_DESIGNATED_INITIALIZER;
+-(nullable instancetype)initWithHost:(nonnull NSString*)host andPort:(uint32_t)port;
 
 @end

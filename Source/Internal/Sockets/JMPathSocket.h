@@ -21,34 +21,29 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
-#import "JMUSBDevice.h"
+#import "JMSocket.h"
 
-typedef NS_ENUM(uint32_t, JMUSBMuxResultCode)
-{
-	JMUSBMuxResultCodeOK 				= 0,
-	JMUSBMuxResultCodeBadCommand 		= 1,
-	JMUSBMuxResultCodeBadDevice 		= 2,
-	JMUSBMuxResultCodeConnectionRefused = 3,
-	JMUSBMuxResultCodeBadVersion 		= 6
-};
+/**
+ *  Represents a socket to a given path.
+ */
+@interface JMPathSocket : NSObject<JMSocket>
 
-@class JMUSBMuxDecoder;
+/**
+ *  The path to which the socket is bound to.
+ */
+@property (nonnull, nonatomic, strong, readonly) NSString* path;
 
-@protocol JMUSBMuxDecoderDelegate <NSObject>
+///---------------------
+/// @name Initialization
+///---------------------
 
-@optional
-
--(void) decoder:(nonnull JMUSBMuxDecoder *)decoder didDecodeResultPacket:(JMUSBMuxResultCode)resultCode;
--(void) decoder:(nonnull JMUSBMuxDecoder *)decoder didDecodeAttachPacket:(nonnull JMUSBDevice*)device;
--(void) decoder:(nonnull JMUSBMuxDecoder *)decoder didDecodeDetachPacket:(nonnull NSNumber*)deviceID;
-
-@end
-
-@interface JMUSBMuxDecoder : NSObject
-
-@property (nonatomic, weak) id<JMUSBMuxDecoderDelegate> delegate;
-
--(BOOL) processData:(nonnull NSData*)data;
+/**
+ *  Initializes a socket with the given path.
+ *
+ *  @param path The path to which the socket should be bound to.
+ *
+ *  @return A newly initialized socket if the given path is valid, nil otherwise.
+ */
+-(nullable instancetype)initWithPath:(nonnull NSString*)path;
 
 @end

@@ -22,35 +22,28 @@
  */
 
 #import <Kiwi/Kiwi.h>
-#import "JMUSBDevice.h"
+#import "JMNativeSocket.h"
 
-SPEC_BEGIN(JMUSBMuxDeviceTests)
+SPEC_BEGIN(JMNativeSocketTests)
 
-describe(@"JMUSBDevice",
-^{
-	context(@"when initializing",
-	^{
-		it(@"should return nil if no plist dictionary has been passed",
-		^{
-			JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:nil];
-			
-			[[device should] beNil];
-		});
-		
-		it(@"should return nil if plist dictionary does not contain a device id",
-		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"a":@1}];
-			   
-			   [[device should] beNil];
-		   });
-		
-		it(@"should return a device if the plist dictionary is valid",
-		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"Properties":@{@"DeviceID":@1}}];
-			   
-			   [[device shouldNot] beNil];
-		   });
-	});
-});
+describe(@"JMNativeSocket",
+		 ^{
+			 context(@"when initializing",
+					 ^{
+						 it(@"should return nil if native socket is invalid",
+							^{
+								JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:-1];
+								
+								[[socket should] beNil];
+							});
+						 
+						 it(@"should return a new socket if native socket is valid",
+							^{
+								JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
+								
+								[[socket shouldNot] beNil];
+							});
+					 });
+		 });
 
 SPEC_END

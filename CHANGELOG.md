@@ -2,6 +2,20 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.0
+
+### Additions
+
+* Added the `deviceWithSerialNumber:` to JMUSBDeviceManager to obtain a `JMUSBDevice` for a given serial number if the device is attached to the system.
+* Added more unit tests
+* Added documentation for `JMUSBMuxDecoder` and `JMUSBMuxEncoder`
+* Added a state property for `JMUSBDeviceManager`
+
+### Changes
+
+* All internal socket code has been refactored and separated in `JMSocket`, `JMHostSocket`, `JMPathSocket`, `JMNativeSocket`, and `JMSocketConnection` for reuse
+* All `stop` and `disconnect` methods return the value `YES` from now on
+
 ## 0.2.3
 
 ### Bugfixes

@@ -21,36 +21,51 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import <Kiwi/Kiwi.h>
-#import "JMUSBDevice.h"
+#import "JMDeviceConnection.h"
 
-SPEC_BEGIN(JMUSBMuxDeviceTests)
+NSString* const JMDeviceConnectionErrorDomain 			= @"JMDeviceConnectionError";
 
-describe(@"JMUSBDevice",
-^{
-	context(@"when initializing",
-	^{
-		it(@"should return nil if no plist dictionary has been passed",
-		^{
-			JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:nil];
-			
-			[[device should] beNil];
-		});
-		
-		it(@"should return nil if plist dictionary does not contain a device id",
-		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"a":@1}];
-			   
-			   [[device should] beNil];
-		   });
-		
-		it(@"should return a device if the plist dictionary is valid",
-		   ^{
-			   JMUSBDevice* device = [[JMUSBDevice alloc]initWithPList:@{@"Properties":@{@"DeviceID":@1}}];
-			   
-			   [[device shouldNot] beNil];
-		   });
-	});
-});
+NSInteger JMDeviceConnectionErrorCodeDeviceNotAvailable = 100;
+NSInteger JMDeviceConnectionErrorCodeDataStreamError 	= 200;
 
-SPEC_END
+@implementation JMDeviceConnection
+
+-(instancetype)init
+{
+	return [self initWithPort:0];
+}
+
+-(instancetype)initWithPort:(uint32_t)port
+{
+	if ([self isMemberOfClass:[JMDeviceConnection class]])
+	{
+		return nil;
+	}
+	
+	self = [super init];
+	
+	if (self)
+	{
+		_port = port;
+		_state = JMDeviceConnectionStateDisconnected;
+	}
+	
+	return self;
+}
+
+-(BOOL)connect
+{
+	return NO;
+}
+
+-(BOOL)disconnect
+{
+	return NO;
+}
+
+-(BOOL)writeData:(NSData *)data
+{
+	return NO;
+}
+
+@end

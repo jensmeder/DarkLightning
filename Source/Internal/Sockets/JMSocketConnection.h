@@ -22,36 +22,32 @@
  */
 
 #import <Foundation/Foundation.h>
-
-FOUNDATION_EXPORT NSString* _Nonnull const JMDeviceConnectionErrorDomain;
-
-FOUNDATION_EXPORT NSInteger JMDeviceConnectionErrorCodeDeviceNotAvailable;
-FOUNDATION_EXPORT NSInteger JMDeviceConnectionErrorCodeDataStreamError;
+#import "JMSocket.h"
 
 /**
- * These constants indicate the state of a given JMDeviceConnection.
+ * These constants indicate the state of a given socket connection.
  */
-typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
+typedef NS_ENUM(NSUInteger, JMSocketConnectionState)
 {
 	/**
-	 * Indicates that there is no valid data connection to the device
+	 * Indicates that there is no connection to the socket
 	 */
-	JMDeviceConnectionStateDisconnected = 0,
+	JMSocketConnectionStateDisconnected = 0,
 	
 	/**
-	 * Indicates that the connection is currently trying to connect to the device
+	 * Indicates that the connection is currently trying to connect to the socket
 	 */
-	JMDeviceConnectionStateConnecting,
+	JMSocketConnectionStateConnecting,
 	
 	/**
-	 * Indicates that there is a valid connection to the device.
+	 * Indicates that there is a valid connection to the socket.
 	 */
-	JMDeviceConnectionStateConnected
+	JMSocketConnectionStateConnected
 };
 
-@class JMDeviceConnection;
+@class JMSocketConnection;
 
-@protocol JMDeviceConnectionDelegate <NSObject>
+@protocol JMSocketConnectionDelegate <NSObject>
 
 @optional
 
@@ -61,7 +57,7 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
  *  @param connection The connection that has changed its state
  *  @param state      The new state of the connection
  */
--(void) connection:(nonnull JMDeviceConnection*)connection didChangeState:(JMDeviceConnectionState)state;
+-(void) connection:(nonnull JMSocketConnection*)connection didChangeState:(JMSocketConnectionState)state;
 
 /**
  *  Informs the delegate that the connection has received a new data package.
@@ -69,7 +65,7 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
  *  @param connection The connection that has received the data
  *  @param data       The data that has been received
  */
--(void) connection:(nonnull JMDeviceConnection*)connection didReceiveData:(nonnull NSData*)data;
+-(void) connection:(nonnull JMSocketConnection*)connection didReceiveData:(nonnull NSData*)data;
 
 /**
  *  Informs the delegate that there has been a problem while trying to establish a connection to the given device.
@@ -77,62 +73,72 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
  *  @param connection The connection that has detected a problem while trying to connect
  *  @param error      An error object providing more information
  */
--(void) connection:(nonnull JMDeviceConnection*)connection didFailToConnect:(nonnull NSError*)error;
+-(void) connection:(nonnull JMSocketConnection*)connection didFailToConnect:(nonnull NSError*)error;
 
 @end
 
-@interface JMDeviceConnection : NSObject
+/**
+ *  Represents a connection to a given socket.
+ */
+@interface JMSocketConnection : NSObject
 
 /**
- *  The port the iOS is listening on.
+ *  The underlying socket of this connection.
  */
-@property (nonatomic, assign, readonly) uint32_t port;
+@property (nonnull, nonatomic, strong, readonly) id<JMSocket> socket;
 
 /**
- *  The current connection state. Default value is JMDeviceConnectionStateDisconnected.
+ *  The current state of the connection.
  */
-@property (nonatomic, assign, readonly) JMDeviceConnectionState state;
+@property (readonly) JMSocketConnectionState connectionState;
 
-
-@property (nonatomic, weak) id<JMDeviceConnectionDelegate> delegate;
+/**
+ *  The object that acts as the delegate of the connection.
+ */
+@property (nonatomic, weak) id<JMSocketConnectionDelegate> delegate;
 
 ///---------------------
 /// @name Initialization
 ///---------------------
 
 /**
- *  Initializes a connection with the given port.
+ *  Creates a new connection with the given socket.
  *
- *  @param port   The port the connection is listening on.
+ *  @param socket The socket the connection should be using.
  *
- *  @return A newly initialized device if port is valid, nil otherwise
+ *  @return A newly created socket connection if the socket is valid, nil otherwise.
  */
--(nullable instancetype)initWithPort:(uint32_t)port;
+-(nullable instancetype)initWithSocket:(nonnull id<JMSocket>)socket;
 
 ///----------------------------
 /// @name Connection Management
 ///----------------------------
 
 /**
- *  Attempts to connect to the device.
+ *  Attempts to connect to the socket.
+ *
+ *  @return YES if the connect was successful, NO otherwise
  */
--(void) connect;
+
+-(BOOL) connect;
 
 /**
- *  Disconnects from the device.
+ *  Disconnects from the socket.
+ *
+ *  @return YES if the disconnect was successful, NO otherwise
  */
--(void) disconnect;
+-(BOOL) disconnect;
 
 ///------------------------
 /// @name Data Transmission
 ///------------------------
 
 /**
- *  Transmits the given data to the connected device.
+ *  Writes data to the connection if connected.
  *
- *  @param data The data to be sent to the device
+ *  @param data The data that should be written to the connection.
  *
- *  @return YES if the connection was able to send the data, NO otherwise.
+ *  @return YES if the write operation was successful, NO otherwise.
  */
 -(BOOL) writeData:(nonnull NSData*)data;
 

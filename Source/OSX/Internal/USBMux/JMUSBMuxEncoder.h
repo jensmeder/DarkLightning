@@ -24,46 +24,31 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  Represents a single iOS device that has been discovered by usbmuxd
+ *  Represents an encoder for usbmuxd plist packets.
  */
-@interface JMUSBDevice : NSObject
+@interface JMUSBMuxEncoder : NSObject
 
 /**
- *  The device identifier of the device. Used to identify the device within usbmuxd service.
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* deviceID;
-
-/**
- *  The serial number of the device, e.g., @"32b595e5cd1f122c7687bcf953bd1af120b176c6"
- */
-@property (nonnull, nonatomic, strong, readonly) NSString* serialNumber;
-
-/**
- *  The connection speed to the device. Default is 480000000.
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* connectionSpeed;
-
-/**
- *  The product identifier of the device, e.g., 4776
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* productID;
-
-/**
- *  The location identifier of the device, e.g., 337641472
- */
-@property (nonnull, nonatomic, strong, readonly) NSNumber* locationID;
-
-///---------------------
-/// @name Initialization
-///---------------------
-
-/**
- *  Creates and initializes a new device using a plist based NSDictionary
+ *  Encodes a listening packet in for usbmuxd.
  *
- *  @param plist The NSDictionary representation of the plist data
- *
- *  @return A newly initialized device
+ *  @return The listening packet.
  */
--(nullable instancetype)initWithPList:(nonnull NSDictionary*)plist NS_DESIGNATED_INITIALIZER;
++(nonnull NSData*) encodeListeningPacket;
+
+/**
+ *  Encodes a connect packet in for usbmuxd.
+ *
+ *  @return The listening packet for usbmuxd.
+ */
+
+/**
+ *  Encodes a connect packet in for usbmuxd.
+ *
+ *  @param deviceId The device id to which the connection should be established.
+ *  @param port     The port on which the remote device is listening.
+ *
+ *  @return The connect packet for usbmuxd.
+ */
++(nullable NSData*) encodeConnectPacketForDeviceId:(nonnull NSNumber*)deviceId andPort:(uint32_t)port;
 
 @end

@@ -33,7 +33,12 @@ static NSString* const JMUSBMuxEncoderMessageTypeConnect 		= @"Connect";
 
 @implementation JMUSBMuxEncoder
 
--(NSData*) packetForPList:(NSDictionary*)plist
+-(instancetype)init
+{
+	return nil;
+}
+
++(NSData*) packetForPList:(NSDictionary*)plist
 {
 	NSError *error = nil;
 
@@ -55,22 +60,35 @@ static NSString* const JMUSBMuxEncoderMessageTypeConnect 		= @"Connect";
 	return nil;
 }
 
--(NSData *)encodeListeningPacket
++(NSData *)encodeListeningPacket
 {
-	NSDictionary *plist = @{JMUSBMuxEncoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeListen};
-
-	return [self packetForPList:plist];
+	static NSData* packet = nil;
+	
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken,
+	^{
+		NSDictionary *plist = @{JMUSBMuxEncoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeListen};
+		
+		packet = [JMUSBMuxEncoder packetForPList:plist];
+	});
+	
+	return packet;
 }
 
--(NSData *)encodeConnectPacketForDeviceId:(NSNumber *)deviceId andPort:(uint32_t)port
++(NSData *)encodeConnectPacketForDeviceId:(NSNumber *)deviceId andPort:(uint32_t)port
 {
+	if (!deviceId)
+	{
+		return nil;
+	}
+	
 	port = ((port<<8) & 0xFF00) | (port>>8);
 
 	NSDictionary *plist = @{JMUSBMuxEncoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeConnect,
 							JMUSBMuxEncoderDictionaryKeyDeviceID: deviceId,
 							JMUSBMuxEncoderDictionaryKeyPortNumber:@(port)};
 
-	return [self packetForPList:plist];
+	return [JMUSBMuxEncoder packetForPList:plist];
 }
 
 @end

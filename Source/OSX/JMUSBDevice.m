@@ -80,7 +80,7 @@ static NSString* const JMUSBDeviceDictionaryKeyLocationID 		= @"LocationID";
 
 	JMUSBDevice* device = object;
 
-	return [device.deviceID isEqual:self.deviceID];
+	return [device.serialNumber isEqual:self.serialNumber];
 }
 
 @end

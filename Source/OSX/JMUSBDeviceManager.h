@@ -24,9 +24,38 @@
 #import <dispatch/dispatch.h>
 #import "JMUSBDevice.h"
 
+/**
+ * These constants indicate the state of a given JMUSBDeviceManager.
+ */
+typedef NS_ENUM(NSUInteger, JMUSBDeviceManagerState)
+{
+	/**
+	 * Indicates that there is no valid connection to the usbmuxd service.
+	 */
+	JMUSBDeviceManagerStateDisconnected = 0,
+	
+	/**
+	 * Indicates that the device manager is currently trying to connect to the usbmuxd service.
+	 */
+	JMUSBDeviceManagerStateConnecting,
+	
+	/**
+	 * Indicates that the device manager has a valid connection to the usbmuxd service.
+	 */
+	JMUSBDeviceManagerStateConnected
+};
+
 @class JMUSBDeviceManager;
 
 @protocol JMUSBDeviceManagerDelegate <NSObject>
+
+/**
+ *  Informs the delegate that the device manager has changed its state.
+ *
+ *  @param manager The manager that has changed its state
+ *  @param state   The new state of the device manager.
+ */
+-(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidChangeState:(JMUSBDeviceManagerState)state;
 
 /**
  *  Informs the delegate that a new iOS device has been attached to the system. This
@@ -54,19 +83,45 @@
 @interface JMUSBDeviceManager : NSObject
 
 /**
+ *  The current state of the device manager. Default value is JMUSBDeviceManagerStateDisconnected.
+ */
+@property (readonly) JMUSBDeviceManagerState state;
+
+/**
  *  A collection of all devices that are currently attached to the system.
  */
 @property (nonnull, nonatomic, copy, readonly) NSArray<JMUSBDevice*>* attachedDevices;
+
+/**
+ *  The object that acts as the delegate of the manager.
+ */
 @property (nonatomic, weak) id<JMUSBDeviceManagerDelegate> delegate;
+
+///----------------------------
+/// @name Listening for devices
+///----------------------------
 
 /**
  *  Start listening for attach and detach events.
  */
-- (void) start;
+- (BOOL) start;
 
 /**
  *  Stop listening for attach and detach events.
  */
-- (void) stop;
+- (BOOL) stop;
+
+///------------------------
+/// @name Device Management
+///------------------------
+
+/**
+ *  Returns the JMUSBDevice for the given serial number.
+ *
+ *  @param serialNumber The serial number of the device to be retrieved
+ *
+ *  @return The JMUSBDevice for the given serial number, nil otherwise.
+ */
+-(nullable JMUSBDevice*) deviceWithSerialNumber:(nonnull NSString*)serialNumber;
 
 @end
