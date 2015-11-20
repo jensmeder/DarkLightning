@@ -36,9 +36,6 @@
 		B4238DB31BF8E0F000DA2019 /* JMDataPacketProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238DAD1BF8E0E000DA2019 /* JMDataPacketProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4238DB41BF8E0F000DA2019 /* JMSimpleDataPacketProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238DAE1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4238DB51BF8E11D00DA2019 /* JMSimpleDataPacketProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238DAF1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.m */; };
-		B425DDE41BFC6F4300D62AE4 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; };
-		B425DDE51BFC6F5800D62AE4 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; };
-		B425DDE61BFC6F5800D62AE4 /* DarkLightning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B425DDE81BFC6F9100D62AE4 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CD21BF8C92A00DA2019 /* DarkLightning.framework */; };
 		B425DDE91BFC6F9100D62AE4 /* DarkLightning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CD21BF8C92A00DA2019 /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B42638691BFCF9240054C8B6 /* JMDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B42638631BFCF9240054C8B6 /* JMDeviceConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,6 +62,8 @@
 		B4400B0F1BFFC47400886E53 /* JMNativeSocketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4400B0E1BFFC47400886E53 /* JMNativeSocketTests.m */; };
 		B4400B111BFFC50900886E53 /* JMPathSocketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4400B101BFFC50900886E53 /* JMPathSocketTests.m */; };
 		B4400B131BFFC5C700886E53 /* JMHostSocketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4400B121BFFC5C700886E53 /* JMHostSocketTests.m */; };
+		B4400B141BFFC7A500886E53 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; };
+		B4400B151BFFC7A500886E53 /* DarkLightning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4238CEE1BF8C94200DA2019 /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B452AFA21BFF07AB0028AC5E /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B452AF941BFF06F30028AC5E /* JMHostSocket.m */; };
 		B452AFA31BFF07AB0028AC5E /* JMPathSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B452AF961BFF06F30028AC5E /* JMPathSocket.m */; };
 		B452AFA41BFF07AB0028AC5E /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B452AF991BFF06F30028AC5E /* JMSocketConnection.m */; };
@@ -102,13 +101,6 @@
 			remoteGlobalIDString = B4238CED1BF8C94200DA2019;
 			remoteInfo = "DarkLightning-iOS";
 		};
-		B4238D431BF8D80B00DA2019 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B4238CB91BF8C8F200DA2019 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B4238CED1BF8C94200DA2019;
-			remoteInfo = "DarkLightning iOS";
-		};
 		B4238DB61BF8E16C00DA2019 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B4238CB91BF8C8F200DA2019 /* Project object */;
@@ -123,20 +115,16 @@
 			remoteGlobalIDString = B4238D2D1BF8D72600DA2019;
 			remoteInfo = "OSX Example";
 		};
+		B4400B161BFFC7A500886E53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4238CB91BF8C8F200DA2019 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4238CED1BF8C94200DA2019;
+			remoteInfo = "DarkLightning iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B425DDE71BFC6F5800D62AE4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B425DDE61BFC6F5800D62AE4 /* DarkLightning.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B425DDEA1BFC6F9100D62AE4 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,6 +144,17 @@
 			files = (
 				B427FDCB1BF8EDF6005DC0B8 /* Kiwi.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4400B181BFFC7A500886E53 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B4400B151BFFC7A500886E53 /* DarkLightning.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -282,8 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B425DDE41BFC6F4300D62AE4 /* DarkLightning.framework in Frameworks */,
-				B425DDE51BFC6F5800D62AE4 /* DarkLightning.framework in Frameworks */,
+				B4400B141BFFC7A500886E53 /* DarkLightning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,12 +676,12 @@
 				B4238D0F1BF8D70900DA2019 /* Sources */,
 				B4238D101BF8D70900DA2019 /* Frameworks */,
 				B4238D111BF8D70900DA2019 /* Resources */,
-				B425DDE71BFC6F5800D62AE4 /* Embed Frameworks */,
+				B4400B181BFFC7A500886E53 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B4238D441BF8D80B00DA2019 /* PBXTargetDependency */,
+				B4400B171BFFC7A500886E53 /* PBXTargetDependency */,
 			);
 			name = "iOS Example";
 			productName = "iOS Example";
@@ -905,11 +903,6 @@
 			target = B4238CED1BF8C94200DA2019 /* DarkLightning iOS */;
 			targetProxy = B4238CF91BF8C94200DA2019 /* PBXContainerItemProxy */;
 		};
-		B4238D441BF8D80B00DA2019 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B4238CED1BF8C94200DA2019 /* DarkLightning iOS */;
-			targetProxy = B4238D431BF8D80B00DA2019 /* PBXContainerItemProxy */;
-		};
 		B4238DB71BF8E16C00DA2019 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B4238CD11BF8C92A00DA2019 /* DarkLightning OSX */;
@@ -919,6 +912,11 @@
 			isa = PBXTargetDependency;
 			target = B4238D2D1BF8D72600DA2019 /* OSX Example */;
 			targetProxy = B427FDC01BF8E94E005DC0B8 /* PBXContainerItemProxy */;
+		};
+		B4400B171BFFC7A500886E53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4238CED1BF8C94200DA2019 /* DarkLightning iOS */;
+			targetProxy = B4400B161BFFC7A500886E53 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
