@@ -23,9 +23,32 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  Represents an encoder for usbmuxd plist packets.
+ */
 @interface JMUSBMuxEncoder : NSObject
 
+/**
+ *  Encodes a listening packet in for usbmuxd.
+ *
+ *  @return The listening packet.
+ */
 +(nonnull NSData*) encodeListeningPacket;
+
+/**
+ *  Encodes a connect packet in for usbmuxd.
+ *
+ *  @return The listening packet for usbmuxd.
+ */
+
+/**
+ *  Encodes a connect packet in for usbmuxd.
+ *
+ *  @param deviceId The device id to which the connection should be established.
+ *  @param port     The port on which the remote device is listening.
+ *
+ *  @return The connect packet for usbmuxd.
+ */
 +(nullable NSData*) encodeConnectPacketForDeviceId:(nonnull NSNumber*)deviceId andPort:(uint32_t)port;
 
 @end

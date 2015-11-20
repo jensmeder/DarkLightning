@@ -54,6 +54,8 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 		_decoder.delegate = self;
 
 		_devices = [NSMutableDictionary dictionary];
+		
+		_state = JMUSBDeviceManagerStateDisconnected;
 	}
 	
 	return self;
@@ -61,10 +63,13 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 
 - (void)start
 {
-	if (_connection)
+	if (self.state != JMUSBDeviceManagerStateDisconnected)
 	{
 		return;
 	}
+	
+	self.state = JMUSBDeviceManagerStateConnecting;
+	
 	JMPathSocket* socket = [[JMPathSocket alloc]initWithPath:JMServicePath];
 	_connection = [[JMSocketConnection alloc]initWithSocket:socket];
 	_connection.delegate = self;
@@ -76,6 +81,8 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 {
 	[_connection disconnect];
 	_connection = nil;
+	
+	self.state = JMUSBDeviceManagerStateDisconnected;
 }
 
 -(JMUSBDevice *)deviceWithSerialNumber:(NSString *)serialNumber
@@ -103,6 +110,21 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	return _devices.allValues;
 }
 
+-(void)setState:(JMUSBDeviceManagerState)state
+{
+	if (state == _state)
+	{
+		return;
+	}
+	
+	_state = state;
+	
+	if ([_delegate respondsToSelector:@selector(deviceManager:deviceDidChangeState:)])
+	{
+		[_delegate deviceManager:self deviceDidChangeState:_state];
+	}
+}
+
 #pragma mark - Delegate
 
 -(void)connection:(JMSocketConnection *)connection didReceiveData:(NSData *)data
@@ -112,14 +134,20 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 
 -(void)connection:(JMSocketConnection *)connection didFailToConnect:(NSError *)error
 {
-	
+	[self stop];
 }
 
 -(void)connection:(JMSocketConnection *)connection didChangeState:(JMSocketConnectionState)state
 {
 	if (state == JMSocketConnectionStateConnected)
 	{
+		self.state = JMUSBDeviceManagerStateConnected;
+		
 		[_connection writeData:[JMUSBMuxEncoder encodeListeningPacket]];
+	}
+	else if(state == JMSocketConnectionStateDisconnected)
+	{
+		[self stop];
 	}
 }
 

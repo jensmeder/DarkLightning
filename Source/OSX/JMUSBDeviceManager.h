@@ -24,9 +24,38 @@
 #import <dispatch/dispatch.h>
 #import "JMUSBDevice.h"
 
+/**
+ * These constants indicate the state of a given JMUSBDeviceManager.
+ */
+typedef NS_ENUM(NSUInteger, JMUSBDeviceManagerState)
+{
+	/**
+	 * Indicates that there is no valid connection to the usbmuxd service.
+	 */
+	JMUSBDeviceManagerStateDisconnected = 0,
+	
+	/**
+	 * Indicates that the device manager is currently trying to connect to the usbmuxd service.
+	 */
+	JMUSBDeviceManagerStateConnecting,
+	
+	/**
+	 * Indicates that the device manager has a valid connection to the usbmuxd service.
+	 */
+	JMUSBDeviceManagerStateConnected
+};
+
 @class JMUSBDeviceManager;
 
 @protocol JMUSBDeviceManagerDelegate <NSObject>
+
+/**
+ *  Informs the delegate that the device manager has changed its state.
+ *
+ *  @param manager The manager that has changed its state
+ *  @param state   The new state of the device manager.
+ */
+-(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidChangeState:(JMUSBDeviceManagerState)state;
 
 /**
  *  Informs the delegate that a new iOS device has been attached to the system. This
@@ -52,6 +81,11 @@
  *  The device manager keeps track of all iOS devices that are being attached or detached to the system.
  */
 @interface JMUSBDeviceManager : NSObject
+
+/**
+ *  The current state of the device manager. Default value is JMUSBDeviceManagerStateDisconnected.
+ */
+@property (readonly) JMUSBDeviceManagerState state;
 
 /**
  *  A collection of all devices that are currently attached to the system.
