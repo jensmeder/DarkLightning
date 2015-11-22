@@ -184,7 +184,10 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 -(void)connection:(JMSocketConnection *)connection didReceiveData:(NSData *)data
 {
-	[_delegate mobileDevicePort:self didReceiveData:data];
+	dispatch_async(dispatch_get_main_queue(),
+	^{
+		[_delegate mobileDevicePort:self didReceiveData:data];
+	});
 }
 
 @end

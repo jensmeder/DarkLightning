@@ -130,7 +130,11 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	
 	if ([_delegate respondsToSelector:@selector(deviceManager:deviceDidChangeState:)])
 	{
-		[_delegate deviceManager:self deviceDidChangeState:_state];
+		dispatch_async(dispatch_get_main_queue(),
+		^{
+			[_delegate deviceManager:self deviceDidChangeState:_state];
+		});
+		
 	}
 }
 
@@ -165,7 +169,11 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 -(void)decoder:(JMUSBMuxDecoder *)decoder didDecodeAttachPacket:(JMUSBDevice *)device
 {
 	_devices[device.deviceID] = device;
-	[_delegate deviceManager:self deviceDidAttach:device];
+	dispatch_async(dispatch_get_main_queue(),
+	^{
+		[_delegate deviceManager:self deviceDidAttach:device];
+	});
+	
 }
 
 -(void)decoder:(JMUSBMuxDecoder *)decoder didDecodeDetachPacket:(NSNumber *)deviceID
@@ -178,7 +186,10 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	}
 
 	[_devices removeObjectForKey:deviceID];
-	[_delegate deviceManager:self deviceDidDetach:device];
+	dispatch_async(dispatch_get_main_queue(),
+	^{
+		[_delegate deviceManager:self deviceDidDetach:device];
+	});
 }
 
 @end

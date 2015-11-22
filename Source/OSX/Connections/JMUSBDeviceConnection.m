@@ -122,7 +122,10 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	
 	if ([self.delegate respondsToSelector:@selector(connection:didChangeState:)])
 	{
-		[self.delegate connection:self didChangeState:_state];
+		dispatch_async(dispatch_get_main_queue(),
+		^{
+			[self.delegate connection:self didChangeState:_state];
+		});
 	}
 }
 
@@ -144,7 +147,10 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 			NSError* error = [NSError errorWithDomain:JMDeviceConnectionErrorDomain
                                                  code:JMDeviceConnectionErrorCodeDeviceNotAvailable
                                              userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Device not available.", nil)}];
-			[self.delegate connection:self didFailToConnect:error];
+			dispatch_async(dispatch_get_main_queue(),
+			^{
+				[self.delegate connection:self didFailToConnect:error];
+			});
 		}
 	}
 }
@@ -172,7 +178,10 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 		NSError* error = [NSError errorWithDomain:JMDeviceConnectionErrorDomain
                                              code:JMDeviceConnectionErrorCodeDataStreamError
                                          userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Data stream error.", nil)}];
-		[self.delegate connection:self didFailToConnect:error];
+		dispatch_async(dispatch_get_main_queue(),
+		^{
+			[self.delegate connection:self didFailToConnect:error];
+		});
 	}
 }
 
@@ -182,7 +191,10 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	{
 		if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
 		{
-			[self.delegate connection:self didReceiveData:data];
+			dispatch_async(dispatch_get_main_queue(),
+			^{
+				[self.delegate connection:self didReceiveData:data];
+			});
 		}
 		
 		return;

@@ -113,7 +113,10 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 {
 	if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)])
 	{
-		[self.delegate connection:self didReceiveData:data];
+		dispatch_async(dispatch_get_main_queue(),
+		^{
+			[self.delegate connection:self didReceiveData:data];
+		});
 	}
 }
 

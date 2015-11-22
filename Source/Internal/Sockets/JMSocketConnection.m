@@ -174,11 +174,7 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 						   
 			if ([_delegate respondsToSelector:@selector(connection:didReceiveData:)])
 			{
-				dispatch_async(dispatch_get_main_queue(),
-							   ^{
-					[_delegate connection:self didReceiveData:data];
-				});
-				
+				[_delegate connection:self didReceiveData:data];
 			}
 		}
 		else if (eventCode == NSStreamEventEndEncountered)
