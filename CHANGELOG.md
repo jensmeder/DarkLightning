@@ -16,6 +16,12 @@
 * All internal socket code has been refactored and separated in `JMSocket`, `JMHostSocket`, `JMPathSocket`, `JMNativeSocket`, and `JMSocketConnection` for reuse
 * All `stop` and `disconnect` methods return the value `YES` from now on
 
+## 0.2.3
+
+### Bugfixes
+
+* Fixed a bug that prevented the example apps to load the embedded frameworks
+
 ## 0.2.2
 
 ### Additions
