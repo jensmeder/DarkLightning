@@ -66,6 +66,8 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 		return NO;
 	}
 	
+	self.connectionState = JMSocketStateConnecting;
+	
 	_socket.inputStream.delegate = self;
 	_socket.outputStream.delegate = self;
 	
@@ -147,8 +149,7 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 
 -(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
 {
-	dispatch_async(dispatch_get_main_queue(),
-	^{
+
 		if (self.connectionState != JMSocketConnectionStateConnected &&
 			eventCode == NSStreamEventHasSpaceAvailable &&
 			aStream.streamStatus == NSStreamStatusOpen)
@@ -173,7 +174,11 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 						   
 			if ([_delegate respondsToSelector:@selector(connection:didReceiveData:)])
 			{
-				[_delegate connection:self didReceiveData:data];
+				dispatch_async(dispatch_get_main_queue(),
+							   ^{
+					[_delegate connection:self didReceiveData:data];
+				});
+				
 			}
 		}
 		else if (eventCode == NSStreamEventEndEncountered)
@@ -184,7 +189,7 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 		{
 			[self disconnect];
 		}
-	});
+
 }
 
 @end

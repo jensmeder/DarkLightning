@@ -44,6 +44,85 @@ describe(@"JMNativeSocket",
 								[[socket shouldNot] beNil];
 							});
 					 });
+			 
+			 context(@"when disconnected",
+					 ^{
+						 it(@"should have nil input and ouput streams", ^{
+							 
+							 JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
+							 
+							 [[theValue([socket disconnect]) should] beTrue];
+							 [[socket.inputStream should] beNil];
+							 [[socket.outputStream should] beNil];
+						 });
+					 });
+			 
+			 context(@"when connecting",
+					 ^{
+						 it(@"should return true on connect", ^{
+							
+							 JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
+							 
+							 [[theValue([socket connect]) should] beTrue];
+						 });
+						 
+						 it(@"should return false if already connected", ^{
+							 
+							 JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
+							 
+							 [socket connect];
+							 [[theValue([socket connect]) should] beFalse];
+						 });
+						 
+						 it(@"should change state from disconnected to connected", ^{
+							 
+							 JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
+							 
+							 [socket connect];
+							 [[theValue(socket.state) should]equal:theValue(JMSocketStateConnected)];
+						 });
+					 });
+			 
+			 context(@"when connected",
+					 ^{
+						 it(@"should have non nil input and ouput streams", ^{
+							 
+							 JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
+							 
+							 [[theValue([socket connect]) should] beTrue];
+							 [[socket.inputStream should] beNonNil];
+							 [[socket.outputStream should] beNonNil];
+						 });
+					 });
+			 
+			 context(@"when disconnecting",
+					 ^{
+						 it(@"should return true on disconnect if connected", ^{
+							 
+							 JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
+							 
+							 [socket connect];
+							 [[theValue([socket disconnect]) should] beTrue];
+						 });
+						 
+						 it(@"should return true on disconnect if already disconnected", ^{
+							 
+							 JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
+							 
+							 [[theValue([socket disconnect]) should] beTrue];
+						 });
+						 
+						 it(@"should change state from connected to disconnected", ^{
+							 
+							 JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
+							 
+							 [socket connect];
+							 [[theValue(socket.state) should]equal:theValue(JMSocketStateConnected)];
+							 [socket disconnect];
+							 [[theValue(socket.state) should]equal:theValue(JMSocketStateDisconnected)];
+						 });
+				 
+			 });
 		 });
 
 SPEC_END

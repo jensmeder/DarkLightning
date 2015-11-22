@@ -29,17 +29,85 @@
 SPEC_BEGIN(JMSocketConnectionTests)
 
 describe(@"JMSocketConnection",
-^{
-	context(@"when initializing",
-	^{
-		it(@"should return nil if no valid socket is passed in",
-		^{
-			JMSocketConnection* connection = [[JMSocketConnection alloc]initWithSocket:nil];
+		 ^{
+			 context(@"when initializing",
+					 ^{
+						 it(@"should return nil if no valid socket is passed in",
+							^{
+								JMSocketConnection* connection = [[JMSocketConnection alloc]initWithSocket:nil];
 								
-			[[connection should] beNil];
-		});
-	});
-			
-});
+								[[connection should] beNil];
+							});
+					 });
+			 
+			 context(@"when connecting",
+					 ^{
+						 __block NSObject<JMSocketConnectionDelegate>* delegate;
+						 
+						 let(connection,
+							 ^{
+								 JMSocketMock* socket = [[JMSocketMock alloc]init];
+								 return [[JMSocketConnection alloc]initWithSocket:socket];
+							 });
+						 
+						 beforeEach(
+						   ^{
+							   delegate = [KWMock mockForProtocol:@protocol(JMSocketConnectionDelegate)];
+							   [[delegate should] conformToProtocol:@protocol(JMSocketConnectionDelegate)];
+							   [delegate stub:@selector(connection:didChangeState:)];
+							   [delegate stub:@selector(connection:didReceiveData:)];
+							   
+							   connection.delegate = delegate;
+						   });
+						 
+						 it(@"should change state from disconnected to connecting to connected",
+				   ^{
+					   [[delegate shouldEventuallyBeforeTimingOutAfter(5)]receive:@selector(connection:didChangeState:) withCount:2];
+					   [connection connect];
+					   
+				   });
+					 });
+			 
+			 context(@"when connected",
+					 ^{
+						 __block NSObject<JMSocketConnectionDelegate>* delegate;
+						 
+						 let(connection,
+							 ^{
+								 JMSocketMock* socket = [[JMSocketMock alloc]init];
+								 return [[JMSocketConnection alloc]initWithSocket:socket];
+							 });
+						 
+						 beforeEach(
+									^{
+										delegate = [KWMock mockForProtocol:@protocol(JMSocketConnectionDelegate)];
+										[[delegate should] conformToProtocol:@protocol(JMSocketConnectionDelegate)];
+										[delegate stub:@selector(connection:didChangeState:)];
+										[delegate stub:@selector(connection:didReceiveData:)];
+										
+										connection.delegate = delegate;
+									});
+						 
+						 it(@"should receive data",
+							^{
+								[[delegate shouldEventuallyBeforeTimingOutAfter(2)]receive:@selector(connection:didReceiveData:)];
+								[connection connect];
+								
+							});
+						 
+						 it(@"should be able to send a valid data object",
+							^{
+								NSData* data = [@"hello" dataUsingEncoding:NSUTF8StringEncoding];
+								[connection connect];
+								
+								dispatch_async(dispatch_get_main_queue(), ^{
+									BOOL result = [connection writeData:data];
+									
+									[[theValue(result) shouldEventually] beTrue];
+								});
+							});
+					 });
+			 
+		 });
 
 SPEC_END

@@ -52,6 +52,85 @@ describe(@"JMHostSocket",
 							});
 						 
 					 });
+			 
+			 context(@"when disconnected",
+					 ^{
+						 it(@"should have nil input and ouput streams", ^{
+							 
+							 JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:1234];
+							 
+							 [[theValue([socket disconnect]) should] beTrue];
+							 [[socket.inputStream should] beNil];
+							 [[socket.outputStream should] beNil];
+						 });
+					 });
+			 
+			 context(@"when connecting",
+					 ^{
+						 it(@"should return true on connect", ^{
+							 
+							 JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:1234];
+							 
+							 [[theValue([socket connect]) should] beTrue];
+						 });
+						 
+						 it(@"should return false if already connected", ^{
+							 
+							 JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:1234];
+							 
+							 [socket connect];
+							 [[theValue([socket connect]) should] beFalse];
+						 });
+						 
+						 it(@"should change state from disconnected to connected", ^{
+							 
+							 JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:1234];
+							 
+							 [socket connect];
+							 [[theValue(socket.state) should]equal:theValue(JMSocketStateConnected)];
+						 });
+					 });
+			 
+			 context(@"when connected",
+					 ^{
+						 it(@"should have non nil input and ouput streams", ^{
+							 
+							 JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:1234];
+							 
+							 [[theValue([socket connect]) should] beTrue];
+							 [[socket.inputStream should] beNonNil];
+							 [[socket.outputStream should] beNonNil];
+						 });
+					 });
+			 
+			 context(@"when disconnecting",
+					 ^{
+						 it(@"should return true on disconnect if connected", ^{
+							 
+							 JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:1234];
+							 
+							 [socket connect];
+							 [[theValue([socket disconnect]) should] beTrue];
+						 });
+						 
+						 it(@"should return true on disconnect if already disconnected", ^{
+							 
+							 JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:1234];
+							 
+							 [[theValue([socket disconnect]) should] beTrue];
+						 });
+						 
+						 it(@"should change state from connected to disconnected", ^{
+							 
+							 JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:1234];
+							 
+							 [socket connect];
+							 [[theValue(socket.state) should]equal:theValue(JMSocketStateConnected)];
+							 [socket disconnect];
+							 [[theValue(socket.state) should]equal:theValue(JMSocketStateDisconnected)];
+						 });
+						 
+					 });
 		 });
 
 SPEC_END
