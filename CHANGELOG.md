@@ -2,6 +2,18 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.3
+
+### Additions
+
+* Added some more documentation
+
+## 0.3.2
+
+### Bugfixes
+
+* Fixed a bug that prevented cocoadocs from parsing the podspec
+
 ## 0.3.1
 
 ### Changes
