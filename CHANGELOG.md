@@ -2,6 +2,20 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.1
+
+### Changes
+
+* Moved processing of `NSStream` delegate to background thread
+
+### Additions
+
+* More unit tests added
+
+### Bugfixes
+
+* Fixed a bug that prevented the `JMSocketConnectionConnecting` state on `JMSocketConnection`
+
 ## 0.3.0
 
 ### Additions
