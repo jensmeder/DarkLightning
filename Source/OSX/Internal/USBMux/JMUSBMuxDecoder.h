@@ -35,6 +35,9 @@ typedef NS_ENUM(uint32_t, JMUSBMuxResultCode)
 
 @class JMUSBMuxDecoder;
 
+/**
+ *  The JMUSBMuxDecoderDelegate protocol defines the optional methods implemented by delegates of JMUSBMuxDecoder objects.
+ */
 @protocol JMUSBMuxDecoderDelegate <NSObject>
 
 @optional

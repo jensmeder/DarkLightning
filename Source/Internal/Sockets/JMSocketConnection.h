@@ -47,6 +47,9 @@ typedef NS_ENUM(NSUInteger, JMSocketConnectionState)
 
 @class JMSocketConnection;
 
+/**
+ *  The JMSocketConnectionDelegate protocol defines the optional methods implemented by delegates of JMSocketConnection objects.
+ */
 @protocol JMSocketConnectionDelegate <NSObject>
 
 @optional

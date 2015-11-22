@@ -299,6 +299,7 @@
 		B4238CB81BF8C8F200DA2019 = {
 			isa = PBXGroup;
 			children = (
+				B4238DAC1BF8E0D300DA2019 /* PacketProtocols */,
 				B452AFA11BFF07700028AC5E /* Internal */,
 				B47272AE1BF9036C0076C56F /* Foundation.framework */,
 				B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */,
@@ -388,7 +389,6 @@
 		B4238D071BF8CAEA00DA2019 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				B4238DAC1BF8E0D300DA2019 /* PacketProtocols */,
 				B4238DAB1BF8E0CC00DA2019 /* iOS */,
 				B4238CF01BF8C94200DA2019 /* DarkLightning.h */,
 				B4238CF21BF8C94200DA2019 /* Info.plist */,
@@ -487,6 +487,7 @@
 				B4238DAF1BF8E0E000DA2019 /* JMSimpleDataPacketProtocol.m */,
 			);
 			name = PacketProtocols;
+			path = Source/iOS;
 			sourceTree = "<group>";
 		};
 		B42638621BFCF9030054C8B6 /* Connections */ = {

@@ -23,9 +23,19 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  The error domain for all device connection related errors
+ */
 FOUNDATION_EXPORT NSString* _Nonnull const JMDeviceConnectionErrorDomain;
 
+/**
+ *  Indicates that the device is not avaiable.
+ */
 FOUNDATION_EXPORT NSInteger JMDeviceConnectionErrorCodeDeviceNotAvailable;
+
+/**
+ *  Indicates that there has been some error with one of the underlying streams.
+ */
 FOUNDATION_EXPORT NSInteger JMDeviceConnectionErrorCodeDataStreamError;
 
 /**
@@ -51,6 +61,9 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
 
 @class JMDeviceConnection;
 
+/**
+ *  The JMDeviceConnectionDelegate protocol defines the optional methods implemented by delegates of JMDeviceConnection objects.
+ */
 @protocol JMDeviceConnectionDelegate <NSObject>
 
 @optional

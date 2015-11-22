@@ -47,6 +47,9 @@ typedef NS_ENUM(NSUInteger, JMUSBDeviceManagerState)
 
 @class JMUSBDeviceManager;
 
+/**
+ *  The JMUSBDeviceManagerDelegate protocol defines the optional methods implemented by delegates of JMUSBDeviceManager objects.
+ */
 @protocol JMUSBDeviceManagerDelegate <NSObject>
 
 /**

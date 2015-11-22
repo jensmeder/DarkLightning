@@ -51,6 +51,9 @@ typedef NS_ENUM(NSUInteger, JMMobileDevicePortState)
 
 @class JMMobileDevicePort;
 
+/**
+ *  The JMMobileDevicePortDelegate protocol defines the optional methods implemented by delegates of JMMobileDevicePort objects.
+ */
 @protocol JMMobileDevicePortDelegate <NSObject>
 
 @optional
@@ -82,6 +85,10 @@ typedef NS_ENUM(NSUInteger, JMMobileDevicePortState)
  *  The port the iOS device will be listening on
  */
 @property (nonatomic, assign, readonly) uint32_t port;
+
+/**
+ *  The object that acts as the delegate of the device port.
+ */
 @property (nullable, nonatomic, weak) id<JMMobileDevicePortDelegate> delegate;
 
 /**
