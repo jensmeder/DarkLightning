@@ -6,7 +6,7 @@
 
 ### Changes
 
-* Moved processing of `NSStream` delegate to background thread
+* Moved processing of `NSStreamDelegate` to background thread
 
 ### Additions
 
