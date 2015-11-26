@@ -2,6 +2,12 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.3.4
+
+### Bugfixes
+
+* Fixed a bug that created an EXC_BAD_ACCESS if `close` was called on `JMMobileDevicePort` while in `JMMobileDevicePortStateIdle`
+
 ## 0.3.3
 
 ### Additions

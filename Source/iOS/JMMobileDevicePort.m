@@ -74,6 +74,11 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 -(void)open
 {
+	if (_state != JMMobileDevicePortStateIdle)
+	{
+		return;
+	}
+
 	CFSocketContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
 
 	_socket = CFSocketCreate(	kCFAllocatorDefault,
@@ -125,6 +130,11 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 -(void)close
 {
+	if (_state == JMMobileDevicePortStateIdle)
+	{
+		return;
+	}
+
 	[_connection disconnect];
 
 	CFRunLoopRemoveSource(_backgroundRunLoop.getCFRunLoop, _socketSource, kCFRunLoopDefaultMode);
