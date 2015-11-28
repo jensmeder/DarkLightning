@@ -34,7 +34,7 @@
  *
  *  @param packet The packet to be encoded
  *
- *  @return The encoded data packet
+ *  @return The encoded data packet, nil if packet is nil or packet length is 0
  */
 -(nonnull NSData*) encodePacket:(nonnull NSData*)packet;
 
