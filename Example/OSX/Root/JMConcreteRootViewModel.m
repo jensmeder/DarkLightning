@@ -37,7 +37,7 @@
 	JMUSBDeviceConnection* _deviceConnection;
 	JMSimulatorConnection* _simulatorConnection;
 	
-	id<JMDataPacketProtocol> _packetProtocol;
+	JMSimpleDataPacketProtocol* _packetProtocol;
 }
 
 @synthesize delegate = _delegate;

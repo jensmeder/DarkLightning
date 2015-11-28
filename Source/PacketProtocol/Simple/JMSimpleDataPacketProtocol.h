@@ -22,12 +22,34 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "JMDataPacketProtocol.h"
 
 /**
  *  Represents a simple packet procotol that allows packets with a size of up to
  *  2^32 bytes (~ 4GB).
  */
-@interface JMSimpleDataPacketProtocol : NSObject<JMDataPacketProtocol>
+@interface JMSimpleDataPacketProtocol : NSObject
+
+/**
+ *  Encodes a given data packet.
+ *
+ *  @param packet The packet to be encoded
+ *
+ *  @return The encoded data packet
+ */
+-(nonnull NSData*) encodePacket:(nonnull NSData*)packet;
+
+/**
+ *  Processes the given data to extract data packets from it.
+ *
+ *  @param data The data that should be processed
+ *
+ *  @return All data packets that could be decoded from the data.
+ */
+-(nonnull NSArray<NSData*>*) processData:(nonnull NSData*)data;
+
+/**
+ *  Resets the packet protocol.
+ */
+-(void) reset;
 
 @end

@@ -28,27 +28,6 @@
  */
 @protocol JMDataPacketProtocol <NSObject>
 
-/**
- *  Encodes a given data packet.
- *
- *  @param packet The packet to be encoded
- *
- *  @return The encoded data packet
- */
--(nonnull NSData*) encodePacket:(nonnull NSData*)packet;
 
-/**
- *  Processes the given data to extract data packets from it.
- *
- *  @param data The data that should be processed
- *
- *  @return All data packets that could be decoded from the data.
- */
--(nonnull NSArray<NSData*>*) processData:(nonnull NSData*)data;
-
-/**
- *  Resets the packet protocol.
- */
--(void) reset;
 
 @end

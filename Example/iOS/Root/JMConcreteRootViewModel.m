@@ -33,7 +33,7 @@
 {
 	@private
 	
-	id<JMDataPacketProtocol> _packetProtocol;
+	JMSimpleDataPacketProtocol* _packetProtocol;
 }
 
 @synthesize connectionState = _connectionState;
