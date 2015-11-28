@@ -172,9 +172,13 @@ JMSimulatorConnection* simulatorConnection = [[JMSimulatorConnection alloc]initW
 ## 5. Packet Protocols
 
 DarkLightning uses a stream based approach to transmit and receive data via TCP. If you write a data chunk on one end the bytes will arrive in the right order but they might not be in one piece. If you send data chunks very fast they might even arrive as a bigger chunk. 
-DarkLightning comes with a simple packet protocol to en- and decode packets. The protocol allows you to send data packets of up to 4GB in size. 
+DarkLightning comes with two packet protocols to en- and decode packets. Each protocol allows you to send data packets of up to 4GB in size. 
 
-### 5.1 Encoding
+## 5.1 Simple Packet Protocol
+
+The simple packet protocol can be used to send data of the same type or in conjunction with a higher level protocol.
+
+### 5.1.1 Encoding
 
 ```objc
 JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
@@ -182,11 +186,11 @@ JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]
 
 ```objc
 NSData* message = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
-NSData* packet = [packetProtocol encodePacket:data]
+NSData* packet = [packetProtocol encodePacket:data];
 [_myDeviceConnection writeData:packet];
 ```
 
-### 5.2 Decoding
+### 5.1.2 Decoding
 
 The packet protocol object keeps track of all incoming data. If a packet has been split into smaller pieces the packet protocol object buffers the data. The next time you call `processData:` it tries to decode the packet again. This process continues until all parts of the packet have arrived and the packet can be decoded. Therefore, it is necessary to keep a reference to the packet protocol object.
 
@@ -202,6 +206,69 @@ JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]
 	for (NSData* packet in packets)
 	{
 		// Do something with the packet
+	}
+}
+```
+
+## 5.2 Tagged Packet Protocol
+
+The tagged packet protocol can be used to send data with different types, e.g., using one tag for each type of data. 
+
+### 5.2.1 Encoding
+
+```objc
+static const uint16_t MESSAGE_TAG = 12345;
+static const uint16_t RAW_TAG = 42;
+
+JMTaggedPacketProtocol* packetProtocol = [[JMTaggedPacketProtocol alloc]init];
+```
+
+```objc
+NSData* messageData = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
+JMTaggedPacket* packet = [[JMTaggedPacket alloc] initWithData:messageData andTag:MESSAGE_TAG];
+NSData* packetData = [packetProtocol encodePacket:data];
+[_myDeviceConnection writeData:packetData];
+```
+
+```objc
+uint8_t data[] = {0x00, 0x01, 0x02, 0x03};
+NSData* messageData = [NSData dataWithBytes:data length:sizeof(data)];
+JMTaggedPacket* packet = [[JMTaggedPacket alloc] initWithData:messageData andTag:RAW_TAG];
+NSData* packetData = [packetProtocol encodePacket:data];
+[_myDeviceConnection writeData:packetData];
+```
+
+### 5.2.2 Decoding
+
+The packet protocol object keeps track of all incoming data. If a packet has been split into smaller pieces the packet protocol object buffers the data. The next time you call `processData:` it tries to decode the packet again. This process continues until all parts of the packet have arrived and the packet can be decoded. Therefore, it is necessary to keep a reference to the packet protocol object.
+
+```objc
+JMTaggedPacketProtocol* packetProtocol = [[JMTaggedPacketProtocol alloc]init];
+```
+
+```objc
+-(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data
+{
+	NSArray<JMTaggedPacket*>* packets = [packetProtocol processData:data];
+	
+	for (JMTaggedPacket* packet in packets)
+	{
+		switch(packet.tag)
+		{
+			case MESSAGE_TAG:
+			{
+				// Do something with the packet data
+			
+				break;
+			}
+			
+			case RAW_TAG:
+			{
+				// Do something with the packet data
+			
+				break;
+			}
+		}
 	}
 }
 ```
