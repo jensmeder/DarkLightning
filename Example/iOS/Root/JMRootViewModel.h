@@ -26,6 +26,7 @@
 typedef NS_ENUM(NSUInteger, JMRootViewModelConnectionState)
 {
 	JMRootViewModelConnectionStateDisconnected = 0,
+	JMRootViewModelConnectionStateOpening,
 	JMRootViewModelConnectionStateWaitingForConnection,
 	JMRootViewModelConnectionStateConnected
 };

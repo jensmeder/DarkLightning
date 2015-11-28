@@ -51,6 +51,7 @@
 		_viewModel = viewModel;
 		_viewModel.delegate = self;
 		_connectionStates = @[@"Disconnected",
+							  @"Opening",
 							  @"Waiting for connection",
 							  @"Connected"];
 	}
