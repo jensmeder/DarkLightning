@@ -82,8 +82,6 @@
 		length = CFSwapInt32BigToHost(length);
 		tag = CFSwapInt16BigToHost(tag);
 		
-		NSLog(@"%lu", tag);
-		
 		NSData* packetData = [_buffer subdataWithRange:NSMakeRange(sizeof(length) + sizeof(tag), length)];
 		JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:packetData andTag:tag];
 		[packets addObject:packet];

@@ -2,6 +2,19 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.0
+
+### Additions
+
+* Added implementation and documentation for `JMTaggedPacket` and `JMTaggedPacketProtocol` 
+* Added state `JMMobileDevicePortStateOpening` to `JMMobileDevicePort`  
+* Added return values to `close` and `open` methods of `JMMobileDevicePort`
+
+### Changes
+
+* Removed `JMDataPacketProtocol` protocol
+* Example applications now use `JMTaggedPacketProtocol` 
+
 ## 0.3.4
 
 ### Bugfixes
