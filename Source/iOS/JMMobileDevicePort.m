@@ -72,12 +72,14 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	[devicePort->_connection connect];
 }
 
--(void)open
+-(BOOL)open
 {
 	if (_state != JMMobileDevicePortStateIdle)
 	{
-		return;
+		return YES;
 	}
+	
+	self.state = JMMobileDevicePortStateOpening;
 
 	CFSocketContext context = { 0, (__bridge void *)(self), NULL, NULL, NULL };
 
@@ -86,6 +88,13 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 								SOCK_STREAM,
 								IPPROTO_TCP,
 								kCFSocketAcceptCallBack, handleConnect, &context);
+	
+	if (!_socket)
+	{
+		self.state = JMMobileDevicePortStateIdle;
+		
+		return NO;
+	}
 
 	struct sockaddr_in sin;
 
@@ -126,25 +135,37 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 		self.state = JMMobileDevicePortStateWaitingForConnection;
 		[_backgroundRunLoop run];
 	});
+	
+	return YES;
 }
 
--(void)close
+-(BOOL)close
 {
 	if (_state == JMMobileDevicePortStateIdle)
 	{
-		return;
+		return YES;
 	}
 
 	[_connection disconnect];
 
-	CFRunLoopRemoveSource(_backgroundRunLoop.getCFRunLoop, _socketSource, kCFRunLoopDefaultMode);
-
-	CFSocketInvalidate(_socket);
-	CFRelease(_socket);
+	if (_socketSource)
+	{
+		CFRunLoopRemoveSource(_backgroundRunLoop.getCFRunLoop, _socketSource, kCFRunLoopDefaultMode);
+		_socketSource = NULL;
+	}
+	
+	if (_socket)
+	{
+		CFSocketInvalidate(_socket);
+		CFRelease(_socket);
+		_socket = nil;
+	}
 	
 	_backgroundRunLoop = nil;
 
 	self.state = JMMobileDevicePortStateIdle;
+	
+	return YES;
 }
 
 -(BOOL)writeData:(NSData *)data

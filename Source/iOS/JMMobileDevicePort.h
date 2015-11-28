@@ -39,6 +39,11 @@ typedef NS_ENUM(NSUInteger, JMMobileDevicePortState)
 	JMMobileDevicePortStateIdle = 0,
 	
 	/**
+	 *  Indicates that the mobile device port is being opened
+	 */
+	JMMobileDevicePortStateOpening,
+	
+	/**
 	 *  Indicates that the mobile device port is waiting for an incoming connection.
 	 */
 	JMMobileDevicePortStateWaitingForConnection,
@@ -107,13 +112,17 @@ typedef NS_ENUM(NSUInteger, JMMobileDevicePortState)
 
 /**
  *  Starts the port and listens for incoming connections via USB.
+ *
+ *  @return YES if the port was opened successfully, NO otherwise.
  */
--(void) open;
+-(BOOL) open;
 
 /**
- *  Stops the port and terminates any connections.
+ *  Closes the port and terminates any connections.
+ *
+ *  @return YES if the port was closed, NO otherwise.
  */
--(void) close;
+-(BOOL) close;
 
 /**
  *  Writes data to a to the port if it is connected.
