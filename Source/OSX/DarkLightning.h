@@ -22,3 +22,5 @@ FOUNDATION_EXPORT const unsigned char DarkLightning_OSXVersionString[];
 #import <DarkLightning/JMUSBDevice.h>
 #import <DarkLightning/JMSimulatorConnection.h>
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
+#import <DarkLightning/JMTaggedPacket.h>
+#import <DarkLightning/JMTaggedPacketProtocol.h>

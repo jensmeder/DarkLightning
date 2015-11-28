@@ -18,3 +18,5 @@ FOUNDATION_EXPORT const unsigned char DarkLightning_iOSVersionString[];
 
 #import <DarkLightning/JMMobileDevicePort.h>
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
+#import <DarkLightning/JMTaggedPacket.h>
+#import <DarkLightning/JMTaggedPacketProtocol.h>
