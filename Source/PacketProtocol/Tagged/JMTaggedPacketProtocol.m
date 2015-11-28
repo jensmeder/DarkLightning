@@ -45,7 +45,7 @@
 -(NSData *)encodePacket:(JMTaggedPacket *)packet
 {
 	uint32_t packetLength = CFSwapInt32HostToBig((uint32_t)packet.data.length);
-	uint16_t tag = CFSwapInt16HostToBig(packet.tag);
+	uint16_t tag = CFSwapInt16HostToBig((uint16_t)packet.tag);
 	
 	NSMutableData* data = [NSMutableData dataWithBytes:&packetLength length:sizeof(uint32_t)];
 	[data appendBytes:&tag length:sizeof(tag)];
@@ -76,16 +76,19 @@
 	
 	while (sizeof(length) + sizeof(tag) + length <= _buffer.length)
 	{
-		NSData* packetData = [_buffer subdataWithRange:NSMakeRange(sizeof(length) + sizeof(tag), length)];
-		JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:packetData andTag:tag];
-		[packets addObject:packet];
-		
-		[_buffer replaceBytesInRange:NSMakeRange(0, sizeof(length) + sizeof(tag) + length) withBytes:NULL length:0];
 		[_buffer getBytes:&length length:sizeof(length)];
 		[_buffer getBytes:&tag range:NSMakeRange(sizeof(length), sizeof(tag))];
 		
 		length = CFSwapInt32BigToHost(length);
 		tag = CFSwapInt16BigToHost(tag);
+		
+		NSLog(@"%lu", tag);
+		
+		NSData* packetData = [_buffer subdataWithRange:NSMakeRange(sizeof(length) + sizeof(tag), length)];
+		JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:packetData andTag:tag];
+		[packets addObject:packet];
+		
+		[_buffer replaceBytesInRange:NSMakeRange(0, sizeof(length) + sizeof(tag) + length) withBytes:NULL length:0];
 	}
 	
 	return packets;

@@ -23,7 +23,7 @@
 
 #import "JMConcreteRootViewModel.h"
 #import <DarkLightning/JMUSBDeviceConnection.h>
-#import <DarkLightning/JMSimpleDataPacketProtocol.h>
+#import <DarkLightning/JMTaggedPacketProtocol.h>
 #import <DarkLightning/JMSimulatorConnection.h>
 
 @interface JMConcreteRootViewModel () <JMUSBDeviceManagerDelegate, JMDeviceConnectionDelegate>
@@ -37,7 +37,7 @@
 	JMUSBDeviceConnection* _deviceConnection;
 	JMSimulatorConnection* _simulatorConnection;
 	
-	JMSimpleDataPacketProtocol* _packetProtocol;
+	JMTaggedPacketProtocol* _packetProtocol;
 }
 
 @synthesize delegate = _delegate;
@@ -55,7 +55,7 @@
 		_simulatorConnection.delegate = self;
 		[_simulatorConnection connect];
 		
-		_packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
+		_packetProtocol = [[JMTaggedPacketProtocol alloc]init];
 	}
 	
 	return self;
@@ -64,7 +64,8 @@
 -(BOOL)sendMessage:(NSString *)message
 {
 	NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
-	data = [_packetProtocol encodePacket:data];
+	JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:data andTag:(uint16_t)12345];
+	data = [_packetProtocol encodePacket:packet];
 	
 	if (_deviceConnection.state == JMDeviceConnectionStateConnected)
 	{
@@ -152,11 +153,11 @@
 
 -(void)connection:(JMDeviceConnection *)connection didReceiveData:(NSData *)data
 {
-	NSArray<NSData*>* packets = [_packetProtocol processData:data];
+	NSArray<JMTaggedPacket*>* packets = [_packetProtocol processData:data];
 	
-	for (NSData* packet in packets)
+	for (JMTaggedPacket* packet in packets)
 	{
-		NSString* message = [[NSString alloc]initWithData:packet encoding:NSUTF8StringEncoding];
+		NSString* message = [[NSString alloc]initWithData:packet.data encoding:NSUTF8StringEncoding];
 		[_delegate rootViewModel:self didReceiveMessage:message];
 	}
 	

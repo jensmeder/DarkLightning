@@ -23,7 +23,7 @@
 
 #import "JMConcreteRootViewModel.h"
 #import <UIKit/UIkit.h>
-#import <DarkLightning/JMSimpleDataPacketProtocol.h>
+#import <DarkLightning/JMTaggedPacketProtocol.h>
 
 @interface JMConcreteRootViewModel () <JMMobileDevicePortDelegate>
 
@@ -33,7 +33,7 @@
 {
 	@private
 	
-	JMSimpleDataPacketProtocol* _packetProtocol;
+	JMTaggedPacketProtocol* _packetProtocol;
 }
 
 @synthesize connectionState = _connectionState;
@@ -55,7 +55,7 @@
 		_devicePort.delegate = self;
 		_connectionState = (JMRootViewModelConnectionState) _devicePort.state;
 		
-		_packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
+		_packetProtocol = [[JMTaggedPacketProtocol alloc]init];
 	}
 	
 	return self;
@@ -69,11 +69,12 @@
 	}
 	
 	NSData* messageData = [_message dataUsingEncoding:NSUTF8StringEncoding];
-	NSData* packet = [_packetProtocol encodePacket:messageData];
+	JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:messageData andTag:(uint16_t)12345];
+	NSData* packetData = [_packetProtocol encodePacket:packet];
 	
 	_message = nil;
 	
-	return [_devicePort writeData:packet];
+	return [_devicePort writeData:packetData];
 }
 
 #pragma mark - Delegate
@@ -88,7 +89,9 @@
 	{
 		NSString* helloMessage = [NSString stringWithFormat:@"Hello, I am %@ running iOS %@",[UIDevice currentDevice].name, [UIDevice currentDevice].systemVersion];
 		NSData* messageData = [helloMessage dataUsingEncoding:NSUTF8StringEncoding];
-		[port writeData:[_packetProtocol encodePacket:messageData]];
+		JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:messageData andTag:(uint16_t)12345];
+		NSData* packetData = [_packetProtocol encodePacket:packet];
+		[port writeData:packetData];
 	}
 	
 	_connectionState = (JMRootViewModelConnectionState) _devicePort.state;
@@ -98,11 +101,11 @@
 
 -(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data
 {
-	NSArray<NSData*>* packets = [_packetProtocol processData:data];
+	NSArray<JMTaggedPacket*>* packets = [_packetProtocol processData:data];
 	
-	for (NSData* packet in packets)
+	for (JMTaggedPacket* packet in packets)
 	{
-		NSString* message = [[NSString alloc]initWithData:packet encoding:NSUTF8StringEncoding];
+		NSString* message = [[NSString alloc]initWithData:packet.data encoding:NSUTF8StringEncoding];
 		
 		[_delegate rootViewModel:self didReceiveMessage:message];
 	}
