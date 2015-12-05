@@ -2,6 +2,12 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.4.1
+
+### Bugfix
+
+* Fixed a bug that prevented Carthage from building the iOS Framework Target for iOS Simulator
+
 ## 0.4.0
 
 ### Additions
