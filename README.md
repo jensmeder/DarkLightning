@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/jensmeder/DarkLightning.svg)](https://travis-ci.org/jensmeder/DarkLightning)
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/DarkLightning.svg)](https://img.shields.io/cocoapods/v/DarkLightning.svg)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/DarkLightning.svg)](https://img.shields.io/cocoapods/v/DarkLightning.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 # DarkLightning
@@ -37,7 +37,7 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "DarkLightning"
 ```
-There are two subspecs included: `iOS` and `OSX`. Cocoapods automatically selects the correct subspec depending on the platform you are developing for. That means that `pod "DarkLightning"` and `pod "DarkLightning/iOS"` have the same effect if you are developing an iOS app.
+There are two subspecs included: `iOS` and `OSX`. CocoaPods automatically selects the correct subspec depending on the platform you are developing for. That means that `pod "DarkLightning"` and `pod "DarkLightning/iOS"` have the same effect if you are developing an iOS app.
 
 ## 4. Usage
 
