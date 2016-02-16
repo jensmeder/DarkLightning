@@ -27,7 +27,7 @@ DarkLightning is a lightweight Objective-C library to allow data transmission be
 
 * iOS 8.0+
 * Mac OS X 10.9+
-* XCode 7+ (due to new Objective-C syntax with nullability and generics)
+* Xcode 7+ (due to new Objective-C syntax with nullability and generics)
 
 ## 3. Installation
 
