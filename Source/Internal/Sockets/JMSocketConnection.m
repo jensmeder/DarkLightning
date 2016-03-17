@@ -117,8 +117,14 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 	{
 		return NO;
 	}
-	
+
 	NSInteger bytesWritten = [_socket.outputStream write:data.bytes maxLength:data.length];
+
+	while (bytesWritten != data.length) {
+
+		NSData* subData = [data subdataWithRange:NSMakeRange(bytesWritten, data.length-bytesWritten)];
+		bytesWritten += [_socket.outputStream write:subData.bytes maxLength:subData.length];
+	}
 	
 	if(bytesWritten > 0)
 	{
