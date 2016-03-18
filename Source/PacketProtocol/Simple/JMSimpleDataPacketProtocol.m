@@ -59,6 +59,11 @@
 
 -(NSArray<NSData *> *)processData:(NSData *)data
 {
+	if (!data || data.length == 0) {
+		
+		return nil;
+	}
+	
 	[_buffer appendData:data];
 	
 	uint32_t length = 0;
