@@ -140,11 +140,6 @@
 
 -(void) setState:(JMSocketState)state
 {
-	if (state == _state)
-	{
-		return;
-	}
-	
 	_state = state;
 }
 

@@ -66,4 +66,6 @@
  */
 -(nullable instancetype)initWithPList:(nonnull NSDictionary*)plist NS_DESIGNATED_INITIALIZER;
 
++(nonnull instancetype) invalidUSBDevice;
+
 @end

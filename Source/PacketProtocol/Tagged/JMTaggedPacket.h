@@ -46,6 +46,6 @@
  *
  *  @return A newly initialized packet
  */
--(nullable instancetype)initWithData:(nonnull NSData*)data andTag:(uint16_t) tag;
+-(nullable instancetype)initWithData:(nullable NSData*)data andTag:(uint16_t) tag;
 
 @end
