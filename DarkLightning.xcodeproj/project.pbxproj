@@ -96,6 +96,24 @@
 		B47E0E691C9D3EAD00A9495C /* usbmux_packet_tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47E0E681C9D3EAD00A9495C /* usbmux_packet_tests.m */; };
 		B47E0E6B1C9D461000A9495C /* JMSimulatorConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47E0E6A1C9D461000A9495C /* JMSimulatorConnectionTests.m */; };
 		B47E0E6D1C9D4DE500A9495C /* JMUSBDeviceConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47E0E6C1C9D4DE500A9495C /* JMUSBDeviceConnectionTests.m */; };
+		B47E0E7D1C9DF73300A9495C /* DarkLightning.h in Headers */ = {isa = PBXBuildFile; fileRef = B47E0E7C1C9DF73300A9495C /* DarkLightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B47E0E821C9DF7C800A9495C /* JMTaggedPacketProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = B43BBC241C09CC020082DDF0 /* JMTaggedPacketProtocol.m */; };
+		B47E0E831C9DF7C800A9495C /* JMTaggedPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = B43BBC2A1C09CC250082DDF0 /* JMTaggedPacket.m */; };
+		B47E0E841C9DF7C800A9495C /* JMSimpleDataPacketProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = B43BBC1C1C09CA4F0082DDF0 /* JMSimpleDataPacketProtocol.m */; };
+		B47E0E851C9DF7C800A9495C /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B452AF941BFF06F30028AC5E /* JMHostSocket.m */; };
+		B47E0E861C9DF7C800A9495C /* JMPathSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B452AF961BFF06F30028AC5E /* JMPathSocket.m */; };
+		B47E0E871C9DF7C800A9495C /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B452AF991BFF06F30028AC5E /* JMSocketConnection.m */; };
+		B47E0E881C9DF7C800A9495C /* JMNativeSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B452AFB11BFF08330028AC5E /* JMNativeSocket.m */; };
+		B47E0E891C9DF7C800A9495C /* JMMobileDevicePort.m in Sources */ = {isa = PBXBuildFile; fileRef = B4238D461BF8D84D00DA2019 /* JMMobileDevicePort.m */; };
+		B47E0E8A1C9DF81300A9495C /* JMTaggedPacketProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B43BBC231C09CC020082DDF0 /* JMTaggedPacketProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B47E0E8B1C9DF81300A9495C /* JMTaggedPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = B43BBC291C09CC250082DDF0 /* JMTaggedPacket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B47E0E8C1C9DF81300A9495C /* JMMobileDevicePort.h in Headers */ = {isa = PBXBuildFile; fileRef = B4238D451BF8D84D00DA2019 /* JMMobileDevicePort.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B47E0E8D1C9DF82C00A9495C /* JMSimpleDataPacketProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B43BBC1B1C09CA4F0082DDF0 /* JMSimpleDataPacketProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B47E0E8E1C9DF84400A9495C /* JMHostSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B452AF931BFF06F30028AC5E /* JMHostSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		B47E0E8F1C9DF84400A9495C /* JMPathSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B452AF951BFF06F30028AC5E /* JMPathSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		B47E0E901C9DF84400A9495C /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B452AF971BFF06F30028AC5E /* JMSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		B47E0E911C9DF84400A9495C /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = B452AF981BFF06F30028AC5E /* JMSocketConnection.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		B47E0E921C9DF84400A9495C /* JMNativeSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = B452AFB01BFF08330028AC5E /* JMNativeSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,6 +281,9 @@
 		B47E0E681C9D3EAD00A9495C /* usbmux_packet_tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = usbmux_packet_tests.m; sourceTree = "<group>"; };
 		B47E0E6A1C9D461000A9495C /* JMSimulatorConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSimulatorConnectionTests.m; sourceTree = "<group>"; };
 		B47E0E6C1C9D4DE500A9495C /* JMUSBDeviceConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMUSBDeviceConnectionTests.m; sourceTree = "<group>"; };
+		B47E0E7A1C9DF73300A9495C /* DarkLightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47E0E7C1C9DF73300A9495C /* DarkLightning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
+		B47E0E7E1C9DF73300A9495C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +335,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B47E0E761C9DF73300A9495C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -324,6 +352,7 @@
 				B452AFA11BFF07700028AC5E /* Internal */,
 				B47272AE1BF9036C0076C56F /* Foundation.framework */,
 				B427FDBC1BF8E862005DC0B8 /* Kiwi.framework */,
+				B47E0E7B1C9DF73300A9495C /* tvOS */,
 				B4238CD31BF8C92A00DA2019 /* OSX */,
 				B4238CEF1BF8C94200DA2019 /* iOS */,
 				B4238D141BF8D70900DA2019 /* iOS Example */,
@@ -341,6 +370,7 @@
 				B4238CF71BF8C94200DA2019 /* DarkLightning iOSTests.xctest */,
 				B4238D131BF8D70900DA2019 /* iOS Example.app */,
 				B4238D2E1BF8D72600DA2019 /* OSX Example.app */,
+				B47E0E7A1C9DF73300A9495C /* DarkLightning.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -597,6 +627,16 @@
 			name = Internal;
 			sourceTree = "<group>";
 		};
+		B47E0E7B1C9DF73300A9495C /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				B47E0E7C1C9DF73300A9495C /* DarkLightning.h */,
+				B47E0E7E1C9DF73300A9495C /* Info.plist */,
+			);
+			name = tvOS;
+			path = "DarkLightning-tvOS";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -638,6 +678,23 @@
 				B452AFAD1BFF07CE0028AC5E /* JMPathSocket.h in Headers */,
 				B452AFAE1BFF07CE0028AC5E /* JMSocket.h in Headers */,
 				B452AFAF1BFF07CE0028AC5E /* JMSocketConnection.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B47E0E771C9DF73300A9495C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47E0E7D1C9DF73300A9495C /* DarkLightning.h in Headers */,
+				B47E0E8D1C9DF82C00A9495C /* JMSimpleDataPacketProtocol.h in Headers */,
+				B47E0E8A1C9DF81300A9495C /* JMTaggedPacketProtocol.h in Headers */,
+				B47E0E8B1C9DF81300A9495C /* JMTaggedPacket.h in Headers */,
+				B47E0E8C1C9DF81300A9495C /* JMMobileDevicePort.h in Headers */,
+				B47E0E8E1C9DF84400A9495C /* JMHostSocket.h in Headers */,
+				B47E0E8F1C9DF84400A9495C /* JMPathSocket.h in Headers */,
+				B47E0E901C9DF84400A9495C /* JMSocket.h in Headers */,
+				B47E0E911C9DF84400A9495C /* JMSocketConnection.h in Headers */,
+				B47E0E921C9DF84400A9495C /* JMNativeSocket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +813,24 @@
 			productReference = B4238D2E1BF8D72600DA2019 /* OSX Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B47E0E791C9DF73300A9495C /* DarkLightning-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B47E0E811C9DF73300A9495C /* Build configuration list for PBXNativeTarget "DarkLightning-tvOS" */;
+			buildPhases = (
+				B47E0E751C9DF73300A9495C /* Sources */,
+				B47E0E761C9DF73300A9495C /* Frameworks */,
+				B47E0E771C9DF73300A9495C /* Headers */,
+				B47E0E781C9DF73300A9495C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DarkLightning-tvOS";
+			productName = "DarkLightning-tvOS";
+			productReference = B47E0E7A1C9DF73300A9495C /* DarkLightning.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -783,6 +858,9 @@
 					B4238D2D1BF8D72600DA2019 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
+					B47E0E791C9DF73300A9495C = {
+						CreatedOnToolsVersion = 7.2;
+					};
 				};
 			};
 			buildConfigurationList = B4238CBC1BF8C8F200DA2019 /* Build configuration list for PBXProject "DarkLightning" */;
@@ -804,6 +882,7 @@
 				B4238CF61BF8C94200DA2019 /* DarkLightning iOSTests */,
 				B4238D121BF8D70900DA2019 /* iOS Example */,
 				B4238D2D1BF8D72600DA2019 /* OSX Example */,
+				B47E0E791C9DF73300A9495C /* DarkLightning-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -852,6 +931,13 @@
 			files = (
 				B4238D371BF8D72600DA2019 /* Assets.xcassets in Resources */,
 				B4238D3A1BF8D72600DA2019 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B47E0E781C9DF73300A9495C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,6 +1032,21 @@
 				B427FDB91BF8E41C005DC0B8 /* JMRootViewController.m in Sources */,
 				B4238D351BF8D72600DA2019 /* main.m in Sources */,
 				B4238D321BF8D72600DA2019 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B47E0E751C9DF73300A9495C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B47E0E821C9DF7C800A9495C /* JMTaggedPacketProtocol.m in Sources */,
+				B47E0E831C9DF7C800A9495C /* JMTaggedPacket.m in Sources */,
+				B47E0E841C9DF7C800A9495C /* JMSimpleDataPacketProtocol.m in Sources */,
+				B47E0E851C9DF7C800A9495C /* JMHostSocket.m in Sources */,
+				B47E0E861C9DF7C800A9495C /* JMPathSocket.m in Sources */,
+				B47E0E871C9DF7C800A9495C /* JMSocketConnection.m in Sources */,
+				B47E0E881C9DF7C800A9495C /* JMNativeSocket.m in Sources */,
+				B47E0E891C9DF7C800A9495C /* JMMobileDevicePort.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1307,6 +1408,45 @@
 			};
 			name = Release;
 		};
+		B47E0E7F1C9DF73300A9495C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DarkLightning-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.jensmeder.DarkLightning-tvOS";
+				PRODUCT_NAME = DarkLightning;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		B47E0E801C9DF73300A9495C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DarkLightning-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.jensmeder.DarkLightning-tvOS";
+				PRODUCT_NAME = DarkLightning;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1372,6 +1512,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		B47E0E811C9DF73300A9495C /* Build configuration list for PBXNativeTarget "DarkLightning-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B47E0E7F1C9DF73300A9495C /* Debug */,
+				B47E0E801C9DF73300A9495C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
