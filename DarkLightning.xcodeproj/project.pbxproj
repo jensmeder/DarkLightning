@@ -92,6 +92,10 @@
 		B47272AF1BF9036C0076C56F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B47272AE1BF9036C0076C56F /* Foundation.framework */; };
 		B47E0E531C9C9AA500A9495C /* JMSimpleDataPacletProtocolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47E0E521C9C9AA500A9495C /* JMSimpleDataPacletProtocolTests.m */; };
 		B47E0E551C9C9F1200A9495C /* JMTaggedPacketProtocolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47E0E541C9C9F1200A9495C /* JMTaggedPacketProtocolTests.m */; };
+		B47E0E671C9D3D6100A9495C /* JMTaggedPacketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47E0E661C9D3D6100A9495C /* JMTaggedPacketTests.m */; };
+		B47E0E691C9D3EAD00A9495C /* usbmux_packet_tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47E0E681C9D3EAD00A9495C /* usbmux_packet_tests.m */; };
+		B47E0E6B1C9D461000A9495C /* JMSimulatorConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47E0E6A1C9D461000A9495C /* JMSimulatorConnectionTests.m */; };
+		B47E0E6D1C9D4DE500A9495C /* JMUSBDeviceConnectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47E0E6C1C9D4DE500A9495C /* JMUSBDeviceConnectionTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +259,10 @@
 		B47272AE1BF9036C0076C56F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B47E0E521C9C9AA500A9495C /* JMSimpleDataPacletProtocolTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSimpleDataPacletProtocolTests.m; sourceTree = "<group>"; };
 		B47E0E541C9C9F1200A9495C /* JMTaggedPacketProtocolTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMTaggedPacketProtocolTests.m; sourceTree = "<group>"; };
+		B47E0E661C9D3D6100A9495C /* JMTaggedPacketTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMTaggedPacketTests.m; sourceTree = "<group>"; };
+		B47E0E681C9D3EAD00A9495C /* usbmux_packet_tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = usbmux_packet_tests.m; sourceTree = "<group>"; };
+		B47E0E6A1C9D461000A9495C /* JMSimulatorConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMSimulatorConnectionTests.m; sourceTree = "<group>"; };
+		B47E0E6C1C9D4DE500A9495C /* JMUSBDeviceConnectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMUSBDeviceConnectionTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +404,10 @@
 				B4400B121BFFC5C700886E53 /* JMHostSocketTests.m */,
 				B47E0E521C9C9AA500A9495C /* JMSimpleDataPacletProtocolTests.m */,
 				B47E0E541C9C9F1200A9495C /* JMTaggedPacketProtocolTests.m */,
+				B47E0E661C9D3D6100A9495C /* JMTaggedPacketTests.m */,
+				B47E0E681C9D3EAD00A9495C /* usbmux_packet_tests.m */,
+				B47E0E6A1C9D461000A9495C /* JMSimulatorConnectionTests.m */,
+				B47E0E6C1C9D4DE500A9495C /* JMUSBDeviceConnectionTests.m */,
 			);
 			name = Tests;
 			path = ../../Tests/OSX;
@@ -873,13 +885,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B47E0E551C9C9F1200A9495C /* JMTaggedPacketProtocolTests.m in Sources */,
+				B47E0E691C9D3EAD00A9495C /* usbmux_packet_tests.m in Sources */,
 				B40417811BFF2A1D00DF49C3 /* JMUSBMuxPacketFactory.m in Sources */,
 				B40417821BFF2A1D00DF49C3 /* JMSocketMock.m in Sources */,
 				B4400B0F1BFFC47400886E53 /* JMNativeSocketTests.m in Sources */,
+				B47E0E6B1C9D461000A9495C /* JMSimulatorConnectionTests.m in Sources */,
 				B47E0E531C9C9AA500A9495C /* JMSimpleDataPacletProtocolTests.m in Sources */,
 				B4400B131BFFC5C700886E53 /* JMHostSocketTests.m in Sources */,
+				B47E0E671C9D3D6100A9495C /* JMTaggedPacketTests.m in Sources */,
 				B4400B111BFFC50900886E53 /* JMPathSocketTests.m in Sources */,
 				B47272AD1BF8FB9D0076C56F /* JMUSBDeviceTests.m in Sources */,
+				B47E0E6D1C9D4DE500A9495C /* JMUSBDeviceConnectionTests.m in Sources */,
 				B42638931BFD07D50054C8B6 /* JMSocketConnectionTests.m in Sources */,
 				B43721C41BFA47B700203BAC /* JMDeviceConnectionTests.m in Sources */,
 				B427FDC21BF8E980005DC0B8 /* JMUSBMuxDecoderTests.m in Sources */,

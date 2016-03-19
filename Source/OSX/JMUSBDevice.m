@@ -33,6 +33,20 @@ static NSString* const JMUSBDeviceDictionaryKeyLocationID 		= @"LocationID";
 
 @implementation JMUSBDevice
 
++(instancetype)invalidUSBDevice
+{
+	static JMUSBDevice* device = nil;
+	
+	static dispatch_once_t onceToken;
+	
+	dispatch_once(&onceToken, ^{
+		
+		device = [[JMUSBDevice alloc]initWithPList:@{JMUSBDeviceDictionaryKeySerialNumber:@"Invalid device"}];
+	});
+	
+	return device;
+}
+
 -(instancetype)init
 {
 	return [self initWithPList:@{}];

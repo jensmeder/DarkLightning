@@ -25,5 +25,9 @@
 
 uint32_t usbmux_packet_get_payload_size(usbmux_packet_t* packet)
 {
+	if (NULL == packet) {
+		
+		return 0;
+	}
 	return packet->size - sizeof(usbmux_packet_t);
 }
