@@ -66,13 +66,13 @@ describe(@"JMTaggedPacketProtocol", ^{
 		
 		it(@"should be impossible to process nil", ^{
 			
-			NSData* data = [packetProtocol processData:nil];
+			NSArray<JMTaggedPacket*>* data = [packetProtocol processData:nil];
 			[data shouldBeNil];
 		});
 		
 		it(@"should be impossible to process an empty data packet", ^{
 			
-			NSData* data = [packetProtocol processData:[NSData data]];
+			NSArray<JMTaggedPacket*>* data = [packetProtocol processData:[NSData data]];
 			[data shouldBeNil];
 		});
 	});

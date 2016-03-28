@@ -19,7 +19,7 @@ it(@"should return zero of no packet has been provided", ^{
 
 it(@"should return the payload size of a packet", ^{
 	
-	usbmux_packet_t packet = {140, USBMuxPacketProtocolPlist,USBMuxPacketTypeConnect,34};
+	usbmux_packet_t packet = {140, USBMuxPacketProtocolPlist,USBMuxPacketTypeConnect,34,{}};
 	uint32_t length = usbmux_packet_get_payload_size(&packet);
 	
 	[[theValue(length) should] equal:@(140-sizeof(usbmux_packet_t))];

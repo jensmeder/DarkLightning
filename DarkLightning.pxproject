@@ -20,9 +20,18 @@ Phoenx::Project.new do |s|
 		target.config_files["Debug"] = "Configuration/OSX/debug.xcconfig"
 		target.config_files["Release"] = "Configuration/OSX/release.xcconfig"
 		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
-		target.sources = "Source/Sockets/**/*.{h,m}", "Source/USB/**/*.{h,m}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
+		target.sources = "Source/Sockets/**/*.{h,m}", "Source/USB/**/*.{h,m,c}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
 		target.public_headers = "Source/OSX/**/*.{h}","Source/USB/*.{h}","Source/PacketProtocol/**/*.{h}","Source/USB/Connections/**/*.{h}"
 		target.private_headers = ["Source/Sockets/**/*.{h}", "Source/USB/USBMux/**/*.{h}"]
+		
+		target.test_target "OSX-Tests" do |t|
+		
+			t.sources = ["Tests/**/*.{h,m,c}"]
+			t.frameworks = ["Frameworks/Kiwi/Kiwi.framework"]
+			t.config_files["Debug"] = "Configuration/OSXTests/debug.xcconfig"
+			t.config_files["Release"] = "Configuration/OSXTests/release.xcconfig"
+		
+		end
 	
 	end
 	
