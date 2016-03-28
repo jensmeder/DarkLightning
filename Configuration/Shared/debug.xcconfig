@@ -1,0 +1,3 @@
+#include "shared.xcconfig"
+
+DEBUG_INFORMATION_FORMAT = dwarf

@@ -1,0 +1,40 @@
+Phoenx::Project.new do |s|
+		
+	s.project_name = "DarkLightning"
+	s.config_files["Debug"] = "Configuration/Shared/debug.xcconfig"
+	s.config_files["Release"] = "Configuration/Shared/release.xcconfig"
+	
+	s.target "iOS", :framework, :ios, '9.0' do |target|
+	
+		target.config_files["Debug"] = "Configuration/iOS/debug.xcconfig"
+		target.config_files["Release"] = "Configuration/iOS/release.xcconfig"
+		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
+		target.sources = "Source/Sockets/**/*.{h,m}", "Source/MobileDevicePort/**/*.{h,m}", "Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
+		target.public_headers = "Source/iOS/**/*.{h}","Source/MobileDevicePort/**/*.{h}", "Source/PacketProtocol/**/*.{h}"
+		target.private_headers = ["Source/Sockets/**/*.{h}"]
+	
+	end
+	
+	s.target "OSX", :framework, :osx, '10.11' do |target|
+	
+		target.config_files["Debug"] = "Configuration/OSX/debug.xcconfig"
+		target.config_files["Release"] = "Configuration/OSX/release.xcconfig"
+		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
+		target.sources = "Source/Sockets/**/*.{h,m}", "Source/USB/**/*.{h,m}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
+		target.public_headers = "Source/OSX/**/*.{h}","Source/USB/*.{h}","Source/PacketProtocol/**/*.{h}","Source/USB/Connections/**/*.{h}"
+		target.private_headers = ["Source/Sockets/**/*.{h}", "Source/USB/USBMux/**/*.{h}"]
+	
+	end
+	
+	s.target "tvOS", :framework, :tvos, '9.0' do |target|
+	
+		target.config_files["Debug"] = "Configuration/tvOS/debug.xcconfig"
+		target.config_files["Release"] = "Configuration/tvOS/release.xcconfig"
+		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
+		target.sources = "Source/Sockets/**/*.{h,m}", "Source/MobileDevicePort/**/*.{h,m}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
+		target.public_headers = "Source/tvOS/**/*.{h}","Source/MobileDevicePort/**/*.{h}","Source/PacketProtocol/**/*.{h}"
+		target.private_headers = ["Source/Sockets/**/*.{h}"]
+	
+	end
+
+end
