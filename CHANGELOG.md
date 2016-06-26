@@ -14,6 +14,12 @@
 * Restructured repository
 * Moved build configurations to xcconfig files
 
+## 0.4.2
+
+### Bugfix
+
+* Fixed a bug that prevented the transmission of data packages with more than 8192 bytes from OSX to iOS
+
 ## 0.4.1
 
 ### Bugfix

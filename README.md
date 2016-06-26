@@ -4,8 +4,8 @@
 [![codecov.io](https://codecov.io/github/jensmeder/DarkLightning/coverage.svg?branch=master)](https://codecov.io/github/jensmeder/DarkLightning?branch=master)
 
 # DarkLightning
-
-DarkLightning is a lightweight Objective-C library to allow data transmission between iOS devices (Lightning port or Dock connector) and OSX (USB) at 480MBit - without jailbreaking your iOS device. It uses the usbmuxd service on OSX to open a TCP socket connection to the iOS device. 
+                      
+DarkLightning is a lightweight Objective-C library to allow data transmission between iOS/tvOS devices (Lightning port, Dock connector, USB-C) and OSX (USB) at 480MBit - without jailbreaking your iOS/tvOS device. It uses the usbmuxd service on OSX to open a TCP socket connection to the iOS/tvOS device. 
 
 ## Overview
 
@@ -19,14 +19,15 @@ DarkLightning is a lightweight Objective-C library to allow data transmission be
 
 ## 1. Features
 
-* iOS und OSX implementations to transmit data with up to 480 MBit via USB between iOS and OSX
-* Simulator connection for debugging with iOS Simulator
-* Information on connected iOS devices on OSX
-* Callbacks for newly connected and disconnected iOS devices on OSX
+* iOS/tvOS und OSX implementations to transmit data with up to 480 MBit via USB between iOS/tvOS and OSX
+* Simulator connection for debugging with iOS/tvOS Simulator
+* Information on connected iOS/tvOS devices on OSX
+* Callbacks for newly connected and disconnected iOS/tvOS devices on OSX
 
 ## 2. Requirements
 
 * iOS 8.0+
+* tvOS 9.0+
 * Mac OS X 10.9+
 * Xcode 7+ (due to new Objective-C syntax with nullability and generics)
 
@@ -38,19 +39,19 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "DarkLightning"
 ```
-There are two subspecs included: `iOS` and `OSX`. CocoaPods automatically selects the correct subspec depending on the platform you are developing for. That means that `pod "DarkLightning"` and `pod "DarkLightning/iOS"` have the same effect if you are developing an iOS app.
+There are three subspecs included: `iOS`, `tvOS` and `OSX`. CocoaPods automatically selects the correct subspec depending on the platform you are developing for. That means that `pod "DarkLightning"` and `pod "DarkLightning/iOS"` have the same effect if you are developing an iOS app.
 
 ## 4. Usage
 
-The basic procedure to open a connection between iOS and OSX looks like this:
+The basic procedure to open a connection between iOS/tvOS and OSX looks like this:
 
-1. Start a `JMMobileDevicePort` on a port on iOS
+1. Start a `JMMobileDevicePort` on a port on iOS/tvOS
 2. Discover the device on OSX
-3. Establish a connection to the previously defined port on iOS
+3. Establish a connection to the previously defined port on iOS/tvOS
 
-You can send an arbitrary amount of bytes between iOS and OSX. The data are being sent using [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol).
+You can send an arbitrary amount of bytes between iOS/tvOS and OSX. The data are being sent using [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol).
 
-### 4.1 iOS
+### 4.1 iOS/tvOS
 
 #### 4.1.1 Initialization
 
@@ -88,7 +89,7 @@ manager.delegate = self;
 
 #### 4.2.2 Device Discovery
 
-As soon as you plug in or out an iOS device to your Mac you will receive a callback on the corresponding delegate method (`deviceManager:deviceDidAttach:` or `deviceManager:deviceDidDetach:`) of `JMUSBDeviceManager*`. You will also receive a callback on `deviceManager:deviceDidAttach:` for every iOS device that was already attached to OSX when you started the discovery via `[manager start];`.
+As soon as you plug in or out an iOS/tvOS device to your Mac you will receive a callback on the corresponding delegate method (`deviceManager:deviceDidAttach:` or `deviceManager:deviceDidDetach:`) of `JMUSBDeviceManager*`. You will also receive a callback on `deviceManager:deviceDidAttach:` for every iOS/tvOS device that was already attached to OSX when you started the discovery via `[manager start];`.
 
 ```objc
 JMUSBDevice* _myDevice;
@@ -104,7 +105,7 @@ JMUSBDevice* _myDevice;
   _myDevice = device;
 }
 
-// Called for every iOS device that has been detached from the system
+// Called for every iOS/tvOS device that has been detached from the system
 
 -(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidDetach:(nonnull JMUSBDevice*)device
 {
@@ -115,9 +116,9 @@ JMUSBDevice* _myDevice;
 ```
 #### 4.2.3 Connections
 
-With the help of a discovered `JMUSBDevice` and a port number you can now establish a connection to your iOS app.
+With the help of a discovered `JMUSBDevice` and a port number you can now establish a connection to your iOS/tvOS app.
 
-_Note:_ The port number needs to be identical to the one you have used to open a `JMMobileDevicePort` on iOS.
+_Note:_ The port number needs to be identical to the one you have used to open a `JMMobileDevicePort` on iOS/tvOS.
 
 ```objc
 JMUSBDeviceConnection* myDeviceConnection = [[JMUSBDeviceConnection alloc] initWithDevice:_myDevice andPort:2345];
@@ -146,17 +147,17 @@ myDeviceConnection = nil;
 NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
 [_myDeviceConnection writeData:data];
 ```
-### 4.3 iOS Simulator
+### 4.3 iOS/tvOS Simulator
 
-If you do not want to keep your iOS device connected at all time you can also use the iOS Simulator during development. 
+If you do not want to keep your iOS/tvOS device connected at all time you can also use the iOS/tvOS Simulator during development. 
 
-#### 4.3.1 iOS
+#### 4.3.1 iOS/tvOS
 
-There are no changes required to your iOS app to use DarkLightning in the iOS Simulator. :)
+There are no changes required to your iOS/tvOS app to use DarkLightning in the iOS/tvOS Simulator. :)
 
 #### 4.3.2 OSX
 
-To connect to the iOS Simulator you need to use `JMSimulatorConnection` instead of `JMUSBDeviceConnection`. `JMSimulatorConnection` and `JMUSBDeviceConnection` inherit from the same base class `JMDeviceConnection` thus having the same interface. The delegate callbacks are the same as well. 
+To connect to the iOS/tvOS Simulator you need to use `JMSimulatorConnection` instead of `JMUSBDeviceConnection`. `JMSimulatorConnection` and `JMUSBDeviceConnection` inherit from the same base class `JMDeviceConnection` thus having the same interface. The delegate callbacks are the same as well. 
 
 ```objc
 JMSimulatorConnection* simulatorConnection = [[JMSimulatorConnection alloc]initWithPort:2347];
@@ -276,9 +277,9 @@ JMTaggedPacketProtocol* packetProtocol = [[JMTaggedPacketProtocol alloc]init];
 
 ## 6. Example
 
-The Example (see _Example_ folder) is a simple messenger that uses DarkLightning to send text messages from iOS to OSX and vice versa. 
+The Example (see _Example_ folder) is a simple messenger that uses DarkLightning to send text messages from iOS/tvOS to OSX and vice versa. 
 
-_Note_: The iOS application needs to be launched before the OSX part. The OSX part will try to connect to the first device that has been attached via USB. If there are no attached devices it tries to connect to the iOS Simulator.
+_Note_: The iOS/tvOS application needs to be launched before the OSX part. The OSX part will try to connect to the first device that has been attached via USB. If there are no attached devices it tries to connect to the iOS/tvOS Simulator.
 
 ## 7. License
 
