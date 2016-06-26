@@ -147,7 +147,7 @@
 		3F2D60804C8D4215E61E5F15 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		3F4D27715361FA0A693A402B /* OSXTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OSXTests.xcconfig; sourceTree = "<group>"; };
 		434B73552C7D534B7B502F14 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		43D4C682A41BDDDEDC93D8C5 /* tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = tvOS.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43D4C682A41BDDDEDC93D8C5 /* DarkLightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4549AE4C317F8F4735F9A8C9 /* JMNativeSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMNativeSocket.m; sourceTree = "<group>"; };
 		5152E322E3CCFAEC9306F1A1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		526871A753B7CBFB9F8F37D4 /* JMUSBDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBDevice.m; sourceTree = "<group>"; };
@@ -556,7 +556,7 @@
 				6485B4A9EEDFD6ED0617C58B /* iOS.framework */,
 				17EAA4271F51B960B346013D /* OSX.framework */,
 				81702C6B97F6B67AE17551C4 /* OSX-Tests.xctest */,
-				43D4C682A41BDDDEDC93D8C5 /* tvOS.framework */,
+				43D4C682A41BDDDEDC93D8C5 /* DarkLightning.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -675,7 +675,7 @@
 			);
 			name = tvOS;
 			productName = tvOS;
-			productReference = 43D4C682A41BDDDEDC93D8C5 /* tvOS.framework */;
+			productReference = 43D4C682A41BDDDEDC93D8C5 /* DarkLightning.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		E2D3823F33075F79EE716B1C /* iOS */ = {
@@ -845,6 +845,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2415CCAE390D0979CF3A6CB1 /* release.xcconfig */;
 			buildSettings = {
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -891,6 +892,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5F7D199D9589820E20843FC /* debug.xcconfig */;
 			buildSettings = {
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
