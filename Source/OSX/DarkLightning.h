@@ -1,26 +1,26 @@
 //
-//  DarkLightning-OSX.h
-//  DarkLightning-OSX
+//  DarkLightning-tvOS.h
+//  DarkLightning-tvOS
 //
-//  Created by Jens Meder on 15/11/15.
-//  Copyright © 2015 Jens Meder. All rights reserved.
+//  Created by Jens Meder on 19/03/16.
+//  Copyright © 2016 Jens Meder. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+@import Foundation;
 
-//! Project version number for DarkLightning-OSX.
-FOUNDATION_EXPORT double DarkLightning_OSXVersionNumber;
+//! Project version number for DarkLightning-tvOS.
+FOUNDATION_EXPORT double DarkLightning_tvOSVersionNumber;
 
-//! Project version string for DarkLightning-OSX.
-FOUNDATION_EXPORT const unsigned char DarkLightning_OSXVersionString[];
+//! Project version string for DarkLightning-tvOS.
+FOUNDATION_EXPORT const unsigned char DarkLightning_tvOSVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <DarkLightning_OSX/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <DarkLightning_tvOS/PublicHeader.h>
 
 #import <DarkLightning/JMUSBDeviceManager.h>
-#import <DarkLightning/JMDeviceConnection.h>
-#import <DarkLightning/JMUSBDeviceConnection.h>
-#import <DarkLightning/JMUSBDevice.h>
-#import <DarkLightning/JMSimulatorConnection.h>
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
 #import <DarkLightning/JMTaggedPacket.h>
 #import <DarkLightning/JMTaggedPacketProtocol.h>
+#import <DarkLightning/JMDataPacketProtocol.h>
+#import <DarkLightning/JMDeviceConnection.h>
+#import <DarkLightning/JMSimulatorConnection.h>
+#import <DarkLightning/JMUSBDeviceConnection.h>

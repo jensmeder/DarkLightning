@@ -1,0 +1,9 @@
+Phoenx::Workspace.new do |w|
+	
+		w.name = "Messenger"
+		w.main_project "iOS", "iOS/"
+		
+		w.project "OSX", "OSX/"
+		w.project "DarkLightning", "../../"
+
+end
