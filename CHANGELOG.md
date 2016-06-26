@@ -2,6 +2,18 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.0
+
+### Additions
+
+* Added tvOS support (example app comes with the next release)
+* Added support for xcodeproj file generation via [phoenx](https://github.com/jensmeder/Phoenx)
+
+### Changes
+
+* Restructured repository
+* Moved build configurations to xcconfig files
+
 ## 0.4.1
 
 ### Bugfix
