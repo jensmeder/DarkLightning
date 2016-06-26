@@ -1,0 +1,17 @@
+Phoenx::Project.new do |s|
+		
+	s.project_name = "iOS"
+	s.config_files["Debug"] = "Configuration/Shared/debug.xcconfig"
+	s.config_files["Release"] = "Configuration/Shared/release.xcconfig"
+	
+	s.target "iOS", :application, :ios, '9.0' do |target|
+	
+		target.config_files["Debug"] = "Configuration/iOS/debug.xcconfig"
+		target.config_files["Release"] = "Configuration/iOS/release.xcconfig"
+		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]	
+		target.sources = ["Source/**/*.{h,m}"]
+		target.dependency "iOS", true, "../../../DarkLightning.xcodeproj"
+	
+	end
+
+end
