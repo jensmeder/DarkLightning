@@ -28,30 +28,6 @@ SPEC_BEGIN(JMPathSocketTests)
 
 describe(@"JMPathSocket",
 		 ^{
-			 context(@"when initializing",
-					 ^{
-						 it(@"should return nil if path is nil",
-							^{
-								JMPathSocket* socket = [[JMPathSocket alloc]initWithPath:nil];
-								
-								[[socket should] beNil];
-							});
-						 
-						 it(@"should return nil if path is empty string",
-							^{
-								JMPathSocket* socket = [[JMPathSocket alloc]initWithPath:@""];
-								
-								[[socket should] beNil];
-							});
-						 
-						 it(@"should return a new socket if path is valid",
-							^{
-								JMPathSocket* socket = [[JMPathSocket alloc]initWithPath:@"/var/run/usbmuxd"];
-								
-								[[socket shouldNot] beNil];
-							});
-						 
-					 });
 			 
 			 context(@"when disconnected",
 					 ^{
