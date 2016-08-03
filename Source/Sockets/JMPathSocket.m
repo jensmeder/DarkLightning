@@ -136,6 +136,19 @@
 	return YES;
 }
 
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMPathSocket class]]) {
+		
+		JMPathSocket* obj = object;
+		isEqual = [obj.path isEqualToString:_path];
+	}
+	
+	return isEqual;
+}
+
 #pragma mark - Properties
 
 -(void) setState:(JMSocketState)state

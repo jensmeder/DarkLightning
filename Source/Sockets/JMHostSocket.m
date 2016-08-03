@@ -87,6 +87,19 @@
 	return YES;
 }
 
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMHostSocket class]]) {
+		
+		JMHostSocket* obj = object;
+		isEqual = _port == obj.port && [_host isEqualToString:obj.host];
+	}
+	
+	return isEqual;
+}
+
 #pragma mark - Properties
 
 -(void) setState:(JMSocketState)state

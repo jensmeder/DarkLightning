@@ -68,4 +68,17 @@ NSInteger JMDeviceConnectionErrorCodeDataStreamError 	= 200;
 	return NO;
 }
 
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMDeviceConnection class]]) {
+		
+		JMDeviceConnection* obj = object;
+		isEqual = _port == obj.port;
+	}
+	
+	return isEqual;
+}
+
 @end

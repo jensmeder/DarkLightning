@@ -136,6 +136,18 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 	
 	return NO;
 }
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMSocketConnection class]]) {
+		
+		JMSocketConnection* obj = object;
+		isEqual = [_socket isEqual:obj.socket];
+	}
+	
+	return isEqual;
+}
 
 #pragma mark - Properties
 
