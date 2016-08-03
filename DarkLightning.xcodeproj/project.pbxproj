@@ -133,7 +133,7 @@
 		10851441A6D47B3ADEB6922E /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
 		1154B9D0A45B742AEEF2C58D /* JMHostSocketTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMHostSocketTests.m; sourceTree = "<group>"; };
 		15C87AD7C1ED29774E55A369 /* JMPathSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMPathSocket.m; sourceTree = "<group>"; };
-		17EAA4271F51B960B346013D /* OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OSX.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17EAA4271F51B960B346013D /* DarkLightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		213E0165478BBEFCE41BCF03 /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
 		2415CCAE390D0979CF3A6CB1 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		279002F386B533E3F1A5B790 /* JMUSBMuxDecoderTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxDecoderTests.m; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		5F06D2796A71888616A3A3AC /* JMUSBMuxPacketFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBMuxPacketFactory.h; sourceTree = "<group>"; };
 		61CCC54181C7198A64E6574C /* usbmux_packet.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = usbmux_packet.c; sourceTree = "<group>"; };
 		6212F80B2F4A89F74F915E50 /* DarkLightning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
-		6485B4A9EEDFD6ED0617C58B /* iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOS.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6485B4A9EEDFD6ED0617C58B /* DarkLightning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B0B239B10A8DDA345DD690 /* JMUSBMuxPacketFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxPacketFactory.m; sourceTree = "<group>"; };
 		6504B4CFE635AD1154DFAC3C /* JMTaggedPacketProtocol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMTaggedPacketProtocol.m; sourceTree = "<group>"; };
 		6BA793266A28729E93FBFE7D /* DarkLightning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
@@ -553,8 +553,8 @@
 		E627AB7A4B3BCD8A1359D6DD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6485B4A9EEDFD6ED0617C58B /* iOS.framework */,
-				17EAA4271F51B960B346013D /* OSX.framework */,
+				6485B4A9EEDFD6ED0617C58B /* DarkLightning.framework */,
+				17EAA4271F51B960B346013D /* DarkLightning.framework */,
 				81702C6B97F6B67AE17551C4 /* OSX-Tests.xctest */,
 				43D4C682A41BDDDEDC93D8C5 /* DarkLightning.framework */,
 			);
@@ -658,7 +658,7 @@
 			);
 			name = OSX;
 			productName = OSX;
-			productReference = 17EAA4271F51B960B346013D /* OSX.framework */;
+			productReference = 17EAA4271F51B960B346013D /* DarkLightning.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		73A159361E1E24E71DC9C3A9 /* tvOS */ = {
@@ -692,7 +692,7 @@
 			);
 			name = iOS;
 			productName = iOS;
-			productReference = 6485B4A9EEDFD6ED0617C58B /* iOS.framework */;
+			productReference = 6485B4A9EEDFD6ED0617C58B /* DarkLightning.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F37A69E4885F6469753208BE /* OSX-Tests */ = {

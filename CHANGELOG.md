@@ -2,6 +2,12 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.1
+
+### Bugfix
+
+* Fixed a bug that caused excessive memory usage when transmitting `NSData` objects larger than 100MB
+
 ## 1.0.0
 
 ### Additions
