@@ -46,7 +46,7 @@
 {
 	if (!packet || packet.length == 0 || packet.length > UINT32_MAX)
 	{
-		return nil;
+		return [NSData data];
 	}
 	
 	uint32_t packetLength = CFSwapInt32HostToBig((uint32_t)packet.length);
@@ -61,7 +61,7 @@
 {
 	if (!data || data.length == 0) {
 		
-		return nil;
+		return @[];
 	}
 	
 	[_buffer appendData:data];
@@ -70,7 +70,7 @@
 	
 	if (_buffer.length < sizeof(length))
 	{
-		return nil;
+		return @[];
 	}
 
 	[_buffer getBytes:&length length:sizeof(length)];
