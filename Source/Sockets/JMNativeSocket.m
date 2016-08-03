@@ -29,17 +29,17 @@
 @synthesize outputStream = _outputStream;
 @synthesize state = _state;
 
+-(instancetype)init {
+	
+	return [self initWithNativeSocket:(CFSocketNativeHandle)0];
+}
+
 -(instancetype)initWithNativeSocket:(CFSocketNativeHandle)nativeSocket
 {
-	if (nativeSocket < 0)
-	{
-		return nil;
-	}
-	
 	self = [super init];
 	
-	if (self)
-	{
+	if (self) {
+		
 		_nativeSocket = nativeSocket;
 	}
 	

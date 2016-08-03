@@ -28,22 +28,6 @@ SPEC_BEGIN(JMNativeSocketTests)
 
 describe(@"JMNativeSocket",
 		 ^{
-			 context(@"when initializing",
-					 ^{
-						 it(@"should return nil if native socket is invalid",
-							^{
-								JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:-1];
-								
-								[[socket should] beNil];
-							});
-						 
-						 it(@"should return a new socket if native socket is valid",
-							^{
-								JMNativeSocket* socket = [[JMNativeSocket alloc]initWithNativeSocket:5];
-								
-								[[socket shouldNot] beNil];
-							});
-					 });
 			 
 			 context(@"when disconnected",
 					 ^{

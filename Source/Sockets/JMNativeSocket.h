@@ -47,6 +47,6 @@
  *
  *  @return A newly initialized socket if the given native socket is valid, nil otherwise.
  */
--(instancetype)initWithNativeSocket:(CFSocketNativeHandle)nativeSocket;
+-(nonnull instancetype)initWithNativeSocket:(CFSocketNativeHandle)nativeSocket NS_DESIGNATED_INITIALIZER;
 
 @end
