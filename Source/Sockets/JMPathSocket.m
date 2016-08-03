@@ -39,6 +39,11 @@
 @synthesize outputStream = _outputStream;
 @synthesize state = _state;
 
+-(instancetype)init {
+	
+	return [self initWithPath:@""];
+}
+
 -(instancetype)initWithPath:(NSString *)path
 {
 	self = [super init];
