@@ -119,6 +119,19 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	return NO;
 }
 
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMUSBDeviceConnection class]]) {
+		
+		JMUSBDeviceConnection* obj = object;
+		isEqual = [_device isEqual:obj.device] && self.port == obj.port;
+	}
+	
+	return isEqual;
+}
+
 #pragma mark - Properties
 
 -(void)setState:(JMDeviceConnectionState)state

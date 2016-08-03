@@ -178,6 +178,19 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	return [_connection writeData:data];
 }
 
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMMobileDevicePort class]]) {
+		
+		JMMobileDevicePort* obj = object;
+		isEqual = _port == obj.port;
+	}
+	
+	return isEqual;
+}
+
 #pragma mark - Internal
 
 -(void)setState:(JMMobileDevicePortState)state

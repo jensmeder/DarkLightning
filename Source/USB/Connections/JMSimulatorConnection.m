@@ -97,6 +97,19 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 	}
 }
 
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMSimulatorConnection class]]) {
+		
+		JMSimulatorConnection* obj = object;
+		isEqual = [_host isEqualToString:obj.host] && self.port == obj.port;
+	}
+	
+	return isEqual;
+}
+
 #pragma mark - Socket Connection Delegate
 
 -(void)connection:(JMSocketConnection *)connection didChangeState:(JMSocketConnectionState)state

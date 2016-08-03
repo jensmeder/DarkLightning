@@ -89,6 +89,19 @@
 	return YES;
 }
 
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMNativeSocket class]]) {
+		
+		JMNativeSocket* obj = object;
+		isEqual = _nativeSocket == obj.nativeSocket;
+	}
+	
+	return isEqual;
+}
+
 #pragma mark - Properties
 
 -(void) setState:(JMSocketState)state

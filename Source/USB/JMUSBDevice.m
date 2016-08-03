@@ -85,16 +85,17 @@ static NSString* const JMUSBDeviceDictionaryKeyLocationID 		= @"LocationID";
 	return [NSString stringWithFormat:@"DeviceID: %@, SerialNumber: %@, ConnectionSpeed: %@, ProductID: %@, LocationID: %@", _deviceID, _serialNumber, _connectionSpeed, _productID, _locationID];
 }
 
--(BOOL)isEqual:(id)object
-{
-	if (![object isKindOfClass:[JMUSBDevice class]])
-	{
-		return NO;
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMUSBDevice class]]) {
+		
+		JMUSBDevice* obj = object;
+		isEqual = [_serialNumber isEqualToString:obj.serialNumber];
 	}
-
-	JMUSBDevice* device = object;
-
-	return [device.serialNumber isEqual:self.serialNumber];
+	
+	return isEqual;
 }
 
 -(NSUInteger) hash

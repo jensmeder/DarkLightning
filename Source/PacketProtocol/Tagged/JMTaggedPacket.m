@@ -38,4 +38,17 @@
 	return self;
 }
 
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMTaggedPacket class]]) {
+		
+		JMTaggedPacket* obj = object;
+		isEqual = _tag == obj.tag && [_data isEqualToData:obj.data];
+	}
+	
+	return isEqual;
+}
+
 @end
