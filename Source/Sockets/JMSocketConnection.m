@@ -38,11 +38,6 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 
 -(instancetype)initWithSocket:(id<JMSocket>)socket
 {
-	if (!socket)
-	{
-		return nil;
-	}
-	
 	self = [super init];
 	
 	if (self)

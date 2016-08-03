@@ -111,7 +111,7 @@ typedef NS_ENUM(NSUInteger, JMSocketConnectionState)
  *
  *  @return A newly created socket connection if the socket is valid, nil otherwise.
  */
--(nullable instancetype)initWithSocket:(nonnull id<JMSocket>)socket;
+-(nonnull instancetype)initWithSocket:(nonnull id<JMSocket>)socket;
 
 ///----------------------------
 /// @name Connection Management
