@@ -50,7 +50,7 @@ describe(@"JMTaggedPacketProtocol", ^{
 		it(@"should be impossible to encode nil", ^{
 			
 			NSData* encodedData = [packetProtocol encodePacket:nil];
-			[encodedData shouldBeNil];
+			[[encodedData should] equal:[NSData data]];
 		});
 		
 	});
@@ -67,13 +67,13 @@ describe(@"JMTaggedPacketProtocol", ^{
 		it(@"should be impossible to process nil", ^{
 			
 			NSArray<JMTaggedPacket*>* data = [packetProtocol processData:nil];
-			[data shouldBeNil];
+			[[data should]equal:@[]];
 		});
 		
 		it(@"should be impossible to process an empty data packet", ^{
 			
 			NSArray<JMTaggedPacket*>* data = [packetProtocol processData:[NSData data]];
-			[data shouldBeNil];
+			[[data should] equal:@[]];
 		});
 	});
 });
