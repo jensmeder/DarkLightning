@@ -50,13 +50,13 @@ describe(@"JMSimpleDataPacketProtocol", ^{
 		it(@"should be impossible to encode nil", ^{
 			
 			NSData* encodedData = [packetProtocol encodePacket:nil];
-			[encodedData shouldBeNil];
+			[[encodedData should] equal:[NSData data]];
 		});
 		
 		it(@"should be impossible to encode an empty data packet", ^{
 			
 			NSData* encodedData = [packetProtocol encodePacket:[NSData data]];
-			[encodedData shouldBeNil];
+			[[encodedData should] equal:[NSData data]];
 		});
 		
 		it(@"should be impossible to encode a data packet larger than 2^32 bytes", ^{
@@ -65,7 +65,7 @@ describe(@"JMSimpleDataPacketProtocol", ^{
 			[dataMock stub:@selector(length) andReturn:@((long)UINT32_MAX+1)];
 			
 			NSData* encodedData = [packetProtocol encodePacket:(NSData*)dataMock];
-			[encodedData shouldBeNil];
+			[[encodedData should]equal:[NSData data]];
 		});
 		
 		it(@"should be possible to encode a data packet", ^{
@@ -87,13 +87,13 @@ describe(@"JMSimpleDataPacketProtocol", ^{
 		it(@"should be impossible to process nil", ^{
 			
 			NSArray<NSData*>* decodedData = [packetProtocol processData:nil];
-			[decodedData shouldBeNil];
+			[[decodedData should] equal:@[]];
 		});
 		
 		it(@"should be impossible to process an empty data packet", ^{
 			
 			NSArray<NSData*>* decodedData = [packetProtocol processData:[NSData data]];
-			[decodedData shouldBeNil];
+			[[decodedData should] equal:@[]];
 		});
 	});
 	
