@@ -113,8 +113,8 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 
 -(BOOL)writeData:(NSData *)data
 {
-	if (!data || data.length == 0 || _connectionState != JMSocketConnectionStateConnected)
-	{
+	if (!data || data.length == 0 || _connectionState != JMSocketConnectionStateConnected) {
+		
 		return NO;
 	}
 
@@ -122,8 +122,11 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 
 	while (bytesWritten != (NSInteger)data.length) {
 
-		NSData* subData = [data subdataWithRange:NSMakeRange(bytesWritten, data.length-bytesWritten)];
-		bytesWritten += [_socket.outputStream write:subData.bytes maxLength:subData.length];
+		@autoreleasepool {
+			
+			NSData* subData = [data subdataWithRange:NSMakeRange(bytesWritten, data.length-bytesWritten)];
+			bytesWritten += [_socket.outputStream write:subData.bytes maxLength:subData.length];
+		}
 	}
 	
 	if(bytesWritten > 0)
