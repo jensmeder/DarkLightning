@@ -20,4 +20,3 @@ FOUNDATION_EXPORT const unsigned char DarkLightning_tvOSVersionString[];
 #import <DarkLightning/JMSimpleDataPacketProtocol.h>
 #import <DarkLightning/JMTaggedPacket.h>
 #import <DarkLightning/JMTaggedPacketProtocol.h>
-#import <DarkLightning/JMDataPacketProtocol.h>
