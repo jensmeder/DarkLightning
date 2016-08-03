@@ -50,6 +50,6 @@
  *
  *  @return A newly initialized socket if the given host and port are valid, nil otherwise.
  */
--(nonnull instancetype)initWithHost:(nonnull NSString*)host andPort:(uint32_t)port;
+-(nonnull instancetype)initWithHost:(nonnull NSString*)host andPort:(uint32_t)port NS_DESIGNATED_INITIALIZER;
 
 @end
