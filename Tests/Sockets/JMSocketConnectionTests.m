@@ -30,15 +30,6 @@ SPEC_BEGIN(JMSocketConnectionTests)
 
 describe(@"JMSocketConnection",
 		 ^{
-			 context(@"when initializing",
-					 ^{
-						 it(@"should return nil if no valid socket is passed in",
-							^{
-								JMSocketConnection* connection = [[JMSocketConnection alloc]initWithSocket:nil];
-								
-								[[connection should] beNil];
-							});
-					 });
 			 
 			 context(@"when connecting",
 					 ^{

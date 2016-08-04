@@ -108,7 +108,7 @@ typedef NS_ENUM(NSUInteger, JMMobileDevicePortState)
  *
  *  @return A new socket port object
  */
--(nullable instancetype)initWithPort:(uint32_t)port;
+-(nonnull instancetype)initWithPort:(uint32_t)port;
 
 /**
  *  Starts the port and listens for incoming connections via USB.
