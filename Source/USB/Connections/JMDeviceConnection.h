@@ -126,7 +126,7 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
  *
  *  @return A newly initialized connection
  */
--(nonnull instancetype)initWithPort:(uint32_t)port;
+-(nonnull instancetype)initWithPort:(uint32_t)port NS_DESIGNATED_INITIALIZER;
 
 ///----------------------------
 /// @name Connection Management
