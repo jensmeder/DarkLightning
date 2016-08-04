@@ -49,6 +49,6 @@
  *
  *  @return A newly initialized device if device and port are valid, nil otherwise
  */
--(nullable instancetype)initWithDevice:(nonnull JMUSBDevice*)device andPort:(uint32_t)port;
+-(nonnull instancetype)initWithDevice:(nonnull JMUSBDevice*)device andPort:(uint32_t)port NS_DESIGNATED_INITIALIZER;
 
 @end
