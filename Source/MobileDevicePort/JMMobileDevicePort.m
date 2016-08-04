@@ -48,6 +48,11 @@
 	NSRunLoop* _backgroundRunLoop;
 }
 
+-(instancetype)init {
+	
+	return [self initWithPort:0];
+}
+
 -(instancetype)initWithPort:(uint32_t)port
 {
 	self = [super init];
