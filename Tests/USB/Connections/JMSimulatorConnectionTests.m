@@ -13,33 +13,6 @@ SPEC_BEGIN(JMSimulatorConnectionTests)
 
 describe(@"JMSimulatorConnection", ^{
 	
-	context(@"when initializing without a host", ^{
-		
-		it(@"should return nil", ^{
-			
-			JMSimulatorConnection* connection = [[JMSimulatorConnection alloc]initWithHost:nil andPort:1234];
-			[connection shouldBeNil];
-		});
-	});
-	
-	context(@"when initializing with a host and a port", ^{
-		
-		it(@"should return an instance", ^{
-			
-			JMSimulatorConnection* connection = [[JMSimulatorConnection alloc]initWithHost:@"localhost" andPort:1234];
-			[connection shouldNotBeNil];
-		});
-	});
-	
-	context(@"when initializing with just a port", ^{
-		
-		it(@"should return an instance", ^{
-			
-			JMSimulatorConnection* connection = [[JMSimulatorConnection alloc]initWithPort:1234];
-			[connection shouldNotBeNil];
-		});
-	});
-	
 	context(@"when calling connect", ^{
 		
 		__block JMDeviceConnection* connection = nil;

@@ -40,6 +40,11 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 
 @synthesize state = _state;
 
+-(instancetype)init {
+	
+	return [self initWithHost:@"" andPort:0];
+}
+
 -(instancetype)initWithPort:(uint32_t)port
 {
 	return [self initWithHost:JMSimulatorConnectionHost andPort:port];
