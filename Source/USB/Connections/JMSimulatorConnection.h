@@ -45,7 +45,7 @@
  *
  *  @return A newly initialized device if port is valid, nil otherwise
  */
--(nullable instancetype)initWithPort:(uint32_t)port;
+-(nonnull instancetype)initWithPort:(uint32_t)port;
 
 /**
  *  Initializes a simulator connection with the given port and host
@@ -55,6 +55,6 @@
  *
  *  @return A newly initialized device if port is valid, nil otherwise
  */
--(nullable instancetype)initWithHost:(nonnull NSString*)host andPort:(uint32_t)port;
+-(nonnull instancetype)initWithHost:(nonnull NSString*)host andPort:(uint32_t)port;
 
 @end

@@ -40,13 +40,13 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 
 @synthesize state = _state;
 
+-(instancetype)initWithPort:(uint32_t)port
+{
+	return [self initWithHost:JMSimulatorConnectionHost andPort:port];
+}
+
 -(instancetype)initWithHost:(NSString *)host andPort:(uint32_t)port
 {
-	if (!host || host.length == 0)
-	{
-		return nil;
-	}
-	
 	self = [super initWithPort:port];
 
 	if (self)
@@ -57,11 +57,6 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 	}
 
 	return self;
-}
-
--(instancetype)initWithPort:(uint32_t)port
-{
-	return [self initWithHost:JMSimulatorConnectionHost andPort:port];
 }
 
 -(BOOL)connect
