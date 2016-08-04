@@ -28,22 +28,7 @@ SPEC_BEGIN(JMDeviceConnectionTests)
 
 describe(@"JMDeviceConnection",
 ^{
-	context(@"when initializing",
-	^{
-		it(@"should return nil when initializing without port",
-		^{
-			JMDeviceConnection* connection = [[JMDeviceConnection alloc]init];
-			
-			[[connection should] beNil];
-		});
-		
-		it(@"should return nil when initializing with a port",
-		   ^{
-			   JMDeviceConnection* connection = [[JMDeviceConnection alloc]initWithPort:1234];
-			   
-			   [[connection should] beNil];
-		   });
-	});
+	
 });
 
 SPEC_END

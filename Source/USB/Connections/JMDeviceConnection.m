@@ -37,11 +37,6 @@ NSInteger JMDeviceConnectionErrorCodeDataStreamError 	= 200;
 
 -(instancetype)initWithPort:(uint32_t)port
 {
-	if ([self isMemberOfClass:[JMDeviceConnection class]])
-	{
-		return nil;
-	}
-	
 	self = [super init];
 	
 	if (self)
