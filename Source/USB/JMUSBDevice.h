@@ -64,7 +64,9 @@
  *
  *  @return A newly initialized device
  */
--(nullable instancetype)initWithPList:(nonnull NSDictionary*)plist NS_DESIGNATED_INITIALIZER;
+-(nonnull instancetype)initWithPList:(nonnull NSDictionary*)plist;
+
+-(nonnull instancetype)initWithDeviceID:(nonnull NSNumber*)deviceID serialNumber:(nonnull NSString*)serialNumber connectionSpeed:(nonnull NSNumber*)connectionSpeed productID:(nonnull NSNumber*)productID locationID:(nonnull NSNumber*)locationID NS_DESIGNATED_INITIALIZER;
 
 +(nonnull instancetype) invalidUSBDevice;
 

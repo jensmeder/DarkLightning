@@ -44,6 +44,6 @@
  *
  *  @return A newly initialized socket if the given path is valid, nil otherwise.
  */
--(nullable instancetype)initWithPath:(nonnull NSString*)path;
+-(nonnull instancetype)initWithPath:(nonnull NSString*)path NS_DESIGNATED_INITIALIZER;
 
 @end

@@ -36,7 +36,16 @@
 /**
  *  The actual data that should be transmitted.
  */
-@property (nullable, nonatomic, strong, readonly) NSData* data;
+@property (nonnull, nonatomic, strong, readonly) NSData* data;
+
+/**
+ *  Creates and initializes a new packet using a user defined tag.
+ *
+ *  @param tag  A user defined tag for the data packet.
+ *
+ *  @return A newly initialized packet
+ */
+-(nonnull instancetype)initWithTag:(uint16_t) tag;
 
 /**
  *  Creates and initializes a new packet using an NSData object and a user defined tag.
@@ -46,6 +55,6 @@
  *
  *  @return A newly initialized packet
  */
--(nullable instancetype)initWithData:(nullable NSData*)data andTag:(uint16_t) tag;
+-(nonnull instancetype)initWithData:(nonnull NSData*)data andTag:(uint16_t) tag NS_DESIGNATED_INITIALIZER;
 
 @end

@@ -70,15 +70,6 @@ describe(@"JMUSBMuxDecoder",
 			[decoder processData:packet];
 		});
 		
-		it(@"should not process a invalid 'Device Attached' usbmuxd packet",
-		   ^{
-			   NSData* packet = [JMUSBMuxPacketFactory invalidAttachPacket];
-			   
-			   [[delegate shouldNot]receive:@selector(decoder:didDecodeAttachPacket:)];
-			   
-			   [decoder processData:packet];
-		   });
-		
 		it(@"should process a valid 'Device Detached' usbmuxd packet",
 		   ^{
 			   NSData* packet = [JMUSBMuxPacketFactory validDetachPacket];

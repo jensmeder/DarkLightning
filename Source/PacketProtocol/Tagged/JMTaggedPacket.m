@@ -25,6 +25,16 @@
 
 @implementation JMTaggedPacket
 
+-(instancetype)init {
+	
+	return [self initWithData:[NSData data] andTag:0];
+}
+
+-(instancetype)initWithTag:(uint16_t)tag {
+	
+	return [self initWithData:[NSData data] andTag:tag];
+}
+
 -(instancetype)initWithData:(NSData *)data andTag:(uint16_t)tag
 {
 	self = [super init];

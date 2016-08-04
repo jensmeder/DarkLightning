@@ -29,13 +29,13 @@
 @synthesize outputStream = _outputStream;
 @synthesize state = _state;
 
+-(instancetype)init {
+	
+	return [self initWithHost:@"" andPort:0];
+}
+
 -(instancetype)initWithHost:(NSString *)host andPort:(uint32_t)port
 {
-	if (!host || !host.length)
-	{
-		return nil;
-	}
-	
 	self = [super init];
 	
 	if (self)

@@ -45,6 +45,11 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 
 @synthesize state = _state;
 
+-(instancetype)init {
+	
+	return [self initWithDevice:[JMUSBDevice invalidUSBDevice] andPort:0];
+}
+
 -(instancetype)initWithPort:(uint32_t)port
 {
 	return [self initWithDevice:[JMUSBDevice invalidUSBDevice] andPort:port];
@@ -52,11 +57,6 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 
 -(instancetype)initWithDevice:(JMUSBDevice *)device andPort:(uint32_t)port
 {
-	if(!device || [device isEqual:[JMUSBDevice invalidUSBDevice]]) {
-		
-		return nil;
-	}
-	
 	self = [super initWithPort:port];
 	
 	if (self)

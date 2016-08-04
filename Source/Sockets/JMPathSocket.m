@@ -39,17 +39,17 @@
 @synthesize outputStream = _outputStream;
 @synthesize state = _state;
 
+-(instancetype)init {
+	
+	return [self initWithPath:@""];
+}
+
 -(instancetype)initWithPath:(NSString *)path
 {
-	if (!path || !path.length)
-	{
-		return nil;
-	}
-	
 	self = [super init];
 	
-	if (self)
-	{
+	if (self) {
+		
 		_path = path;
 	}
 	

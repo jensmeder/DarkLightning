@@ -28,30 +28,6 @@ SPEC_BEGIN(JMHostSocketTests)
 
 describe(@"JMHostSocket",
 		 ^{
-			 context(@"when initializing",
-					 ^{
-						 it(@"should return nil if host is nil",
-							^{
-								JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:nil andPort:0];
-								
-								[[socket should] beNil];
-							});
-						 
-						 it(@"should return nil if host is empty string",
-							^{
-								JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"" andPort:0];
-								
-								[[socket should] beNil];
-							});
-						 
-						 it(@"should return a new socket if host is valid",
-							^{
-								JMHostSocket* socket = [[JMHostSocket alloc]initWithHost:@"localhost" andPort:0];
-								
-								[[socket shouldNot] beNil];
-							});
-						 
-					 });
 			 
 			 context(@"when disconnected",
 					 ^{
