@@ -17,6 +17,5 @@ FOUNDATION_EXPORT const unsigned char DarkLightning_tvOSVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <DarkLightning_tvOS/PublicHeader.h>
 
 #import <DarkLightning/JMMobileDevicePort.h>
-#import <DarkLightning/JMSimpleDataPacketProtocol.h>
 #import <DarkLightning/JMTaggedPacket.h>
 #import <DarkLightning/JMDecodedTaggedPackets.h>
