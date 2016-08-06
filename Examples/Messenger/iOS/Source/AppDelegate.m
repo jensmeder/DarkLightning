@@ -22,7 +22,7 @@
  */
 
 #import "AppDelegate.h"
-#import <DarkLightning/JMMobileDevicePort.h>
+@import DarkLightning;
 #import "JMConcreteRootViewModel.h"
 #import "JMRootViewController.h"
 

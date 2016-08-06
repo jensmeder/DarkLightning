@@ -7,391 +7,391 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CFFD7CBCD925259901F942B /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2051902D96C2B2B680F64C /* JMConcreteRootViewModel.m */; };
-		8DE54F4974347AA3440D7B9D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFDADCE28A937B968C08603 /* Cocoa.framework */; };
-		95D3476F0A41A69158D59D73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE94B207F3FDE0683BBF22E /* AppDelegate.m */; };
-		B3FA067494BF20BDF14CDDA4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519295B0EA6F52636BB41D8A /* MainMenu.xib */; };
-		DF428142C2B34926E81D1356 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA30C823C71FD4724F8CF8D /* main.m */; };
-		E04E4D29DF585B610B44725E /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685DD88CACDCCB290A18E79B /* JMRootViewController.m */; };
-		F5B64C75C5FBC50004C047E9 /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AC4E6C583559550D225B4F /* JMRootView.m */; };
+		19C602A74B04031C09E454DD /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BA3119BE4CA24B0DA0199D /* JMRootView.m */; };
+		2C5073B6E7DED4036E8C1118 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E256DCF280C7D769EFFAE7 /* Cocoa.framework */; };
+		3C5622DAE94BB6822612EEEB /* DarkLightning.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10F40C28BBD7ADF6715BC6D6 /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		803D51DCE3A38A560DBC2BA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE3EDD5EE3E6AC62CA31B8F /* AppDelegate.m */; };
+		A687EF3E66E4F0C2D7F72755 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 889EF5C64690906E720B5D9B /* main.m */; };
+		B16B0FD9137FDAD9744B90D9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F3DB2174FD28CCB5BF244F /* MainMenu.xib */; };
+		F21CA3BDC232C82D55F358EB /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2201CA47765A8C550ED58 /* JMConcreteRootViewModel.m */; };
+		F28EAF9804F6BE3B88569854 /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5508F1DFC273F6F315DBA /* JMRootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		53435BAC3F04B71B3002447A /* PBXContainerItemProxy */ = {
+		554A9E0A9B21D067A1778795 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
+			containerPortal = 8DCD2B17960E494F717A682C /* DarkLightning.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 81702C6B97F6B67AE17551C4;
+			remoteInfo = Subproject;
+		};
+		7CCC2CE89F937ACC002611DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DCD2B17960E494F717A682C /* DarkLightning.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6485B4A9EEDFD6ED0617C58B;
+			remoteInfo = Subproject;
+		};
+		B7665E238C4C0FECB15AB138 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DCD2B17960E494F717A682C /* DarkLightning.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 43D4C682A41BDDDEDC93D8C5;
+			remoteInfo = Subproject;
+		};
+		D85381DFB1FEA6BDE244DD74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DCD2B17960E494F717A682C /* DarkLightning.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17EAA4271F51B960B346013D;
+			remoteInfo = Subproject;
+		};
+		EDCF9EB78502A26121CA5A02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DCD2B17960E494F717A682C /* DarkLightning.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 63D3EEA34E57370C54E19BBD;
 			remoteInfo = OSX;
 		};
-		B4FC50591D53D30900ACFA88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6485B4A9EEDFD6ED0617C58B;
-			remoteInfo = iOS;
-		};
-		B4FC505B1D53D30900ACFA88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 17EAA4271F51B960B346013D;
-			remoteInfo = OSX;
-		};
-		B4FC505D1D53D30900ACFA88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 81702C6B97F6B67AE17551C4;
-			remoteInfo = "OSX-Tests";
-		};
-		B4FC505F1D53D30900ACFA88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 43D4C682A41BDDDEDC93D8C5;
-			remoteInfo = tvOS;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		55B8E1B26E14D1342AFA3A41 /* CopyFiles */ = {
+		74E0FB7CADE330F7D8E1A3FC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3C5622DAE94BB6822612EEEB /* DarkLightning.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		052683F62FF3936210BDC0A7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		17AC4E6C583559550D225B4F /* JMRootView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMRootView.m; sourceTree = "<group>"; };
-		1CF9A81D9C5440DDD8EE4359 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
-		29FB4D1302C04E6E93290E43 /* JMRootViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootViewController.h; sourceTree = "<group>"; };
-		2BB8058B2F0C7189A338A501 /* JMConcreteRootViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMConcreteRootViewModel.h; sourceTree = "<group>"; };
-		2F2051902D96C2B2B680F64C /* JMConcreteRootViewModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMConcreteRootViewModel.m; sourceTree = "<group>"; };
-		32202A78C9E39AE6E1D27DE6 /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
-		4D86A30D013680FD9C1DDCE7 /* JMRootView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootView.h; sourceTree = "<group>"; };
-		519295B0EA6F52636BB41D8A /* MainMenu.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		5FFDADCE28A937B968C08603 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		66445904494FBB541C0A9EBA /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
-		685DD88CACDCCB290A18E79B /* JMRootViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMRootViewController.m; sourceTree = "<group>"; };
-		7296D2992A295436D0C5AD65 /* Shared.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
-		7E5469C678A912C0D61892C7 /* JMRootViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootViewModel.h; sourceTree = "<group>"; };
-		8661D72B3ADBFB6AF4A81FC4 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFE94B207F3FDE0683BBF22E /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DarkLightning.xcodeproj; path = ../../../DarkLightning.xcodeproj; sourceTree = "<group>"; };
-		CD1188C6381F41D597AE3684 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
-		D01025F6186B9EED89443A7E /* OSX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OSX.xcconfig; sourceTree = "<group>"; };
-		D7205A4AF122AED7D34094E8 /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EBA30C823C71FD4724F8CF8D /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		08E5508F1DFC273F6F315DBA /* JMRootViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMRootViewController.m; sourceTree = "<group>"; };
+		202F6673699DC6E40D18C498 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
+		27E256DCF280C7D769EFFAE7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		3AB73E69B7760C670A5FDE44 /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		607D180BA1BFA4A85ECA8382 /* OSX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OSX.xcconfig; sourceTree = "<group>"; };
+		60F3DB2174FD28CCB5BF244F /* MainMenu.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		64BA3119BE4CA24B0DA0199D /* JMRootView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMRootView.m; sourceTree = "<group>"; };
+		67212DBA71E5D0EBD0169D98 /* JMRootViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootViewController.h; sourceTree = "<group>"; };
+		70A21E7E139B0858069B9E24 /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
+		778287DC0CFE28499E319109 /* JMConcreteRootViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMConcreteRootViewModel.h; sourceTree = "<group>"; };
+		889EF5C64690906E720B5D9B /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8AF2201CA47765A8C550ED58 /* JMConcreteRootViewModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMConcreteRootViewModel.m; sourceTree = "<group>"; };
+		8D0F02098BBFC28A7E4288E3 /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
+		8DCD2B17960E494F717A682C /* DarkLightning.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DarkLightning.xcodeproj; path = ../../../DarkLightning.xcodeproj; sourceTree = "<group>"; };
+		8FE3EDD5EE3E6AC62CA31B8F /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		951DE8D7985F72355E190C34 /* Shared.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		B6985DD044115EDE7453E75D /* JMRootViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootViewModel.h; sourceTree = "<group>"; };
+		BDFB7714C9A21FBA19E1146C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4476EB0735BCF50E4487B3D /* JMRootView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootView.h; sourceTree = "<group>"; };
+		E063E6E94A05AC659A04292A /* OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = OSX.app; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5193DD6A3D4115CDD355BD4 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7ABDBEABC73DFE2A87804684 /* Frameworks */ = {
+		3D40B98516F9FC4889EA3751 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DE54F4974347AA3440D7B9D /* Cocoa.framework in Frameworks */,
+				2C5073B6E7DED4036E8C1118 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		104202F6894A7D7A7C29E465 /* Source */ = {
+		2C21D43CE00B695BF8F5678A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D7205A4AF122AED7D34094E8 /* AppDelegate.h */,
-				BFE94B207F3FDE0683BBF22E /* AppDelegate.m */,
-				F8AAB9A6E57B12736AFF2FFA /* Root */,
-				E8D6B4188E9809A0BF770389 /* Supporting Files */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		139B90B211DE034B119CF440 /* OSX */ = {
-			isa = PBXGroup;
-			children = (
-				66445904494FBB541C0A9EBA /* debug.xcconfig */,
-				052683F62FF3936210BDC0A7 /* Info.plist */,
-				D01025F6186B9EED89443A7E /* OSX.xcconfig */,
-				CD1188C6381F41D597AE3684 /* release.xcconfig */,
-			);
-			path = OSX;
-			sourceTree = "<group>";
-		};
-		3BAA654ECB67D4E7D394C4F1 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				139B90B211DE034B119CF440 /* OSX */,
-				5DD9187EB78D1AA3E5F5241C /* Shared */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
-		5DD9187EB78D1AA3E5F5241C /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				32202A78C9E39AE6E1D27DE6 /* debug.xcconfig */,
-				1CF9A81D9C5440DDD8EE4359 /* release.xcconfig */,
-				7296D2992A295436D0C5AD65 /* Shared.xcconfig */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		6C18596AACE5F07D52DABD96 = {
-			isa = PBXGroup;
-			children = (
-				3BAA654ECB67D4E7D394C4F1 /* Configuration */,
-				C7076FC5ED32FF7259AF2356 /* Frameworks */,
-				752F5C5A174E1EA21FF8E8F7 /* Products */,
-				BF90C5B91CE9B7F984E30C22 /* Resources */,
-				104202F6894A7D7A7C29E465 /* Source */,
-			);
-			sourceTree = "<group>";
-		};
-		752F5C5A174E1EA21FF8E8F7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8661D72B3ADBFB6AF4A81FC4 /* Messenger.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7B9E313145BF91D7D96F6210 /* OS X */ = {
-			isa = PBXGroup;
-			children = (
-				5FFDADCE28A937B968C08603 /* Cocoa.framework */,
-			);
-			name = "OS X";
-			sourceTree = "<group>";
-		};
-		BF90C5B91CE9B7F984E30C22 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				519295B0EA6F52636BB41D8A /* MainMenu.xib */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		C7076FC5ED32FF7259AF2356 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */,
-				7B9E313145BF91D7D96F6210 /* OS X */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CCBFA13A1BAABB486F6C848D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B4FC505A1D53D30900ACFA88 /* DarkLightning.framework */,
-				B4FC505C1D53D30900ACFA88 /* DarkLightning.framework */,
-				B4FC505E1D53D30900ACFA88 /* OSX-Tests.xctest */,
-				B4FC50601D53D30900ACFA88 /* DarkLightning.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E8D6B4188E9809A0BF770389 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EBA30C823C71FD4724F8CF8D /* main.m */,
+				889EF5C64690906E720B5D9B /* main.m */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F8AAB9A6E57B12736AFF2FFA /* Root */ = {
+		32508D995E98E336C4EC7325 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				2BB8058B2F0C7189A338A501 /* JMConcreteRootViewModel.h */,
-				2F2051902D96C2B2B680F64C /* JMConcreteRootViewModel.m */,
-				4D86A30D013680FD9C1DDCE7 /* JMRootView.h */,
-				17AC4E6C583559550D225B4F /* JMRootView.m */,
-				29FB4D1302C04E6E93290E43 /* JMRootViewController.h */,
-				685DD88CACDCCB290A18E79B /* JMRootViewController.m */,
-				7E5469C678A912C0D61892C7 /* JMRootViewModel.h */,
+				778287DC0CFE28499E319109 /* JMConcreteRootViewModel.h */,
+				8AF2201CA47765A8C550ED58 /* JMConcreteRootViewModel.m */,
+				C4476EB0735BCF50E4487B3D /* JMRootView.h */,
+				64BA3119BE4CA24B0DA0199D /* JMRootView.m */,
+				67212DBA71E5D0EBD0169D98 /* JMRootViewController.h */,
+				08E5508F1DFC273F6F315DBA /* JMRootViewController.m */,
+				B6985DD044115EDE7453E75D /* JMRootViewModel.h */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		5ECCC2822ABDE97EEA174C7D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F02098BBFC28A7E4288E3 /* debug.xcconfig */,
+				202F6673699DC6E40D18C498 /* release.xcconfig */,
+				951DE8D7985F72355E190C34 /* Shared.xcconfig */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		740E40745CB8042A534F374E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3AB73E69B7760C670A5FDE44 /* AppDelegate.h */,
+				8FE3EDD5EE3E6AC62CA31B8F /* AppDelegate.m */,
+				32508D995E98E336C4EC7325 /* Root */,
+				2C21D43CE00B695BF8F5678A /* Supporting Files */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		75A711CFD17684021D055F44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DCD2B17960E494F717A682C /* DarkLightning.xcodeproj */,
+				7AC06A5851D623A31D823466 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		768A6E2A1FF1DE7D708DF496 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9114C3DB49F364F9320F9EFE /* DarkLightning.framework */,
+				10F40C28BBD7ADF6715BC6D6 /* DarkLightning.framework */,
+				FE231E88A4D04E779023AD89 /* OSX-Tests.xctest */,
+				413F4CF0B2C62CAD0CAB9E4E /* DarkLightning.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AC06A5851D623A31D823466 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				27E256DCF280C7D769EFFAE7 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		81FCB4027373B8B95924375A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E063E6E94A05AC659A04292A /* OSX.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAACAC11A6B444427581D37D /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				CB4EC20BEF5E6D8470C8DC68 /* OSX */,
+				5ECCC2822ABDE97EEA174C7D /* Shared */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		C83A82C76811BEA537A98692 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				60F3DB2174FD28CCB5BF244F /* MainMenu.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CB4EC20BEF5E6D8470C8DC68 /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				70A21E7E139B0858069B9E24 /* debug.xcconfig */,
+				BDFB7714C9A21FBA19E1146C /* Info.plist */,
+				607D180BA1BFA4A85ECA8382 /* OSX.xcconfig */,
+				E5193DD6A3D4115CDD355BD4 /* release.xcconfig */,
+			);
+			path = OSX;
+			sourceTree = "<group>";
+		};
+		F978C7F9AA85A2E20F3B9472 = {
+			isa = PBXGroup;
+			children = (
+				AAACAC11A6B444427581D37D /* Configuration */,
+				75A711CFD17684021D055F44 /* Frameworks */,
+				81FCB4027373B8B95924375A /* Products */,
+				C83A82C76811BEA537A98692 /* Resources */,
+				740E40745CB8042A534F374E /* Source */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BA86535D230104B78CD0D4BD /* OSX */ = {
+		03996DAC142CDD9BFD9DD310 /* OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F03B1E2B56A0F16BA5A117C /* Build configuration list for PBXNativeTarget "OSX" */;
+			buildConfigurationList = 5CC493631DE5F7FCACB6DFC3 /* Build configuration list for PBXNativeTarget "OSX" */;
 			buildPhases = (
-				2D7A780DBC4AF5021745B636 /* Sources */,
-				7ABDBEABC73DFE2A87804684 /* Frameworks */,
-				55B8E1B26E14D1342AFA3A41 /* CopyFiles */,
-				358418D2C1B93819FFFA0E91 /* Resources */,
+				5F2B0CE044F835E2B8BB95F2 /* Sources */,
+				3D40B98516F9FC4889EA3751 /* Frameworks */,
+				74E0FB7CADE330F7D8E1A3FC /* CopyFiles */,
+				9E7BD241693A0359F5228F4F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DB1C7936790B9FCF85CD0C93 /* PBXTargetDependency */,
+				1DC60107B883BAC8D9DCB5A9 /* PBXTargetDependency */,
 			);
 			name = OSX;
 			productName = OSX;
-			productReference = 8661D72B3ADBFB6AF4A81FC4 /* Messenger.app */;
+			productReference = E063E6E94A05AC659A04292A /* OSX.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		58F4F786148E21CAA88BB0A0 /* Project object */ = {
+		0BE2A5BCAED8BAE73FD720CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 2939D2FCF5960AD40B037424 /* Build configuration list for PBXProject "OSX" */;
+			buildConfigurationList = 9788B910343C8C3C8264ABD0 /* Build configuration list for PBXProject "OSX" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 6C18596AACE5F07D52DABD96;
-			productRefGroup = 752F5C5A174E1EA21FF8E8F7 /* Products */;
+			mainGroup = F978C7F9AA85A2E20F3B9472;
+			productRefGroup = 81FCB4027373B8B95924375A /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = CCBFA13A1BAABB486F6C848D /* Products */;
-					ProjectRef = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
+					ProductGroup = 768A6E2A1FF1DE7D708DF496 /* Products */;
+					ProjectRef = 8DCD2B17960E494F717A682C /* DarkLightning.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				BA86535D230104B78CD0D4BD /* OSX */,
+				03996DAC142CDD9BFD9DD310 /* OSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B4FC505A1D53D30900ACFA88 /* DarkLightning.framework */ = {
+		10F40C28BBD7ADF6715BC6D6 /* DarkLightning.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = DarkLightning.framework;
-			remoteRef = B4FC50591D53D30900ACFA88 /* PBXContainerItemProxy */;
+			remoteRef = D85381DFB1FEA6BDE244DD74 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B4FC505C1D53D30900ACFA88 /* DarkLightning.framework */ = {
+		413F4CF0B2C62CAD0CAB9E4E /* DarkLightning.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = DarkLightning.framework;
-			remoteRef = B4FC505B1D53D30900ACFA88 /* PBXContainerItemProxy */;
+			remoteRef = B7665E238C4C0FECB15AB138 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B4FC505E1D53D30900ACFA88 /* OSX-Tests.xctest */ = {
+		9114C3DB49F364F9320F9EFE /* DarkLightning.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DarkLightning.framework;
+			remoteRef = 7CCC2CE89F937ACC002611DF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FE231E88A4D04E779023AD89 /* OSX-Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "OSX-Tests.xctest";
-			remoteRef = B4FC505D1D53D30900ACFA88 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B4FC50601D53D30900ACFA88 /* DarkLightning.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DarkLightning.framework;
-			remoteRef = B4FC505F1D53D30900ACFA88 /* PBXContainerItemProxy */;
+			remoteRef = 554A9E0A9B21D067A1778795 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		358418D2C1B93819FFFA0E91 /* Resources */ = {
+		9E7BD241693A0359F5228F4F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3FA067494BF20BDF14CDDA4 /* MainMenu.xib in Resources */,
+				B16B0FD9137FDAD9744B90D9 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2D7A780DBC4AF5021745B636 /* Sources */ = {
+		5F2B0CE044F835E2B8BB95F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95D3476F0A41A69158D59D73 /* AppDelegate.m in Sources */,
-				3CFFD7CBCD925259901F942B /* JMConcreteRootViewModel.m in Sources */,
-				F5B64C75C5FBC50004C047E9 /* JMRootView.m in Sources */,
-				E04E4D29DF585B610B44725E /* JMRootViewController.m in Sources */,
-				DF428142C2B34926E81D1356 /* main.m in Sources */,
+				803D51DCE3A38A560DBC2BA1 /* AppDelegate.m in Sources */,
+				F21CA3BDC232C82D55F358EB /* JMConcreteRootViewModel.m in Sources */,
+				19C602A74B04031C09E454DD /* JMRootView.m in Sources */,
+				F28EAF9804F6BE3B88569854 /* JMRootViewController.m in Sources */,
+				A687EF3E66E4F0C2D7F72755 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DB1C7936790B9FCF85CD0C93 /* PBXTargetDependency */ = {
+		1DC60107B883BAC8D9DCB5A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = OSX;
-			targetProxy = 53435BAC3F04B71B3002447A /* PBXContainerItemProxy */;
+			targetProxy = EDCF9EB78502A26121CA5A02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0633B70044F4C03F6BF61C2A /* Release */ = {
+		4F8A5DF74303982F2C927B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD1188C6381F41D597AE3684 /* release.xcconfig */;
-			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-			};
-			name = Release;
-		};
-		4763A676E20B9A8B11D8C8A6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CF9A81D9C5440DDD8EE4359 /* release.xcconfig */;
-			buildSettings = {
-			};
-			name = Release;
-		};
-		479068F45ADF49A073DEAF31 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66445904494FBB541C0A9EBA /* debug.xcconfig */;
-			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-			};
-			name = Debug;
-		};
-		4C9781DE36AD216DAC63BA83 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32202A78C9E39AE6E1D27DE6 /* debug.xcconfig */;
+			baseConfigurationReference = 8D0F02098BBFC28A7E4288E3 /* debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
+		};
+		771C8305A9946173B9EB4E62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70A21E7E139B0858069B9E24 /* debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		A914356B441BE2836E1B0F6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 202F6673699DC6E40D18C498 /* release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		F25F374D7180EB4309A3EB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5193DD6A3D4115CDD355BD4 /* release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2939D2FCF5960AD40B037424 /* Build configuration list for PBXProject "OSX" */ = {
+		5CC493631DE5F7FCACB6DFC3 /* Build configuration list for PBXNativeTarget "OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C9781DE36AD216DAC63BA83 /* Debug */,
-				4763A676E20B9A8B11D8C8A6 /* Release */,
+				F25F374D7180EB4309A3EB9C /* Release */,
+				771C8305A9946173B9EB4E62 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F03B1E2B56A0F16BA5A117C /* Build configuration list for PBXNativeTarget "OSX" */ = {
+		9788B910343C8C3C8264ABD0 /* Build configuration list for PBXProject "OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0633B70044F4C03F6BF61C2A /* Release */,
-				479068F45ADF49A073DEAF31 /* Debug */,
+				4F8A5DF74303982F2C927B6E /* Debug */,
+				A914356B441BE2836E1B0F6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 58F4F786148E21CAA88BB0A0 /* Project object */;
+	rootObject = 0BE2A5BCAED8BAE73FD720CA /* Project object */;
 }
