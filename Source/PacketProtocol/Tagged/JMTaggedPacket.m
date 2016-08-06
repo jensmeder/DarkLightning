@@ -62,6 +62,11 @@
 	return isEqual;
 }
 
+-(NSUInteger)hash {
+	
+	return _data.hash ^ _tag;
+}
+
 #pragma mark - Properties
 
 -(NSData *)encodedPacket

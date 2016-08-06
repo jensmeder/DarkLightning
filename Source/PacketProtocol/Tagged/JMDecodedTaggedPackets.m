@@ -77,4 +77,22 @@
 	return [[JMDecodedTaggedPackets alloc]initWithRawData:buffer andDecodedMessages:packets.copy];
 }
 
+-(BOOL)isEqual:(id)object {
+	
+	BOOL isEqual = NO;
+	
+	if ([object isKindOfClass:[JMDecodedTaggedPackets class]]) {
+		
+		JMDecodedTaggedPackets* obj = object;
+		isEqual = [_rawData isEqualToData:obj.rawData] && [_decodedPackets isEqualToArray:obj.decodedPackets];
+	}
+	
+	return isEqual;
+}
+
+-(NSUInteger)hash {
+	
+	return _rawData.hash ^ _decodedPackets.hash;
+}
+
 @end
