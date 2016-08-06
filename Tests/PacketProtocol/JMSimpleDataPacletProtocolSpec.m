@@ -21,22 +21,11 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-@import Kiwi;
 #import "JMSimpleDataPacketProtocol.h"
 
 SPEC_BEGIN(JMSimpleDataPacketProtocolTests)
 
 describe(@"JMSimpleDataPacketProtocol", ^{
-	
-	context(@"when initializing", ^{
-		
-		it(@"should be possible to create an instance", ^{
-			
-			JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
-			[packetProtocol shouldNotBeNil];
-		});
-		
-	});
 	
 	context(@"when encoding data", ^{
 		
