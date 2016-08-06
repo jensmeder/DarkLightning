@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63D3EEA34E57370C54E19BBD"
+               BlueprintIdentifier = "BE2E80262332532A95251979"
                BuildableName = "DarkLightning.framework"
                BlueprintName = "OSX"
                ReferencedContainer = "container:DarkLightning.xcodeproj">
@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F37A69E4885F6469753208BE"
-               BuildableName = "OSX-Tests.xctest"
+               BlueprintIdentifier = "1B4AF914526604AD73EBC36D"
+               BuildableName = "DarkLightning.xctest"
                BlueprintName = "OSX-Tests"
                ReferencedContainer = "container:DarkLightning.xcodeproj">
             </BuildableReference>
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63D3EEA34E57370C54E19BBD"
+            BlueprintIdentifier = "BE2E80262332532A95251979"
             BuildableName = "DarkLightning.framework"
             BlueprintName = "OSX"
             ReferencedContainer = "container:DarkLightning.xcodeproj">
@@ -64,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63D3EEA34E57370C54E19BBD"
+            BlueprintIdentifier = "BE2E80262332532A95251979"
             BuildableName = "DarkLightning.framework"
             BlueprintName = "OSX"
             ReferencedContainer = "container:DarkLightning.xcodeproj">
@@ -82,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63D3EEA34E57370C54E19BBD"
+            BlueprintIdentifier = "BE2E80262332532A95251979"
             BuildableName = "DarkLightning.framework"
             BlueprintName = "OSX"
             ReferencedContainer = "container:DarkLightning.xcodeproj">
