@@ -77,11 +77,6 @@ static NSString* const JMUSBMuxEncoderMessageTypeConnect 		= @"Connect";
 
 +(NSData *)encodeConnectPacketForDeviceId:(NSNumber *)deviceId andPort:(uint32_t)aPort
 {
-	if (!deviceId)
-	{
-		return nil;
-	}
-	
 	uint32_t port = aPort;
 	port = ((port<<8) & 0xFF00) | (port>>8);
 

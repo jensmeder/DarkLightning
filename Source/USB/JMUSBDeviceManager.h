@@ -125,6 +125,6 @@ typedef NS_ENUM(NSUInteger, JMUSBDeviceManagerState)
  *
  *  @return The JMUSBDevice for the given serial number, nil otherwise.
  */
--(nullable JMUSBDevice*) deviceWithSerialNumber:(nonnull NSString*)serialNumber;
+-(nonnull NSArray<JMUSBDevice*>*) deviceWithSerialNumber:(nonnull NSString*)serialNumber;
 
 @end

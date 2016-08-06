@@ -49,6 +49,6 @@
  *
  *  @return The connect packet for usbmuxd.
  */
-+(nullable NSData*) encodeConnectPacketForDeviceId:(nonnull NSNumber*)deviceId andPort:(uint32_t)port;
++(nonnull NSData*) encodeConnectPacketForDeviceId:(nonnull NSNumber*)deviceId andPort:(uint32_t)port;
 
 @end

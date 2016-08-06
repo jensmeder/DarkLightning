@@ -94,22 +94,20 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	return YES;
 }
 
--(JMUSBDevice *)deviceWithSerialNumber:(NSString *)serialNumber
+-(NSArray<JMUSBDevice*>*)deviceWithSerialNumber:(NSString *)serialNumber
 {
-	if (!serialNumber || !serialNumber.length)
-	{
-		return nil;
-	}
+	NSArray* devices = @[];
 	
 	for (JMUSBDevice* device in _devices.allValues)
 	{
 		if ([device.serialNumber isEqualToString:serialNumber])
 		{
-			return device;
+			devices = [devices arrayByAddingObject:device];
+			break;
 		}
 	}
 	
-	return nil;
+	return devices;
 }
 
 #pragma mark - Properties

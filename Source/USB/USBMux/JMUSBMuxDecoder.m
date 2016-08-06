@@ -95,7 +95,7 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 
 -(BOOL)processData:(NSData *)aData
 {
-	if (!aData || !aData.length)
+	if (!aData.length)
 	{
 		return NO;
 	}
