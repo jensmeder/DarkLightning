@@ -179,8 +179,11 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 						   
 			while (_socket.inputStream.hasBytesAvailable)
 			{
-				NSInteger length = [_socket.inputStream read:buffer maxLength:JMSocketConnectionBufferSize];
-				[data appendBytes:buffer length:length];
+				@autoreleasepool {
+					
+					NSInteger length = [_socket.inputStream read:buffer maxLength:JMSocketConnectionBufferSize];
+					[data appendBytes:buffer length:length];
+				}
 			}
 						   
 			if (!data.length)

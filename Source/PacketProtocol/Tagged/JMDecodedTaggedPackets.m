@@ -21,52 +21,32 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "JMTaggedPacketProtocol.h"
+#import "JMDecodedTaggedPackets.h"
+#import "NSData+Immutable.h"
 
-@implementation JMTaggedPacketProtocol
-{
-	@private
+@implementation JMDecodedTaggedPackets
+
+-(instancetype)init {
 	
-	NSMutableData* _buffer;
+	return [self initWithRawData:[NSData data] andDecodedMessages:@[]];
 }
 
--(instancetype)init
-{
+-(instancetype)initWithRawData:(NSData *)data andDecodedMessages:(NSArray<JMTaggedPacket *> *)decodedPackets {
+	
 	self = [super init];
 	
-	if (self)
-	{
-		_buffer = [NSMutableData data];
+	if (self) {
+		
+		_rawData = data;
+		_decodedPackets = decodedPackets;
 	}
 	
 	return self;
 }
 
--(NSData *)encodePacket:(JMTaggedPacket *)packet
+-(instancetype)decodedPacketsByProcessingData:(NSData *)data
 {
-	if (!packet || 0 == packet.data.length || packet.data.length > UINT32_MAX) {
-		
-		return [NSData data];
-	}
-	
-	uint32_t packetLength = CFSwapInt32HostToBig((uint32_t)packet.data.length);
-	uint16_t tag = CFSwapInt16HostToBig((uint16_t)packet.tag);
-	
-	NSMutableData* data = [NSMutableData dataWithBytes:&packetLength length:sizeof(packetLength)];
-	[data appendBytes:&tag length:sizeof(tag)];
-	[data appendData:packet.data];
-	
-	return data;
-}
-
--(NSArray<JMTaggedPacket *> *)processData:(NSData *)data
-{
-	if (!data || 0 == data.length) {
-		
-		return @[];
-	}
-	
-	[_buffer appendData:data];
+	NSData* buffer = [_rawData dataByAppendingData:data];
 	
 	uint32_t length = 0;
 	uint16_t tag = 0;
@@ -74,32 +54,27 @@
 	
 	NSMutableArray<JMTaggedPacket*>* packets = [NSMutableArray array];
 	
-	while (_buffer.length >= headerLength)
+	while (buffer.length >= headerLength)
 	{
-		[_buffer getBytes:&length length:sizeof(length)];
-		[_buffer getBytes:&tag range:NSMakeRange(sizeof(length), sizeof(tag))];
+		[buffer getBytes:&length length:sizeof(length)];
+		[buffer getBytes:&tag range:NSMakeRange(sizeof(length), sizeof(tag))];
 		
 		length = CFSwapInt32BigToHost(length);
 		tag = CFSwapInt16BigToHost(tag);
 		
-		if (headerLength + length > _buffer.length)
+		if (headerLength + length > buffer.length)
 		{
 			break;
 		}
 		
-		NSData* packetData = [_buffer subdataWithRange:NSMakeRange(headerLength, length)];
-		JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:packetData andTag:tag];
+		NSData* packetData = [buffer subdataWithRange:NSMakeRange(headerLength, length)];
+		JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:packetData andTag:tag length:(uint32_t)packetData.length];
 		[packets addObject:packet];
 		
-		[_buffer replaceBytesInRange:NSMakeRange(0, headerLength + length) withBytes:NULL length:0];
+		buffer = [buffer subdataWithRange:NSMakeRange(headerLength + length, buffer.length - headerLength - length)];
 	}
 	
-	return packets;
-}
-
--(void)reset
-{
-	_buffer = [NSMutableData data];
+	return [[JMDecodedTaggedPackets alloc]initWithRawData:buffer andDecodedMessages:packets.copy];
 }
 
 @end

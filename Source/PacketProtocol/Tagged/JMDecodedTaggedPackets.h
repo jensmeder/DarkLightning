@@ -24,16 +24,12 @@
 #import <Foundation/Foundation.h>
 #import "JMTaggedPacket.h"
 
-@interface JMTaggedPacketProtocol : NSObject
+@interface JMDecodedTaggedPackets : NSObject
 
-/**
- *  Encodes a given data packet.
- *
- *  @param packet The packet to be encoded
- *
- *  @return The encoded data packet
- */
--(nonnull NSData*) encodePacket:(nonnull JMTaggedPacket*)packet;
+@property (nonnull, nonatomic, strong, readonly) NSData* rawData;
+@property (nonnull, nonatomic, strong, readonly) NSArray<JMTaggedPacket*>* decodedPackets;
+
+-(nonnull instancetype)initWithRawData:(nonnull NSData*)data andDecodedMessages:(nonnull NSArray<JMTaggedPacket*>*) decodedPackets NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Processes the given data to extract data packets from it.
@@ -42,11 +38,6 @@
  *
  *  @return All data packets that could be decoded from the data.
  */
--(nonnull NSArray<JMTaggedPacket*>*) processData:(nonnull NSData*)data;
-
-/**
- *  Resets the packet protocol.
- */
--(void) reset;
+-(nonnull instancetype) decodedPacketsByProcessingData:(nonnull NSData*)data;
 
 @end

@@ -35,7 +35,7 @@
 	JMUSBDeviceConnection* _deviceConnection;
 	JMSimulatorConnection* _simulatorConnection;
 	
-	JMTaggedPacketProtocol* _packetProtocol;
+	JMDecodedTaggedPackets* _packetProtocol;
 }
 
 @synthesize delegate = _delegate;
@@ -53,7 +53,7 @@
 		_simulatorConnection.delegate = self;
 		[_simulatorConnection connect];
 		
-		_packetProtocol = [[JMTaggedPacketProtocol alloc]init];
+		_packetProtocol = [[JMDecodedTaggedPackets alloc]init];
 	}
 	
 	return self;
@@ -62,8 +62,8 @@
 -(BOOL)sendMessage:(NSString *)message
 {
 	NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
-	JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:data andTag:(uint16_t)12345];
-	data = [_packetProtocol encodePacket:packet];
+	JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:data andTag:(uint16_t)12345 length:data.length];
+	data = [packet encodedPacket];
 	
 	if (_deviceConnection.state == JMDeviceConnectionStateConnected)
 	{
@@ -105,7 +105,7 @@
 	{
 		[_deviceConnection disconnect];
 		_deviceConnection.delegate = nil;
-		[_packetProtocol reset];
+		_packetProtocol = [[JMDecodedTaggedPackets alloc]init];
 		_deviceConnection = nil;
 	}
 }
@@ -140,7 +140,7 @@
 	}
 	else
 	{
-		[_packetProtocol reset];
+		_packetProtocol = [[JMDecodedTaggedPackets alloc]init];
 	}
 }
 
@@ -151,9 +151,9 @@
 
 -(void)connection:(JMDeviceConnection *)connection didReceiveData:(NSData *)data
 {
-	NSArray<JMTaggedPacket*>* packets = [_packetProtocol processData:data];
+	_packetProtocol = [_packetProtocol decodedPacketsByProcessingData:data];
 	
-	for (JMTaggedPacket* packet in packets)
+	for (JMTaggedPacket* packet in _packetProtocol.decodedPackets)
 	{
 		NSString* message = [[NSString alloc]initWithData:packet.data encoding:NSUTF8StringEncoding];
 		[_delegate rootViewModel:self didReceiveMessage:message];

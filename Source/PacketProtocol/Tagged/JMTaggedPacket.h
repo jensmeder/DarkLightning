@@ -28,6 +28,8 @@
  */
 @interface JMTaggedPacket : NSObject
 
+@property (readonly) uint32_t length;
+
 /**
  *  A user defined tag for the data packet.
  */
@@ -37,6 +39,8 @@
  *  The actual data that should be transmitted.
  */
 @property (nonnull, nonatomic, strong, readonly) NSData* data;
+
+@property (nonnull, nonatomic, copy, readonly) NSData* encodedPacket;
 
 /**
  *  Creates and initializes a new packet using a user defined tag.
@@ -55,6 +59,6 @@
  *
  *  @return A newly initialized packet
  */
--(nonnull instancetype)initWithData:(nonnull NSData*)data andTag:(uint16_t) tag NS_DESIGNATED_INITIALIZER;
+-(nonnull instancetype)initWithData:(nonnull NSData*)data andTag:(uint16_t) tag length:(uint32_t)length NS_DESIGNATED_INITIALIZER;
 
 @end

@@ -9,9 +9,9 @@ Phoenx::Project.new do |s|
 		target.config_files["Debug"] = "Configuration/iOS/debug.xcconfig"
 		target.config_files["Release"] = "Configuration/iOS/release.xcconfig"
 		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
-		target.sources = "Source/Sockets/**/*.{h,m}", "Source/MobileDevicePort/**/*.{h,m}", "Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
+		target.sources = "Source/Sockets/**/*.{h,m}", "Source/MobileDevicePort/**/*.{h,m}", "Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}", "Source/Categories/**/*.{h,m}"
 		target.public_headers = "Source/iOS/**/*.{h}","Source/MobileDevicePort/**/*.{h}", "Source/PacketProtocol/**/*.{h}"
-		target.private_headers = ["Source/Sockets/**/*.{h}"]
+		target.private_headers = ["Source/Sockets/**/*.{h}", "Source/Categories/**/*.{h,m}"]
 	
 	end
 	
@@ -20,9 +20,9 @@ Phoenx::Project.new do |s|
 		target.config_files["Debug"] = "Configuration/OSX/debug.xcconfig"
 		target.config_files["Release"] = "Configuration/OSX/release.xcconfig"
 		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
-		target.sources = "Source/Sockets/**/*.{h,m}", "Source/USB/**/*.{h,m,c}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
+		target.sources = "Source/Sockets/**/*.{h,m}", "Source/USB/**/*.{h,m,c}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}","Source/Categories/**/*.{h,m}"
 		target.public_headers = "Source/OSX/**/*.{h}","Source/USB/*.{h}","Source/PacketProtocol/**/*.{h}","Source/USB/Connections/**/*.{h}"
-		target.private_headers = ["Source/Sockets/**/*.{h}", "Source/USB/USBMux/**/*.{h}"]
+		target.private_headers = ["Source/Sockets/**/*.{h}", "Source/USB/USBMux/**/*.{h}", "Source/Categories/**/*.{h,m}"]
 		
 		target.test_target "OSX-Tests" do |t|
 		
@@ -40,9 +40,9 @@ Phoenx::Project.new do |s|
 		target.config_files["Debug"] = "Configuration/tvOS/debug.xcconfig"
 		target.config_files["Release"] = "Configuration/tvOS/release.xcconfig"
 		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
-		target.sources = "Source/Sockets/**/*.{h,m}", "Source/MobileDevicePort/**/*.{h,m}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
+		target.sources = "Source/Sockets/**/*.{h,m}", "Source/MobileDevicePort/**/*.{h,m}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}", "Source/Categories/**/*.{h,m}"
 		target.public_headers = "Source/tvOS/**/*.{h}","Source/MobileDevicePort/**/*.{h}","Source/PacketProtocol/**/*.{h}"
-		target.private_headers = ["Source/Sockets/**/*.{h}"]
+		target.private_headers = ["Source/Sockets/**/*.{h}", "Source/Categories/**/*.{h,m}"]
 	
 	end
 
