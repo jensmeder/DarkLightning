@@ -23,7 +23,7 @@
 
 #import "JMConcreteRootViewModel.h"
 #import <UIKit/UIkit.h>
-#import <DarkLightning/JMTaggedPacketProtocol.h>
+#import <DarkLightning/JMDecodedTaggedPackets.h>
 
 @interface JMConcreteRootViewModel () <JMMobileDevicePortDelegate>
 
@@ -33,7 +33,7 @@
 {
 	@private
 	
-	JMTaggedPacketProtocol* _packetProtocol;
+	JMDecodedTaggedPackets* _packetProtocol;
 }
 
 @synthesize connectionState = _connectionState;
@@ -55,7 +55,7 @@
 		_devicePort.delegate = self;
 		_connectionState = (JMRootViewModelConnectionState) _devicePort.state;
 		
-		_packetProtocol = [[JMTaggedPacketProtocol alloc]init];
+		_packetProtocol = [[JMDecodedTaggedPackets alloc]init];
 	}
 	
 	return self;
@@ -69,8 +69,8 @@
 	}
 	
 	NSData* messageData = [_message dataUsingEncoding:NSUTF8StringEncoding];
-	JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:messageData andTag:(uint16_t)12345];
-	NSData* packetData = [_packetProtocol encodePacket:packet];
+	JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:messageData andTag:(uint16_t)12345 length:(uint32_t)messageData.length];
+	NSData* packetData = [packet encodedPacket];
 	
 	_message = nil;
 	
@@ -83,14 +83,14 @@
 {
 	if(state != JMMobileDevicePortStateConnected)
 	{
-		[_packetProtocol reset];
+		_packetProtocol = [[JMDecodedTaggedPackets alloc]init];
 	}
 	else if(state == JMMobileDevicePortStateConnected)
 	{
 		NSString* helloMessage = [NSString stringWithFormat:@"Hello, I am %@ running iOS %@",[UIDevice currentDevice].name, [UIDevice currentDevice].systemVersion];
 		NSData* messageData = [helloMessage dataUsingEncoding:NSUTF8StringEncoding];
-		JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:messageData andTag:(uint16_t)12345];
-		NSData* packetData = [_packetProtocol encodePacket:packet];
+		JMTaggedPacket* packet = [[JMTaggedPacket alloc]initWithData:messageData andTag:(uint16_t)12345 length:(uint32_t)messageData.length];
+		NSData* packetData = [packet encodedPacket];
 		[port writeData:packetData];
 	}
 	
@@ -101,9 +101,9 @@
 
 -(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data
 {
-	NSArray<JMTaggedPacket*>* packets = [_packetProtocol processData:data];
+	_packetProtocol = [_packetProtocol decodedPacketsByProcessingData:data];
 	
-	for (JMTaggedPacket* packet in packets)
+	for (JMTaggedPacket* packet in _packetProtocol.decodedPackets)
 	{
 		NSString* message = [[NSString alloc]initWithData:packet.data encoding:NSUTF8StringEncoding];
 		

@@ -1,3 +1,4 @@
 #include "shared.xcconfig"
 
 DEBUG_INFORMATION_FORMAT = dwarf
+ONLY_ACTIVE_ARCH = YES

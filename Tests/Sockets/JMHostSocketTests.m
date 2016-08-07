@@ -21,7 +21,7 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-@import Kiwi;
+#import <Kiwi/Kiwi.h>
 #import "JMHostSocket.h"
 
 SPEC_BEGIN(JMHostSocketTests)
