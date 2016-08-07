@@ -1,3 +1,5 @@
+#include "OSXTests.xcconfig"
+
 PRODUCT_NAME = DarkLightningTests
 SDKROOT = macosx
 SUPPORTED_PLATFORMS = macosx
