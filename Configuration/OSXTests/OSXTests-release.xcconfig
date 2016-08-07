@@ -1,9 +1,1 @@
 #include "OSXTests.xcconfig"
-
-PRODUCT_NAME = DarkLightningTests
-SDKROOT = macosx
-SUPPORTED_PLATFORMS = macosx
-
-PRODUCT_BUNDLE_IDENTIFIER = de.jensmeder.darklightning.osxtests
-WARNING_CFLAGS = -Werror -Wall -Wextra -Wno-shadow -Wfloat-equal -Wno-unused-parameter -Wdeprecated-implementations -Wundef -Wno-nonnull
-INFOPLIST_FILE = Configuration/OSXTests/Info.plist
