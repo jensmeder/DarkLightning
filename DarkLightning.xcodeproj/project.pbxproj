@@ -64,6 +64,12 @@
 		A7CE8AD528FAD554EE74B758 /* JMDecodedTaggedPackets.h in Headers */ = {isa = PBXBuildFile; fileRef = B8950C95B5C92B292DDB53AD /* JMDecodedTaggedPackets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A99D0B2AC801F422328365CD /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = F795011176B24B8B3F95CA76 /* JMSocketConnection.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		AF8CFDDCEB7F93BEDA94D4E1 /* JMUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E389CDC662FAB79FDF4478F8 /* JMUSBDevice.m */; };
+		B46A47741D6A1D7C009CE4C6 /* NSDictionary+Immutable.h in Headers */ = {isa = PBXBuildFile; fileRef = B46A47721D6A1D7C009CE4C6 /* NSDictionary+Immutable.h */; };
+		B46A47751D6A1D7C009CE4C6 /* NSDictionary+Immutable.h in Headers */ = {isa = PBXBuildFile; fileRef = B46A47721D6A1D7C009CE4C6 /* NSDictionary+Immutable.h */; };
+		B46A47761D6A1D7C009CE4C6 /* NSDictionary+Immutable.h in Headers */ = {isa = PBXBuildFile; fileRef = B46A47721D6A1D7C009CE4C6 /* NSDictionary+Immutable.h */; };
+		B46A47771D6A1D7C009CE4C6 /* NSDictionary+Immutable.m in Sources */ = {isa = PBXBuildFile; fileRef = B46A47731D6A1D7C009CE4C6 /* NSDictionary+Immutable.m */; };
+		B46A47781D6A1D7C009CE4C6 /* NSDictionary+Immutable.m in Sources */ = {isa = PBXBuildFile; fileRef = B46A47731D6A1D7C009CE4C6 /* NSDictionary+Immutable.m */; };
+		B46A47791D6A1D7C009CE4C6 /* NSDictionary+Immutable.m in Sources */ = {isa = PBXBuildFile; fileRef = B46A47731D6A1D7C009CE4C6 /* NSDictionary+Immutable.m */; };
 		BBC1ADF5C5FC995462CFCE1C /* JMPathSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CFB5E7E8F4AD65D1D980113B /* JMPathSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		BDD74089EBCD2F98FC4C9625 /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E06CE837AB328C19F5376914 /* JMSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CAA8E67CB0C1E619580B3942 /* NSData+Immutable.m in Headers */ = {isa = PBXBuildFile; fileRef = C14412448AC99D0D8954A301 /* NSData+Immutable.m */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -150,6 +156,8 @@
 		96C41C8693EF64FB5475E33D /* JMNativeSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMNativeSocket.m; sourceTree = "<group>"; };
 		A3DD1821676CA075C59651F9 /* JMUSBMuxPacket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxPacket.m; sourceTree = "<group>"; };
 		A4E3A5289E2CD9D3B7054DD8 /* JMUSBDeviceManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBDeviceManager.h; sourceTree = "<group>"; };
+		B46A47721D6A1D7C009CE4C6 /* NSDictionary+Immutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Immutable.h"; sourceTree = "<group>"; };
+		B46A47731D6A1D7C009CE4C6 /* NSDictionary+Immutable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Immutable.m"; sourceTree = "<group>"; };
 		B61E9F0281334A99398C282F /* OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OSX.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8950C95B5C92B292DDB53AD /* JMDecodedTaggedPackets.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMDecodedTaggedPackets.h; sourceTree = "<group>"; };
 		B9EBA556B19903A0532A259A /* DarkLightning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
@@ -455,6 +463,8 @@
 			children = (
 				2D3922DA893E6231698A608D /* NSData+Immutable.h */,
 				C14412448AC99D0D8954A301 /* NSData+Immutable.m */,
+				B46A47721D6A1D7C009CE4C6 /* NSDictionary+Immutable.h */,
+				B46A47731D6A1D7C009CE4C6 /* NSDictionary+Immutable.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -466,6 +476,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B46A47741D6A1D7C009CE4C6 /* NSDictionary+Immutable.h in Headers */,
 				98CB128975F9CE73A3112D36 /* DarkLightning.h in Headers */,
 				A579302DA79106DD05731057 /* JMDecodedTaggedPackets.h in Headers */,
 				3EE5D0CAFCE3D34E2537891B /* JMHostSocket.h in Headers */,
@@ -500,6 +511,7 @@
 				91BF2D42DAB1D1F36645DDCB /* JMUSBMuxDecoder.h in Headers */,
 				5EE26A54F8FADB2051608F6E /* JMUSBMuxEncoder.h in Headers */,
 				9D2D3367CA1E691FBFE4EEE8 /* JMUSBMuxPacket.h in Headers */,
+				B46A47751D6A1D7C009CE4C6 /* NSDictionary+Immutable.h in Headers */,
 				8B2384EDC0BF706746C81A2E /* JMUSBMuxPacketHeader.h in Headers */,
 				16AEAF1B0A89E85A8AA02C53 /* NSData+Immutable.h in Headers */,
 				92A14DBDFA7CA8803111FE13 /* NSData+Immutable.m in Headers */,
@@ -510,6 +522,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B46A47761D6A1D7C009CE4C6 /* NSDictionary+Immutable.h in Headers */,
 				33DAD404BB98787DB224E255 /* DarkLightning.h in Headers */,
 				3A5E001E90958E73E67F7E2E /* JMDecodedTaggedPackets.h in Headers */,
 				EC3854C9F13CCFC8DEE72717 /* JMHostSocket.h in Headers */,
@@ -651,6 +664,7 @@
 				88B76BA77F99EED2DA297973 /* JMTaggedPacket.m in Sources */,
 				AF8CFDDCEB7F93BEDA94D4E1 /* JMUSBDevice.m in Sources */,
 				049322180572798E9656D44C /* JMUSBDeviceConnection.m in Sources */,
+				B46A47781D6A1D7C009CE4C6 /* NSDictionary+Immutable.m in Sources */,
 				A4A1EDB8AB543B971F643639 /* JMUSBDeviceManager.m in Sources */,
 				272477C1D7E95A439E209686 /* JMUSBMuxDecoder.m in Sources */,
 				ECD7BBBFA41A951B5649D4F8 /* JMUSBMuxEncoder.m in Sources */,
@@ -665,6 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC7D5232D33ED43294374E81 /* JMDecodedTaggedPackets.m in Sources */,
+				B46A47771D6A1D7C009CE4C6 /* NSDictionary+Immutable.m in Sources */,
 				91C041E27CFB7A1BC29CEF27 /* JMHostSocket.m in Sources */,
 				7D9248D7DEBA0FE6C5F8EFBC /* JMMobileDevicePort.m in Sources */,
 				5A47F72F2C137C65863FB6E0 /* JMNativeSocket.m in Sources */,
@@ -680,6 +695,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73A694CAFCAEF85905EC3AAF /* JMDecodedTaggedPackets.m in Sources */,
+				B46A47791D6A1D7C009CE4C6 /* NSDictionary+Immutable.m in Sources */,
 				9CD79C1BEA249302536FB35A /* JMHostSocket.m in Sources */,
 				8FB32E008A82B1D6FE35A883 /* JMMobileDevicePort.m in Sources */,
 				4AC523F416C62876A34066A0 /* JMNativeSocket.m in Sources */,
