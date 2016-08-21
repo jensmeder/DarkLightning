@@ -27,9 +27,14 @@ Phoenx::Project.new do |s|
 		target.test_target "OSX-Tests" do |t|
 		
 			t.sources = ["Tests/**/*.{h,m,c}"]
+<<<<<<< Updated upstream
 			t.frameworks = ["Frameworks/Kiwi/Kiwi.framework"]
 			t.config_files["Debug"] = "Configuration/OSXTests/debug.xcconfig"
 			t.config_files["Release"] = "Configuration/OSXTests/release.xcconfig"
+=======
+			t.config_files["Debug"] = "Configuration/OSXTests/OSXTests-debug.xcconfig"
+			t.config_files["Release"] = "Configuration/OSXTests/OSXTests-release.xcconfig"
+>>>>>>> Stashed changes
 		
 		end
 	
