@@ -85,6 +85,6 @@ typedef NS_ENUM(uint32_t, JMUSBMuxResultCode)
  *
  *  @return YES if the processing was successful, NO otherwise.
  */
--(BOOL) processData:(nonnull NSData*)data;
+-(void) processData:(nonnull NSData*)data;
 
 @end
