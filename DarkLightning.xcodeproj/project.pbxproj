@@ -7,96 +7,96 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01326DE23DD3F67B327C2AFE /* JMMobileDevicePort.h in Headers */ = {isa = PBXBuildFile; fileRef = 284C645B0ACC4B3B40C34D3B /* JMMobileDevicePort.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		057B31EDE235B22A19770E97 /* JMUSBDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = F71F43491BF9E94098FAFEDE /* JMUSBDeviceConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1651637942B22BEE3B1CEC09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A336882EA45C9605880B6B2 /* Foundation.framework */; };
-		16C89E06234029C45EEA0370 /* JMUSBDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 7476E1BF31C8EE0E6336C082 /* JMUSBDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1895537F9E890798233B8C25 /* JMUSBMuxPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F3C69239F448515EEC2B3 /* JMUSBMuxPacket.m */; };
-		1898F1DF4A4964E954ED1FB5 /* JMMobileDevicePort.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6253A7320DCA5A52BA4624 /* JMMobileDevicePort.m */; };
-		1A88935B7B9365FA0E4D0BD5 /* NSData+Immutable.m in Headers */ = {isa = PBXBuildFile; fileRef = 5CC7CCEEEE06D54BAD539CE0 /* NSData+Immutable.m */; settings = {ATTRIBUTES = (Private, ); }; };
-		1D0AE357161BD07ECD1959A1 /* JMNativeSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 378208A99FAA42EAA6E8FDE9 /* JMNativeSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		1EBACE344696E38412AB8340 /* JMHostSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F836861E65957802E31FD8A2 /* JMHostSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		218E22A66E13C2B337444097 /* JMUSBMuxPacketHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 734786172EBC78A8FD79929C /* JMUSBMuxPacketHeader.m */; };
-		21D506DDB041BEF7524BF292 /* NSData+Immutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7DE41E5A9D831AA9B03804 /* NSData+Immutable.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		23F7F020E44F750FD78F1639 /* JMPathSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E13E17AC5513A9E92073418B /* JMPathSocket.m */; };
-		24CE12969ABC53DE8FA74954 /* JMMobileDevicePort.h in Headers */ = {isa = PBXBuildFile; fileRef = 284C645B0ACC4B3B40C34D3B /* JMMobileDevicePort.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		256E856C66C54CECDA262FC9 /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 8667128D97676C8674607855 /* JMSocketConnection.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		2582B0624A7AF3D25CF6C9FE /* JMNativeSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 378208A99FAA42EAA6E8FDE9 /* JMNativeSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		2B668F4F915C641976E7BB58 /* JMTaggedPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B30A5FFB77CFF5A6144032 /* JMTaggedPacket.m */; };
-		2C304B10635CF675241EDA5B /* NSData+Immutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7DE41E5A9D831AA9B03804 /* NSData+Immutable.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		2CD9FC0B5CE4231642B3F554 /* JMDecodedTaggedPackets.m in Sources */ = {isa = PBXBuildFile; fileRef = C6507376CCD5409B060D6ADF /* JMDecodedTaggedPackets.m */; };
-		2F790748198FD86D8A92CD38 /* JMUSBMuxPacketHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F698D473E166BF4C2A1D3AC /* JMUSBMuxPacketHeader.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3BB38F327117B1592D5A08CE /* JMUSBMuxDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CB84C6BBE1E67C2F34C631 /* JMUSBMuxDecoder.m */; };
-		4801A779930DEE80C43BE052 /* JMPathSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA2EB9C969F2F22A8BC518A /* JMPathSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		49035FF9C63A511E82316A61 /* JMDeviceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B936B6D9D740D041276A908 /* JMDeviceConnection.m */; };
-		495E8E720592A519923569F1 /* JMUSBMuxDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3587375F29CC234BA024F582 /* JMUSBMuxDecoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		4E7CB674E11C785AE81AFC61 /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E450E3129680670C66FFC9E /* JMHostSocket.m */; };
-		528C59F17B1308A277460806 /* JMUSBDeviceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C47272EB07B9625693EE87E7 /* JMUSBDeviceConnection.m */; };
-		5A07F89978605E043BB85C01 /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 02453CAB2E8E019F0FB6798A /* JMSocketConnection.m */; };
-		5DCF66C0CE04E4749949201D /* JMSimulatorConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 604ACF01FF77AB066725DF6B /* JMSimulatorConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5ED378412CF83B4C54AB603C /* NSData+Immutable.m in Headers */ = {isa = PBXBuildFile; fileRef = 5CC7CCEEEE06D54BAD539CE0 /* NSData+Immutable.m */; settings = {ATTRIBUTES = (Private, ); }; };
-		62462806CC59C5AA10AC3B73 /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 8667128D97676C8674607855 /* JMSocketConnection.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		63802FF3BCEF2E7E1EBC60EE /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 02453CAB2E8E019F0FB6798A /* JMSocketConnection.m */; };
-		64194220203A6AA1A287B7F6 /* NSData+Immutable.m in Headers */ = {isa = PBXBuildFile; fileRef = 5CC7CCEEEE06D54BAD539CE0 /* NSData+Immutable.m */; settings = {ATTRIBUTES = (Private, ); }; };
-		65ADF3235940E4A24962C556 /* JMNativeSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D52AA1A2316EADD6E06C959 /* JMNativeSocket.m */; };
-		6AAC7B27DC10C3A6AE97689A /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 8667128D97676C8674607855 /* JMSocketConnection.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		6BC7567D3902AA6819B3E247 /* JMUSBMuxEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 057ECAE9166188C541305480 /* JMUSBMuxEncoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		6CD5746211DF7DFC284C8854 /* JMUSBMuxEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9AE917336052C8136515C /* JMUSBMuxEncoder.m */; };
-		6D2B07960028FF74469E5641 /* JMDecodedTaggedPackets.m in Sources */ = {isa = PBXBuildFile; fileRef = C6507376CCD5409B060D6ADF /* JMDecodedTaggedPackets.m */; };
-		6EA33E86A5EAFE6C862CD8A4 /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E450E3129680670C66FFC9E /* JMHostSocket.m */; };
-		6FDC3C452D12C85B0C0ACD09 /* NSData+Immutable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7CCEEEE06D54BAD539CE0 /* NSData+Immutable.m */; };
-		7371ED0C8195C66AF018E553 /* JMDecodedTaggedPackets.m in Sources */ = {isa = PBXBuildFile; fileRef = C6507376CCD5409B060D6ADF /* JMDecodedTaggedPackets.m */; };
-		754DEBCC1C4B82A30F690991 /* JMNativeSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 378208A99FAA42EAA6E8FDE9 /* JMNativeSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		77380D177A53B995BC1A9794 /* JMNativeSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D52AA1A2316EADD6E06C959 /* JMNativeSocket.m */; };
-		7C41A58FB6FC9A35A8559065 /* JMTaggedPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 648D5D73B98976F472612A17 /* JMTaggedPacket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		800173249A548A847045A4EB /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = FAF8164804963D63CD1EDF3F /* JMSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		874CA91A563DD998FF4146F1 /* DarkLightning.h in Headers */ = {isa = PBXBuildFile; fileRef = A8C3CDBB37B1B0E5A0823AC5 /* DarkLightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		875F928739E55B99564D30D0 /* JMTaggedPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B30A5FFB77CFF5A6144032 /* JMTaggedPacket.m */; };
-		8BF9F8FC01CAAFDAB2E73307 /* JMPathSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA2EB9C969F2F22A8BC518A /* JMPathSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		8CF5A2FF0F0608B2A1E5B8E7 /* NSData+Immutable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7CCEEEE06D54BAD539CE0 /* NSData+Immutable.m */; };
-		8F04974C7A00618B3D069807 /* JMHostSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F836861E65957802E31FD8A2 /* JMHostSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		909EC226E98BD0DDE23C759D /* JMUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D90769D5B3CA4171D0EADDB /* JMUSBDevice.m */; };
-		91DBF6178CB24DD2F4856537 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC102A89A3AA84CCDC7B2607 /* Cocoa.framework */; };
-		967CFFC9599CD85CF190DFB6 /* JMSimulatorConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E8A372B236CF45E14F94CE /* JMSimulatorConnection.m */; };
-		9EC1684D098D303A6D1F1097 /* JMUSBDeviceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 792080AF116BE805602B8E52 /* JMUSBDeviceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A38D81C219E5B0117E906F0F /* JMNativeSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D52AA1A2316EADD6E06C959 /* JMNativeSocket.m */; };
-		A41C96D86EEA3B24A9E4EF43 /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = FAF8164804963D63CD1EDF3F /* JMSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		A7CA47220334B50571ECE629 /* NSData+Immutable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7CCEEEE06D54BAD539CE0 /* NSData+Immutable.m */; };
-		ADA353ED44511CE84DDD9B3F /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = FAF8164804963D63CD1EDF3F /* JMSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		B0B87A2353A8E1CD7736D291 /* JMPathSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA2EB9C969F2F22A8BC518A /* JMPathSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		B0D0BF9541088166502546A1 /* JMDecodedTaggedPackets.h in Headers */ = {isa = PBXBuildFile; fileRef = 86FA4F646E63EF87FE9A7790 /* JMDecodedTaggedPackets.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8FA74D8CA0483F818E9FC35 /* JMTaggedPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B30A5FFB77CFF5A6144032 /* JMTaggedPacket.m */; };
-		B96E8B3F43278D34F179B071 /* JMPathSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E13E17AC5513A9E92073418B /* JMPathSocket.m */; };
-		D11F099D35D40010723DDA2D /* JMUSBMuxPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B20181470083F4FB1C842D7 /* JMUSBMuxPacket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		D2EFECED2C4E8167F23BBD64 /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E450E3129680670C66FFC9E /* JMHostSocket.m */; };
-		D3F754FAD21E41BC44244EC5 /* JMUSBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E929736702B0A71F6632F8D /* JMUSBDeviceManager.m */; };
-		D8825DB31C57B6019907B18B /* NSData+Immutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7DE41E5A9D831AA9B03804 /* NSData+Immutable.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		D8FFE00DF44E35F4EAD6A01D /* JMDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 10E09F2986214A9C2D93510C /* JMDeviceConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DDABDF008520CF8FB72A310A /* DarkLightning.h in Headers */ = {isa = PBXBuildFile; fileRef = 44FBBA5B8E0441E9B3481D5F /* DarkLightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DF6AE401DCDA2DE7BF2D96DD /* DarkLightning.h in Headers */ = {isa = PBXBuildFile; fileRef = AB9EFDFB79745D48E4945E78 /* DarkLightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DF8F2D83672EF53A94FD508D /* JMDecodedTaggedPackets.h in Headers */ = {isa = PBXBuildFile; fileRef = 86FA4F646E63EF87FE9A7790 /* JMDecodedTaggedPackets.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E502DEB7A32CA5AC79A00059 /* JMDecodedTaggedPackets.h in Headers */ = {isa = PBXBuildFile; fileRef = 86FA4F646E63EF87FE9A7790 /* JMDecodedTaggedPackets.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E6E238D8374D7D3248659991 /* JMTaggedPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 648D5D73B98976F472612A17 /* JMTaggedPacket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9271FB54FC66C0845075382 /* JMMobileDevicePort.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6253A7320DCA5A52BA4624 /* JMMobileDevicePort.m */; };
-		EA8E95D56F41BFE9A2D18B58 /* JMHostSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F836861E65957802E31FD8A2 /* JMHostSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		EE9D647C11D09C0BE18159CD /* JMTaggedPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 648D5D73B98976F472612A17 /* JMTaggedPacket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F15622FB72ADED1BEF5F939A /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 02453CAB2E8E019F0FB6798A /* JMSocketConnection.m */; };
-		F19F4E64580F63DEB49BC26D /* JMPathSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E13E17AC5513A9E92073418B /* JMPathSocket.m */; };
-		FE39FCED94FBEC016796C961 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA99B8FEC6EA748E19DE6C5A /* Foundation.framework */; };
+		034DA2A2BF8F0136F9A6ADBF /* JMTaggedPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB46B48B88A62926B6571BD /* JMTaggedPacket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0381F9420CDDA3BA05E339FC /* NSData+Immutable.m in Headers */ = {isa = PBXBuildFile; fileRef = C14412448AC99D0D8954A301 /* NSData+Immutable.m */; settings = {ATTRIBUTES = (Private, ); }; };
+		049322180572798E9656D44C /* JMUSBDeviceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D87F51C50DC691532ACD16BE /* JMUSBDeviceConnection.m */; };
+		11B0698B3ABEA26F2EEF1EC7 /* JMPathSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CFB5E7E8F4AD65D1D980113B /* JMPathSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		140247CBD4FACF1D5814867B /* JMSimulatorConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = C8FCAC9A0E3BEBE1E0C4798F /* JMSimulatorConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16AEAF1B0A89E85A8AA02C53 /* NSData+Immutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D3922DA893E6231698A608D /* NSData+Immutable.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		16C61CC1E0925C7B893287F9 /* JMMobileDevicePort.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B0C5E9CE51B830D0A9EA3E6 /* JMMobileDevicePort.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FA161D4BCE745FD9FDA69E2 /* NSData+Immutable.m in Sources */ = {isa = PBXBuildFile; fileRef = C14412448AC99D0D8954A301 /* NSData+Immutable.m */; };
+		2328783B26ED02A46B61418C /* JMTaggedPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB46B48B88A62926B6571BD /* JMTaggedPacket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		272477C1D7E95A439E209686 /* JMUSBMuxDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE051C02279EA1056EE1E6D0 /* JMUSBMuxDecoder.m */; };
+		2A0EF790E617B55EB09712C4 /* JMNativeSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B578C83449FFB052D8DF6EC /* JMNativeSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		330D70EEAB22DE6A2826595C /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E06CE837AB328C19F5376914 /* JMSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		33DAD404BB98787DB224E255 /* DarkLightning.h in Headers */ = {isa = PBXBuildFile; fileRef = 686336332152FA5C18CF9095 /* DarkLightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A5E001E90958E73E67F7E2E /* JMDecodedTaggedPackets.h in Headers */ = {isa = PBXBuildFile; fileRef = B8950C95B5C92B292DDB53AD /* JMDecodedTaggedPackets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AA427A44A8B711BD85D74FC /* JMMobileDevicePort.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B0C5E9CE51B830D0A9EA3E6 /* JMMobileDevicePort.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AF35AA5410BC31AA2BEA086 /* NSData+Immutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D3922DA893E6231698A608D /* NSData+Immutable.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3EE5D0CAFCE3D34E2537891B /* JMHostSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 54CD09C880B26E9AD7AF7F14 /* JMHostSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4AC523F416C62876A34066A0 /* JMNativeSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C41C8693EF64FB5475E33D /* JMNativeSocket.m */; };
+		4BB5CC64CC3EFB33500C8FAC /* NSData+Immutable.m in Sources */ = {isa = PBXBuildFile; fileRef = C14412448AC99D0D8954A301 /* NSData+Immutable.m */; };
+		58A7A1587AE0D99C526FBCF8 /* NSData+Immutable.m in Sources */ = {isa = PBXBuildFile; fileRef = C14412448AC99D0D8954A301 /* NSData+Immutable.m */; };
+		595B6B5774F79A198ACAC397 /* JMPathSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CFB5E7E8F4AD65D1D980113B /* JMPathSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5A47F72F2C137C65863FB6E0 /* JMNativeSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C41C8693EF64FB5475E33D /* JMNativeSocket.m */; };
+		5CEB271308331CE1E809BB65 /* JMPathSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A97714ACFBA8502FED13D14 /* JMPathSocket.m */; };
+		5D50517257E1B995518BDF72 /* JMTaggedPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB46B48B88A62926B6571BD /* JMTaggedPacket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EE26A54F8FADB2051608F6E /* JMUSBMuxEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = EADA92F0EA1B1BD479F32053 /* JMUSBMuxEncoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		625F36B88F9DA7979C4D3FF6 /* JMSimulatorConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E02029A2000101D4565BCA /* JMSimulatorConnection.m */; };
+		62B40BA7F691B1A86FF1BD0F /* DarkLightning.h in Headers */ = {isa = PBXBuildFile; fileRef = E12A6A345EE783F741D7D94A /* DarkLightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C31016E3B3B2FEAD3247E9D /* JMPathSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A97714ACFBA8502FED13D14 /* JMPathSocket.m */; };
+		6EDA69F241D66A2FFE8E3655 /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7C854252BBA9E1AE39AC4 /* JMSocketConnection.m */; };
+		70CF5DED332A674DE583CFBC /* JMTaggedPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA41792338E79C5795C25E9 /* JMTaggedPacket.m */; };
+		73A694CAFCAEF85905EC3AAF /* JMDecodedTaggedPackets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2875ADBC3507CEDF03ACA /* JMDecodedTaggedPackets.m */; };
+		755BB620CB96FDDEAE07F9B0 /* JMUSBDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 13DD2A7B7C607F1D8C4DE68A /* JMUSBDeviceConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7BD01C0B1878990FB752EEEE /* JMUSBDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 77F78264A8230935AF6E8D09 /* JMUSBDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D9248D7DEBA0FE6C5F8EFBC /* JMMobileDevicePort.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C65567E6C1E5865635DC6C9 /* JMMobileDevicePort.m */; };
+		84C9B13AA6694AD22C2ACCD3 /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED0EDCDFB39D41F1DC1354 /* JMHostSocket.m */; };
+		8554D41768B8E97B1EE756D9 /* JMDeviceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 625D7F67CF1F075EF69BB49E /* JMDeviceConnection.m */; };
+		8768187F23343536074180B3 /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7C854252BBA9E1AE39AC4 /* JMSocketConnection.m */; };
+		88B76BA77F99EED2DA297973 /* JMTaggedPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA41792338E79C5795C25E9 /* JMTaggedPacket.m */; };
+		8B2384EDC0BF706746C81A2E /* JMUSBMuxPacketHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 206420AAB635CE94871B0955 /* JMUSBMuxPacketHeader.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		8B788039A84BD7C60751BBF2 /* JMPathSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A97714ACFBA8502FED13D14 /* JMPathSocket.m */; };
+		8FB32E008A82B1D6FE35A883 /* JMMobileDevicePort.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C65567E6C1E5865635DC6C9 /* JMMobileDevicePort.m */; };
+		91BF2D42DAB1D1F36645DDCB /* JMUSBMuxDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 131E56F69722019F917CDFB5 /* JMUSBMuxDecoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		91C041E27CFB7A1BC29CEF27 /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED0EDCDFB39D41F1DC1354 /* JMHostSocket.m */; };
+		92A14DBDFA7CA8803111FE13 /* NSData+Immutable.m in Headers */ = {isa = PBXBuildFile; fileRef = C14412448AC99D0D8954A301 /* NSData+Immutable.m */; settings = {ATTRIBUTES = (Private, ); }; };
+		989C761E85E88CEC50E54FF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6275F1986E16020524CACF8E /* Foundation.framework */; };
+		98CB128975F9CE73A3112D36 /* DarkLightning.h in Headers */ = {isa = PBXBuildFile; fileRef = B9EBA556B19903A0532A259A /* DarkLightning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9953F1CA178564CABE99D52F /* JMUSBDeviceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A4E3A5289E2CD9D3B7054DD8 /* JMUSBDeviceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AADD8F58C054236BF9A42B7 /* JMSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7C854252BBA9E1AE39AC4 /* JMSocketConnection.m */; };
+		9CD79C1BEA249302536FB35A /* JMHostSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ED0EDCDFB39D41F1DC1354 /* JMHostSocket.m */; };
+		9D2D3367CA1E691FBFE4EEE8 /* JMUSBMuxPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 101944923E51F060B01E3C17 /* JMUSBMuxPacket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A4A1EDB8AB543B971F643639 /* JMUSBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8CECDC2C55A5F0AABDB945 /* JMUSBDeviceManager.m */; };
+		A579302DA79106DD05731057 /* JMDecodedTaggedPackets.h in Headers */ = {isa = PBXBuildFile; fileRef = B8950C95B5C92B292DDB53AD /* JMDecodedTaggedPackets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A68036F24DE0F9B63BEE4896 /* NSData+Immutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D3922DA893E6231698A608D /* NSData+Immutable.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A733793F41AE63C0ECB7CC9E /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E06CE837AB328C19F5376914 /* JMSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A7CE8AD528FAD554EE74B758 /* JMDecodedTaggedPackets.h in Headers */ = {isa = PBXBuildFile; fileRef = B8950C95B5C92B292DDB53AD /* JMDecodedTaggedPackets.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A99D0B2AC801F422328365CD /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = F795011176B24B8B3F95CA76 /* JMSocketConnection.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		AF8CFDDCEB7F93BEDA94D4E1 /* JMUSBDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E389CDC662FAB79FDF4478F8 /* JMUSBDevice.m */; };
+		BBC1ADF5C5FC995462CFCE1C /* JMPathSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CFB5E7E8F4AD65D1D980113B /* JMPathSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		BDD74089EBCD2F98FC4C9625 /* JMSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = E06CE837AB328C19F5376914 /* JMSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CAA8E67CB0C1E619580B3942 /* NSData+Immutable.m in Headers */ = {isa = PBXBuildFile; fileRef = C14412448AC99D0D8954A301 /* NSData+Immutable.m */; settings = {ATTRIBUTES = (Private, ); }; };
+		CB7795A6957778DC77339CCE /* JMTaggedPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA41792338E79C5795C25E9 /* JMTaggedPacket.m */; };
+		D050D1B8D07970A7C4F0D792 /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = F795011176B24B8B3F95CA76 /* JMSocketConnection.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D2DBD4472670DC46B3DFB3B9 /* JMHostSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 54CD09C880B26E9AD7AF7F14 /* JMHostSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D7837427886D0B129C2ED17B /* JMNativeSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C41C8693EF64FB5475E33D /* JMNativeSocket.m */; };
+		DC7D5232D33ED43294374E81 /* JMDecodedTaggedPackets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2875ADBC3507CEDF03ACA /* JMDecodedTaggedPackets.m */; };
+		DDD68C956A4E16BBAE4808C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80913EB75009DDAC590CFC3E /* Foundation.framework */; };
+		EAF7C518C15116CF55CD097C /* JMSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = F795011176B24B8B3F95CA76 /* JMSocketConnection.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		EC3854C9F13CCFC8DEE72717 /* JMHostSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 54CD09C880B26E9AD7AF7F14 /* JMHostSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		ECD7BBBFA41A951B5649D4F8 /* JMUSBMuxEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BD100877ECF6294CBBEA4F /* JMUSBMuxEncoder.m */; };
+		F2896ACF56DA61705DE60080 /* JMNativeSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B578C83449FFB052D8DF6EC /* JMNativeSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		F2E9E21F64B46A00F0DEBAA7 /* JMNativeSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B578C83449FFB052D8DF6EC /* JMNativeSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		F3752496F41A49D95A7B20EB /* JMUSBMuxPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1821676CA075C59651F9 /* JMUSBMuxPacket.m */; };
+		F679DBAD67EEC3D2BC40A377 /* JMDecodedTaggedPackets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB2875ADBC3507CEDF03ACA /* JMDecodedTaggedPackets.m */; };
+		F7F8D00D607568981BF3B6D0 /* JMUSBMuxPacketHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 254D5172407D78BD88F6E9F0 /* JMUSBMuxPacketHeader.m */; };
+		FC2462C8ADAF884AAB62312F /* JMDeviceConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A3E7194CF939D72D52353DA /* JMDeviceConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCCD198073536942BE4D449E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6194738F68BC45193D8B6DD5 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		840986C4ABDEAC3EB149D153 /* PBXContainerItemProxy */ = {
+		AE82A268539009B1F8FE7ECB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 34860AC82A7BC3F6B9B5D37A /* Project object */;
+			containerPortal = A8A021A803FFAFFFB4A29BDB /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D8CAF602E95F24974FB84B0D;
+			remoteGlobalIDString = 86464FC7879546BC622AF549;
 			remoteInfo = OSX;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		ABDA66D81452242778C08CEE /* CopyFiles */ = {
+		A1F4D8E5ED5C3B1DC6C52B21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -108,451 +108,432 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		02453CAB2E8E019F0FB6798A /* JMSocketConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMSocketConnection.m; sourceTree = "<group>"; };
-		057ECAE9166188C541305480 /* JMUSBMuxEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBMuxEncoder.h; sourceTree = "<group>"; };
-		0B2D4CAE885686CCC7705C8B /* OSX-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "OSX-Tests.xctest"; path = DarkLightningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D52AA1A2316EADD6E06C959 /* JMNativeSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMNativeSocket.m; sourceTree = "<group>"; };
-		10E09F2986214A9C2D93510C /* JMDeviceConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMDeviceConnection.h; sourceTree = "<group>"; };
-		187CE08A1A0043E52FE38AE4 /* OSX-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSX-release.xcconfig"; sourceTree = "<group>"; };
-		1B7DE41E5A9D831AA9B03804 /* NSData+Immutable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+Immutable.h"; sourceTree = "<group>"; };
-		1D5F3C69239F448515EEC2B3 /* JMUSBMuxPacket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxPacket.m; sourceTree = "<group>"; };
-		1F14CBCF3962AB2FEE7D4A45 /* tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = tvOS.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FA2EB9C969F2F22A8BC518A /* JMPathSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMPathSocket.h; sourceTree = "<group>"; };
-		284C645B0ACC4B3B40C34D3B /* JMMobileDevicePort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMMobileDevicePort.h; sourceTree = "<group>"; };
-		2B936B6D9D740D041276A908 /* JMDeviceConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMDeviceConnection.m; sourceTree = "<group>"; };
-		2E450E3129680670C66FFC9E /* JMHostSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMHostSocket.m; sourceTree = "<group>"; };
-		33CAF2FC627106D14AE7496E /* iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOS.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3587375F29CC234BA024F582 /* JMUSBMuxDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBMuxDecoder.h; sourceTree = "<group>"; };
-		378208A99FAA42EAA6E8FDE9 /* JMNativeSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMNativeSocket.h; sourceTree = "<group>"; };
-		3AF9AE917336052C8136515C /* JMUSBMuxEncoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxEncoder.m; sourceTree = "<group>"; };
-		3B20181470083F4FB1C842D7 /* JMUSBMuxPacket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBMuxPacket.h; sourceTree = "<group>"; };
-		3BFB2AEF6B3294C492E84F57 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D8573F7D38E6E976F9FBD50 /* iOS-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "iOS-debug.xcconfig"; sourceTree = "<group>"; };
-		44FBBA5B8E0441E9B3481D5F /* DarkLightning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
-		4A336882EA45C9605880B6B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4A6721D7F74D4C3D9F5839F6 /* OSX-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSX-debug.xcconfig"; sourceTree = "<group>"; };
-		4D90769D5B3CA4171D0EADDB /* JMUSBDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBDevice.m; sourceTree = "<group>"; };
-		5C1ED03AA50F0B8D96558F15 /* iOS-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "iOS-release.xcconfig"; sourceTree = "<group>"; };
-		5CC7CCEEEE06D54BAD539CE0 /* NSData+Immutable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSData+Immutable.m"; sourceTree = "<group>"; };
-		604ACF01FF77AB066725DF6B /* JMSimulatorConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMSimulatorConnection.h; sourceTree = "<group>"; };
-		648D5D73B98976F472612A17 /* JMTaggedPacket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMTaggedPacket.h; sourceTree = "<group>"; };
-		6C4697F6CD8620C685A1EA15 /* tvOS-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "tvOS-debug.xcconfig"; sourceTree = "<group>"; };
-		6C780A7F0FA9C6951BD5F644 /* OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OSX.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E929736702B0A71F6632F8D /* JMUSBDeviceManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBDeviceManager.m; sourceTree = "<group>"; };
-		6F042A25F2A6FDC4B5A1F2B7 /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
-		734786172EBC78A8FD79929C /* JMUSBMuxPacketHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxPacketHeader.m; sourceTree = "<group>"; };
-		7476E1BF31C8EE0E6336C082 /* JMUSBDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBDevice.h; sourceTree = "<group>"; };
-		7737C4CC7E279DC1AD80EB21 /* OSXTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OSXTests.xcconfig; sourceTree = "<group>"; };
-		792080AF116BE805602B8E52 /* JMUSBDeviceManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBDeviceManager.h; sourceTree = "<group>"; };
-		7E39550C3ABC4E1D791CADB6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F698D473E166BF4C2A1D3AC /* JMUSBMuxPacketHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBMuxPacketHeader.h; sourceTree = "<group>"; };
-		82E8A372B236CF45E14F94CE /* JMSimulatorConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMSimulatorConnection.m; sourceTree = "<group>"; };
-		8667128D97676C8674607855 /* JMSocketConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMSocketConnection.h; sourceTree = "<group>"; };
-		86FA4F646E63EF87FE9A7790 /* JMDecodedTaggedPackets.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMDecodedTaggedPackets.h; sourceTree = "<group>"; };
-		92B30A5FFB77CFF5A6144032 /* JMTaggedPacket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMTaggedPacket.m; sourceTree = "<group>"; };
-		933E9FECE54E65E376292BBB /* OSXTests-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSXTests-release.xcconfig"; sourceTree = "<group>"; };
-		9BEA5E7FFBCF2C94FB51982C /* OSX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OSX.xcconfig; sourceTree = "<group>"; };
-		A78DF85C9397F960E77DEB52 /* iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOS.xcconfig; sourceTree = "<group>"; };
-		A8C3CDBB37B1B0E5A0823AC5 /* DarkLightning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
-		AB9EFDFB79745D48E4945E78 /* DarkLightning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
-		AC102A89A3AA84CCDC7B2607 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		AD4A279BC72E2E3C4DC9A83F /* tvOS-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "tvOS-release.xcconfig"; sourceTree = "<group>"; };
-		AFECC4494418F61E48AAEED9 /* shared.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.xcconfig; sourceTree = "<group>"; };
-		B39062A3C66D032CD954B01B /* tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = tvOS.xcconfig; sourceTree = "<group>"; };
-		C47272EB07B9625693EE87E7 /* JMUSBDeviceConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBDeviceConnection.m; sourceTree = "<group>"; };
-		C6507376CCD5409B060D6ADF /* JMDecodedTaggedPackets.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMDecodedTaggedPackets.m; sourceTree = "<group>"; };
-		C74A57242F0DC4E44F4EB8A9 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
-		CB6253A7320DCA5A52BA4624 /* JMMobileDevicePort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMMobileDevicePort.m; sourceTree = "<group>"; };
-		E13E17AC5513A9E92073418B /* JMPathSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMPathSocket.m; sourceTree = "<group>"; };
-		E17B61A02A525D28CF4E3849 /* OSXTests-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSXTests-debug.xcconfig"; sourceTree = "<group>"; };
-		E2CB84C6BBE1E67C2F34C631 /* JMUSBMuxDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxDecoder.m; sourceTree = "<group>"; };
-		EA99B8FEC6EA748E19DE6C5A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F71F43491BF9E94098FAFEDE /* JMUSBDeviceConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBDeviceConnection.h; sourceTree = "<group>"; };
-		F836861E65957802E31FD8A2 /* JMHostSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMHostSocket.h; sourceTree = "<group>"; };
-		FAF8164804963D63CD1EDF3F /* JMSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMSocket.h; sourceTree = "<group>"; };
+		084DC8ABA13782EDB97CB536 /* OSXTests-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSXTests-debug.xcconfig"; sourceTree = "<group>"; };
+		08EFBCE07098962886E26DC4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B1A237E77CDD32FF077AD62 /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
+		0C65567E6C1E5865635DC6C9 /* JMMobileDevicePort.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMMobileDevicePort.m; sourceTree = "<group>"; };
+		0FA8ECEAF9461D1CA18865AC /* iOS-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "iOS-debug.xcconfig"; sourceTree = "<group>"; };
+		101944923E51F060B01E3C17 /* JMUSBMuxPacket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBMuxPacket.h; sourceTree = "<group>"; };
+		131E56F69722019F917CDFB5 /* JMUSBMuxDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBMuxDecoder.h; sourceTree = "<group>"; };
+		13DD2A7B7C607F1D8C4DE68A /* JMUSBDeviceConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBDeviceConnection.h; sourceTree = "<group>"; };
+		1DF349CD6C73A81D16E71FAC /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
+		206420AAB635CE94871B0955 /* JMUSBMuxPacketHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBMuxPacketHeader.h; sourceTree = "<group>"; };
+		254D5172407D78BD88F6E9F0 /* JMUSBMuxPacketHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxPacketHeader.m; sourceTree = "<group>"; };
+		2898972CD9FC825A03A70FD1 /* OSXTests-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSXTests-release.xcconfig"; sourceTree = "<group>"; };
+		2A8CECDC2C55A5F0AABDB945 /* JMUSBDeviceManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBDeviceManager.m; sourceTree = "<group>"; };
+		2D3922DA893E6231698A608D /* NSData+Immutable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+Immutable.h"; sourceTree = "<group>"; };
+		3E86885C291C7A9D07A64652 /* OSX-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSX-release.xcconfig"; sourceTree = "<group>"; };
+		49E02029A2000101D4565BCA /* JMSimulatorConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMSimulatorConnection.m; sourceTree = "<group>"; };
+		4A97714ACFBA8502FED13D14 /* JMPathSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMPathSocket.m; sourceTree = "<group>"; };
+		4B0C5E9CE51B830D0A9EA3E6 /* JMMobileDevicePort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMMobileDevicePort.h; sourceTree = "<group>"; };
+		4B48F5A4404FB4E907C3DF64 /* iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOS.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B578C83449FFB052D8DF6EC /* JMNativeSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMNativeSocket.h; sourceTree = "<group>"; };
+		4DB2875ADBC3507CEDF03ACA /* JMDecodedTaggedPackets.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMDecodedTaggedPackets.m; sourceTree = "<group>"; };
+		517877B4AE274A85605DD1FB /* OSXTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OSXTests.xcconfig; sourceTree = "<group>"; };
+		537EFCE608439C917DCF444E /* tvOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = tvOS.xcconfig; sourceTree = "<group>"; };
+		54CD09C880B26E9AD7AF7F14 /* JMHostSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMHostSocket.h; sourceTree = "<group>"; };
+		580022D791DBEA64721FF164 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6194738F68BC45193D8B6DD5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		625D7F67CF1F075EF69BB49E /* JMDeviceConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMDeviceConnection.m; sourceTree = "<group>"; };
+		6275F1986E16020524CACF8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		632E244CC0E5403AD1B362E8 /* tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = tvOS.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		686336332152FA5C18CF9095 /* DarkLightning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
+		6A3E7194CF939D72D52353DA /* JMDeviceConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMDeviceConnection.h; sourceTree = "<group>"; };
+		760E3A895C450A876ADAC101 /* iOS-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "iOS-release.xcconfig"; sourceTree = "<group>"; };
+		77F78264A8230935AF6E8D09 /* JMUSBDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBDevice.h; sourceTree = "<group>"; };
+		79FC66E940995B625018E3BA /* OSX-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "OSX-Tests.xctest"; path = DarkLightningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80913EB75009DDAC590CFC3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		81996BEDF84FDFBAD897889A /* shared.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = shared.xcconfig; sourceTree = "<group>"; };
+		82BD100877ECF6294CBBEA4F /* JMUSBMuxEncoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxEncoder.m; sourceTree = "<group>"; };
+		8AEF8F37B2D579B71C490C2F /* tvOS-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "tvOS-release.xcconfig"; sourceTree = "<group>"; };
+		8B86AE7CFFDD93F3AE52FDA1 /* OSX-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OSX-debug.xcconfig"; sourceTree = "<group>"; };
+		96C41C8693EF64FB5475E33D /* JMNativeSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMNativeSocket.m; sourceTree = "<group>"; };
+		A3DD1821676CA075C59651F9 /* JMUSBMuxPacket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxPacket.m; sourceTree = "<group>"; };
+		A4E3A5289E2CD9D3B7054DD8 /* JMUSBDeviceManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBDeviceManager.h; sourceTree = "<group>"; };
+		B61E9F0281334A99398C282F /* OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OSX.framework; path = DarkLightning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8950C95B5C92B292DDB53AD /* JMDecodedTaggedPackets.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMDecodedTaggedPackets.h; sourceTree = "<group>"; };
+		B9EBA556B19903A0532A259A /* DarkLightning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
+		BE051C02279EA1056EE1E6D0 /* JMUSBMuxDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBMuxDecoder.m; sourceTree = "<group>"; };
+		BE649DA5CC8778984ED50C54 /* tvOS-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "tvOS-debug.xcconfig"; sourceTree = "<group>"; };
+		BFA41792338E79C5795C25E9 /* JMTaggedPacket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMTaggedPacket.m; sourceTree = "<group>"; };
+		C14412448AC99D0D8954A301 /* NSData+Immutable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSData+Immutable.m"; sourceTree = "<group>"; };
+		C8FCAC9A0E3BEBE1E0C4798F /* JMSimulatorConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMSimulatorConnection.h; sourceTree = "<group>"; };
+		CFB5E7E8F4AD65D1D980113B /* JMPathSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMPathSocket.h; sourceTree = "<group>"; };
+		D0F7C854252BBA9E1AE39AC4 /* JMSocketConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMSocketConnection.m; sourceTree = "<group>"; };
+		D7F45E878DEE516794BBC541 /* iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOS.xcconfig; sourceTree = "<group>"; };
+		D87F51C50DC691532ACD16BE /* JMUSBDeviceConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBDeviceConnection.m; sourceTree = "<group>"; };
+		DDB46B48B88A62926B6571BD /* JMTaggedPacket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMTaggedPacket.h; sourceTree = "<group>"; };
+		E06CE837AB328C19F5376914 /* JMSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMSocket.h; sourceTree = "<group>"; };
+		E12A6A345EE783F741D7D94A /* DarkLightning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DarkLightning.h; sourceTree = "<group>"; };
+		E389CDC662FAB79FDF4478F8 /* JMUSBDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMUSBDevice.m; sourceTree = "<group>"; };
+		E5ED0EDCDFB39D41F1DC1354 /* JMHostSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMHostSocket.m; sourceTree = "<group>"; };
+		EADA92F0EA1B1BD479F32053 /* JMUSBMuxEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMUSBMuxEncoder.h; sourceTree = "<group>"; };
+		EAF510550B2CACC0B66FB536 /* OSX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OSX.xcconfig; sourceTree = "<group>"; };
+		F795011176B24B8B3F95CA76 /* JMSocketConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMSocketConnection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0F54A5C90EEAEA9E45C30252 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1651637942B22BEE3B1CEC09 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1E39CFBFC4CBE32FAF0461F7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FE39FCED94FBEC016796C961 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B74490DEB413C51F7A13B663 /* Frameworks */ = {
+		51F1AA07F46F08C1B936A2E6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9989F0F84E30B5018EEC3C9 /* Frameworks */ = {
+		85D02BEDC99A08B312B42699 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91DBF6178CB24DD2F4856537 /* Cocoa.framework in Frameworks */,
+				989C761E85E88CEC50E54FF0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A69324F03B8880CA4EE7B3D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDD68C956A4E16BBAE4808C0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB4BB01DA6BD229D31D3B4A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCCD198073536942BE4D449E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01A7EDB4F560D53E5837E745 /* Categories */ = {
+		0BF8AD8C5E596925E02F2CB5 /* OSXTests */ = {
 			isa = PBXGroup;
 			children = (
-				1B7DE41E5A9D831AA9B03804 /* NSData+Immutable.h */,
-				5CC7CCEEEE06D54BAD539CE0 /* NSData+Immutable.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		09B4719DDE269645ECACABDE /* Sockets */ = {
-			isa = PBXGroup;
-			children = (
-				F836861E65957802E31FD8A2 /* JMHostSocket.h */,
-				2E450E3129680670C66FFC9E /* JMHostSocket.m */,
-				378208A99FAA42EAA6E8FDE9 /* JMNativeSocket.h */,
-				0D52AA1A2316EADD6E06C959 /* JMNativeSocket.m */,
-				1FA2EB9C969F2F22A8BC518A /* JMPathSocket.h */,
-				E13E17AC5513A9E92073418B /* JMPathSocket.m */,
-				FAF8164804963D63CD1EDF3F /* JMSocket.h */,
-				8667128D97676C8674607855 /* JMSocketConnection.h */,
-				02453CAB2E8E019F0FB6798A /* JMSocketConnection.m */,
-			);
-			path = Sockets;
-			sourceTree = "<group>";
-		};
-		0D354316D37BF704EC9405C9 /* Connections */ = {
-			isa = PBXGroup;
-			children = (
-				10E09F2986214A9C2D93510C /* JMDeviceConnection.h */,
-				2B936B6D9D740D041276A908 /* JMDeviceConnection.m */,
-				604ACF01FF77AB066725DF6B /* JMSimulatorConnection.h */,
-				82E8A372B236CF45E14F94CE /* JMSimulatorConnection.m */,
-				F71F43491BF9E94098FAFEDE /* JMUSBDeviceConnection.h */,
-				C47272EB07B9625693EE87E7 /* JMUSBDeviceConnection.m */,
-			);
-			path = Connections;
-			sourceTree = "<group>";
-		};
-		1C8ADBDB21D0E0BB5769943F /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				EA99B8FEC6EA748E19DE6C5A /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		21A8E4A26144638EF33FC74A /* tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				AB9EFDFB79745D48E4945E78 /* DarkLightning.h */,
-			);
-			path = tvOS;
-			sourceTree = "<group>";
-		};
-		4664528144F5AD6FB620E440 /* OSX */ = {
-			isa = PBXGroup;
-			children = (
-				9BEA5E7FFBCF2C94FB51982C /* OSX.xcconfig */,
-				4A6721D7F74D4C3D9F5839F6 /* OSX-debug.xcconfig */,
-				187CE08A1A0043E52FE38AE4 /* OSX-release.xcconfig */,
-			);
-			path = OSX;
-			sourceTree = "<group>";
-		};
-		4AE7927696CAD98EA46A312C /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				6F042A25F2A6FDC4B5A1F2B7 /* debug.xcconfig */,
-				7E39550C3ABC4E1D791CADB6 /* Info.plist */,
-				C74A57242F0DC4E44F4EB8A9 /* release.xcconfig */,
-				AFECC4494418F61E48AAEED9 /* shared.xcconfig */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		4B5893FE8E517FC216CC7FC5 /* USB */ = {
-			isa = PBXGroup;
-			children = (
-				0D354316D37BF704EC9405C9 /* Connections */,
-				7476E1BF31C8EE0E6336C082 /* JMUSBDevice.h */,
-				4D90769D5B3CA4171D0EADDB /* JMUSBDevice.m */,
-				792080AF116BE805602B8E52 /* JMUSBDeviceManager.h */,
-				6E929736702B0A71F6632F8D /* JMUSBDeviceManager.m */,
-				9FF3C5FA662D6809DF5278B2 /* USBMux */,
-			);
-			path = USB;
-			sourceTree = "<group>";
-		};
-		61B8D1175B411F9D32B22D45 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				A78DF85C9397F960E77DEB52 /* iOS.xcconfig */,
-				3D8573F7D38E6E976F9FBD50 /* iOS-debug.xcconfig */,
-				5C1ED03AA50F0B8D96558F15 /* iOS-release.xcconfig */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		63B04C0315C479BFCFD2B7F6 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				A8C3CDBB37B1B0E5A0823AC5 /* DarkLightning.h */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		647C75D5E03BD2C4D4CE4069 /* tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				B39062A3C66D032CD954B01B /* tvOS.xcconfig */,
-				6C4697F6CD8620C685A1EA15 /* tvOS-debug.xcconfig */,
-				AD4A279BC72E2E3C4DC9A83F /* tvOS-release.xcconfig */,
-			);
-			path = tvOS;
-			sourceTree = "<group>";
-		};
-		68AA75483EEA563E713E0B26 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				33CAF2FC627106D14AE7496E /* iOS.framework */,
-				6C780A7F0FA9C6951BD5F644 /* OSX.framework */,
-				0B2D4CAE885686CCC7705C8B /* OSX-Tests.xctest */,
-				1F14CBCF3962AB2FEE7D4A45 /* tvOS.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		748611BE0A489AAFF3AD6899 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1C8ADBDB21D0E0BB5769943F /* iOS */,
-				FB555FBF07E68FA62CCB5B42 /* OS X */,
-				7F5ED7692A512AB6939B7902 /* tvOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7F5ED7692A512AB6939B7902 /* tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				4A336882EA45C9605880B6B2 /* Foundation.framework */,
-			);
-			name = tvOS;
-			sourceTree = "<group>";
-		};
-		9FF3C5FA662D6809DF5278B2 /* USBMux */ = {
-			isa = PBXGroup;
-			children = (
-				3587375F29CC234BA024F582 /* JMUSBMuxDecoder.h */,
-				E2CB84C6BBE1E67C2F34C631 /* JMUSBMuxDecoder.m */,
-				057ECAE9166188C541305480 /* JMUSBMuxEncoder.h */,
-				3AF9AE917336052C8136515C /* JMUSBMuxEncoder.m */,
-				3B20181470083F4FB1C842D7 /* JMUSBMuxPacket.h */,
-				1D5F3C69239F448515EEC2B3 /* JMUSBMuxPacket.m */,
-				7F698D473E166BF4C2A1D3AC /* JMUSBMuxPacketHeader.h */,
-				734786172EBC78A8FD79929C /* JMUSBMuxPacketHeader.m */,
-			);
-			path = USBMux;
-			sourceTree = "<group>";
-		};
-		BB472A4FB11BB969BBD2BE54 /* PacketProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				DE4E6789341D75815844D6DF /* Tagged */,
-			);
-			path = PacketProtocol;
-			sourceTree = "<group>";
-		};
-		BDF240FE7BDC4E9580235179 /* MobileDevicePort */ = {
-			isa = PBXGroup;
-			children = (
-				284C645B0ACC4B3B40C34D3B /* JMMobileDevicePort.h */,
-				CB6253A7320DCA5A52BA4624 /* JMMobileDevicePort.m */,
-			);
-			path = MobileDevicePort;
-			sourceTree = "<group>";
-		};
-		CDCB4C8DC31D62CCF540C1AF /* OSX */ = {
-			isa = PBXGroup;
-			children = (
-				44FBBA5B8E0441E9B3481D5F /* DarkLightning.h */,
-			);
-			path = OSX;
-			sourceTree = "<group>";
-		};
-		D95FCBAFB6969852D572CD76 = {
-			isa = PBXGroup;
-			children = (
-				EE1160D2405D783A11EC7FE0 /* Configuration */,
-				748611BE0A489AAFF3AD6899 /* Frameworks */,
-				68AA75483EEA563E713E0B26 /* Products */,
-				DBD8C311670AD06A68D20633 /* Source */,
-			);
-			sourceTree = "<group>";
-		};
-		DBD8C311670AD06A68D20633 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				01A7EDB4F560D53E5837E745 /* Categories */,
-				63B04C0315C479BFCFD2B7F6 /* iOS */,
-				BDF240FE7BDC4E9580235179 /* MobileDevicePort */,
-				CDCB4C8DC31D62CCF540C1AF /* OSX */,
-				BB472A4FB11BB969BBD2BE54 /* PacketProtocol */,
-				09B4719DDE269645ECACABDE /* Sockets */,
-				21A8E4A26144638EF33FC74A /* tvOS */,
-				4B5893FE8E517FC216CC7FC5 /* USB */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		DE4E6789341D75815844D6DF /* Tagged */ = {
-			isa = PBXGroup;
-			children = (
-				86FA4F646E63EF87FE9A7790 /* JMDecodedTaggedPackets.h */,
-				C6507376CCD5409B060D6ADF /* JMDecodedTaggedPackets.m */,
-				648D5D73B98976F472612A17 /* JMTaggedPacket.h */,
-				92B30A5FFB77CFF5A6144032 /* JMTaggedPacket.m */,
-			);
-			path = Tagged;
-			sourceTree = "<group>";
-		};
-		E026B8D5AA49A10A01882FA5 /* OSXTests */ = {
-			isa = PBXGroup;
-			children = (
-				3BFB2AEF6B3294C492E84F57 /* Info.plist */,
-				7737C4CC7E279DC1AD80EB21 /* OSXTests.xcconfig */,
-				E17B61A02A525D28CF4E3849 /* OSXTests-debug.xcconfig */,
-				933E9FECE54E65E376292BBB /* OSXTests-release.xcconfig */,
+				580022D791DBEA64721FF164 /* Info.plist */,
+				517877B4AE274A85605DD1FB /* OSXTests.xcconfig */,
+				084DC8ABA13782EDB97CB536 /* OSXTests-debug.xcconfig */,
+				2898972CD9FC825A03A70FD1 /* OSXTests-release.xcconfig */,
 			);
 			path = OSXTests;
 			sourceTree = "<group>";
 		};
-		EE1160D2405D783A11EC7FE0 /* Configuration */ = {
+		120EE125C6FD93F04AC0F00E /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				61B8D1175B411F9D32B22D45 /* iOS */,
-				4664528144F5AD6FB620E440 /* OSX */,
-				E026B8D5AA49A10A01882FA5 /* OSXTests */,
-				4AE7927696CAD98EA46A312C /* Shared */,
-				647C75D5E03BD2C4D4CE4069 /* tvOS */,
+				537EFCE608439C917DCF444E /* tvOS.xcconfig */,
+				BE649DA5CC8778984ED50C54 /* tvOS-debug.xcconfig */,
+				8AEF8F37B2D579B71C490C2F /* tvOS-release.xcconfig */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		1350342987A727D238DFA824 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0B1A237E77CDD32FF077AD62 /* debug.xcconfig */,
+				08EFBCE07098962886E26DC4 /* Info.plist */,
+				1DF349CD6C73A81D16E71FAC /* release.xcconfig */,
+				81996BEDF84FDFBAD897889A /* shared.xcconfig */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		14AC6E00E4199F57DFEC97C1 /* Sockets */ = {
+			isa = PBXGroup;
+			children = (
+				54CD09C880B26E9AD7AF7F14 /* JMHostSocket.h */,
+				E5ED0EDCDFB39D41F1DC1354 /* JMHostSocket.m */,
+				4B578C83449FFB052D8DF6EC /* JMNativeSocket.h */,
+				96C41C8693EF64FB5475E33D /* JMNativeSocket.m */,
+				CFB5E7E8F4AD65D1D980113B /* JMPathSocket.h */,
+				4A97714ACFBA8502FED13D14 /* JMPathSocket.m */,
+				E06CE837AB328C19F5376914 /* JMSocket.h */,
+				F795011176B24B8B3F95CA76 /* JMSocketConnection.h */,
+				D0F7C854252BBA9E1AE39AC4 /* JMSocketConnection.m */,
+			);
+			path = Sockets;
+			sourceTree = "<group>";
+		};
+		3796202BCC070526C0985AC7 /* PacketProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				B29A0784C6B5546BBB497A6B /* Tagged */,
+			);
+			path = PacketProtocol;
+			sourceTree = "<group>";
+		};
+		3D2AA5048E6417B4E2EC13F5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				ED5FC91AE43743A8D9D07F85 /* Categories */,
+				E6C5CBB6FB12359EA032F3FC /* iOS */,
+				C654848630E23962FFF8285E /* MobileDevicePort */,
+				EC17A41A9CBD99250C77A11A /* OSX */,
+				3796202BCC070526C0985AC7 /* PacketProtocol */,
+				14AC6E00E4199F57DFEC97C1 /* Sockets */,
+				6F6BD53A770232BFC528C9CA /* tvOS */,
+				8C22C636B6D710B1D022C147 /* USB */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		401A16D747BF1AB1BA9FE1B8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				9D2B643AAEF8A8C002B382BD /* iOS */,
+				C51F84390C92EBB590D98790 /* OSX */,
+				0BF8AD8C5E596925E02F2CB5 /* OSXTests */,
+				1350342987A727D238DFA824 /* Shared */,
+				120EE125C6FD93F04AC0F00E /* tvOS */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		FB555FBF07E68FA62CCB5B42 /* OS X */ = {
+		484283774D8DB45D7BD58DEA = {
 			isa = PBXGroup;
 			children = (
-				AC102A89A3AA84CCDC7B2607 /* Cocoa.framework */,
+				401A16D747BF1AB1BA9FE1B8 /* Configuration */,
+				C7F1E9049B3D59588B55321F /* Frameworks */,
+				EC899F203EBD6E33D95574F2 /* Products */,
+				3D2AA5048E6417B4E2EC13F5 /* Source */,
+			);
+			sourceTree = "<group>";
+		};
+		6F6BD53A770232BFC528C9CA /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				686336332152FA5C18CF9095 /* DarkLightning.h */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		8073CA3B768EBAFCCC98E97D /* USBMux */ = {
+			isa = PBXGroup;
+			children = (
+				131E56F69722019F917CDFB5 /* JMUSBMuxDecoder.h */,
+				BE051C02279EA1056EE1E6D0 /* JMUSBMuxDecoder.m */,
+				EADA92F0EA1B1BD479F32053 /* JMUSBMuxEncoder.h */,
+				82BD100877ECF6294CBBEA4F /* JMUSBMuxEncoder.m */,
+				101944923E51F060B01E3C17 /* JMUSBMuxPacket.h */,
+				A3DD1821676CA075C59651F9 /* JMUSBMuxPacket.m */,
+				206420AAB635CE94871B0955 /* JMUSBMuxPacketHeader.h */,
+				254D5172407D78BD88F6E9F0 /* JMUSBMuxPacketHeader.m */,
+			);
+			path = USBMux;
+			sourceTree = "<group>";
+		};
+		8671C773FE11958C6A036C1B /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				6194738F68BC45193D8B6DD5 /* Cocoa.framework */,
 			);
 			name = "OS X";
+			sourceTree = "<group>";
+		};
+		8C22C636B6D710B1D022C147 /* USB */ = {
+			isa = PBXGroup;
+			children = (
+				D274DF631D04751C75D1CF2D /* Connections */,
+				77F78264A8230935AF6E8D09 /* JMUSBDevice.h */,
+				E389CDC662FAB79FDF4478F8 /* JMUSBDevice.m */,
+				A4E3A5289E2CD9D3B7054DD8 /* JMUSBDeviceManager.h */,
+				2A8CECDC2C55A5F0AABDB945 /* JMUSBDeviceManager.m */,
+				8073CA3B768EBAFCCC98E97D /* USBMux */,
+			);
+			path = USB;
+			sourceTree = "<group>";
+		};
+		9D2B643AAEF8A8C002B382BD /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D7F45E878DEE516794BBC541 /* iOS.xcconfig */,
+				0FA8ECEAF9461D1CA18865AC /* iOS-debug.xcconfig */,
+				760E3A895C450A876ADAC101 /* iOS-release.xcconfig */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		B29A0784C6B5546BBB497A6B /* Tagged */ = {
+			isa = PBXGroup;
+			children = (
+				B8950C95B5C92B292DDB53AD /* JMDecodedTaggedPackets.h */,
+				4DB2875ADBC3507CEDF03ACA /* JMDecodedTaggedPackets.m */,
+				DDB46B48B88A62926B6571BD /* JMTaggedPacket.h */,
+				BFA41792338E79C5795C25E9 /* JMTaggedPacket.m */,
+			);
+			path = Tagged;
+			sourceTree = "<group>";
+		};
+		C51F84390C92EBB590D98790 /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				EAF510550B2CACC0B66FB536 /* OSX.xcconfig */,
+				8B86AE7CFFDD93F3AE52FDA1 /* OSX-debug.xcconfig */,
+				3E86885C291C7A9D07A64652 /* OSX-release.xcconfig */,
+			);
+			path = OSX;
+			sourceTree = "<group>";
+		};
+		C654848630E23962FFF8285E /* MobileDevicePort */ = {
+			isa = PBXGroup;
+			children = (
+				4B0C5E9CE51B830D0A9EA3E6 /* JMMobileDevicePort.h */,
+				0C65567E6C1E5865635DC6C9 /* JMMobileDevicePort.m */,
+			);
+			path = MobileDevicePort;
+			sourceTree = "<group>";
+		};
+		C7F1E9049B3D59588B55321F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB423B103A4CDB488AB69C6F /* iOS */,
+				8671C773FE11958C6A036C1B /* OS X */,
+				E740CEBAE659726BFCB4E2CE /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D274DF631D04751C75D1CF2D /* Connections */ = {
+			isa = PBXGroup;
+			children = (
+				6A3E7194CF939D72D52353DA /* JMDeviceConnection.h */,
+				625D7F67CF1F075EF69BB49E /* JMDeviceConnection.m */,
+				C8FCAC9A0E3BEBE1E0C4798F /* JMSimulatorConnection.h */,
+				49E02029A2000101D4565BCA /* JMSimulatorConnection.m */,
+				13DD2A7B7C607F1D8C4DE68A /* JMUSBDeviceConnection.h */,
+				D87F51C50DC691532ACD16BE /* JMUSBDeviceConnection.m */,
+			);
+			path = Connections;
+			sourceTree = "<group>";
+		};
+		E6C5CBB6FB12359EA032F3FC /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B9EBA556B19903A0532A259A /* DarkLightning.h */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		E740CEBAE659726BFCB4E2CE /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				80913EB75009DDAC590CFC3E /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		EB423B103A4CDB488AB69C6F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6275F1986E16020524CACF8E /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		EC17A41A9CBD99250C77A11A /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				E12A6A345EE783F741D7D94A /* DarkLightning.h */,
+			);
+			path = OSX;
+			sourceTree = "<group>";
+		};
+		EC899F203EBD6E33D95574F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B48F5A4404FB4E907C3DF64 /* iOS.framework */,
+				B61E9F0281334A99398C282F /* OSX.framework */,
+				79FC66E940995B625018E3BA /* OSX-Tests.xctest */,
+				632E244CC0E5403AD1B362E8 /* tvOS.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED5FC91AE43743A8D9D07F85 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2D3922DA893E6231698A608D /* NSData+Immutable.h */,
+				C14412448AC99D0D8954A301 /* NSData+Immutable.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4F08C79C99EA032675ECD4CC /* Headers */ = {
+		8F0E906F9D17E709AE17A114 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDABDF008520CF8FB72A310A /* DarkLightning.h in Headers */,
-				DF8F2D83672EF53A94FD508D /* JMDecodedTaggedPackets.h in Headers */,
-				D8FFE00DF44E35F4EAD6A01D /* JMDeviceConnection.h in Headers */,
-				1EBACE344696E38412AB8340 /* JMHostSocket.h in Headers */,
-				2582B0624A7AF3D25CF6C9FE /* JMNativeSocket.h in Headers */,
-				4801A779930DEE80C43BE052 /* JMPathSocket.h in Headers */,
-				5DCF66C0CE04E4749949201D /* JMSimulatorConnection.h in Headers */,
-				A41C96D86EEA3B24A9E4EF43 /* JMSocket.h in Headers */,
-				256E856C66C54CECDA262FC9 /* JMSocketConnection.h in Headers */,
-				7C41A58FB6FC9A35A8559065 /* JMTaggedPacket.h in Headers */,
-				16C89E06234029C45EEA0370 /* JMUSBDevice.h in Headers */,
-				057B31EDE235B22A19770E97 /* JMUSBDeviceConnection.h in Headers */,
-				9EC1684D098D303A6D1F1097 /* JMUSBDeviceManager.h in Headers */,
-				495E8E720592A519923569F1 /* JMUSBMuxDecoder.h in Headers */,
-				6BC7567D3902AA6819B3E247 /* JMUSBMuxEncoder.h in Headers */,
-				D11F099D35D40010723DDA2D /* JMUSBMuxPacket.h in Headers */,
-				2F790748198FD86D8A92CD38 /* JMUSBMuxPacketHeader.h in Headers */,
-				2C304B10635CF675241EDA5B /* NSData+Immutable.h in Headers */,
-				5ED378412CF83B4C54AB603C /* NSData+Immutable.m in Headers */,
+				98CB128975F9CE73A3112D36 /* DarkLightning.h in Headers */,
+				A579302DA79106DD05731057 /* JMDecodedTaggedPackets.h in Headers */,
+				3EE5D0CAFCE3D34E2537891B /* JMHostSocket.h in Headers */,
+				3AA427A44A8B711BD85D74FC /* JMMobileDevicePort.h in Headers */,
+				F2896ACF56DA61705DE60080 /* JMNativeSocket.h in Headers */,
+				595B6B5774F79A198ACAC397 /* JMPathSocket.h in Headers */,
+				A733793F41AE63C0ECB7CC9E /* JMSocket.h in Headers */,
+				A99D0B2AC801F422328365CD /* JMSocketConnection.h in Headers */,
+				034DA2A2BF8F0136F9A6ADBF /* JMTaggedPacket.h in Headers */,
+				A68036F24DE0F9B63BEE4896 /* NSData+Immutable.h in Headers */,
+				CAA8E67CB0C1E619580B3942 /* NSData+Immutable.m in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6CB970D108958223ED306D48 /* Headers */ = {
+		B10B0CC2EE87FACAF3374122 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				874CA91A563DD998FF4146F1 /* DarkLightning.h in Headers */,
-				E502DEB7A32CA5AC79A00059 /* JMDecodedTaggedPackets.h in Headers */,
-				EA8E95D56F41BFE9A2D18B58 /* JMHostSocket.h in Headers */,
-				24CE12969ABC53DE8FA74954 /* JMMobileDevicePort.h in Headers */,
-				1D0AE357161BD07ECD1959A1 /* JMNativeSocket.h in Headers */,
-				B0B87A2353A8E1CD7736D291 /* JMPathSocket.h in Headers */,
-				ADA353ED44511CE84DDD9B3F /* JMSocket.h in Headers */,
-				6AAC7B27DC10C3A6AE97689A /* JMSocketConnection.h in Headers */,
-				EE9D647C11D09C0BE18159CD /* JMTaggedPacket.h in Headers */,
-				21D506DDB041BEF7524BF292 /* NSData+Immutable.h in Headers */,
-				1A88935B7B9365FA0E4D0BD5 /* NSData+Immutable.m in Headers */,
+				62B40BA7F691B1A86FF1BD0F /* DarkLightning.h in Headers */,
+				A7CE8AD528FAD554EE74B758 /* JMDecodedTaggedPackets.h in Headers */,
+				FC2462C8ADAF884AAB62312F /* JMDeviceConnection.h in Headers */,
+				D2DBD4472670DC46B3DFB3B9 /* JMHostSocket.h in Headers */,
+				F2E9E21F64B46A00F0DEBAA7 /* JMNativeSocket.h in Headers */,
+				11B0698B3ABEA26F2EEF1EC7 /* JMPathSocket.h in Headers */,
+				140247CBD4FACF1D5814867B /* JMSimulatorConnection.h in Headers */,
+				BDD74089EBCD2F98FC4C9625 /* JMSocket.h in Headers */,
+				D050D1B8D07970A7C4F0D792 /* JMSocketConnection.h in Headers */,
+				2328783B26ED02A46B61418C /* JMTaggedPacket.h in Headers */,
+				7BD01C0B1878990FB752EEEE /* JMUSBDevice.h in Headers */,
+				755BB620CB96FDDEAE07F9B0 /* JMUSBDeviceConnection.h in Headers */,
+				9953F1CA178564CABE99D52F /* JMUSBDeviceManager.h in Headers */,
+				91BF2D42DAB1D1F36645DDCB /* JMUSBMuxDecoder.h in Headers */,
+				5EE26A54F8FADB2051608F6E /* JMUSBMuxEncoder.h in Headers */,
+				9D2D3367CA1E691FBFE4EEE8 /* JMUSBMuxPacket.h in Headers */,
+				8B2384EDC0BF706746C81A2E /* JMUSBMuxPacketHeader.h in Headers */,
+				16AEAF1B0A89E85A8AA02C53 /* NSData+Immutable.h in Headers */,
+				92A14DBDFA7CA8803111FE13 /* NSData+Immutable.m in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A2AAD255213CAE9CA2F1A37D /* Headers */ = {
+		DA88410BE3F0CA400EE79255 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF6AE401DCDA2DE7BF2D96DD /* DarkLightning.h in Headers */,
-				B0D0BF9541088166502546A1 /* JMDecodedTaggedPackets.h in Headers */,
-				8F04974C7A00618B3D069807 /* JMHostSocket.h in Headers */,
-				01326DE23DD3F67B327C2AFE /* JMMobileDevicePort.h in Headers */,
-				754DEBCC1C4B82A30F690991 /* JMNativeSocket.h in Headers */,
-				8BF9F8FC01CAAFDAB2E73307 /* JMPathSocket.h in Headers */,
-				800173249A548A847045A4EB /* JMSocket.h in Headers */,
-				62462806CC59C5AA10AC3B73 /* JMSocketConnection.h in Headers */,
-				E6E238D8374D7D3248659991 /* JMTaggedPacket.h in Headers */,
-				D8825DB31C57B6019907B18B /* NSData+Immutable.h in Headers */,
-				64194220203A6AA1A287B7F6 /* NSData+Immutable.m in Headers */,
+				33DAD404BB98787DB224E255 /* DarkLightning.h in Headers */,
+				3A5E001E90958E73E67F7E2E /* JMDecodedTaggedPackets.h in Headers */,
+				EC3854C9F13CCFC8DEE72717 /* JMHostSocket.h in Headers */,
+				16C61CC1E0925C7B893287F9 /* JMMobileDevicePort.h in Headers */,
+				2A0EF790E617B55EB09712C4 /* JMNativeSocket.h in Headers */,
+				BBC1ADF5C5FC995462CFCE1C /* JMPathSocket.h in Headers */,
+				330D70EEAB22DE6A2826595C /* JMSocket.h in Headers */,
+				EAF7C518C15116CF55CD097C /* JMSocketConnection.h in Headers */,
+				5D50517257E1B995518BDF72 /* JMTaggedPacket.h in Headers */,
+				3AF35AA5410BC31AA2BEA086 /* NSData+Immutable.h in Headers */,
+				0381F9420CDDA3BA05E339FC /* NSData+Immutable.m in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0C57D898F145F149D7217804 /* OSX-Tests */ = {
+		0ED2CEABFFF80C8CB9141BF9 /* tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACFD45939750511644508228 /* Build configuration list for PBXNativeTarget "OSX-Tests" */;
+			buildConfigurationList = AF9651C662C02AF07003A6D1 /* Build configuration list for PBXNativeTarget "tvOS" */;
 			buildPhases = (
-				6C0625131EA4F998298F7D8A /* Sources */,
-				B74490DEB413C51F7A13B663 /* Frameworks */,
-				2CBA7EE1083CB73439FCC2D3 /* Resources */,
-				ABDA66D81452242778C08CEE /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DC2B3F028FC73F23A177901C /* PBXTargetDependency */,
-			);
-			name = "OSX-Tests";
-			productName = "OSX-Tests";
-			productReference = 0B2D4CAE885686CCC7705C8B /* OSX-Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		87F251AD75BEECE58ED3722F /* tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 79FC0402EFED745420169898 /* Build configuration list for PBXNativeTarget "tvOS" */;
-			buildPhases = (
-				F8CAE0F0F606423D3ABB1366 /* Sources */,
-				0F54A5C90EEAEA9E45C30252 /* Frameworks */,
-				A2AAD255213CAE9CA2F1A37D /* Headers */,
+				D398029B65471E0EF73CA2C6 /* Sources */,
+				A69324F03B8880CA4EE7B3D4 /* Frameworks */,
+				DA88410BE3F0CA400EE79255 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -560,33 +541,35 @@
 			);
 			name = tvOS;
 			productName = tvOS;
-			productReference = 1F14CBCF3962AB2FEE7D4A45 /* tvOS.framework */;
+			productReference = 632E244CC0E5403AD1B362E8 /* tvOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		94AD52D5271D0B304740C5CB /* iOS */ = {
+		67710D44394CB9B8A25C7679 /* OSX-Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6B1F42085B1B639FB6597859 /* Build configuration list for PBXNativeTarget "iOS" */;
+			buildConfigurationList = 5A45C1B124BB33DDEB16BE32 /* Build configuration list for PBXNativeTarget "OSX-Tests" */;
 			buildPhases = (
-				B227BB819EB46E0128492819 /* Sources */,
-				1E39CFBFC4CBE32FAF0461F7 /* Frameworks */,
-				6CB970D108958223ED306D48 /* Headers */,
+				DF339D1D429DC22DB19AA071 /* Sources */,
+				51F1AA07F46F08C1B936A2E6 /* Frameworks */,
+				F5BAC1D051C3F967AF359426 /* Resources */,
+				A1F4D8E5ED5C3B1DC6C52B21 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C0DDA22A43C0AF89481FB904 /* PBXTargetDependency */,
 			);
-			name = iOS;
-			productName = iOS;
-			productReference = 33CAF2FC627106D14AE7496E /* iOS.framework */;
-			productType = "com.apple.product-type.framework";
+			name = "OSX-Tests";
+			productName = "OSX-Tests";
+			productReference = 79FC66E940995B625018E3BA /* OSX-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D8CAF602E95F24974FB84B0D /* OSX */ = {
+		86464FC7879546BC622AF549 /* OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CCF7150456C7EFF42937C7EF /* Build configuration list for PBXNativeTarget "OSX" */;
+			buildConfigurationList = A0EFB91DE4052971E2A87ED9 /* Build configuration list for PBXNativeTarget "OSX" */;
 			buildPhases = (
-				C6E4C23598EB803A35095912 /* Sources */,
-				D9989F0F84E30B5018EEC3C9 /* Frameworks */,
-				4F08C79C99EA032675ECD4CC /* Headers */,
+				5A87E97BD2C326D77F57653F /* Sources */,
+				DB4BB01DA6BD229D31D3B4A5 /* Frameworks */,
+				B10B0CC2EE87FACAF3374122 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -594,40 +577,57 @@
 			);
 			name = OSX;
 			productName = OSX;
-			productReference = 6C780A7F0FA9C6951BD5F644 /* OSX.framework */;
+			productReference = B61E9F0281334A99398C282F /* OSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B60AED37F502DAD45085F828 /* iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93DF903C348044C24846647F /* Build configuration list for PBXNativeTarget "iOS" */;
+			buildPhases = (
+				76BFB34A15720E24C7FE50C4 /* Sources */,
+				85D02BEDC99A08B312B42699 /* Frameworks */,
+				8F0E906F9D17E709AE17A114 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOS;
+			productName = iOS;
+			productReference = 4B48F5A4404FB4E907C3DF64 /* iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		34860AC82A7BC3F6B9B5D37A /* Project object */ = {
+		A8A021A803FFAFFFB4A29BDB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 59FE8A7CD4A6BC3D9123D761 /* Build configuration list for PBXProject "DarkLightning" */;
+			buildConfigurationList = 44BE7E94FA557DA131603311 /* Build configuration list for PBXProject "DarkLightning" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = D95FCBAFB6969852D572CD76;
-			productRefGroup = 68AA75483EEA563E713E0B26 /* Products */;
+			mainGroup = 484283774D8DB45D7BD58DEA;
+			productRefGroup = EC899F203EBD6E33D95574F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				94AD52D5271D0B304740C5CB /* iOS */,
-				D8CAF602E95F24974FB84B0D /* OSX */,
-				0C57D898F145F149D7217804 /* OSX-Tests */,
-				87F251AD75BEECE58ED3722F /* tvOS */,
+				B60AED37F502DAD45085F828 /* iOS */,
+				86464FC7879546BC622AF549 /* OSX */,
+				67710D44394CB9B8A25C7679 /* OSX-Tests */,
+				0ED2CEABFFF80C8CB9141BF9 /* tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2CBA7EE1083CB73439FCC2D3 /* Resources */ = {
+		F5BAC1D051C3F967AF359426 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -637,144 +637,144 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6C0625131EA4F998298F7D8A /* Sources */ = {
+		5A87E97BD2C326D77F57653F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F679DBAD67EEC3D2BC40A377 /* JMDecodedTaggedPackets.m in Sources */,
+				8554D41768B8E97B1EE756D9 /* JMDeviceConnection.m in Sources */,
+				84C9B13AA6694AD22C2ACCD3 /* JMHostSocket.m in Sources */,
+				D7837427886D0B129C2ED17B /* JMNativeSocket.m in Sources */,
+				6C31016E3B3B2FEAD3247E9D /* JMPathSocket.m in Sources */,
+				625F36B88F9DA7979C4D3FF6 /* JMSimulatorConnection.m in Sources */,
+				8768187F23343536074180B3 /* JMSocketConnection.m in Sources */,
+				88B76BA77F99EED2DA297973 /* JMTaggedPacket.m in Sources */,
+				AF8CFDDCEB7F93BEDA94D4E1 /* JMUSBDevice.m in Sources */,
+				049322180572798E9656D44C /* JMUSBDeviceConnection.m in Sources */,
+				A4A1EDB8AB543B971F643639 /* JMUSBDeviceManager.m in Sources */,
+				272477C1D7E95A439E209686 /* JMUSBMuxDecoder.m in Sources */,
+				ECD7BBBFA41A951B5649D4F8 /* JMUSBMuxEncoder.m in Sources */,
+				F3752496F41A49D95A7B20EB /* JMUSBMuxPacket.m in Sources */,
+				F7F8D00D607568981BF3B6D0 /* JMUSBMuxPacketHeader.m in Sources */,
+				58A7A1587AE0D99C526FBCF8 /* NSData+Immutable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B227BB819EB46E0128492819 /* Sources */ = {
+		76BFB34A15720E24C7FE50C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7371ED0C8195C66AF018E553 /* JMDecodedTaggedPackets.m in Sources */,
-				D2EFECED2C4E8167F23BBD64 /* JMHostSocket.m in Sources */,
-				1898F1DF4A4964E954ED1FB5 /* JMMobileDevicePort.m in Sources */,
-				A38D81C219E5B0117E906F0F /* JMNativeSocket.m in Sources */,
-				F19F4E64580F63DEB49BC26D /* JMPathSocket.m in Sources */,
-				5A07F89978605E043BB85C01 /* JMSocketConnection.m in Sources */,
-				2B668F4F915C641976E7BB58 /* JMTaggedPacket.m in Sources */,
-				8CF5A2FF0F0608B2A1E5B8E7 /* NSData+Immutable.m in Sources */,
+				DC7D5232D33ED43294374E81 /* JMDecodedTaggedPackets.m in Sources */,
+				91C041E27CFB7A1BC29CEF27 /* JMHostSocket.m in Sources */,
+				7D9248D7DEBA0FE6C5F8EFBC /* JMMobileDevicePort.m in Sources */,
+				5A47F72F2C137C65863FB6E0 /* JMNativeSocket.m in Sources */,
+				5CEB271308331CE1E809BB65 /* JMPathSocket.m in Sources */,
+				9AADD8F58C054236BF9A42B7 /* JMSocketConnection.m in Sources */,
+				70CF5DED332A674DE583CFBC /* JMTaggedPacket.m in Sources */,
+				4BB5CC64CC3EFB33500C8FAC /* NSData+Immutable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C6E4C23598EB803A35095912 /* Sources */ = {
+		D398029B65471E0EF73CA2C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D2B07960028FF74469E5641 /* JMDecodedTaggedPackets.m in Sources */,
-				49035FF9C63A511E82316A61 /* JMDeviceConnection.m in Sources */,
-				4E7CB674E11C785AE81AFC61 /* JMHostSocket.m in Sources */,
-				65ADF3235940E4A24962C556 /* JMNativeSocket.m in Sources */,
-				23F7F020E44F750FD78F1639 /* JMPathSocket.m in Sources */,
-				967CFFC9599CD85CF190DFB6 /* JMSimulatorConnection.m in Sources */,
-				F15622FB72ADED1BEF5F939A /* JMSocketConnection.m in Sources */,
-				B8FA74D8CA0483F818E9FC35 /* JMTaggedPacket.m in Sources */,
-				909EC226E98BD0DDE23C759D /* JMUSBDevice.m in Sources */,
-				528C59F17B1308A277460806 /* JMUSBDeviceConnection.m in Sources */,
-				D3F754FAD21E41BC44244EC5 /* JMUSBDeviceManager.m in Sources */,
-				3BB38F327117B1592D5A08CE /* JMUSBMuxDecoder.m in Sources */,
-				6CD5746211DF7DFC284C8854 /* JMUSBMuxEncoder.m in Sources */,
-				1895537F9E890798233B8C25 /* JMUSBMuxPacket.m in Sources */,
-				218E22A66E13C2B337444097 /* JMUSBMuxPacketHeader.m in Sources */,
-				A7CA47220334B50571ECE629 /* NSData+Immutable.m in Sources */,
+				73A694CAFCAEF85905EC3AAF /* JMDecodedTaggedPackets.m in Sources */,
+				9CD79C1BEA249302536FB35A /* JMHostSocket.m in Sources */,
+				8FB32E008A82B1D6FE35A883 /* JMMobileDevicePort.m in Sources */,
+				4AC523F416C62876A34066A0 /* JMNativeSocket.m in Sources */,
+				8B788039A84BD7C60751BBF2 /* JMPathSocket.m in Sources */,
+				6EDA69F241D66A2FFE8E3655 /* JMSocketConnection.m in Sources */,
+				CB7795A6957778DC77339CCE /* JMTaggedPacket.m in Sources */,
+				1FA161D4BCE745FD9FDA69E2 /* NSData+Immutable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8CAE0F0F606423D3ABB1366 /* Sources */ = {
+		DF339D1D429DC22DB19AA071 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CD9FC0B5CE4231642B3F554 /* JMDecodedTaggedPackets.m in Sources */,
-				6EA33E86A5EAFE6C862CD8A4 /* JMHostSocket.m in Sources */,
-				E9271FB54FC66C0845075382 /* JMMobileDevicePort.m in Sources */,
-				77380D177A53B995BC1A9794 /* JMNativeSocket.m in Sources */,
-				B96E8B3F43278D34F179B071 /* JMPathSocket.m in Sources */,
-				63802FF3BCEF2E7E1EBC60EE /* JMSocketConnection.m in Sources */,
-				875F928739E55B99564D30D0 /* JMTaggedPacket.m in Sources */,
-				6FDC3C452D12C85B0C0ACD09 /* NSData+Immutable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DC2B3F028FC73F23A177901C /* PBXTargetDependency */ = {
+		C0DDA22A43C0AF89481FB904 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = OSX;
-			target = D8CAF602E95F24974FB84B0D /* OSX */;
-			targetProxy = 840986C4ABDEAC3EB149D153 /* PBXContainerItemProxy */;
+			target = 86464FC7879546BC622AF549 /* OSX */;
+			targetProxy = AE82A268539009B1F8FE7ECB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1043280F97167961A8D3F93F /* Release */ = {
+		12A187B0629297CCA03134E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 187CE08A1A0043E52FE38AE4 /* OSX-release.xcconfig */;
+			baseConfigurationReference = 3E86885C291C7A9D07A64652 /* OSX-release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		1BC142FA90B6DF2DB400BFA0 /* Debug */ = {
+		1974180353D470E935F7EA12 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D8573F7D38E6E976F9FBD50 /* iOS-debug.xcconfig */;
+			baseConfigurationReference = 760E3A895C450A876ADAC101 /* iOS-release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		25EBC8E5E07B39A2EE418D6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FA8ECEAF9461D1CA18865AC /* iOS-debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		2939B9612132CF30F217BD1F /* Debug */ = {
+		434DD3C9E2E512FF4554D235 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F042A25F2A6FDC4B5A1F2B7 /* debug.xcconfig */;
+			baseConfigurationReference = 8AEF8F37B2D579B71C490C2F /* tvOS-release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		50BE3A0320202CD6FA375EB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B86AE7CFFDD93F3AE52FDA1 /* OSX-debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		3585DBBF4C4654451C2DCA69 /* Release */ = {
+		75EE513C13EADDF74525B7D1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C1ED03AA50F0B8D96558F15 /* iOS-release.xcconfig */;
+			baseConfigurationReference = 2898972CD9FC825A03A70FD1 /* OSXTests-release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		7C0D800D368B6B003225FF2C /* Release */ = {
+		AD1E4C7835D0E3AADCB5AF6E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74A57242F0DC4E44F4EB8A9 /* release.xcconfig */;
+			baseConfigurationReference = 1DF349CD6C73A81D16E71FAC /* release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		93EB4B50ABBDE81C58E59991 /* Debug */ = {
+		C600E8A58886D78CD9A7949E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C4697F6CD8620C685A1EA15 /* tvOS-debug.xcconfig */;
+			baseConfigurationReference = 084DC8ABA13782EDB97CB536 /* OSXTests-debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		9F43035A143296BDD2C44564 /* Debug */ = {
+		C64370011058E1695E38E10D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E17B61A02A525D28CF4E3849 /* OSXTests-debug.xcconfig */;
+			baseConfigurationReference = BE649DA5CC8778984ED50C54 /* tvOS-debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		D6553E20372765D455210AAD /* Release */ = {
+		E25909B450A0FEBF5A966B63 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD4A279BC72E2E3C4DC9A83F /* tvOS-release.xcconfig */;
-			buildSettings = {
-			};
-			name = Release;
-		};
-		E01495CB60E323B1F0DC8B9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 933E9FECE54E65E376292BBB /* OSXTests-release.xcconfig */;
-			buildSettings = {
-			};
-			name = Release;
-		};
-		E8FC7372D5455C3462745900 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A6721D7F74D4C3D9F5839F6 /* OSX-debug.xcconfig */;
+			baseConfigurationReference = 0B1A237E77CDD32FF077AD62 /* debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
@@ -782,52 +782,52 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		59FE8A7CD4A6BC3D9123D761 /* Build configuration list for PBXProject "DarkLightning" */ = {
+		44BE7E94FA557DA131603311 /* Build configuration list for PBXProject "DarkLightning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2939B9612132CF30F217BD1F /* Debug */,
-				7C0D800D368B6B003225FF2C /* Release */,
+				E25909B450A0FEBF5A966B63 /* Debug */,
+				AD1E4C7835D0E3AADCB5AF6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6B1F42085B1B639FB6597859 /* Build configuration list for PBXNativeTarget "iOS" */ = {
+		5A45C1B124BB33DDEB16BE32 /* Build configuration list for PBXNativeTarget "OSX-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3585DBBF4C4654451C2DCA69 /* Release */,
-				1BC142FA90B6DF2DB400BFA0 /* Debug */,
+				75EE513C13EADDF74525B7D1 /* Release */,
+				C600E8A58886D78CD9A7949E /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		79FC0402EFED745420169898 /* Build configuration list for PBXNativeTarget "tvOS" */ = {
+		93DF903C348044C24846647F /* Build configuration list for PBXNativeTarget "iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D6553E20372765D455210AAD /* Release */,
-				93EB4B50ABBDE81C58E59991 /* Debug */,
+				1974180353D470E935F7EA12 /* Release */,
+				25EBC8E5E07B39A2EE418D6D /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACFD45939750511644508228 /* Build configuration list for PBXNativeTarget "OSX-Tests" */ = {
+		A0EFB91DE4052971E2A87ED9 /* Build configuration list for PBXNativeTarget "OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E01495CB60E323B1F0DC8B9A /* Release */,
-				9F43035A143296BDD2C44564 /* Debug */,
+				12A187B0629297CCA03134E5 /* Release */,
+				50BE3A0320202CD6FA375EB7 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CCF7150456C7EFF42937C7EF /* Build configuration list for PBXNativeTarget "OSX" */ = {
+		AF9651C662C02AF07003A6D1 /* Build configuration list for PBXNativeTarget "tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1043280F97167961A8D3F93F /* Release */,
-				E8FC7372D5455C3462745900 /* Debug */,
+				434DD3C9E2E512FF4554D235 /* Release */,
+				C64370011058E1695E38E10D /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 34860AC82A7BC3F6B9B5D37A /* Project object */;
+	rootObject = A8A021A803FFAFFFB4A29BDB /* Project object */;
 }

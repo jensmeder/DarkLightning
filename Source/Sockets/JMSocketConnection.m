@@ -49,17 +49,14 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 	return self;
 }
 
--(BOOL)connect
+-(void)connect
 {
 	if (self.connectionState == JMSocketStateConnected)
 	{
-		return NO;
+		return;
 	}
 	
-	if (![_socket connect])
-	{
-		return NO;
-	}
+	[_socket connect];
 	
 	self.connectionState = JMSocketStateConnecting;
 	
@@ -78,15 +75,13 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 		[_backgroundRunLoop run];
 					   
 	});
-	
-	return YES;
 }
 
--(BOOL)disconnect
+-(void)disconnect
 {
 	if (self.connectionState == JMSocketConnectionStateDisconnected)
 	{
-		return YES;
+		return;
 	}
 	
 	_socket.inputStream.delegate = nil;
@@ -102,15 +97,15 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 	
 	self.connectionState = JMSocketConnectionStateDisconnected;
 	
-	return [_socket disconnect];
+	[_socket disconnect];
 }
 
 
--(BOOL)writeData:(NSData *)data
+-(void)writeData:(NSData *)data
 {
 	if (!data || data.length == 0 || _connectionState != JMSocketConnectionStateConnected) {
 		
-		return NO;
+		return;
 	}
 
 	NSInteger bytesWritten = [_socket.outputStream write:data.bytes maxLength:data.length];
@@ -123,14 +118,8 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 			bytesWritten += [_socket.outputStream write:subData.bytes maxLength:subData.length];
 		}
 	}
-	
-	if(bytesWritten > 0)
-	{
-		return YES;
-	}
-	
-	return NO;
 }
+
 -(BOOL)isEqual:(id)object {
 	
 	BOOL isEqual = NO;

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "94AD52D5271D0B304740C5CB"
+               BlueprintIdentifier = "B60AED37F502DAD45085F828"
                BuildableName = "DarkLightning.framework"
                BlueprintName = "iOS"
                ReferencedContainer = "container:DarkLightning.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "94AD52D5271D0B304740C5CB"
+               BlueprintIdentifier = "B60AED37F502DAD45085F828"
                BuildableName = "DarkLightning.framework"
                BlueprintName = "iOS"
                ReferencedContainer = "container:DarkLightning.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94AD52D5271D0B304740C5CB"
+            BlueprintIdentifier = "B60AED37F502DAD45085F828"
             BuildableName = "DarkLightning.framework"
             BlueprintName = "iOS"
             ReferencedContainer = "container:DarkLightning.xcodeproj">
@@ -70,7 +70,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94AD52D5271D0B304740C5CB"
+            BlueprintIdentifier = "B60AED37F502DAD45085F828"
             BuildableName = "DarkLightning.framework"
             BlueprintName = "iOS"
             ReferencedContainer = "container:DarkLightning.xcodeproj">
@@ -89,7 +89,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94AD52D5271D0B304740C5CB"
+            BlueprintIdentifier = "B60AED37F502DAD45085F828"
             BuildableName = "DarkLightning.framework"
             BlueprintName = "iOS"
             ReferencedContainer = "container:DarkLightning.xcodeproj">

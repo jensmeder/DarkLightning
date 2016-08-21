@@ -123,14 +123,14 @@ typedef NS_ENUM(NSUInteger, JMSocketConnectionState)
  *  @return YES if the connect was successful, NO otherwise
  */
 
--(BOOL) connect;
+-(void) connect;
 
 /**
  *  Disconnects from the socket.
  *
  *  @return YES if the disconnect was successful, NO otherwise
  */
--(BOOL) disconnect;
+-(void) disconnect;
 
 ///------------------------
 /// @name Data Transmission
@@ -143,6 +143,6 @@ typedef NS_ENUM(NSUInteger, JMSocketConnectionState)
  *
  *  @return YES if the write operation was successful, NO otherwise.
  */
--(BOOL) writeData:(nonnull NSData*)data;
+-(void) writeData:(nonnull NSData*)data;
 
 @end

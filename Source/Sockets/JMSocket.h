@@ -74,13 +74,13 @@ typedef NS_ENUM(NSUInteger, JMSocketState)
  *  @return YES if the connect was successful, NO otherwise
  */
 
--(BOOL) connect;
+-(void) connect;
 
 /**
  *  Disconnects the sockets and invalidates the input and output streams.
  *
  *  @return YES if the disconnect was successful, NO otherwise
  */
--(BOOL) disconnect;
+-(void) disconnect;
 
 @end

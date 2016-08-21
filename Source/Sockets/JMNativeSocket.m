@@ -46,11 +46,11 @@
 	return self;
 }
 
--(BOOL)connect
+-(void)connect
 {
 	if (self.state != JMSocketStateDisconnected)
 	{
-		return NO;
+		return;
 	}
 	
 	self.state = JMSocketStateConnecting;
@@ -67,15 +67,13 @@
 	_outputStream = (__bridge NSOutputStream *)(writeStream);
 	
 	self.state = JMSocketStateConnected;
-	
-	return YES;
 }
 
--(BOOL)disconnect
+-(void)disconnect
 {
 	if (self.state == JMSocketStateDisconnected)
 	{
-		return YES;
+		return;
 	}
 	
 	self.state = JMSocketStateDisconnected;
@@ -85,8 +83,6 @@
 	
 	_inputStream = nil;
 	_outputStream = nil;
-	
-	return YES;
 }
 
 -(BOOL)isEqual:(id)object {
