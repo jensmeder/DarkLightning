@@ -115,20 +115,20 @@ typedef NS_ENUM(NSUInteger, JMMobileDevicePortState)
  *
  *  @return YES if the port was opened successfully, NO otherwise.
  */
--(BOOL) open;
+-(void) open;
 
 /**
  *  Closes the port and terminates any connections.
  *
  *  @return YES if the port was closed, NO otherwise.
  */
--(BOOL) close;
+-(void) close;
 
 /**
  *  Writes data to a to the port if it is connected.
  *
  *  @param data The data to be sent
  */
--(BOOL) writeData:(nonnull NSData*)data;
+-(void) writeData:(nonnull NSData*)data;
 
 @end

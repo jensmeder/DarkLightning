@@ -77,11 +77,11 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	[devicePort->_connection connect];
 }
 
--(BOOL)open
+-(void)open
 {
 	if (_state != JMMobileDevicePortStateIdle)
 	{
-		return YES;
+		return;
 	}
 	
 	self.state = JMMobileDevicePortStateOpening;
@@ -98,7 +98,7 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	{
 		self.state = JMMobileDevicePortStateIdle;
 		
-		return NO;
+		return;
 	}
 
 	struct sockaddr_in sin;
@@ -140,15 +140,13 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 		self.state = JMMobileDevicePortStateWaitingForConnection;
 		[_backgroundRunLoop run];
 	});
-	
-	return YES;
 }
 
--(BOOL)close
+-(void)close
 {
 	if (_state == JMMobileDevicePortStateIdle)
 	{
-		return YES;
+		return;
 	}
 
 	[_connection disconnect];
@@ -169,18 +167,16 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 	_backgroundRunLoop = nil;
 
 	self.state = JMMobileDevicePortStateIdle;
-	
-	return YES;
 }
 
--(BOOL)writeData:(NSData *)data
+-(void)writeData:(NSData *)data
 {
 	if (!data || data.length == 0 ||  _state != JMMobileDevicePortStateConnected)
 	{
-		return NO;
+		return;
 	}
 
-	return [_connection writeData:data];
+	[_connection writeData:data];
 }
 
 -(BOOL)isEqual:(id)object {
