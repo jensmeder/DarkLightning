@@ -22,7 +22,7 @@
  */
 
 #import "JMUSBMuxDecoder.h"
-#import "usbmux_packet.h"
+#import "JMUSBMuxPacket.h"
 
 static NSString* const JMUSBMuxDecoderDictionaryKeyMessageType 	= @"MessageType";
 static NSString* const JMUSBMuxDecoderDictionaryKeyDeviceID 	= @"DeviceID";
@@ -93,33 +93,26 @@ static NSString* const JMUSBMuxEncoderMessageTypeResult 		= @"Result";
 	}
 }
 
--(BOOL)processData:(NSData *)aData
+-(void)processData:(NSData *)aData
 {
-	if (!aData.length)
-	{
-		return NO;
-	}
-	
 	NSData* data = aData;
 
-	while (data.length)
-	{
-		usbmux_packet_t packet;
-		memset(&packet, 0, sizeof(packet));
-		[data getBytes:&packet length:16];
+	while (data.length) {
+		
+		NSData* headerData = [data subdataWithRange:NSMakeRange(0, 16)];
+		data = [data subdataWithRange:NSMakeRange(16, data.length - 16)];
+		JMUSBMuxPacketHeader* header = [[JMUSBMuxPacketHeader alloc]initWithData:headerData];
 
-		if (packet.size > data.length)
-		{
+		if (header.payloadSize > data.length) {
+			
 			break;
 		}
 
-		NSData* dataPacket = [data subdataWithRange:NSMakeRange(16, packet.size - 16)];
+		NSData* payload = [data subdataWithRange:NSMakeRange(0, header.payloadSize)];
+		data = [data subdataWithRange:NSMakeRange(payload.length, data.length - payload.length)];
 
-		[self decodePacket:dataPacket];
-		data = [data subdataWithRange:NSMakeRange(packet.size, data.length - packet.size)];
+		[self decodePacket:payload];
 	}
-	
-	return YES;
 }
 
 @end
