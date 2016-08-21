@@ -21,41 +21,23 @@
  *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#pragma once
+#import <Foundation/Foundation.h>
+#import "JMTaggedPacket.h"
 
-#include <stdio.h>
-#include <stdint.h>
-#include <CoreFoundation/CoreFoundation.h>
+@interface JMDecodedTaggedPackets : NSObject
 
-typedef uint32_t USBMuxPacketProtocol;
+@property (nonnull, nonatomic, strong, readonly) NSData* rawData;
+@property (nonnull, nonatomic, strong, readonly) NSArray<JMTaggedPacket*>* decodedPackets;
 
-enum
-{
-	USBMuxPacketProtocolBinary = 0,
-	USBMuxPacketProtocolPlist = 1,
-};
+-(nonnull instancetype)initWithRawData:(nonnull NSData*)data andDecodedMessages:(nonnull NSArray<JMTaggedPacket*>*) decodedPackets NS_DESIGNATED_INITIALIZER;
 
-typedef uint32_t USBMuxPacketType;
+/**
+ *  Processes the given data to extract data packets from it.
+ *
+ *  @param data The data that should be processed
+ *
+ *  @return All data packets that could be decoded from the data.
+ */
+-(nonnull instancetype) decodedPacketsByProcessingData:(nonnull NSData*)data;
 
-enum
-{
-	USBMuxPacketTypeResult = 1,
-	USBMuxPacketTypeConnect = 2,
-	USBMuxPacketTypeListen = 3,
-	USBMuxPacketTypeDeviceAdd = 4,
-	USBMuxPacketTypeDeviceRemove = 5,
-	USBMuxPacketTypePlistPayload = 8,
-};
-
-typedef struct usbmux_packet_s
-{
-	uint32_t size;
-	USBMuxPacketProtocol protocol;
-	USBMuxPacketType packetType;
-	uint32_t tag;
-	uint8_t data[0];
-
-} usbmux_packet_t;
-
-
-uint32_t usbmux_packet_get_payload_size(usbmux_packet_t* packet);
+@end

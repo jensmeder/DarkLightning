@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		1D4E1907E7786860E9E019FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 483185111701707689D97C5F /* main.m */; };
 		1EF4472A4D88B93C626B96BB /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F1F38B182E945F37B10C25 /* JMConcreteRootViewModel.m */; };
 		390B083D23BCC873B3E5BE12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BEC788E186FBD9C103F9397 /* Foundation.framework */; };
@@ -14,6 +15,16 @@
 		BD8740954B7FC82B47E6A2E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F388B5E3CF72E2CE91E0A6 /* AppDelegate.m */; };
 		E5853AFB72C85260A387D04C /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80CB54AFCE2B12FF71C8C899 /* JMRootView.m */; };
 		F3D8E4587F45D71BA3FE5480 /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB779FAC48A34833033685 /* JMRootViewController.m */; };
+=======
+		05AFD24D8ABF1BB095698681 /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9204707E0846A4C9825D40 /* JMRootView.m */; };
+		0E5D05D71D303454E18A3FEA /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 088E54BF409D323F9627EF9B /* JMRootViewController.m */; };
+		32B30309C594DF910F18DF6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D479904E53442FCAE7E15C7 /* Foundation.framework */; };
+		7327265D05D6D4AD397CBB81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75EB0513D78469975767BE92 /* AppDelegate.m */; };
+		B4E104931D55EB6700BEC408 /* iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E1048C1D55EB5E00BEC408 /* iOS.framework */; };
+		B4E104941D55EB6700BEC408 /* iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4E1048C1D55EB5E00BEC408 /* iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CC17F842F7FE2FB93DB6B95D /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A378508A175756DBCE955E /* JMConcreteRootViewModel.m */; };
+		D2DDF56DB7B4BBEAD1D5A7F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCAEB8AF572D76A8B716BA9 /* main.m */; };
+>>>>>>> develop
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,15 +53,26 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 8C8B5EA750351CBA790C0700 /* DarkLightning.xcodeproj */;
 			proxyType = 1;
+<<<<<<< HEAD
 			remoteGlobalIDString = 42C0A70C42CD3F81F70F8727;
+=======
+			remoteGlobalIDString = 53F05FE98AE857E23410EB97;
+>>>>>>> develop
 			remoteInfo = iOS;
 		};
 		E4CA223B622D5CA4297EAF26 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
+<<<<<<< HEAD
 			containerPortal = 8C8B5EA750351CBA790C0700 /* DarkLightning.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 14E1B4302F5627AE01623B73;
 			remoteInfo = Subproject;
+=======
+			containerPortal = 44BF8FBA04D614C1272F2935 /* DarkLightning.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53F05FE98AE857E23410EB97;
+			remoteInfo = iOS;
+>>>>>>> develop
 		};
 /* End PBXContainerItemProxy section */
 
@@ -61,7 +83,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+<<<<<<< HEAD
 				6EDD7B4C0C57DEB0C68FB134 /* iOS.framework in CopyFiles */,
+=======
+				B4E104941D55EB6700BEC408 /* iOS.framework in Embed Frameworks */,
+>>>>>>> develop
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +121,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				390B083D23BCC873B3E5BE12 /* Foundation.framework in Frameworks */,
+=======
+				32B30309C594DF910F18DF6B /* Foundation.framework in Frameworks */,
+				B4E104931D55EB6700BEC408 /* iOS.framework in Frameworks */,
+>>>>>>> develop
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,9 +144,16 @@
 		40BB2B2A225947B30D12A6CE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				24A8A8FF3599100FF420E8C6 /* debug.xcconfig */,
 				8684A7292607C363E1058649 /* release.xcconfig */,
 				294C53364C3DF36BC3B7E38A /* Shared.xcconfig */,
+=======
+				B4E1048C1D55EB5E00BEC408 /* iOS.framework */,
+				B4E1048E1D55EB5E00BEC408 /* DarkLightning.framework */,
+				B4E104901D55EB5E00BEC408 /* OSX-Tests.xctest */,
+				B4E104921D55EB5E00BEC408 /* DarkLightning.framework */,
+>>>>>>> develop
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -240,6 +278,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					5753E862BE3B7485AD8FDB4D = {
+						DevelopmentTeam = 85B58L94GF;
+					};
+				};
 			};
 			buildConfigurationList = 00B39D4DE2A683B0EF90E5CA /* Build configuration list for PBXProject "iOS" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -265,7 +308,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+<<<<<<< HEAD
 		1B3A5655D53CEA1B7B6C2866 /* iOS.framework */ = {
+=======
+		B4E1048C1D55EB5E00BEC408 /* iOS.framework */ = {
+>>>>>>> develop
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			name = iOS.framework;
@@ -276,25 +323,43 @@
 		3A8FC1975B22000507F80B40 /* DarkLightning.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
+<<<<<<< HEAD
 			name = tvOS.framework;
+=======
+			name = OSX.framework;
+>>>>>>> develop
 			path = DarkLightning.framework;
 			remoteRef = 1046C58F6792DA88BA9E56A5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		4855597FB41D4908B3BB6095 /* DarkLightning.framework */ = {
 			isa = PBXReferenceProxy;
+<<<<<<< HEAD
 			fileType = wrapper.framework;
 			name = OSX.framework;
 			path = DarkLightning.framework;
 			remoteRef = E4CA223B622D5CA4297EAF26 /* PBXContainerItemProxy */;
+=======
+			fileType = wrapper.cfbundle;
+			name = "OSX-Tests.xctest";
+			path = DarkLightningTests.xctest;
+			remoteRef = B4E1048F1D55EB5E00BEC408 /* PBXContainerItemProxy */;
+>>>>>>> develop
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		EBC359A9A3F4A75D200C7345 /* DarkLightning.xctest */ = {
 			isa = PBXReferenceProxy;
+<<<<<<< HEAD
 			fileType = wrapper.cfbundle;
 			name = "OSX-Tests.xctest";
 			path = DarkLightning.xctest;
 			remoteRef = 3321ED2F6CEDBBA2B91F924E /* PBXContainerItemProxy */;
+=======
+			fileType = wrapper.framework;
+			name = tvOS.framework;
+			path = DarkLightning.framework;
+			remoteRef = B4E104911D55EB5E00BEC408 /* PBXContainerItemProxy */;
+>>>>>>> develop
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -327,6 +392,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BE592CD7248E66B8793E7E8 /* debug.xcconfig */;
 			buildSettings = {
+<<<<<<< HEAD
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PROVISIONING_PROFILE = "";
+>>>>>>> develop
 			};
 			name = Debug;
 		};
@@ -341,6 +413,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FD2DEDAA67AD40F4B87622E3 /* release.xcconfig */;
 			buildSettings = {
+<<<<<<< HEAD
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PROVISIONING_PROFILE = "";
+>>>>>>> develop
 			};
 			name = Release;
 		};

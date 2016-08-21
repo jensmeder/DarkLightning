@@ -27,15 +27,15 @@
 
 -(instancetype)init {
 	
-	return [self initWithData:[NSData data] andTag:0];
+	return [self initWithData:[NSData data] andTag:0 length:0];
 }
 
 -(instancetype)initWithTag:(uint16_t)tag {
 	
-	return [self initWithData:[NSData data] andTag:tag];
+	return [self initWithData:[NSData data] andTag:tag length:0];
 }
 
--(instancetype)initWithData:(NSData *)data andTag:(uint16_t)tag
+-(instancetype)initWithData:(NSData *)data andTag:(uint16_t)tag length:(uint32_t)length
 {
 	self = [super init];
 	
@@ -43,6 +43,7 @@
 	{
 		_data = data;
 		_tag = tag;
+		_length = length;
 	}
 	
 	return self;
@@ -59,6 +60,25 @@
 	}
 	
 	return isEqual;
+}
+
+-(NSUInteger)hash {
+	
+	return _data.hash ^ _tag;
+}
+
+#pragma mark - Properties
+
+-(NSData *)encodedPacket
+{
+	uint32_t packetLength = CFSwapInt32HostToBig((uint32_t)_length);
+	uint16_t tag = CFSwapInt16HostToBig((uint16_t)_tag);
+	
+	NSMutableData* data = [NSMutableData dataWithBytes:&packetLength length:sizeof(packetLength)];
+	[data appendBytes:&tag length:sizeof(tag)];
+	[data appendData:_data];
+	
+	return data.copy;
 }
 
 @end

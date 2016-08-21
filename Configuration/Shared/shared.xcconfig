@@ -1,5 +1,3 @@
-PRODUCT_NAME = DarkLightning
-INFOPLIST_FILE = $(SRCROOT)/Configuration/Shared/Info.plist
 DEFINES_MODULE = YES
 
 SKIP_INSTALL = YES

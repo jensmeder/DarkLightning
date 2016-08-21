@@ -22,7 +22,7 @@
  */
 
 #import "JMUSBMuxEncoder.h"
-#import "usbmux_packet.h"
+#import "JMUSBMuxPacket.h"
 
 static NSString* const JMUSBMuxEncoderDictionaryKeyMessageType 	= @"MessageType";
 static NSString* const JMUSBMuxEncoderDictionaryKeyDeviceID 	= @"DeviceID";
@@ -46,15 +46,10 @@ static NSString* const JMUSBMuxEncoderMessageTypeConnect 		= @"Connect";
 
 	if (!error && plistData)
 	{
-		usbmux_packet_t* packet = CFAllocatorAllocate(kCFAllocatorDefault, sizeof(usbmux_packet_t) + plistData.length, 0);
-		memset(packet, 0, sizeof(usbmux_packet_t));
-		packet->protocol = USBMuxPacketProtocolPlist;
-		packet->tag = 1;
-		packet->size = sizeof(usbmux_packet_t) + (uint32_t)plistData.length;
-		packet->packetType = USBMuxPacketTypePlistPayload;
-		[plistData getBytes:packet->data length:plistData.length];
+		JMUSBMuxPacketHeader* header = [[JMUSBMuxPacketHeader alloc]initWithPayloadSize:plistData.length protocolType:JMUSBMuxPacketProtocolTypePlist packetType:JMUSBMuxPacketTypePlistPayload tag:1];
+		JMUSBMuxPacket* packet = [[JMUSBMuxPacket alloc]initWithHeader:header andPayload:plistData];
 
-		return [NSData dataWithBytesNoCopy:packet length:packet->size freeWhenDone:YES];
+		return packet.encodedPacket;
 	}
 
 	return nil;
