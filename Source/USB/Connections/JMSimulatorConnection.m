@@ -64,19 +64,19 @@ static NSString* const JMSimulatorConnectionHost	= @"localhost";
 	return self;
 }
 
--(BOOL)connect
+-(void)connect
 {
-	return [_connection connect];
+	[_connection connect];
 }
 
--(BOOL)writeData:(NSData *)data
+-(void)writeData:(NSData *)data
 {
-	return [_connection writeData:data];
+	[_connection writeData:data];
 }
 
--(BOOL)disconnect
+-(void)disconnect
 {
-	return [_connection disconnect];
+	[_connection disconnect];
 }
 
 -(void) setState:(JMDeviceConnectionState)connectionState

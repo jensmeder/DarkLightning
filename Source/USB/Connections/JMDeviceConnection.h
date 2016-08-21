@@ -138,14 +138,14 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
  *  @return YES if the connect was successful, NO otherwise
  */
 
--(BOOL) connect;
+-(void) connect;
 
 /**
  *  Disconnects from the device.
  *
  *  @return YES if the disconnect was successful, NO otherwise
  */
--(BOOL) disconnect;
+-(void) disconnect;
 
 ///------------------------
 /// @name Data Transmission
@@ -158,6 +158,6 @@ typedef NS_ENUM(NSUInteger, JMDeviceConnectionState)
  *
  *  @return YES if the connection was able to send the data, NO otherwise.
  */
--(BOOL) writeData:(nonnull NSData*)data;
+-(void) writeData:(nonnull NSData*)data;
 
 @end

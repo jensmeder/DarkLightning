@@ -77,46 +77,42 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	return self;
 }
 
--(BOOL)connect
+-(void)connect
 {
 	if (self.state != JMDeviceConnectionStateDisconnected)
 	{
-		return NO;
+		return;
 	}
 
 	self.state = JMDeviceConnectionStateConnecting;
 	
-	return [_connection connect];
+	[_connection connect];
 }
 
--(BOOL)disconnect
+-(void)disconnect
 {
 	if (self.state == JMDeviceConnectionStateDisconnected)
 	{
-		return YES;
+		return;
 	}
 	
 	[_connection disconnect];
 
 	_tcpMode = NO;
 	self.state = JMDeviceConnectionStateDisconnected;
-	
-	return YES;
 }
 
--(BOOL)writeData:(NSData *)data
+-(void)writeData:(NSData *)data
 {
 	if (self.state != JMDeviceConnectionStateConnected)
 	{
-		return NO;
+		return;
 	}
 	
 	if (_tcpMode)
 	{
-		return [_connection writeData:data];
+		[_connection writeData:data];
 	}
-
-	return NO;
 }
 
 -(BOOL)isEqual:(id)object {

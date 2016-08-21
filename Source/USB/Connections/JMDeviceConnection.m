@@ -48,19 +48,19 @@ NSInteger JMDeviceConnectionErrorCodeDataStreamError 	= 200;
 	return self;
 }
 
--(BOOL)connect
+-(void)connect
 {
-	return NO;
+
 }
 
--(BOOL)disconnect
+-(void)disconnect
 {
-	return NO;
+
 }
 
--(BOOL)writeData:(NSData *)data
+-(void)writeData:(NSData *)data
 {
-	return NO;
+
 }
 
 -(BOOL)isEqual:(id)object {
