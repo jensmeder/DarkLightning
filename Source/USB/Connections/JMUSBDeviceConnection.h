@@ -24,11 +24,14 @@
 #import <Foundation/Foundation.h>
 #import "JMUSBDevice.h"
 #import "JMDeviceConnection.h"
+#import "JMUSBMuxDecoder.h"
 
 /**
  *  Represents a data connection to an iOS device.
  */
 @interface JMUSBDeviceConnection : JMDeviceConnection
+
+@property (nonnull, nonatomic, strong, readonly) JMUSBMuxDecoder* decoder;
 
 /**
  *  The device the connection should be based on.
@@ -49,6 +52,8 @@
  *
  *  @return A newly initialized device if device and port are valid, nil otherwise
  */
--(nonnull instancetype)initWithDevice:(nonnull JMUSBDevice*)device andPort:(uint32_t)port NS_DESIGNATED_INITIALIZER;
+-(nonnull instancetype)initWithDevice:(nonnull JMUSBDevice*)device andPort:(uint32_t)port;
+
+-(nonnull instancetype)initWithDevice:(nonnull JMUSBDevice*)device andPort:(uint32_t)port decoder:(nonnull JMUSBMuxDecoder*)decoder NS_DESIGNATED_INITIALIZER;
 
 @end

@@ -25,7 +25,6 @@
 #import "JMPathSocket.h"
 #import "JMSocketConnection.h"
 #import "JMUSBMuxEncoder.h"
-#import "JMUSBMuxDecoder.h"
 
 static NSString* const JMServicePath = @"/var/run/usbmuxd";
 
@@ -38,7 +37,6 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	@private
 	
 	JMSocketConnection* _connection;
-	JMUSBMuxDecoder* 	_decoder;
 	
 	BOOL 				_tcpMode;
 }
@@ -55,7 +53,12 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	return [self initWithDevice:[JMUSBDevice invalidUSBDevice] andPort:port];
 }
 
--(instancetype)initWithDevice:(JMUSBDevice *)device andPort:(uint32_t)port
+-(instancetype)initWithDevice:(JMUSBDevice *)device andPort:(uint32_t)port {
+	
+	return [self initWithDevice:device andPort:port decoder:[[JMUSBMuxDecoder alloc]init]];
+}
+
+-(instancetype)initWithDevice:(JMUSBDevice *)device andPort:(uint32_t)port decoder:(nonnull JMUSBMuxDecoder *)decoder
 {
 	self = [super initWithPort:port];
 	
@@ -63,7 +66,7 @@ static NSString* const JMServicePath = @"/var/run/usbmuxd";
 	{
 		_device = device;
 		
-		_decoder = [[JMUSBMuxDecoder alloc]init];
+		_decoder = decoder;
 		_decoder.delegate = self;
 		
 		_tcpMode = NO;
