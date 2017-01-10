@@ -1,2 +1,3 @@
 SDKROOT = iphoneos
 PRODUCT_BUNDLE_IDENTIFIER = de.jensmeder.darklightning.ios
+INSTALL_PATH = @rpath

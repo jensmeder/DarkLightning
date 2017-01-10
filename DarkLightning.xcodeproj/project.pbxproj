@@ -878,6 +878,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F2D60804C8D4215E61E5F15 /* release.xcconfig */;
 			buildSettings = {
+				INSTALL_PATH = "@rpath";
 			};
 			name = Release;
 		};
@@ -900,6 +901,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3208B8AB1BC07E9621B125E0 /* debug.xcconfig */;
 			buildSettings = {
+				INSTALL_PATH = "@rpath";
 			};
 			name = Debug;
 		};
