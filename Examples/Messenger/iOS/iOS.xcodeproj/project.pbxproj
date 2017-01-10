@@ -11,58 +11,60 @@
 		0E5D05D71D303454E18A3FEA /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 088E54BF409D323F9627EF9B /* JMRootViewController.m */; };
 		32B30309C594DF910F18DF6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D479904E53442FCAE7E15C7 /* Foundation.framework */; };
 		7327265D05D6D4AD397CBB81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75EB0513D78469975767BE92 /* AppDelegate.m */; };
-		BA2CF5CD6C3198246D2DC4BF /* iOS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05DDA8AE6C6E466F2BB1A5D9 /* iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B46DA90D1E2569EC0072A874 /* DarkLightning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B42E92E81E2569150073E46D /* DarkLightning.framework */; };
+		B46DA90E1E2569EC0072A874 /* DarkLightning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B42E92E81E2569150073E46D /* DarkLightning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CC17F842F7FE2FB93DB6B95D /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A378508A175756DBCE955E /* JMConcreteRootViewModel.m */; };
 		D2DDF56DB7B4BBEAD1D5A7F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCAEB8AF572D76A8B716BA9 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3F7C77F7C24669A8077E4386 /* PBXContainerItemProxy */ = {
+		B42E92E71E2569150073E46D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 44BF8FBA04D614C1272F2935 /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8544189CD2893A5B77A68BF3;
-			remoteInfo = Subproject;
+			remoteGlobalIDString = 6485B4A9EEDFD6ED0617C58B;
+			remoteInfo = iOS;
 		};
-		73D538FF28FAF53D5F024A19 /* PBXContainerItemProxy */ = {
+		B42E92E91E2569150073E46D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 44BF8FBA04D614C1272F2935 /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = C3A281229882AAA6E8A62BE1;
-			remoteInfo = Subproject;
+			remoteGlobalIDString = 17EAA4271F51B960B346013D;
+			remoteInfo = OSX;
 		};
-		B8F77EEA3DEBEEC218C2F310 /* PBXContainerItemProxy */ = {
+		B42E92EB1E2569150073E46D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 44BF8FBA04D614C1272F2935 /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 744983618F8D5FF3A472D348;
-			remoteInfo = Subproject;
+			remoteGlobalIDString = 81702C6B97F6B67AE17551C4;
+			remoteInfo = "OSX-Tests";
 		};
-		CD25BC2F4F520B9DFE69D43A /* PBXContainerItemProxy */ = {
+		B42E92ED1E2569150073E46D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 44BF8FBA04D614C1272F2935 /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = BA4662D4C14E83B2DBE05B96;
-			remoteInfo = Subproject;
+			remoteGlobalIDString = 43D4C682A41BDDDEDC93D8C5;
+			remoteInfo = tvOS;
 		};
-		E8BCC099B27BDA1E5EB3F0A9 /* PBXContainerItemProxy */ = {
+		B46DA9121E256A040072A874 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 44BF8FBA04D614C1272F2935 /* DarkLightning.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 89F12D2AE67CC76D5248D66F;
+			remoteGlobalIDString = E2D3823F33075F79EE716B1C;
 			remoteInfo = iOS;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FD4CC4F11CB8B7D733605522 /* CopyFiles */ = {
+		B46DA9111E2569EC0072A874 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BA2CF5CD6C3198246D2DC4BF /* iOS.framework in CopyFiles */,
+				B46DA90E1E2569EC0072A874 /* DarkLightning.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -71,7 +73,7 @@
 		007EA00CC3BEF45DE9F07461 /* JMRootView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootView.h; sourceTree = "<group>"; };
 		018278E0C359C9F3E0835C98 /* JMConcreteRootViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMConcreteRootViewModel.h; sourceTree = "<group>"; };
 		0279E756C196152351071769 /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		08532283068945A7C76B5DE0 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = iOS.app; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08532283068945A7C76B5DE0 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088E54BF409D323F9627EF9B /* JMRootViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMRootViewController.m; sourceTree = "<group>"; };
 		13E3FF34F5DFB45FD69CE2B2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4CA0AD1D699432C2E9FE03 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B30309C594DF910F18DF6B /* Foundation.framework in Frameworks */,
+				B46DA90D1E2569EC0072A874 /* DarkLightning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,10 +118,10 @@
 		5806583598BD0767C9DDF19A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05DDA8AE6C6E466F2BB1A5D9 /* iOS.framework */,
-				6BF34C047A9D15E945A0C758 /* DarkLightning.framework */,
-				BC8C97B22F80BF9461A4A04E /* OSX-Tests.xctest */,
-				56AFFC5DD643436C9B5A051F /* DarkLightning.framework */,
+				B42E92E81E2569150073E46D /* DarkLightning.framework */,
+				B42E92EA1E2569150073E46D /* DarkLightning.framework */,
+				B42E92EC1E2569150073E46D /* OSX-Tests.xctest */,
+				B42E92EE1E2569150073E46D /* DarkLightning.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,7 +209,7 @@
 		ED56306EF43BC89E1F3E998F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				08532283068945A7C76B5DE0 /* iOS.app */,
+				08532283068945A7C76B5DE0 /* Messenger.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,16 +223,16 @@
 			buildPhases = (
 				C48D3FAA7AE9F4DDD63C83FB /* Sources */,
 				E19828492874319538D9F316 /* Frameworks */,
-				FD4CC4F11CB8B7D733605522 /* CopyFiles */,
+				B46DA9111E2569EC0072A874 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A0363899A15250D9361B483A /* PBXTargetDependency */,
+				B46DA9131E256A040072A874 /* PBXTargetDependency */,
 			);
 			name = iOS;
 			productName = iOS;
-			productReference = 08532283068945A7C76B5DE0 /* iOS.app */;
+			productReference = 08532283068945A7C76B5DE0 /* Messenger.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -240,6 +243,12 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					5753E862BE3B7485AD8FDB4D = {
+						DevelopmentTeam = 85B58L94GF;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 462418572E648B383F5DA9B2 /* Build configuration list for PBXProject "iOS" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -265,35 +274,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		05DDA8AE6C6E466F2BB1A5D9 /* iOS.framework */ = {
+		B42E92E81E2569150073E46D /* DarkLightning.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			name = iOS.framework;
 			path = DarkLightning.framework;
-			remoteRef = B8F77EEA3DEBEEC218C2F310 /* PBXContainerItemProxy */;
+			remoteRef = B42E92E71E2569150073E46D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		56AFFC5DD643436C9B5A051F /* DarkLightning.framework */ = {
+		B42E92EA1E2569150073E46D /* DarkLightning.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			name = tvOS.framework;
 			path = DarkLightning.framework;
-			remoteRef = 3F7C77F7C24669A8077E4386 /* PBXContainerItemProxy */;
+			remoteRef = B42E92E91E2569150073E46D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6BF34C047A9D15E945A0C758 /* DarkLightning.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			name = OSX.framework;
-			path = DarkLightning.framework;
-			remoteRef = 73D538FF28FAF53D5F024A19 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BC8C97B22F80BF9461A4A04E /* OSX-Tests.xctest */ = {
+		B42E92EC1E2569150073E46D /* OSX-Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "OSX-Tests.xctest";
-			remoteRef = CD25BC2F4F520B9DFE69D43A /* PBXContainerItemProxy */;
+			remoteRef = B42E92EB1E2569150073E46D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B42E92EE1E2569150073E46D /* DarkLightning.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DarkLightning.framework;
+			remoteRef = B42E92ED1E2569150073E46D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -314,10 +320,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A0363899A15250D9361B483A /* PBXTargetDependency */ = {
+		B46DA9131E256A040072A874 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = iOS;
-			targetProxy = E8BCC099B27BDA1E5EB3F0A9 /* PBXContainerItemProxy */;
+			targetProxy = B46DA9121E256A040072A874 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -326,6 +332,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9C78DE2B42184B8102AD3260 /* debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 85B58L94GF;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.jensmeder.messenger;
 			};
 			name = Debug;
 		};
@@ -340,6 +350,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2AD81024175F15ABBDC0777 /* release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 85B58L94GF;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.jensmeder.messenger;
 			};
 			name = Release;
 		};

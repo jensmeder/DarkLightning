@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3CFFD7CBCD925259901F942B /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2051902D96C2B2B680F64C /* JMConcreteRootViewModel.m */; };
-		4C0B82FD25F6536417D7B857 /* OSX.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E26020D32695091FD8AA1FA1 /* OSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8DE54F4974347AA3440D7B9D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFDADCE28A937B968C08603 /* Cocoa.framework */; };
 		95D3476F0A41A69158D59D73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE94B207F3FDE0683BBF22E /* AppDelegate.m */; };
 		B3FA067494BF20BDF14CDDA4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519295B0EA6F52636BB41D8A /* MainMenu.xib */; };
@@ -18,40 +17,40 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		11F59B0710E49A20DD643700 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 686277DC8D47B23B0F172E35;
-			remoteInfo = Subproject;
-		};
 		53435BAC3F04B71B3002447A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = B510F8F6ABF11C1B0B7E4BDE;
+			remoteGlobalIDString = 63D3EEA34E57370C54E19BBD;
 			remoteInfo = OSX;
 		};
-		651B9FF1E0BB7DD2D30D82AE /* PBXContainerItemProxy */ = {
+		B46DA9171E256B010072A874 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = A6E3658153B1403E9049B1FC;
-			remoteInfo = Subproject;
+			remoteGlobalIDString = 6485B4A9EEDFD6ED0617C58B;
+			remoteInfo = iOS;
 		};
-		C5DE407A237D623A307FD10B /* PBXContainerItemProxy */ = {
+		B46DA9191E256B010072A874 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = AAA7CCE791170546A5F6317F;
-			remoteInfo = Subproject;
+			remoteGlobalIDString = 17EAA4271F51B960B346013D;
+			remoteInfo = OSX;
 		};
-		D61697D8047B2B306C7A0BEC /* PBXContainerItemProxy */ = {
+		B46DA91B1E256B010072A874 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = B4C0B503380BA34771BDAFC4;
-			remoteInfo = Subproject;
+			remoteGlobalIDString = 81702C6B97F6B67AE17551C4;
+			remoteInfo = "OSX-Tests";
+		};
+		B46DA91D1E256B010072A874 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 43D4C682A41BDDDEDC93D8C5;
+			remoteInfo = tvOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,7 +61,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4C0B82FD25F6536417D7B857 /* OSX.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +81,7 @@
 		685DD88CACDCCB290A18E79B /* JMRootViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMRootViewController.m; sourceTree = "<group>"; };
 		7296D2992A295436D0C5AD65 /* Shared.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 		7E5469C678A912C0D61892C7 /* JMRootViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootViewModel.h; sourceTree = "<group>"; };
-		8661D72B3ADBFB6AF4A81FC4 /* OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = OSX.app; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8661D72B3ADBFB6AF4A81FC4 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFE94B207F3FDE0683BBF22E /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CA7D0899202D0EB5D9ED372E /* DarkLightning.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DarkLightning.xcodeproj; path = ../../../DarkLightning.xcodeproj; sourceTree = "<group>"; };
 		CD1188C6381F41D597AE3684 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
@@ -159,7 +157,7 @@
 		752F5C5A174E1EA21FF8E8F7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8661D72B3ADBFB6AF4A81FC4 /* OSX.app */,
+				8661D72B3ADBFB6AF4A81FC4 /* Messenger.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,10 +190,10 @@
 		CCBFA13A1BAABB486F6C848D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21E7F56E9A8828F3A2AA4B59 /* DarkLightning.framework */,
-				E26020D32695091FD8AA1FA1 /* OSX.framework */,
-				A67FB9E426301CAD4A6D1D7A /* OSX-Tests.xctest */,
-				175616D1C1E5849ABEC48A4D /* DarkLightning.framework */,
+				B46DA9181E256B010072A874 /* DarkLightning.framework */,
+				B46DA91A1E256B010072A874 /* DarkLightning.framework */,
+				B46DA91C1E256B010072A874 /* OSX-Tests.xctest */,
+				B46DA91E1E256B010072A874 /* DarkLightning.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,7 +239,7 @@
 			);
 			name = OSX;
 			productName = OSX;
-			productReference = 8661D72B3ADBFB6AF4A81FC4 /* OSX.app */;
+			productReference = 8661D72B3ADBFB6AF4A81FC4 /* Messenger.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -277,35 +275,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		175616D1C1E5849ABEC48A4D /* DarkLightning.framework */ = {
+		B46DA9181E256B010072A874 /* DarkLightning.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			name = tvOS.framework;
 			path = DarkLightning.framework;
-			remoteRef = 11F59B0710E49A20DD643700 /* PBXContainerItemProxy */;
+			remoteRef = B46DA9171E256B010072A874 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		21E7F56E9A8828F3A2AA4B59 /* DarkLightning.framework */ = {
+		B46DA91A1E256B010072A874 /* DarkLightning.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			name = iOS.framework;
 			path = DarkLightning.framework;
-			remoteRef = 651B9FF1E0BB7DD2D30D82AE /* PBXContainerItemProxy */;
+			remoteRef = B46DA9191E256B010072A874 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A67FB9E426301CAD4A6D1D7A /* OSX-Tests.xctest */ = {
+		B46DA91C1E256B010072A874 /* OSX-Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "OSX-Tests.xctest";
-			remoteRef = C5DE407A237D623A307FD10B /* PBXContainerItemProxy */;
+			remoteRef = B46DA91B1E256B010072A874 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E26020D32695091FD8AA1FA1 /* OSX.framework */ = {
+		B46DA91E1E256B010072A874 /* DarkLightning.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			name = OSX.framework;
 			path = DarkLightning.framework;
-			remoteRef = D61697D8047B2B306C7A0BEC /* PBXContainerItemProxy */;
+			remoteRef = B46DA91D1E256B010072A874 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -349,6 +344,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CD1188C6381F41D597AE3684 /* release.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 			};
 			name = Release;
 		};
@@ -363,6 +359,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 66445904494FBB541C0A9EBA /* debug.xcconfig */;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 			};
 			name = Debug;
 		};
