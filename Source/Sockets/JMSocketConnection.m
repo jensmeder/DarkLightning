@@ -94,14 +94,11 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 		return YES;
 	}
 	
-	_socket.inputStream.delegate = nil;
-	_socket.outputStream.delegate = nil;
-	
-	[_socket.inputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
-	[_socket.outputStream removeFromRunLoop:_backgroundRunLoop forMode:NSDefaultRunLoopMode];
-	
 	[_socket.inputStream close];
 	[_socket.outputStream close];
+	
+	_socket.inputStream.delegate = nil;
+	_socket.outputStream.delegate = nil;
 	
 	_backgroundRunLoop = nil;
 	
@@ -120,6 +117,10 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 
 	NSInteger bytesWritten = [_socket.outputStream write:data.bytes maxLength:data.length];
 
+	if (bytesWritten < 0) {
+		return NO;
+	}
+	
 	while (bytesWritten != (NSInteger)data.length) {
 
 		@autoreleasepool {
@@ -178,6 +179,7 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 						   
 			if (!data.length)
 			{
+				[self disconnect];
 				return;
 			}
 						   
@@ -190,7 +192,7 @@ static NSUInteger JMSocketConnectionBufferSize	= 1 << 16;
 		{
 			[self disconnect];
 		}
-		else if(eventCode == NSStreamEventErrorOccurred && self.connectionState == JMSocketConnectionStateConnecting)
+		else if(eventCode == NSStreamEventErrorOccurred)
 		{
 			[self disconnect];
 		}
