@@ -2,6 +2,13 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.2
+
+### Bugfix
+
+* Fixed a bug that caused JMMobileDevicePort to crash when writing Data while unplugging the iOS device ([#34](https://github.com/jensmeder/DarkLightning/issues/34))
+* Fixed a bug that prevented DarkLightning.framework from loading when running on actual iOS device ([#36](https://github.com/jensmeder/DarkLightning/issues/36))
+
 ## 1.0.1
 
 ### Bugfix
