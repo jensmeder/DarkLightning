@@ -2,6 +2,12 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.3
+
+### Bugfix
+
+* Fixed a bug that prevented DarkLightning from discovering and connection USB devices on OSX ([#39](https://github.com/jensmeder/DarkLightning/issues/39))
+
 ## 1.0.2
 
 ### Bugfix
