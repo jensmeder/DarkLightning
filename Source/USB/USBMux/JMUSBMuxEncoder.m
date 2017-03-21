@@ -27,9 +27,11 @@
 static NSString* const JMUSBMuxEncoderDictionaryKeyMessageType 	= @"MessageType";
 static NSString* const JMUSBMuxEncoderDictionaryKeyDeviceID 	= @"DeviceID";
 static NSString* const JMUSBMuxEncoderDictionaryKeyPortNumber 	= @"PortNumber";
+static NSString* const JMUSBMuxEncoderDictionaryKeyProgName     = @"ProgName";
 
 static NSString* const JMUSBMuxEncoderMessageTypeListen 		= @"Listen";
 static NSString* const JMUSBMuxEncoderMessageTypeConnect 		= @"Connect";
+static NSString* const JMUSBMuxEncoderProgNameValue             = @"DarkLightning";
 
 @implementation JMUSBMuxEncoder
 
@@ -60,6 +62,7 @@ static NSString* const JMUSBMuxEncoderMessageTypeConnect 		= @"Connect";
 	return nil;
 }
 
+
 +(NSData *)encodeListeningPacket
 {
 	static NSData* packet = nil;
@@ -67,7 +70,8 @@ static NSString* const JMUSBMuxEncoderMessageTypeConnect 		= @"Connect";
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken,
 	^{
-		NSDictionary *plist = @{JMUSBMuxEncoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeListen};
+		NSDictionary *plist = @{JMUSBMuxEncoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeListen,
+                                JMUSBMuxEncoderDictionaryKeyProgName: JMUSBMuxEncoderProgNameValue};
 		
 		packet = [self packetForPList:plist];
 	});
@@ -87,7 +91,8 @@ static NSString* const JMUSBMuxEncoderMessageTypeConnect 		= @"Connect";
 
 	NSDictionary *plist = @{JMUSBMuxEncoderDictionaryKeyMessageType:JMUSBMuxEncoderMessageTypeConnect,
 							JMUSBMuxEncoderDictionaryKeyDeviceID: deviceId,
-							JMUSBMuxEncoderDictionaryKeyPortNumber:@(port)};
+							JMUSBMuxEncoderDictionaryKeyPortNumber:@(port),
+                            JMUSBMuxEncoderDictionaryKeyProgName: JMUSBMuxEncoderProgNameValue};
 
 	return [self packetForPList:plist];
 }

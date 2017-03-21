@@ -86,7 +86,7 @@
 	setsockopt(_socketHandle, SOL_SOCKET, SO_REUSEADDR, (void *)&reuseAddress, sizeof(reuseAddress));
 	
 	int reusePort = true;
-	setsockopt(_socketHandle, SOL_SOCKET, SO_REUSEPORT, (const char*)&reusePort, sizeof(reusePort));
+	setsockopt(_socketHandle, SOL_SOCKET, SO_REUSEPORT, (void*)&reusePort, sizeof(reusePort));
 	
 	// Connect socket
 	
