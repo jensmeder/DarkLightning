@@ -6,7 +6,7 @@
 
 ### Bugfix
 
-* Fixed a bug that prevented DarkLightning from discovering and connection USB devices on OSX ([#39](https://github.com/jensmeder/DarkLightning/issues/39))
+* Fixed a bug that prevented DarkLightning from discovering and connecting USB devices on OSX ([#39](https://github.com/jensmeder/DarkLightning/issues/39))
 
 ## 1.0.2
 
