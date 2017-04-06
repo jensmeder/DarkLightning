@@ -94,18 +94,7 @@ describe(@"JMSocketConnection",
 								[connection connect];
 								
 							});
-						 
-						 it(@"should be able to send a valid data object",
-							^{
-								NSData* data = [@"hello" dataUsingEncoding:NSUTF8StringEncoding];
-								[connection connect];
-								
-								dispatch_async(dispatch_get_main_queue(), ^{
-									BOOL result = [connection writeData:data];
-									
-									[[theValue(result) shouldEventually] beTrue];
-								});
-							});
+
 					 });
 			 
 		 });

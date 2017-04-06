@@ -47,27 +47,6 @@ describe(@"JMSimpleDataPacketProtocol", ^{
 			packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
 		});
 		
-		it(@"should be impossible to encode nil", ^{
-			
-			NSData* encodedData = [packetProtocol encodePacket:nil];
-			[encodedData shouldBeNil];
-		});
-		
-		it(@"should be impossible to encode an empty data packet", ^{
-			
-			NSData* encodedData = [packetProtocol encodePacket:[NSData data]];
-			[encodedData shouldBeNil];
-		});
-		
-		it(@"should be impossible to encode a data packet larger than 2^32 bytes", ^{
-			
-			KWMock* dataMock = [KWMock nullMockForClass:[NSData class]];
-			[dataMock stub:@selector(length) andReturn:@((long)UINT32_MAX+1)];
-			
-			NSData* encodedData = [packetProtocol encodePacket:(NSData*)dataMock];
-			[encodedData shouldBeNil];
-		});
-		
 		it(@"should be possible to encode a data packet", ^{
 			
 			NSData* encodedData = [packetProtocol encodePacket:[@"DarkLightning" dataUsingEncoding:NSUTF8StringEncoding]];
@@ -84,17 +63,6 @@ describe(@"JMSimpleDataPacketProtocol", ^{
 			packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
 		});
 		
-		it(@"should be impossible to process nil", ^{
-			
-			NSArray<NSData*>* decodedData = [packetProtocol processData:nil];
-			[decodedData shouldBeNil];
-		});
-		
-		it(@"should be impossible to process an empty data packet", ^{
-			
-			NSArray<NSData*>* decodedData = [packetProtocol processData:[NSData data]];
-			[decodedData shouldBeNil];
-		});
 	});
 	
 });

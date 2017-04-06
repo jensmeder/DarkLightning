@@ -44,11 +44,6 @@
 
 -(NSData *)encodePacket:(NSData *)packet
 {
-	if (!packet || packet.length == 0 || packet.length > UINT32_MAX)
-	{
-		return nil;
-	}
-	
 	uint32_t packetLength = CFSwapInt32HostToBig((uint32_t)packet.length);
 	
 	NSMutableData* data = [NSMutableData dataWithBytes:&packetLength length:sizeof(uint32_t)];
@@ -59,19 +54,9 @@
 
 -(NSArray<NSData *> *)processData:(NSData *)data
 {
-	if (!data || data.length == 0) {
-		
-		return nil;
-	}
-	
 	[_buffer appendData:data];
 	
 	uint32_t length = 0;
-	
-	if (_buffer.length < sizeof(length))
-	{
-		return nil;
-	}
 
 	[_buffer getBytes:&length length:sizeof(length)];
 	length = CFSwapInt32BigToHost(length);

@@ -44,11 +44,6 @@
 
 -(NSData *)encodePacket:(JMTaggedPacket *)packet
 {
-	if (!packet || 0 == packet.data.length || packet.data.length > UINT32_MAX) {
-		
-		return nil;
-	}
-	
 	uint32_t packetLength = CFSwapInt32HostToBig((uint32_t)packet.data.length);
 	uint16_t tag = CFSwapInt16HostToBig((uint16_t)packet.tag);
 	
@@ -61,11 +56,6 @@
 
 -(NSArray<JMTaggedPacket *> *)processData:(NSData *)data
 {
-	if (!data || 0 == data.length) {
-		
-		return nil;
-	}
-	
 	[_buffer appendData:data];
 	
 	uint32_t length = 0;
