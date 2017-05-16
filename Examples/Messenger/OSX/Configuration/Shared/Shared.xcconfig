@@ -1,5 +1,0 @@
-PRODUCT_NAME = Messenger
-CLANG_ENABLE_MODULES = YES
-CLANG_ENABLE_OBJC_ARC = YES
-LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
-ALWAYS_SEARCH_USER_PATHS = NO

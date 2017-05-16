@@ -1,4 +1,0 @@
-SDKROOT = iphoneos
-PRODUCT_BUNDLE_IDENTIFIER = de.jensmeder.darklightning.ios
-INSTALL_PATH = @rpath
-DYLIB_INSTALL_NAME_BASE = @rpath

@@ -2,6 +2,18 @@
 
 `DarkLightning` adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.0.0-alpha1
+
+### What's new
+
+* All new OOP interface with protocols
+* Completely rewritten in Swift
+
+### Known issues
+
+* No Objective-C support yet
+* No iOS / tvOS simulator support yet
+
 ## 1.0.3
 
 ### Bugfix

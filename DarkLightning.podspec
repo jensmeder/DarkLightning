@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   	s.name             = "DarkLightning"
-  	s.version          = "1.0.3"
+  	s.version          = "2.0.0-alpha1"
   	s.summary          = "Simply the fastest way to transmit data between iOS/tvOS and OSX"
   	s.description      = <<-DESC
-  	DarkLightning is a lightweight Objective-C library to allow data transmission between iOS/tvOS devices (Lightning port, Dock connector, USB-C) and OSX (USB) at 480MBit. 
+  	DarkLightning is a lightweight Swift library to allow data transmission between iOS/tvOS devices (Lightning port, Dock connector, USB-C) and OSX (USB) at 480MBit. 
                        DESC
 
   	s.homepage         = "https://github.com/jensmeder/DarkLightning"
@@ -13,42 +13,27 @@ Pod::Spec.new do |s|
 
   	s.requires_arc = true
   	s.ios.deployment_target = '8.0'
-  	s.osx.deployment_target = '10.9'
+  	s.osx.deployment_target = '10.10'
   	s.tvos.deployment_target = '9.0'
 
 	s.subspec "OSX" do |sp|
 
-		sp.source_files = 'Source/OSX/**/*{h,m,c}','Source/USB/**/*{h,m,c}', 'Source/Sockets/**/*{h,m,c}'
-		sp.platform     = :osx, '10.9'
-		
-		sp.dependency 'DarkLightning/PacketProtocol'
+		sp.source_files = 'Sources/Daemon/**/*{swift}', 'Sources/Utils/**/*{swift}', 'Sources/Port/**/*{swift}'
+		sp.platform     = :osx, '10.10'
 
 	end
 
 	s.subspec "iOS" do |sp|
 
-		sp.source_files = 'Source/iOS/**/*{h,m,c}', 'Source/MobileDevicePort/**/*{h,m,c}', 'Source/Sockets/**/*{h,m,c}'
+		sp.source_files = 'Sources/Port/**/*{swift}', 'Sources/Utils/**/*{swift}'
 		sp.platform     = :ios, '8.0'
-		
-		sp.dependency 'DarkLightning/PacketProtocol'
 
 	end
 	
 	s.subspec "tvOS" do |sp|
 
-		sp.source_files = 'Source/tvOS/**/*{h,m,c}','Source/MobileDevicePort/**/*{h,m,c}', 'Source/Sockets/**/*{h,m,c}'
+		sp.source_files = 'Sources/Port/**/*{swift}', 'Sources/Utils/**/*{swift}'
 		sp.platform     = :tvos, '9.0'
-		
-		sp.dependency 'DarkLightning/PacketProtocol'
-
-	end
-	
-	s.subspec "PacketProtocol" do |sp|
-
-		sp.source_files = 'Source/PacketProtocol/**/*{h,m,c}'
-		sp.ios.deployment_target = '8.0'
-  		sp.osx.deployment_target = '10.9'
-		sp.tvos.deployment_target = '9.0'
 
 	end
 

@@ -7,61 +7,67 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3675E94469DF068FD727E1DF /* JMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF00B18F4A452B23EBB7E03 /* JMRootViewController.m */; };
-		3CB765DA35ADD403C2CB234F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1254017AFC4CD4951577D048 /* main.m */; };
-		6B2179C6FC3044001691B9F6 /* JMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3725AF497D186AE2B78F11B1 /* JMRootView.m */; };
-		74E00C8BC3BECE47E9215B71 /* JMConcreteRootViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D7C5DD5E7689F25A8BCFE2 /* JMConcreteRootViewModel.m */; };
-		C1B66EAB3160DC7932AA1B6F /* iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEE96F710807ADBA1DAFE200 /* iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		EFC15C9E978F4CAE5942BC8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8340537F17D942F8917383D2 /* Foundation.framework */; };
-		F3D2D774A575C23A146A7C88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3679D8E68D1275B1890C1813 /* AppDelegate.m */; };
+		5C3649E85B8920A84650BBF2 /* MessengerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890C619FFC101289CDA8D1F /* MessengerDelegate.swift */; };
+		7C05B2753FAA3893539DCE7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2122EDB53B47146D24FD9 /* AppDelegate.swift */; };
+		B419FFD41ECB536A00CB471D /* iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED8C3BE8614721D89C0C246 /* iOS.framework */; };
+		B419FFD51ECB536A00CB471D /* iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AED8C3BE8614721D89C0C246 /* iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EBB9C43F8A21C048B5C7555C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AEF8841B765D45552D65EF /* Foundation.framework */; };
+		F2D28419B9C1A46BC55CDB8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE62DC03E9276A0B4EBED38 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		61640AA03C58BC8B4D5C0A51 /* PBXContainerItemProxy */ = {
+		1BD0F119B70DDAE25E11F134 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2FCCD0D1D5EAFC1AD1E4B9BE /* DarkLightning.xcodeproj */;
+			containerPortal = 0152CD59EDCC989BB55A3277 /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D3AEB8910391D10024CDB2E1;
+			remoteGlobalIDString = FB3FEF581B0A0B97C24E1829;
 			remoteInfo = Subproject;
 		};
-		7F88987C73E70E38750682B2 /* PBXContainerItemProxy */ = {
+		9C19E0D9C2227E397878E81B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2FCCD0D1D5EAFC1AD1E4B9BE /* DarkLightning.xcodeproj */;
+			containerPortal = 0152CD59EDCC989BB55A3277 /* DarkLightning.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 91928CBCE1744FA0CAD337B0;
+			remoteInfo = Subproject;
+		};
+		B419FFD61ECB536A00CB471D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0152CD59EDCC989BB55A3277 /* DarkLightning.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = F3AC2A08C3E7BC556BBFD701;
+			remoteGlobalIDString = 1F8C8CC4E15A05B8D6048188;
 			remoteInfo = iOS;
 		};
-		88590F18FBFD6D67755534D8 /* PBXContainerItemProxy */ = {
+		B4CCE5B91ECB529B00E44C98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2FCCD0D1D5EAFC1AD1E4B9BE /* DarkLightning.xcodeproj */;
+			containerPortal = 0152CD59EDCC989BB55A3277 /* DarkLightning.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F8C8CC4E15A05B8D6048188;
+			remoteInfo = iOS;
+		};
+		E585E211A61C9C48CDDC7D3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0152CD59EDCC989BB55A3277 /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = FB733B6723BD11ECB1EBE51D;
+			remoteGlobalIDString = 8E1B43C81F5027CBCBC5B4E9;
 			remoteInfo = Subproject;
 		};
-		9139969083B5FC4697DBF2CA /* PBXContainerItemProxy */ = {
+		F7ECE63B8FC6874C99F1DB1B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2FCCD0D1D5EAFC1AD1E4B9BE /* DarkLightning.xcodeproj */;
+			containerPortal = 0152CD59EDCC989BB55A3277 /* DarkLightning.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9D708E7D3DF27C0A43DBDC0C;
-			remoteInfo = Subproject;
-		};
-		E9ACF94B83AEB40298DAFEA9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2FCCD0D1D5EAFC1AD1E4B9BE /* DarkLightning.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = ACAB205757E3378854FE4E23;
+			remoteGlobalIDString = 99611684723BCA374D291E65;
 			remoteInfo = Subproject;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		029C0F67DA3CAFEA850CEB47 /* Embed Frameworks */ = {
+		B419FFD81ECB536A00CB471D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C1B66EAB3160DC7932AA1B6F /* iOS.framework in Embed Frameworks */,
+				B419FFD51ECB536A00CB471D /* iOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,318 +75,290 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		03D21182461E91C77AC2AB93 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1254017AFC4CD4951577D048 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1EF00B18F4A452B23EBB7E03 /* JMRootViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMRootViewController.m; sourceTree = "<group>"; };
-		259D080665DEA91E7588EA53 /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		26D276F9AD5FAD06B3B6E0E2 /* JMRootViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootViewController.h; sourceTree = "<group>"; };
-		2CDFA1370E5A3F3FFCDAF586 /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
-		2FCCD0D1D5EAFC1AD1E4B9BE /* DarkLightning.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DarkLightning.xcodeproj; path = ../../../DarkLightning.xcodeproj; sourceTree = "<group>"; };
-		3679D8E68D1275B1890C1813 /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3725AF497D186AE2B78F11B1 /* JMRootView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMRootView.m; sourceTree = "<group>"; };
-		46E8B6191F323EE69928E21D /* release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
-		63BAF748F128CB53A021C5FF /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
-		7DAF9181C35799575438304D /* Shared.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
-		8340537F17D942F8917383D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		99C761BD930D15060FB97320 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACBC553B0CC6EEC67F040035 /* JMConcreteRootViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMConcreteRootViewModel.h; sourceTree = "<group>"; };
-		C2D7C5DD5E7689F25A8BCFE2 /* JMConcreteRootViewModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JMConcreteRootViewModel.m; sourceTree = "<group>"; };
-		C38E304A528710D17CC9278C /* debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
-		D9F00F48B6EEA2948C1FE318 /* iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOS.xcconfig; sourceTree = "<group>"; };
-		DB4C44F9E9DF84D830B2ACF4 /* JMRootViewModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootViewModel.h; sourceTree = "<group>"; };
-		E90D2BC8E80D8AF1AFCBBE81 /* JMRootView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JMRootView.h; sourceTree = "<group>"; };
+		0152CD59EDCC989BB55A3277 /* DarkLightning.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DarkLightning.xcodeproj; path = ../../../DarkLightning.xcodeproj; sourceTree = "<group>"; };
+		28AEF8841B765D45552D65EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		702955FB02A0A4268CA6C723 /* Release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		7EE62DC03E9276A0B4EBED38 /* ViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8D95451B66F2B0347FE9CE01 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE7C2ED85D2B793662EE988E /* Debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		BB3EC1464FDFB1EB0717D9AF /* Debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		D7B6C606D8CDDD5A573F9550 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1A2122EDB53B47146D24FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E890C619FFC101289CDA8D1F /* MessengerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MessengerDelegate.swift; sourceTree = "<group>"; };
+		F392C2AA09D97D05EA793C52 /* Release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F4B292264EE93C8518D823CD /* Frameworks */ = {
+		007D8475DED5E8D6600E5CB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFC15C9E978F4CAE5942BC8D /* Foundation.framework in Frameworks */,
+				B419FFD41ECB536A00CB471D /* iOS.framework in Frameworks */,
+				EBB9C43F8A21C048B5C7555C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		013F9E60158D8B7066B15CF2 /* Products */ = {
+		01EF883141589767A45AD6E9 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				03D21182461E91C77AC2AB93 /* Messenger.app */,
+				28AEF8841B765D45552D65EF /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		316CE3EF3B731C47E9DA46A0 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				D7B6C606D8CDDD5A573F9550 /* Info.plist */,
+				DB47197ACF4888F4EA5A005B /* iOS */,
+				BB6F75B514ECF4C1210CA134 /* Project */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		3EA80190D07ABF094A88EC5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AED8C3BE8614721D89C0C246 /* iOS.framework */,
+				9C66CCD970FA2299BCE5BE9F /* DarkLightning.framework */,
+				756970C09383C2C83E2161A3 /* Tests.xctest */,
+				7C3703E2E426EDD6E7F05176 /* tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		04C75CCB0A3D9CB7647EAE2E /* Shared */ = {
+		4B3B401A35E37B7DB7495D67 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C38E304A528710D17CC9278C /* debug.xcconfig */,
-				2CDFA1370E5A3F3FFCDAF586 /* release.xcconfig */,
-				7DAF9181C35799575438304D /* Shared.xcconfig */,
+				E1A2122EDB53B47146D24FD9 /* AppDelegate.swift */,
+				E890C619FFC101289CDA8D1F /* MessengerDelegate.swift */,
+				7EE62DC03E9276A0B4EBED38 /* ViewController.swift */,
 			);
-			path = Shared;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		0ADAE6FA0875FC281CD47807 /* Configuration */ = {
+		6CB294809C6E5C536D5AD2DD = {
 			isa = PBXGroup;
 			children = (
-				21D613F845C2AEC72596D4B5 /* iOS */,
-				04C75CCB0A3D9CB7647EAE2E /* Shared */,
+				9F3736C64EF92F13ADA1D7C4 /* Frameworks */,
+				A07EA0E7194DC4B82EF5D950 /* Products */,
+				4B3B401A35E37B7DB7495D67 /* Sources */,
+				316CE3EF3B731C47E9DA46A0 /* Support */,
 			);
-			path = Configuration;
 			sourceTree = "<group>";
 		};
-		1F6C88914804C538D62F8D4A /* Supporting Files */ = {
+		9F3736C64EF92F13ADA1D7C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1254017AFC4CD4951577D048 /* main.m */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		21D613F845C2AEC72596D4B5 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				63BAF748F128CB53A021C5FF /* debug.xcconfig */,
-				99C761BD930D15060FB97320 /* Info.plist */,
-				D9F00F48B6EEA2948C1FE318 /* iOS.xcconfig */,
-				46E8B6191F323EE69928E21D /* release.xcconfig */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		230E623FBF7DEE6D6224E139 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2FCCD0D1D5EAFC1AD1E4B9BE /* DarkLightning.xcodeproj */,
-				E7052D4D3587705F912B66A4 /* iOS */,
+				0152CD59EDCC989BB55A3277 /* DarkLightning.xcodeproj */,
+				01EF883141589767A45AD6E9 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6D922422C436F7FFAF6A0BE7 /* Source */ = {
+		A07EA0E7194DC4B82EF5D950 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				259D080665DEA91E7588EA53 /* AppDelegate.h */,
-				3679D8E68D1275B1890C1813 /* AppDelegate.m */,
-				AEA67FD22876D148960DC905 /* Root */,
-				1F6C88914804C538D62F8D4A /* Supporting Files */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		AEA67FD22876D148960DC905 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				ACBC553B0CC6EEC67F040035 /* JMConcreteRootViewModel.h */,
-				C2D7C5DD5E7689F25A8BCFE2 /* JMConcreteRootViewModel.m */,
-				E90D2BC8E80D8AF1AFCBBE81 /* JMRootView.h */,
-				3725AF497D186AE2B78F11B1 /* JMRootView.m */,
-				26D276F9AD5FAD06B3B6E0E2 /* JMRootViewController.h */,
-				1EF00B18F4A452B23EBB7E03 /* JMRootViewController.m */,
-				DB4C44F9E9DF84D830B2ACF4 /* JMRootViewModel.h */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		BAB3AFE88E5FFE348FAF6372 = {
-			isa = PBXGroup;
-			children = (
-				0ADAE6FA0875FC281CD47807 /* Configuration */,
-				230E623FBF7DEE6D6224E139 /* Frameworks */,
-				013F9E60158D8B7066B15CF2 /* Products */,
-				6D922422C436F7FFAF6A0BE7 /* Source */,
-			);
-			sourceTree = "<group>";
-		};
-		DE7BAA544B2D1A597B507541 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DEE96F710807ADBA1DAFE200 /* iOS.framework */,
-				A5C891AD446A0181A862B656 /* OSX.framework */,
-				DCFA6CF53B1C73F9FA77228D /* OSX-Tests.xctest */,
-				A9E578F636FBF21CE82917CC /* tvOS.framework */,
+				8D95451B66F2B0347FE9CE01 /* iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E7052D4D3587705F912B66A4 /* iOS */ = {
+		BB6F75B514ECF4C1210CA134 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				8340537F17D942F8917383D2 /* Foundation.framework */,
+				AE7C2ED85D2B793662EE988E /* Debug.xcconfig */,
+				F392C2AA09D97D05EA793C52 /* Release.xcconfig */,
 			);
-			name = iOS;
+			path = Project;
+			sourceTree = "<group>";
+		};
+		DB47197ACF4888F4EA5A005B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BB3EC1464FDFB1EB0717D9AF /* Debug.xcconfig */,
+				702955FB02A0A4268CA6C723 /* Release.xcconfig */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F93D0EC996C357194EC69276 /* iOS */ = {
+		4F256DF20B66BC6DB879A355 /* iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4DC6F9EFC393D7C2F857DDD /* Build configuration list for PBXNativeTarget "iOS" */;
+			buildConfigurationList = 326F446B8503F92F94BD450A /* Build configuration list for PBXNativeTarget "iOS" */;
 			buildPhases = (
-				5D2D90F5BC76801B2F75E662 /* Sources */,
-				F4B292264EE93C8518D823CD /* Frameworks */,
-				029C0F67DA3CAFEA850CEB47 /* Embed Frameworks */,
+				E255899D382F65A75C4A41BA /* Sources */,
+				007D8475DED5E8D6600E5CB3 /* Frameworks */,
+				B419FFD81ECB536A00CB471D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A322EDDE82C128C13CD362D2 /* PBXTargetDependency */,
+				B4CCE5BA1ECB529B00E44C98 /* PBXTargetDependency */,
+				B419FFD71ECB536A00CB471D /* PBXTargetDependency */,
 			);
 			name = iOS;
 			productName = iOS;
-			productReference = 03D21182461E91C77AC2AB93 /* Messenger.app */;
+			productReference = 8D95451B66F2B0347FE9CE01 /* iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B188F035852A846622DABCA6 /* Project object */ = {
+		E0982C9EDF0F6C0189E99A20 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
-					F93D0EC996C357194EC69276 = {
+					4F256DF20B66BC6DB879A355 = {
 						DevelopmentTeam = JAC9UTPT4U;
 					};
 				};
 			};
-			buildConfigurationList = DE8D08B95FC39AF904F150F9 /* Build configuration list for PBXProject "iOS" */;
+			buildConfigurationList = 73B7F1D4BC59D3726FA5090B /* Build configuration list for PBXProject "iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = BAB3AFE88E5FFE348FAF6372;
-			productRefGroup = 013F9E60158D8B7066B15CF2 /* Products */;
+			mainGroup = 6CB294809C6E5C536D5AD2DD;
+			productRefGroup = A07EA0E7194DC4B82EF5D950 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = DE7BAA544B2D1A597B507541 /* Products */;
-					ProjectRef = 2FCCD0D1D5EAFC1AD1E4B9BE /* DarkLightning.xcodeproj */;
+					ProductGroup = 3EA80190D07ABF094A88EC5C /* Products */;
+					ProjectRef = 0152CD59EDCC989BB55A3277 /* DarkLightning.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				F93D0EC996C357194EC69276 /* iOS */,
+				4F256DF20B66BC6DB879A355 /* iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A5C891AD446A0181A862B656 /* OSX.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			name = OSX.framework;
-			path = DarkLightning.framework;
-			remoteRef = E9ACF94B83AEB40298DAFEA9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A9E578F636FBF21CE82917CC /* tvOS.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			name = tvOS.framework;
-			path = DarkLightning.framework;
-			remoteRef = 9139969083B5FC4697DBF2CA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DCFA6CF53B1C73F9FA77228D /* OSX-Tests.xctest */ = {
+		756970C09383C2C83E2161A3 /* Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			name = "OSX-Tests.xctest";
-			path = DarkLightning.xctest;
-			remoteRef = 61640AA03C58BC8B4D5C0A51 /* PBXContainerItemProxy */;
+			path = Tests.xctest;
+			remoteRef = E585E211A61C9C48CDDC7D3A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DEE96F710807ADBA1DAFE200 /* iOS.framework */ = {
+		7C3703E2E426EDD6E7F05176 /* tvOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DarkLightning.framework;
+			remoteRef = 9C19E0D9C2227E397878E81B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9C66CCD970FA2299BCE5BE9F /* DarkLightning.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DarkLightning.framework;
+			remoteRef = 1BD0F119B70DDAE25E11F134 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AED8C3BE8614721D89C0C246 /* iOS.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			name = iOS.framework;
 			path = DarkLightning.framework;
-			remoteRef = 88590F18FBFD6D67755534D8 /* PBXContainerItemProxy */;
+			remoteRef = F7ECE63B8FC6874C99F1DB1B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5D2D90F5BC76801B2F75E662 /* Sources */ = {
+		E255899D382F65A75C4A41BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3D2D774A575C23A146A7C88 /* AppDelegate.m in Sources */,
-				74E00C8BC3BECE47E9215B71 /* JMConcreteRootViewModel.m in Sources */,
-				6B2179C6FC3044001691B9F6 /* JMRootView.m in Sources */,
-				3675E94469DF068FD727E1DF /* JMRootViewController.m in Sources */,
-				3CB765DA35ADD403C2CB234F /* main.m in Sources */,
+				7C05B2753FAA3893539DCE7D /* AppDelegate.swift in Sources */,
+				5C3649E85B8920A84650BBF2 /* MessengerDelegate.swift in Sources */,
+				F2D28419B9C1A46BC55CDB8A /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A322EDDE82C128C13CD362D2 /* PBXTargetDependency */ = {
+		B419FFD71ECB536A00CB471D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = iOS;
-			targetProxy = 7F88987C73E70E38750682B2 /* PBXContainerItemProxy */;
+			targetProxy = B419FFD61ECB536A00CB471D /* PBXContainerItemProxy */;
+		};
+		B4CCE5BA1ECB529B00E44C98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = iOS;
+			targetProxy = B4CCE5B91ECB529B00E44C98 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		12201C746897487C2F5E94DA /* Debug */ = {
+		1AA0F58DECEE2C9260961DE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C38E304A528710D17CC9278C /* debug.xcconfig */;
+			baseConfigurationReference = AE7C2ED85D2B793662EE988E /* Debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		2C8A538F2C67F6256134D225 /* Release */ = {
+		933ACF16592F81519DB6F5BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46E8B6191F323EE69928E21D /* release.xcconfig */;
+			baseConfigurationReference = 702955FB02A0A4268CA6C723 /* Release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = JAC9UTPT4U;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 			};
 			name = Release;
 		};
-		ADA8DD03509CC9060E5D72F2 /* Debug */ = {
+		B77E94A8E0F1847D99616EA2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63BAF748F128CB53A021C5FF /* debug.xcconfig */;
+			baseConfigurationReference = F392C2AA09D97D05EA793C52 /* Release.xcconfig */;
 			buildSettings = {
+			};
+			name = Release;
+		};
+		EF5394ECD5F9A98B08F435B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB3EC1464FDFB1EB0717D9AF /* Debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = JAC9UTPT4U;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 			};
 			name = Debug;
-		};
-		FDC232E7D682CA2D3F976373 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CDFA1370E5A3F3FFCDAF586 /* release.xcconfig */;
-			buildSettings = {
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A4DC6F9EFC393D7C2F857DDD /* Build configuration list for PBXNativeTarget "iOS" */ = {
+		326F446B8503F92F94BD450A /* Build configuration list for PBXNativeTarget "iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2C8A538F2C67F6256134D225 /* Release */,
-				ADA8DD03509CC9060E5D72F2 /* Debug */,
+				933ACF16592F81519DB6F5BF /* Release */,
+				EF5394ECD5F9A98B08F435B5 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE8D08B95FC39AF904F150F9 /* Build configuration list for PBXProject "iOS" */ = {
+		73B7F1D4BC59D3726FA5090B /* Build configuration list for PBXProject "iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				12201C746897487C2F5E94DA /* Debug */,
-				FDC232E7D682CA2D3F976373 /* Release */,
+				1AA0F58DECEE2C9260961DE2 /* Debug */,
+				B77E94A8E0F1847D99616EA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B188F035852A846622DABCA6 /* Project object */;
+	rootObject = E0982C9EDF0F6C0189E99A20 /* Project object */;
 }
