@@ -1,4 +1,0 @@
-SDKROOT = iphoneos
-INFOPLIST_FILE = $(SRCROOT)/Configuration/iOS/Info.plist
-PRODUCT_BUNDLE_IDENTIFIER = de.jensmeder.darklightning.messenger
-CODE_SIGN_IDENTITY = iPhone Developer

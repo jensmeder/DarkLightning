@@ -1,0 +1,6 @@
+ignore:
+  - "Sources/Daemon/Protocols"
+  - "Sources/Port/Protocols"
+  - "Sources/Utils/Protocols"
+  - "Tests/"
+  - "Examples/"

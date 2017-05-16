@@ -1,0 +1,92 @@
+/**
+ *
+ * 	DarkLightning
+ *
+ *
+ *
+ *	The MIT License (MIT)
+ *
+ *	Copyright (c) 2017 Jens Meder
+ *
+ *	Permission is hereby granted, free of charge, to any person obtaining a copy of
+ *	this software and associated documentation files (the "Software"), to deal in
+ *	the Software without restriction, including without limitation the rights to
+ *	use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ *	the Software, and to permit persons to whom the Software is furnished to do so,
+ *	subject to the following conditions:
+ *
+ *	The above copyright notice and this permission notice shall be included in all
+ *	copies or substantial portions of the Software.
+ *
+ *	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ *	FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ *	COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ *	IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ *	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+import Foundation
+
+/**
+ *
+ * The delegate of a Port object. Adopt this protocol to receive callbacks for Port related events.
+ *
+ */
+public protocol PortDelegate: class {
+    /**
+     *
+     * Tells the delegate that a connection has been established to the port
+     *
+     * - parameter port: The port that has received the connection
+     *
+     */
+    func port(didConnect port: DarkLightning.Port)
+    
+    /**
+     *
+     * Tells the delegate that a connection has been cancelled to the port
+     *
+     * - parameter port: The port that has cancelled the connection
+     *
+     */
+    func port(didDisconnect port: DarkLightning.Port)
+    
+    /**
+     *
+     * Tells the delegate that a port has received data
+     *
+     * - parameter port: The port that did receive data
+     * - paramter data: The data that has been received
+     */
+    func port(port: DarkLightning.Port, didReceiveData data: OOData)
+}
+
+/**
+ *
+ * A fake implementation of the PortDelegate protocol that can be used for mocking during testing or unused parameters.
+ *
+ */
+public final class PortDelegateFake: PortDelegate {
+    public var port: DarkLightning.Port?
+    
+	// MARK: - Init
+    
+    public init() {
+        
+    }
+    
+    // MARK: - PortDelegate
+    
+    public func port(didConnect port: DarkLightning.Port) {
+        self.port = port
+    }
+    
+    public func port(didDisconnect port: DarkLightning.Port) {
+        self.port = port
+    }
+    
+    public func port(port: DarkLightning.Port, didReceiveData data: OOData) {
+        self.port = port
+    }
+}

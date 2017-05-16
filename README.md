@@ -5,7 +5,7 @@
 
 # DarkLightning
                       
-DarkLightning is a lightweight Objective-C library to allow data transmission between iOS/tvOS devices (Lightning port, Dock connector, USB-C) and OSX (USB) at 480MBit - without jailbreaking your iOS/tvOS device. It uses the usbmuxd service on OSX to open a TCP socket connection to the iOS/tvOS device. 
+DarkLightning is a lightweight Swift library to allow data transmission between iOS/tvOS devices (Lightning port, Dock connector, USB-C) and OSX (USB) at 480MBit - without jailbreaking your iOS/tvOS device. It uses the usbmuxd service on OSX to open a TCP socket connection to the iOS/tvOS device. 
 
 ## Overview
 
@@ -13,9 +13,8 @@ DarkLightning is a lightweight Objective-C library to allow data transmission be
 2. [System requirements](README.md#2-requirements)
 3. [Installation](README.md#3-installation)
 4. [Usage](README.md#4-usage)
-5. [Packet Protocols](README.md#5-packet-protocols)
-6. [Example](README.md#6-example)
-7. [License](README.md#7-license)
+5. [Example](README.md#5-example)
+6. [License](README.md#6-license)
 
 ## 1. Features
 
@@ -28,8 +27,8 @@ DarkLightning is a lightweight Objective-C library to allow data transmission be
 
 * iOS 8.0+
 * tvOS 9.0+
-* Mac OS X 10.9+
-* Xcode 7+ (due to new Objective-C syntax with nullability and generics)
+* Mac OS X 10.10+
+* Xcode 8.3
 
 ## 3. Installation
 
@@ -45,7 +44,7 @@ There are three subspecs included: `iOS`, `tvOS` and `OSX`. CocoaPods automatica
 
 The basic procedure to open a connection between iOS/tvOS and OSX looks like this:
 
-1. Start a `JMMobileDevicePort` on a port on iOS/tvOS
+1. Start a `DevicePort` on a port on iOS/tvOS
 2. Discover the device on OSX
 3. Establish a connection to the previously defined port on iOS/tvOS
 
@@ -55,237 +54,92 @@ You can send an arbitrary amount of bytes between iOS/tvOS and OSX. The data are
 
 #### 4.1.1 Initialization
 
-```objc
-JMMobileDevicePort* devicePort = [[JMMobileDevicePort alloc]initWithPort:2345];
-devicePort.delegate = self;
-[devicePort open];
+```swift
+let port = DevicePort(delegate: MyPortDelegate())
+port.open()
 
 ```
 #### 4.1.2 Receiving Data
 
-```objc
--(void) mobileDevicePort:(nonnull JMMobileDevicePort*)port didReceiveData:(nonnull NSData*)data
-{
-  // Do something with the data
+```swift
+public func port(port: DarkLightning.Port, didReceiveData data: OOData) {
+
 }
 ```
 
 #### 4.1.3 Sending Data
 
-```objc
-NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
-[devicePort writeData:data];
+```swift
+let data = "Hello World".data(using: .utf8)
+port.writeData(data: data!)
 ```
 
 ### 4.2 OSX
 
 #### 4.2.1 Initialization
 
-```objc
-JMUSBDeviceManager* manager = [[JMUSBDeviceManager alloc]init];
-manager.delegate = self;
-[manager start];
+```swift
+let daemon = USBDaemon(delegate: MyDaemonDelegate(), deviceDelegate: MyDeviceDelegate())
+daemon.start()
 ```
 
 #### 4.2.2 Device Discovery
 
-As soon as you plug in or out an iOS/tvOS device to your Mac you will receive a callback on the corresponding delegate method (`deviceManager:deviceDidAttach:` or `deviceManager:deviceDidDetach:`) of `JMUSBDeviceManager*`. You will also receive a callback on `deviceManager:deviceDidAttach:` for every iOS/tvOS device that was already attached to OSX when you started the discovery via `[manager start];`.
+As soon as you plug in or out an iOS/tvOS device to your Mac you will receive a callback on the corresponding delegate method (`daemon(_:didAttach:)` or `daemon(_:didDetach:)`) of `USBDaemon`. You will also receive a callback on `daemon(_:didAttach:)` for every iOS/tvOS device that was already attached to OSX when you started the discovery via `daemon.start()`.
 
-```objc
-JMUSBDevice* _myDevice;
+```swift
 
-...
+// Called for every device that already is or will be attached to the system
 
-// Called for every device that is or will be attached to the system
-
--(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidAttach:(nonnull JMUSBDevice*)device
-{
-  // Save the device for later usage
-  
-  _myDevice = device;
+public func daemon(_ daemon: Daemon, didAttach device: Device) {
+     
 }
 
 // Called for every iOS/tvOS device that has been detached from the system
 
--(void) deviceManager:(nonnull JMUSBDeviceManager*)manager deviceDidDetach:(nonnull JMUSBDevice*)device
-{
-  // Device is no longer attached to the system. Cleanup any connections and references to it.
-  
-  _myDevice = nil;
+public func daemon(_ daemon: Daemon, didDetach device: Device) {
+        
 }
 ```
 #### 4.2.3 Connections
 
-With the help of a discovered `JMUSBDevice` and a port number you can now establish a connection to your iOS/tvOS app.
+With the help of a discovered `Device` you can now establish a connection to your iOS/tvOS app.
 
-_Note:_ The port number needs to be identical to the one you have used to open a `JMMobileDevicePort` on iOS/tvOS.
-
-```objc
-JMUSBDeviceConnection* myDeviceConnection = [[JMUSBDeviceConnection alloc] initWithDevice:_myDevice andPort:2345];
-myDeviceConnection.delegate = self;
-[myDeviceConnection connect];
+```swift
+device.connect()
 ```
 When you are done with the connection make sure to close it properly.
 
-```objc
-[myDeviceConnection disconnect];
-myDeviceConnection = nil;
+```swift
+device.disconnect()
 ```
 
 #### 4.2.4 Receiving Data
 
-```objc
--(void) connection:(nonnull JMUSBDeviceConnection*)connection didReceiveData:(nonnull NSData*)data
-{
-  // Do something with the data
+```swift
+public func device(_ device: Device, didReceiveData data: OOData) {
+		
 }
 ```
 
 #### 4.2.3 Sending Data
 
-```objc
-NSData* data = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
-[_myDeviceConnection writeData:data];
-```
-### 4.3 iOS/tvOS Simulator
-
-If you do not want to keep your iOS/tvOS device connected at all time you can also use the iOS/tvOS Simulator during development. 
-
-#### 4.3.1 iOS/tvOS
-
-There are no changes required to your iOS/tvOS app to use DarkLightning in the iOS/tvOS Simulator. :)
-
-#### 4.3.2 OSX
-
-To connect to the iOS/tvOS Simulator you need to use `JMSimulatorConnection` instead of `JMUSBDeviceConnection`. `JMSimulatorConnection` and `JMUSBDeviceConnection` inherit from the same base class `JMDeviceConnection` thus having the same interface. The delegate callbacks are the same as well. 
-
-```objc
-JMSimulatorConnection* simulatorConnection = [[JMSimulatorConnection alloc]initWithPort:2347];
-simulatorConnection.delegate = self;
-[simulatorConnection connect];
+```swift
+let data = "Hello World".data(using: .utf8)
+device.writeData(data: data!)
 ```
 
-You can also use `JMSimulatorConnection` to connect to your iPhone or iPhone Simulator via network. 
-
-```objc
-JMSimulatorConnection* simulatorConnection = [[JMSimulatorConnection alloc]initWithHost:@"192.168.1.5" andPort:2347];
-```
-
-## 5. Packet Protocols
-
-DarkLightning uses a stream based approach to transmit and receive data via TCP. If you write a data chunk on one end the bytes will arrive in the right order but they might not be in one piece. If you send data chunks very fast they might even arrive as a bigger chunk. 
-DarkLightning comes with two packet protocols to en- and decode packets. Each protocol allows you to send data packets of up to 4GB in size. 
-
-## 5.1 Simple Packet Protocol
-
-The simple packet protocol can be used to send data of the same type or in conjunction with a higher level protocol.
-
-### 5.1.1 Encoding
-
-```objc
-JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
-```
-
-```objc
-NSData* message = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
-NSData* packet = [packetProtocol encodePacket:data];
-[_myDeviceConnection writeData:packet];
-```
-
-### 5.1.2 Decoding
-
-The packet protocol object keeps track of all incoming data. If a packet has been split into smaller pieces the packet protocol object buffers the data. The next time you call `processData:` it tries to decode the packet again. This process continues until all parts of the packet have arrived and the packet can be decoded. Therefore, it is necessary to keep a reference to the packet protocol object.
-
-```objc
-JMSimpleDataPacketProtocol* packetProtocol = [[JMSimpleDataPacketProtocol alloc]init];
-```
-
-```objc
--(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data
-{
-	NSArray<NSData*>* packets = [packetProtocol processData:data];
-	
-	for (NSData* packet in packets)
-	{
-		// Do something with the packet
-	}
-}
-```
-
-## 5.2 Tagged Packet Protocol
-
-The tagged packet protocol can be used to send data with different types, e.g., using one tag for each type of data. 
-
-### 5.2.1 Encoding
-
-```objc
-static const uint16_t MESSAGE_TAG = 12345;
-static const uint16_t RAW_TAG = 42;
-
-JMTaggedPacketProtocol* packetProtocol = [[JMTaggedPacketProtocol alloc]init];
-```
-
-```objc
-NSData* messageData = [@"Hello World" dataUsingEncoding:NSUTF8StringEncoding];
-JMTaggedPacket* packet = [[JMTaggedPacket alloc] initWithData:messageData andTag:MESSAGE_TAG];
-NSData* packetData = [packetProtocol encodePacket:data];
-[_myDeviceConnection writeData:packetData];
-```
-
-```objc
-uint8_t data[] = {0x00, 0x01, 0x02, 0x03};
-NSData* messageData = [NSData dataWithBytes:data length:sizeof(data)];
-JMTaggedPacket* packet = [[JMTaggedPacket alloc] initWithData:messageData andTag:RAW_TAG];
-NSData* packetData = [packetProtocol encodePacket:data];
-[_myDeviceConnection writeData:packetData];
-```
-
-### 5.2.2 Decoding
-
-The packet protocol object keeps track of all incoming data. If a packet has been split into smaller pieces the packet protocol object buffers the data. The next time you call `processData:` it tries to decode the packet again. This process continues until all parts of the packet have arrived and the packet can be decoded. Therefore, it is necessary to keep a reference to the packet protocol object.
-
-```objc
-JMTaggedPacketProtocol* packetProtocol = [[JMTaggedPacketProtocol alloc]init];
-```
-
-```objc
--(void)mobileDevicePort:(JMMobileDevicePort *)port didReceiveData:(NSData *)data
-{
-	NSArray<JMTaggedPacket*>* packets = [packetProtocol processData:data];
-	
-	for (JMTaggedPacket* packet in packets)
-	{
-		switch(packet.tag)
-		{
-			case MESSAGE_TAG:
-			{
-				// Do something with the packet data
-			
-				break;
-			}
-			
-			case RAW_TAG:
-			{
-				// Do something with the packet data
-			
-				break;
-			}
-		}
-	}
-}
-```
-
-## 6. Example
+## 5. Example
 
 The Example (see _Example_ folder) is a simple messenger that uses DarkLightning to send text messages from iOS/tvOS to OSX and vice versa. 
 
 _Note_: The iOS/tvOS application needs to be launched before the OSX part. The OSX part will try to connect to the first device that has been attached via USB. If there are no attached devices it tries to connect to the iOS/tvOS Simulator.
 
-## 7. License
+## 6. License
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Jens Meder
+Copyright (c) 2017 Jens Meder
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

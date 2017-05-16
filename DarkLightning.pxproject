@@ -1,35 +1,30 @@
 Phoenx::Project.new do |s|
 		
 	s.project_name = "DarkLightning"
-	s.config_files["Debug"] = "Configuration/Shared/debug.xcconfig"
-	s.config_files["Release"] = "Configuration/Shared/release.xcconfig"
+	s.config_files["Debug"] = "Support/Project/Debug.xcconfig"
+	s.config_files["Release"] = "Support/Project/Release.xcconfig"
 	
-	s.target "iOS", :framework, :ios, '9.0' do |target|
+	s.target "iOS", :framework, :ios, '8.0' do |target|
 	
-		target.config_files["Debug"] = "Configuration/iOS/debug.xcconfig"
-		target.config_files["Release"] = "Configuration/iOS/release.xcconfig"
-		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
-		target.sources = "Source/Sockets/**/*.{h,m}", "Source/MobileDevicePort/**/*.{h,m}", "Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
-		target.public_headers = "Source/iOS/**/*.{h}","Source/MobileDevicePort/**/*.{h}", "Source/PacketProtocol/**/*.{h}"
-		target.private_headers = ["Source/Sockets/**/*.{h}"]
+		target.config_files["Debug"] = "Support/iOS/Debug.xcconfig"
+		target.config_files["Release"] = "Support/iOS/Release.xcconfig"
+		target.support_files = ["Support/**/*.{xcconfig,plist}"]
+		target.sources = ["Sources/Port/**/*.{swift}", "Sources/Utils/**/*.{swift}"]
 	
 	end
 	
-	s.target "OSX", :framework, :osx, '10.11' do |target|
+	s.target "OSX", :framework, :osx, '10.10' do |target|
 	
-		target.config_files["Debug"] = "Configuration/OSX/debug.xcconfig"
-		target.config_files["Release"] = "Configuration/OSX/release.xcconfig"
-		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
-		target.sources = "Source/Sockets/**/*.{h,m}", "Source/USB/**/*.{h,m,c}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
-		target.public_headers = "Source/OSX/**/*.{h}","Source/USB/*.{h}","Source/PacketProtocol/**/*.{h}","Source/USB/Connections/**/*.{h}"
-		target.private_headers = ["Source/Sockets/**/*.{h}", "Source/USB/USBMux/**/*.{h}"]
+		target.config_files["Debug"] = "Support/OSX/Debug.xcconfig"
+		target.config_files["Release"] = "Support/OSX/Release.xcconfig"
+		target.support_files = ["Support/**/*.{xcconfig,plist}"]
+		target.sources = ["Sources/**/*.{swift}"]
 		
-		target.test_target "OSX-Tests" do |t|
+		target.test_target "Tests" do |t|
 		
-			t.sources = ["Tests/**/*.{h,m,c}"]
-			t.frameworks = ["Frameworks/Kiwi/Kiwi.framework"]
-			t.config_files["Debug"] = "Configuration/OSXTests/debug.xcconfig"
-			t.config_files["Release"] = "Configuration/OSXTests/release.xcconfig"
+			t.sources = ["Tests/**/*.{swift}"]
+			t.config_files["Debug"] = "Support/Tests/Debug.xcconfig"
+			t.config_files["Release"] = "Support/Tests/Release.xcconfig"
 		
 		end
 	
@@ -37,12 +32,10 @@ Phoenx::Project.new do |s|
 	
 	s.target "tvOS", :framework, :tvos, '9.0' do |target|
 	
-		target.config_files["Debug"] = "Configuration/tvOS/debug.xcconfig"
-		target.config_files["Release"] = "Configuration/tvOS/release.xcconfig"
-		target.support_files = ["Configuration/**/*.{xcconfig,plist}"]
-		target.sources = "Source/Sockets/**/*.{h,m}", "Source/MobileDevicePort/**/*.{h,m}","Source/PacketProtocol/**/*.{h,m}", "Source/Internal/**/*.{h,m}"
-		target.public_headers = "Source/tvOS/**/*.{h}","Source/MobileDevicePort/**/*.{h}","Source/PacketProtocol/**/*.{h}"
-		target.private_headers = ["Source/Sockets/**/*.{h}"]
+		target.config_files["Debug"] = "Support/tvOS/Debug.xcconfig"
+		target.config_files["Release"] = "Support/tvOS/Release.xcconfig"
+		target.support_files = ["Support/**/*.{xcconfig,plist}"]
+		target.sources = "Sources/Port/**/*.{swift}", "Sources/Utils/**/*.{swift}"
 	
 	end
 
