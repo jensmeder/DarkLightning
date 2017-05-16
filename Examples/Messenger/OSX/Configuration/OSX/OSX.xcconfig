@@ -1,5 +1,0 @@
-SDKROOT = macosx
-INFOPLIST_FILE = $(SRCROOT)/Configuration/OSX/Info.plist
-PRODUCT_BUNDLE_IDENTIFIER = de.jensmeder.darklightning.messenger
-HEADER_SEARCH_PATHS = $(PROJECT_DIR)/Source/OSX/**
-USER_HEADER_SEARCH_PATHS = $(PROJECT_DIR)/Source/OSX/**
