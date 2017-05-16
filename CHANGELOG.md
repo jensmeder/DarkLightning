@@ -6,8 +6,8 @@
 
 ### What's new
 
-* All new OOP interface with protocols
 * Completely rewritten in Swift
+* All new OOP interface with protocols
 
 ### Known issues
 
