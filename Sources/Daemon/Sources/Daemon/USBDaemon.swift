@@ -94,14 +94,18 @@ public final class USBDaemon: DaemonWrap {
                         ReadStreamReaction(
                             delegate: ReceivingDataReaction(
                                 mapping: { (plist: [String : Any]) -> (USBMuxMessage) in
-                                    return AttachMessage(
-                                        origin: DetachMessage(
-											plist: plist,
-											devices: deviceList
-                                        ),
-                                        plist: plist,
-                                        devices: deviceList
-                                    )
+                                    return IncomingMessages(
+										messages: [
+											AttachMessage(
+												plist: plist,
+												devices: deviceList
+											),
+											DetachMessage(
+												plist: plist,
+												devices: deviceList
+											)
+										]
+									)
                                 },
                                 dataMapping: { (data: Data) -> (OODataArray) in
                                     return USBMuxMessageDataArray(

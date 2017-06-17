@@ -12,15 +12,11 @@ import XCTest
 class RawDataSpec: XCTestCase {
     
     func test_GIVEN_RawData_WHEN_rawValue_THEN_returnsOriginValue() {
-        // GIVEN
-        let origin = "Hello World!".data(using: .utf8)!
-        let data = RawData(origin)
-    
-        // WHEN
-        let result = data.rawValue
-        
-        // THEN
-        XCTAssert(result == origin)
+        XCTAssert(
+			RawData(
+				"Hello World!".data(using: .utf8)!
+			).rawValue == "Hello World!".data(using: .utf8)!
+		)
     }
     
 }

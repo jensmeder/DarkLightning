@@ -32,7 +32,11 @@ internal final class DictData: OOData {
 	private let dict: [String: Any]
 	
 	// MARK: Init
-    
+	
+	internal convenience init() {
+		self.init(dict: [:])
+	}
+	
 	internal required init(dict: [String: Any]) {
         self.dict = dict
     }

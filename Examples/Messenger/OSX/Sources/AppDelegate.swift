@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
         let viewController = RootViewController()
         daemon = USBDaemon(delegate: viewController, deviceDelegate: viewController)
-        window = NSWindow(contentRect: NSRect(x: 40, y: -500, width: 600, height: 400), styleMask: [NSTitledWindowMask,NSClosableWindowMask,NSMiniaturizableWindowMask], backing: .buffered, defer: true)
+        window = NSWindow(contentRect: NSRect(x: 40, y: -500, width: 600, height: 400), styleMask: [.titled, .closable, .miniaturizable], backing: .buffered, defer: true)
         window.title = "Messenger"
         window.contentViewController = viewController
         window.makeKeyAndOrderFront(nil)

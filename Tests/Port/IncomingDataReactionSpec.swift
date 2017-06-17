@@ -12,16 +12,14 @@ import XCTest
 class IncomingDataReactionSpec: XCTestCase {
     
     func test_GIVEN_IncomingDataReaction_WHEN_decode_THEN_informsDelegate() {
-        // GIVEN
         let delegate = PortDelegateFake()
-        let port = PortFake()
-        let reaction = IncomingDataReaction(port: port, delegate: delegate)
-
-        // WHEN
-        reaction.decode(data: OODataFake())
-        
-        // THEN
-        XCTAssert(port.isEqual(obj: delegate.port!))
+        IncomingDataReaction(
+			port: PortFake(),
+			delegate: delegate
+		).decode(
+			data: OODataFake()
+		)
+        XCTAssert(delegate.port!.isEqual(obj: PortFake()))
     }
     
 }

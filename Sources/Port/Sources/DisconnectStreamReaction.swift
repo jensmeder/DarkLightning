@@ -33,7 +33,7 @@ internal final class DisconnectStreamReaction: NSObject, StreamDelegate {
     private let port: Port
 	
 	// MARK: Init
-    
+	
     internal required init(delegate: PortDelegate, port: Port) {
         self.delegate = delegate
         self.port = port

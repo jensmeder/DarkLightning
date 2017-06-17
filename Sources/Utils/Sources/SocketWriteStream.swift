@@ -41,14 +41,13 @@ internal final class SocketWriteStream: WriteStream {
 	
 	func write(data: Data) {
 		if !data.isEmpty, let outputStream = outputStream.rawValue {
-			let bytes = [UInt8](data)
-			var bytesWritten = outputStream.write(bytes, maxLength: data.count)
-			while bytesWritten > 0 && bytesWritten != data.count {
+			var bytesWritten = 0
+			repeat {
 				autoreleasepool {
 					let subData = [UInt8](data.subdata(in: bytesWritten..<data.count-bytesWritten))
 					bytesWritten += outputStream.write(subData, maxLength:subData.count)
 				}
-			}
+			} while(bytesWritten > 0 && bytesWritten != data.count && outputStream.streamError == nil)
 		}
 	}
 }

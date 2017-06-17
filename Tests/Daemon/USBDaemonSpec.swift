@@ -12,8 +12,7 @@ import XCTest
 class USBDaemonSpec: XCTestCase {
     
     func testUSBDaemonCompositionRoot() {
-        let daemon = USBDaemon()
-        XCTAssertNotNil(daemon)
+        XCTAssertNotNil(USBDaemon())
     }
     
 }

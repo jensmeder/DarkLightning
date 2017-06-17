@@ -12,18 +12,11 @@ import XCTest
 class ReadStreamReactionSpec: XCTestCase {
     
     func test_GIVEN_ReadStreamReaction_WHEN_stream_AND_hasBytesAvailableHandle_THEN_readsDataFromStream() {
-        // GIVEN
-        let data = "Hello World!".data(using: .utf8)!
-        let stream = InputStream(data: data)
+        let stream = InputStream(data: "Hello World!".data(using: .utf8)!)
         stream.open()
         let delegate = DataDecodingFake()
-        let reaction = ReadStreamReaction(delegate: delegate)
-        
-        // WHEN
-        reaction.stream(stream, handle: .hasBytesAvailable)
-        
-        // THEN
-        XCTAssert(data == delegate.data!.rawValue)
+        ReadStreamReaction(delegate: delegate).stream(stream, handle: .hasBytesAvailable)
+        XCTAssert("Hello World!".data(using: .utf8)! == delegate.data!.rawValue)
     }
     
 }

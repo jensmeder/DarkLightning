@@ -33,7 +33,14 @@ internal final class DataWithUInt32: OOData {
 	private let origin: OOData
 	
 	// MARK: Init
-    
+	
+	internal convenience init(value: UInt32) {
+		self.init(
+			value: value,
+			origin: OODataFake()
+		)
+	}
+	
     internal required init(value: UInt32, origin: OOData) {
         self.value = value
 		self.origin = origin

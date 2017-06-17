@@ -12,26 +12,20 @@ import XCTest
 class NetworkUInt32Spec: XCTestCase {
     
     func test_GIVEN_NetworkUInt32WithLittleEndian_WHEN_rawValue_THEN_returnBigEndianValue() {
-        // GIVEN
-        let rawValue: UInt32 = 12
-        let value = NetworkUInt32(origin: rawValue, byteOrder: Int32(OSLittleEndian))
-        
-        // WHEN
-        let result = value.rawValue
-        
-        // THEN
-        XCTAssert(rawValue != result)
+        XCTAssert(
+			NetworkUInt32(
+				origin: 12,
+				byteOrder: Int32(OSLittleEndian)
+			).rawValue != UInt32(12)
+		)
     }
     
     func test_GIVEN_NetworkUInt32WithBigEndian_WHEN_rawValue_THEN_returnOriginValue() {
-        // GIVEN
-        let rawValue: UInt32 = 12
-        let value = NetworkUInt32(origin: rawValue, byteOrder: Int32(OSBigEndian))
-        
-        // WHEN
-        let result = value.rawValue
-        
-        // THEN
-        XCTAssert(rawValue == result)
+        XCTAssert(
+			NetworkUInt32(
+				origin: 12,
+				byteOrder: Int32(OSBigEndian)
+			).rawValue == UInt32(12)
+		)
     }
 }

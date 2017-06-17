@@ -12,37 +12,31 @@ import XCTest
 class USBMuxMessageDataSpec: XCTestCase {
     
     func test_GIVEN_USBMuxMessageDataWithEmptyData_WHEN_rawValue_THEN_shouldReturnEmptyData() {
-        // GIVEN
-        let data = USBMuxMessageData(origin: Data())
-        
-        // WHEN
-        let result = data.rawValue
-        
-        // THEN
-        XCTAssert(result.isEmpty)
+        XCTAssert(
+			USBMuxMessageData(
+				origin: Data()
+			).rawValue.isEmpty
+		)
     }
     
     func test_GIVEN_USBMuxMessageDataWithInvalidData_WHEN_rawValue_THEN_shouldReturnEmptyData() {
-        // GIVEN
-        let data = USBMuxMessageData(origin: "Hello World! Hello World! Hello World!".data(using: .utf8)!)
-        
-        // WHEN
-        let result = data.rawValue
-        
-        // THEN
-        XCTAssert(result.isEmpty)
+        XCTAssert(
+			USBMuxMessageData(
+				origin: "Hello World! Hello World! Hello World!".data(using: .utf8)!
+			).rawValue.isEmpty
+		)
     }
     
     func test_GIVEN_USBMuxMessageDataWithValidData_WHEN_rawValue_THEN_shouldReturnRawData() {
-        // GIVEN
-        let rawData = "Hello World!".data(using: .utf8)!
-        let origin = MessageData(data: RawData(rawData), packetType: 1, messageTag: 2, protocolType: 3)
-        let data = USBMuxMessageData(origin: origin.rawValue)
-        
-        // WHEN
-        let result = data.rawValue
-        
-        // THEN
-        XCTAssert(result == rawData)
+		XCTAssert(
+			USBMuxMessageData(
+				origin: MessageData(
+					data: RawData("Hello World!".data(using: .utf8)!),
+					packetType: 1,
+					messageTag: 2,
+					protocolType: 3
+				).rawValue
+			).rawValue == "Hello World!".data(using: .utf8)!
+		)
     }
 }

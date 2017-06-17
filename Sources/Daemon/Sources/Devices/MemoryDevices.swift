@@ -42,7 +42,16 @@ internal final class MemoryDevices: Devices {
             }
         )
     }
-    
+	
+	internal convenience init(devices: Memory<[Int: Data]>) {
+		self.init(
+			devices: devices,
+			closure: { (deviceID: Int, devices: Devices) -> (Device) in
+				return DeviceFake()
+			}
+		)
+	}
+	
     internal required init(devices: Memory<[Int: Data]>, closure: @escaping (Int, Devices) -> (Device)) {
         self.devices = devices
         self.closure = closure

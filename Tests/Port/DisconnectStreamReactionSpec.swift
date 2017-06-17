@@ -12,17 +12,21 @@ import XCTest
 class DisconnectStreamReactionSpec: XCTestCase {
     
     func test_GIVEN_DisconnectStreamReaction_WHEN_stream_THEN_informsDelegate() {
-        // GIVEN
-        let delegate = PortDelegateFake()
-        let port = PortFake()
-        let stream = OutputStream(toMemory: ())
-        let reaction = DisconnectStreamReaction(delegate: delegate, port: port)
-        
-        // WHEN
-        reaction.stream(stream, handle: .endEncountered)
-        
-        // THEN
-        XCTAssert(port.isEqual(obj: delegate.port!))
+		let delegate = PortDelegateFake()
+		DisconnectStreamReaction(
+			delegate: delegate,
+			port: PortFake()
+		).stream(
+			OutputStream(
+				toMemory: ()
+			),
+			handle: .endEncountered
+		)
+		XCTAssert(
+			delegate.port!.isEqual(
+				obj: PortFake()
+			)
+		)
     }
     
 }

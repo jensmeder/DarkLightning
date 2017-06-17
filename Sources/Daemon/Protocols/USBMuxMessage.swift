@@ -31,8 +31,7 @@ internal protocol USBMuxMessage: class {
 }
 
 internal final class USBMuxMessageFake: USBMuxMessage {
-    public var shouldDecode: Bool = false
-    
+
 	// MARK: - Init
     
     internal init() {
@@ -42,7 +41,7 @@ internal final class USBMuxMessageFake: USBMuxMessage {
     // MARK: - USBMuxMessage
     
 	func decode() {
-		shouldDecode = true
+		
 	}
 }
 

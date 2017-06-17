@@ -12,14 +12,9 @@ import XCTest
 class DictDataSpec: XCTestCase {
     
     func test_GIVEN_DictData_WHEN_rawValue_THEN_shouldReturnEncodedValue() {
-        // GIVEN
-        let data = DictData(dict: [:])
-        
-        // WHEN
-        let result = data.rawValue
-        
-        // THEN
-        XCTAssert(result.count > 0)
+        XCTAssert(
+			DictData().rawValue.count > 0
+		)
     }
     
 }

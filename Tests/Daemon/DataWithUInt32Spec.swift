@@ -12,14 +12,11 @@ import XCTest
 class DataWithUInt32Spec: XCTestCase {
     
     func test_GIVEN_DataWithUInt32_WHEN_rawValue_THEN_shouldReturnEncodedValue() {
-        // GIVEN
-        let data = DataWithUInt32(value: 42, origin: OODataFake())
-        
-        // WHEN
-        let result = data.rawValue
-        
-        // THEN
-        XCTAssert(result.count == 4)
+        XCTAssert(
+			DataWithUInt32(
+				value: 42
+			).rawValue.count == 4
+		)
     }
     
 }

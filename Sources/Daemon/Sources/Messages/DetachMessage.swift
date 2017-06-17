@@ -37,14 +37,12 @@ internal final class DetachMessage: USBMuxMessage {
 	
 	// MARK: Members
 	
-	private let origin: USBMuxMessage
 	private let plist: [String: Any]
 	private let devices: Devices
 	
 	// MARK: Init
 	
-	internal required init(origin: USBMuxMessage = USBMuxMessageFake(), plist: [String: Any], devices: Devices) {
-		self.origin = origin
+	internal required init(plist: [String: Any], devices: Devices) {
 		self.plist = plist
 		self.devices = devices
 	}
@@ -53,12 +51,8 @@ internal final class DetachMessage: USBMuxMessage {
 	
 	func decode() {
 		let messageType: String = plist[DetachMessage.MessageTypeKey] as! String
-		if messageType == DetachMessage.MessageTypeDetached {
-			let deviceID: Int = plist[DetachMessage.DeviceIDKey] as! Int
+		if messageType == DetachMessage.MessageTypeDetached, let deviceID: Int = plist[DetachMessage.DeviceIDKey] as? Int {
             devices.delete(withID: deviceID)
-		}
-		else {
-			origin.decode()
 		}
 	}
 }

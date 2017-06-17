@@ -39,22 +39,12 @@ internal final class AttachMessage: USBMuxMessage {
 	
 	// MARK: Members
 	
-	private let origin: USBMuxMessage
 	private let plist: [String: Any]
 	private let devices: Devices
 	
 	// MARK: Init
 	
-    internal convenience init(plist: [String: Any], devices: Devices) {
-        self.init(
-            origin: USBMuxMessageFake(),
-            plist: plist,
-            devices: devices
-        )
-    }
-    
-	internal required init(origin: USBMuxMessage, plist: [String: Any], devices: Devices) {
-		self.origin = origin
+    internal required init(plist: [String: Any], devices: Devices) {
 		self.plist = plist
 		self.devices = devices
 	}
@@ -66,9 +56,6 @@ internal final class AttachMessage: USBMuxMessage {
             let properties = plist[AttachMessage.PropertiesKey] as! [String : Any]
             let data = try! PropertyListSerialization.data(fromPropertyList: properties, format: .xml, options: 0)
             devices.insert(deviceID: deviceID, data: data)
-		}
-		else {
-			origin.decode()
 		}
 	}
 }

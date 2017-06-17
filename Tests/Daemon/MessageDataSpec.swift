@@ -12,14 +12,13 @@ import XCTest
 class MessageDataSpec: XCTestCase {
     
     func test_GIVEN_MessageData_WHEN_rawValue_THEN_shouldReturnEncodedData() {
-        // GIVEN
-        let data = MessageData(data: OODataFake(), packetType: 1, messageTag: 2, protocolType: 3)
-        
-        // WHEN
-        let result = data.rawValue
-        
-        // THEN
-        XCTAssert(result.count > 0)
+        XCTAssert(
+			MessageData(
+				packetType: 1,
+				messageTag: 2,
+				protocolType: 3
+			).rawValue.count > 0
+		)
     }
     
 }

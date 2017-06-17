@@ -12,92 +12,98 @@ import XCTest
 class CachedDevicesSpec: XCTestCase {
     
     func test_GIVEN_CachedDevicesWithoutObjects_WHEN_device_THEN_returnsEmptyArray() {
-        // GIVEN
-        let cache = Memory<[Int : Device]>(initialValue: [:])
-        let devices = CachedDevices(origin: DevicesFake(), cache: cache)
-    
-        // WHEN
-        let result = devices.device(withID: 0)
-    
-        // THEN
-        XCTAssertTrue(result.isEmpty)
+        XCTAssertTrue(
+			CachedDevices(
+				origin: DevicesFake(),
+				cache: Memory<[Int : Device]>(
+					initialValue: [:]
+				)
+			).device(
+				withID: 0
+			).isEmpty
+		)
     }
     
     func test_GIVEN_CachedDevicesWithObjects_WHEN_deviceWithValidId_THEN_returnsArrayWithExactlyOneObject() {
-        // GIVEN
-        let cache = Memory<[Int : Device]>(initialValue: [0: DeviceFake()])
-        let devices = CachedDevices(origin: DevicesFake(), cache: cache)
-        
-        // WHEN
-        let result = devices.device(withID: 0)
-        
-        // THEN
-        XCTAssertTrue(result.count == 1)
+        XCTAssertTrue(
+			CachedDevices(
+				origin: DevicesFake(),
+				cache: Memory<[Int : Device]>(
+					initialValue: [0: DeviceFake()]
+				)
+			).device(
+				withID: 0
+			).count == 1
+		)
     }
     
     func test_GIVEN_CachedDevicesWithObjects_WHEN_deviceWithValidId_THEN_returnsArrayWithObject() {
-        // GIVEN
-        let device = DeviceFake()
-        let cache = Memory<[Int : Device]>(initialValue: [0:device])
-        let devices = CachedDevices(origin: DevicesFake(), cache: cache)
-        
-        // WHEN
-        let result = devices.device(withID: 0)
-        
-        // THEN
-        XCTAssertTrue(result.first!.isEqual(obj: device))
+        XCTAssertTrue(
+			CachedDevices(
+				origin: DevicesFake(),
+				cache: Memory<[Int : Device]>(
+					initialValue: [0:DeviceFake()]
+				)
+			).device(
+				withID: 0
+			).first!.isEqual(
+				obj: DeviceFake()
+			)
+		)
     }
     
     func test_GIVEN_CachedDevices_WHEN_insert_THEN_cacheShouldContainNewObject() {
-        // GIVEN
         let cache = Memory<[Int : Device]>(initialValue: [:])
-        let devices = CachedDevices(origin: MemoryDevices(), cache: cache)
-        
-        // WHEN
-        devices.insert(deviceID: 0, data: "Hello".data(using: .utf8)!)
-        
-        // THEN
+        CachedDevices(
+			origin: MemoryDevices(),
+			cache: cache
+		).insert(
+			deviceID: 0,
+			data: "Hello".data(
+				using: .utf8
+			)!
+		)
         XCTAssertNotNil(cache.rawValue[0])
     }
     
     func test_GIVEN_CachedDevices_WHEN_delete_AND_deviceIDDoesNotExist_THEN_cacheShouldNotChange() {
-        // GIVEN
         let cache = Memory<[Int : Device]>(initialValue: [:])
-        let devices = CachedDevices(origin: MemoryDevices(), cache: cache)
-        
-        // WHEN
-        devices.delete(withID: 0)
-        
-        // THEN
+        CachedDevices(
+			origin: MemoryDevices(),
+			cache: cache
+		).delete(
+			withID: 0
+		)
         XCTAssertTrue(cache.rawValue.count == 0)
     }
     
     func test_GIVEN_CachedDevices_WHEN_delete_AND_deviceIDExists_THEN_deviceShouldBeRemovedFromCache() {
-        // GIVEN
         let cache = Memory<[Int : Device]>(initialValue: [0:DeviceFake()])
-        let devices = CachedDevices(origin: MemoryDevices(devices: Memory<[Int : Data]>(initialValue: [0:Data()]), closure: { (deviceID: Int, devices: Devices) -> (Device) in
-            return DeviceFake()
-        }), cache: cache)
-        
-        // WHEN
-        devices.delete(withID: 0)
-        
-        // THEN
+		CachedDevices(
+			origin: MemoryDevices(
+				devices: Memory<[Int : Data]>(
+					initialValue: [0:Data()]
+				)
+			),
+			cache: cache
+		).delete(
+			withID: 0
+		)
         XCTAssertTrue(cache.rawValue.count == 0)
     }
     
     func test_GIVEN_CachedDevices_WHEN_delete_AND_deviceIDExists_THEN_deviceShouldBeRemovedFromOrigin() {
-        // GIVEN
-        let cache = Memory<[Int : Device]>(initialValue: [0:DeviceFake()])
         let deviceList = Memory<[Int : Data]>(initialValue: [0:Data()])
-        let devices = CachedDevices(origin: MemoryDevices(devices: deviceList, closure: { (deviceID: Int, devices: Devices) -> (Device) in
-            return DeviceFake()
-        }), cache: cache)
-        
-        // WHEN
-        devices.delete(withID: 0)
-        
-        // THEN
+		CachedDevices(
+			origin: MemoryDevices(
+				devices: deviceList
+			),
+			cache: Memory<[Int : Device]>(
+				initialValue: [0:DeviceFake()]
+			)
+		).delete(
+			withID: 0
+		)
         XCTAssertTrue(deviceList.rawValue.count == 0)
     }
 }

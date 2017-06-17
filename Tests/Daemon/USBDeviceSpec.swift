@@ -12,8 +12,7 @@ import XCTest
 class USBDeviceSpec: XCTestCase {
     
     func testUSBDeviceCompositionRoot() {
-        let device = USBDevice()
-        XCTAssertNotNil(device)
+        XCTAssertNotNil(USBDevice())
     }
     
 }

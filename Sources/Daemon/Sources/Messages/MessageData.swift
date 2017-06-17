@@ -31,6 +31,15 @@ import Foundation
 internal final class MessageData: OODataWrap {
 	
 	// MARK: Init
+	
+	internal convenience init(packetType: UInt32, messageTag: UInt32, protocolType: UInt32) {
+		self.init(
+			data: OODataFake(),
+			packetType: packetType,
+			messageTag: messageTag,
+			protocolType: protocolType
+		)
+	}
     
 	internal required init(data: OOData, packetType: UInt32, messageTag: UInt32, protocolType: UInt32) {
         super.init(

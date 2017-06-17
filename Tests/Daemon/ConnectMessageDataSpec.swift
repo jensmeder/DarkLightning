@@ -12,14 +12,12 @@ import XCTest
 class ConnectMessageDataSpec: XCTestCase {
     
     func test_GIVEN_ConnectMessageData_WHEN_rawValue_THEN_shouldReturnEncodedValue() {
-        // GIVEN
-        let data = ConnectMessageData(deviceID: 3, port: 1234)
-        
-        // WHEN
-        let result = data.rawValue
-        
-        // THEN
-        XCTAssert(result.count > 0)
+        XCTAssert(
+			ConnectMessageData(
+				deviceID: 3,
+				port: 1234
+			).rawValue.count > 0
+		)
     }
     
 }

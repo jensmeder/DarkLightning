@@ -47,6 +47,17 @@ internal final class ResultMessage: USBMuxMessage {
     private let queue: DispatchQueue
 	
 	// MARK: Init
+	
+	internal convenience init(plist: [String: Any], tcpMode: Memory<Bool>, devices: Devices, deviceID: Int) {
+		self.init(
+			plist: plist,
+			tcpMode: tcpMode,
+			delegate: DeviceDelegateFake(),
+			devices: devices,
+			deviceID: deviceID,
+			queue: DispatchQueue.main
+		)
+	}
     
     internal convenience init(plist: [String: Any], tcpMode: Memory<Bool>, delegate: DeviceDelegate, devices: Devices, deviceID: Int) {
         self.init(
@@ -72,7 +83,7 @@ internal final class ResultMessage: USBMuxMessage {
 	
 	func decode() {
 		if let messageType = plist[ResultMessage.MessageTypeKey] as? String, messageType == ResultMessage.MessageTypeResult {
-            if let device = self.devices.device(withID: deviceID).first, let number = plist[ResultMessage.NumberKey] as? Int {
+            if let device = devices.device(withID: deviceID).first, let number = plist[ResultMessage.NumberKey] as? Int {
                 if number == ResultMessage.ResultOK {
                     tcpMode.rawValue = true
                     queue.async {

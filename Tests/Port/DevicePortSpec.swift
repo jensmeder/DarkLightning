@@ -12,8 +12,7 @@ import XCTest
 class DevicePortSpec: XCTestCase {
     
     func testDevicePortCompositionRoot() {
-        let port = DevicePort()
-        XCTAssertNotNil(port)
+        XCTAssertNotNil(DevicePort())
     }
     
 }
