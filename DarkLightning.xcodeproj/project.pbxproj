@@ -118,6 +118,12 @@
 		B495CB631EF6976000B713A2 /* DataDecodings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB621EF6976000B713A2 /* DataDecodings.swift */; };
 		B495CB641EF6976000B713A2 /* DataDecodings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB621EF6976000B713A2 /* DataDecodings.swift */; };
 		B495CB651EF6976000B713A2 /* DataDecodings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB621EF6976000B713A2 /* DataDecodings.swift */; };
+		B495CB671EF69DFE00B713A2 /* TCPMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB661EF69DFE00B713A2 /* TCPMode.swift */; };
+		B495CB681EF69DFE00B713A2 /* TCPMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB661EF69DFE00B713A2 /* TCPMode.swift */; };
+		B495CB691EF69DFE00B713A2 /* TCPMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB661EF69DFE00B713A2 /* TCPMode.swift */; };
+		B495CB6B1EF69E1000B713A2 /* BoolValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB6A1EF69E1000B713A2 /* BoolValue.swift */; };
+		B495CB6C1EF69E1000B713A2 /* BoolValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB6A1EF69E1000B713A2 /* BoolValue.swift */; };
+		B495CB6D1EF69E1000B713A2 /* BoolValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB6A1EF69E1000B713A2 /* BoolValue.swift */; };
 		B6D4F7C34D67FA9DC801618F /* SocketConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC5533691487D08D9296E5 /* SocketConnections.swift */; };
 		B74ECE7DF30B846C9CFD8195 /* MemoryDevicesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D200AFE9812251BA6E816 /* MemoryDevicesSpec.swift */; };
 		BC6CD0A5982E69059F51EF60 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013562CAA898ED79380C47B /* Memory.swift */; };
@@ -262,6 +268,8 @@
 		B495CB5C1EF687FF00B713A2 /* UInt32WithData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt32WithData.swift; sourceTree = "<group>"; };
 		B495CB601EF68EF000B713A2 /* UInt32WithDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt32WithDataSpec.swift; sourceTree = "<group>"; };
 		B495CB621EF6976000B713A2 /* DataDecodings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecodings.swift; sourceTree = "<group>"; };
+		B495CB661EF69DFE00B713A2 /* TCPMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPMode.swift; sourceTree = "<group>"; };
+		B495CB6A1EF69E1000B713A2 /* BoolValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolValue.swift; sourceTree = "<group>"; };
 		B59F1AEC4DD558BB972070A7 /* AttachMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AttachMessage.swift; sourceTree = "<group>"; };
 		B7F4FE20A5CEE694832E43B6 /* SocketWriteStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SocketWriteStream.swift; sourceTree = "<group>"; };
 		BE07B77841D3DB729CCE6314 /* DetachMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetachMessage.swift; sourceTree = "<group>"; };
@@ -538,6 +546,7 @@
 				B4039B4199A9528F08341A37 /* OOUInt32.swift */,
 				988D713FFAA47B0A2067BCE6 /* StreamDelegateFake.swift */,
 				C8CDF7A8C1BAEB92D69A54B2 /* WriteStream.swift */,
+				B495CB6A1EF69E1000B713A2 /* BoolValue.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -643,6 +652,7 @@
 				37B113CA77849199126F6F60 /* USBMuxMessageDataArray.swift */,
 				B495CB511EF5CF1100B713A2 /* IncomingMessages.swift */,
 				B495CB621EF6976000B713A2 /* DataDecodings.swift */,
+				B495CB661EF69DFE00B713A2 /* TCPMode.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -835,6 +845,7 @@
 				B495CB631EF6976000B713A2 /* DataDecodings.swift in Sources */,
 				579971E7DDB5790F5FA95531 /* DevicePort.swift in Sources */,
 				E43738206A7E8261AF112B92 /* DevicePortSocket.swift in Sources */,
+				B495CB6B1EF69E1000B713A2 /* BoolValue.swift in Sources */,
 				868F78B7EF5261235D0DBC10 /* DisconnectStreamReaction.swift in Sources */,
 				306F0E9FC42C120CF53BB1C6 /* EndOfStreamReaction.swift in Sources */,
 				FDB867CE5CBA47BA557C19EF /* Equatable.swift in Sources */,
@@ -846,6 +857,7 @@
 				F5D9E08E424B99704D18DAEA /* OOData.swift in Sources */,
 				D74422097FBBB3B05D4785FF /* OODataArray.swift in Sources */,
 				6A18574AA4DC0919AD576BF4 /* OOUInt16.swift in Sources */,
+				B495CB671EF69DFE00B713A2 /* TCPMode.swift in Sources */,
 				0BD011E1E1170FC49E17B4B3 /* OOUInt32.swift in Sources */,
 				A0ABBD5D1294788814784CB4 /* Port.swift in Sources */,
 				F4D84332974FEAB85CC583CD /* PortDelegate.swift in Sources */,
@@ -865,6 +877,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DB6546A803A20327EE4FF27 /* AttachMessage.swift in Sources */,
+				B495CB681EF69DFE00B713A2 /* TCPMode.swift in Sources */,
 				B495CB5B1EF6870100B713A2 /* DataWithRange.swift in Sources */,
 				EFDEDC7A86F8B56949F11F01 /* CachedDevices.swift in Sources */,
 				2A73FC606146D441286D9C08 /* CFSocket.swift in Sources */,
@@ -914,6 +927,7 @@
 				7E611327B5BA61C7857C1277 /* ResultMessage.swift in Sources */,
 				B6D4F7C34D67FA9DC801618F /* SocketConnections.swift in Sources */,
 				D767B574F229C05B05344629 /* SocketStream.swift in Sources */,
+				B495CB6C1EF69E1000B713A2 /* BoolValue.swift in Sources */,
 				AC2AA991682CBBDE8D27BF98 /* SocketWriteStream.swift in Sources */,
 				686EFF061CEC28D469B7FDE3 /* StreamDelegateFake.swift in Sources */,
 				50B1958B9707FD1F7A93B801 /* StreamDelegates.swift in Sources */,
@@ -942,6 +956,7 @@
 				B495CB651EF6976000B713A2 /* DataDecodings.swift in Sources */,
 				232464B778AA3B3954D5F696 /* DevicePort.swift in Sources */,
 				24CACB0988BFC453A840D0A4 /* DevicePortSocket.swift in Sources */,
+				B495CB6D1EF69E1000B713A2 /* BoolValue.swift in Sources */,
 				B2B0C328C7DBE543B4C21434 /* DisconnectStreamReaction.swift in Sources */,
 				BE8C719233A93535C4BB8994 /* EndOfStreamReaction.swift in Sources */,
 				281904556FF332F99B83D72E /* Equatable.swift in Sources */,
@@ -953,6 +968,7 @@
 				4E13EF874C42AFD077E34FCC /* OOData.swift in Sources */,
 				6EEB6F548F256F70749FDB84 /* OODataArray.swift in Sources */,
 				200E5D63DCB906BA1FD8D7F1 /* OOUInt16.swift in Sources */,
+				B495CB691EF69DFE00B713A2 /* TCPMode.swift in Sources */,
 				D556E2DD6C7A082A40C2018E /* OOUInt32.swift in Sources */,
 				D6FE66864D6536AAE44C0F9C /* Port.swift in Sources */,
 				992BFA4640EA5998037222A4 /* PortDelegate.swift in Sources */,

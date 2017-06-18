@@ -75,10 +75,16 @@ internal final class USBDevice: DeviceWrap {
 											mapping: { (plist: [String : Any]) -> (USBMuxMessage) in
 												return ResultMessage(
 													plist: plist,
-													tcpMode: tcpMode,
-													delegate: delegate,
 													devices: devices,
-													deviceID: deviceID
+													deviceID: deviceID,
+													tcpMode: { (device) -> (BoolValue) in
+														return TCPMode(
+															tcpMode: tcpMode,
+															queue: DispatchQueue.main,
+															delegate: delegate,
+															device: device
+														)
+													}
 												)
 											},
 											dataMapping: { (data: Data) -> (OODataArray) in

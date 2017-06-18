@@ -40,43 +40,17 @@ internal final class ResultMessage: USBMuxMessage {
 	// MARK: Members
 	
 	private let plist: [String: Any]
-    private let tcpMode: Memory<Bool>
-    private let delegate: DeviceDelegate
+    private let tcpMode: (Device) -> (BoolValue)
 	private let devices: Devices
 	private let deviceID: Int
-    private let queue: DispatchQueue
 	
 	// MARK: Init
-	
-	internal convenience init(plist: [String: Any], tcpMode: Memory<Bool>, devices: Devices, deviceID: Int) {
-		self.init(
-			plist: plist,
-			tcpMode: tcpMode,
-			delegate: DeviceDelegateFake(),
-			devices: devices,
-			deviceID: deviceID,
-			queue: DispatchQueue.main
-		)
-	}
     
-    internal convenience init(plist: [String: Any], tcpMode: Memory<Bool>, delegate: DeviceDelegate, devices: Devices, deviceID: Int) {
-        self.init(
-            plist: plist,
-            tcpMode: tcpMode,
-            delegate: delegate,
-            devices: devices,
-            deviceID: deviceID,
-            queue: DispatchQueue.main
-        )
-    }
-    
-    internal required init(plist: [String: Any], tcpMode: Memory<Bool>, delegate: DeviceDelegate, devices: Devices, deviceID: Int, queue: DispatchQueue) {
+	internal required init(plist: [String: Any], devices: Devices, deviceID: Int, tcpMode: @escaping (Device) -> (BoolValue)) {
 		self.plist = plist
         self.tcpMode = tcpMode
-        self.delegate = delegate
 		self.devices = devices
 		self.deviceID = deviceID
-        self.queue = queue
 	}
 	
 	// MARK: USBMuxMessage
@@ -84,17 +58,12 @@ internal final class ResultMessage: USBMuxMessage {
 	func decode() {
 		if let messageType = plist[ResultMessage.MessageTypeKey] as? String, messageType == ResultMessage.MessageTypeResult {
             if let device = devices.device(withID: deviceID).first, let number = plist[ResultMessage.NumberKey] as? Int {
+				let mode = tcpMode(device)
                 if number == ResultMessage.ResultOK {
-                    tcpMode.rawValue = true
-                    queue.async {
-                        self.delegate.device(didConnect: device)
-                    }
+                    mode.boolValue = true
                 }
                 else {
-                    tcpMode.rawValue = false
-                    queue.async {
-                        self.delegate.device(didFailToConnect: device)
-                    }
+                    mode.boolValue = false
                     device.disconnect()
                 }
             }
