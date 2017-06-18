@@ -18,14 +18,20 @@ class ResultMessageSpec: XCTestCase {
 				"MessageType": "Result",
 				"Number": 0
 			],
-			tcpMode: tcpMode,
-			delegate: DeviceDelegateFake(),
 			devices: MemoryDevices(
 				devices: Memory<[Int : Data]>(
 					initialValue: [0:Data()]
 				)
 			),
-			deviceID: 0
+			deviceID: 0,
+			tcpMode: {(device) -> (BoolValue) in
+				return TCPMode(
+					tcpMode: tcpMode,
+					queue: DispatchQueue.main,
+					delegate: DeviceDelegateFake(),
+					device: DeviceFake()
+				)
+			}
 		).decode()
         XCTAssertTrue(tcpMode.rawValue)
     }
@@ -37,13 +43,20 @@ class ResultMessageSpec: XCTestCase {
 				"MessageType": "Result",
 				"Number": 1
 			],
-			tcpMode: tcpMode,
 			devices: MemoryDevices(
 				devices: Memory<[Int : Data]>(
 					initialValue: [0:Data()]
 				)
 			),
-			deviceID: 0
+			deviceID: 0,
+			tcpMode: {(device) -> (BoolValue) in
+				return TCPMode(
+					tcpMode: tcpMode,
+					queue: DispatchQueue.main,
+					delegate: DeviceDelegateFake(),
+					device: DeviceFake()
+				)
+		}
 		).decode()
         XCTAssertFalse(tcpMode.rawValue)
     }
