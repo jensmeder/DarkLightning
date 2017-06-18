@@ -46,9 +46,7 @@ internal final class USBMuxMessageDataArray: OODataArray {
 		var origin = data
 		let headerSize = 4 * MemoryLayout<UInt32>.size
 		while origin.count >= headerSize {
-			let size: UInt32 = origin.subdata(in: 0..<4).withUnsafeBytes { (ptr: UnsafePointer<UInt32>) -> UInt32 in
-				return ptr.pointee
-			}
+			let size: UInt32 = UInt32WithData(data: DataWithRange(data: origin, range: 0..<4)).rawValue
 			if Int(size) <= origin.count {
 				let message = origin.subdata(in: headerSize..<Int(size))
 				result.append(message)

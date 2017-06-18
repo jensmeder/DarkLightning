@@ -69,7 +69,7 @@ class RootViewController: NSViewController, RootViewDelegate, DaemonDelegate, De
     }
     
     public func device(_ device: Device, didReceiveData data: OOData) {
-        let message = String(data: data.rawValue, encoding: .utf8)!
+        let message = String(data: data.dataValue, encoding: .utf8)!
         rootView?.appendMessage(message:message)
     }
     

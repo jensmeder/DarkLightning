@@ -13,7 +13,7 @@ class ListeningMessageDataSpec: XCTestCase {
     
     func test_GIVEN_ListeningMessageData_WHEN_rawValue_THEN_shouldReturnEncodedData() {
         XCTAssert(
-			ListeningMessageData().rawValue.count > 0
+			ListeningMessageData().dataValue.count > 0
 		)
     }
     

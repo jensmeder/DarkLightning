@@ -39,7 +39,7 @@ internal final class RawData: OOData {
     
     // MARK: OOData
 	
-	internal var rawValue: Data {
+	internal var dataValue: Data {
 		return origin
 	}
 }

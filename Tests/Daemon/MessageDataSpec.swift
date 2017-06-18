@@ -17,7 +17,7 @@ class MessageDataSpec: XCTestCase {
 				packetType: 1,
 				messageTag: 2,
 				protocolType: 3
-			).rawValue.count > 0
+			).dataValue.count > 0
 		)
     }
     

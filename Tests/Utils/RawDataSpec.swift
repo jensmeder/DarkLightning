@@ -15,7 +15,7 @@ class RawDataSpec: XCTestCase {
         XCTAssert(
 			RawData(
 				"Hello World!".data(using: .utf8)!
-			).rawValue == "Hello World!".data(using: .utf8)!
+			).dataValue == "Hello World!".data(using: .utf8)!
 		)
     }
     

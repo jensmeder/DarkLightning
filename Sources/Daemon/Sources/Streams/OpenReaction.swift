@@ -57,7 +57,7 @@ internal final class OpenReaction: NSObject, StreamDelegate {
 	func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
 		if eventCode == .hasSpaceAvailable && state.rawValue != newState {
 			state.rawValue = newState
-			outputStream.write(data: message.rawValue)
+			outputStream.write(data: message.dataValue)
 		}
 	}
 }

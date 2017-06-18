@@ -44,7 +44,7 @@ internal final class MessageData: OODataWrap {
 	internal required init(data: OOData, packetType: UInt32, messageTag: UInt32, protocolType: UInt32) {
         super.init(
 			origin: DataWithUInt32(
-				value: UInt32(data.rawValue.count + 4*MemoryLayout<UInt32>.size),
+				value: UInt32(data.dataValue.count + 4*MemoryLayout<UInt32>.size),
 				origin: DataWithUInt32(
 					value: protocolType,
 					origin: DataWithUInt32(

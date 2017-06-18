@@ -43,7 +43,7 @@ internal final class DictData: OOData {
     
     // MARK: OOData
 	
-	var rawValue: Data {
+	var dataValue: Data {
 		return try! PropertyListSerialization.data(fromPropertyList: dict, format: .xml, options: 0)
 	}
 }

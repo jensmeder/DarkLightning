@@ -15,7 +15,7 @@ class DataWithUInt32Spec: XCTestCase {
         XCTAssert(
 			DataWithUInt32(
 				value: 42
-			).rawValue.count == 4
+			).dataValue.count == 4
 		)
     }
     

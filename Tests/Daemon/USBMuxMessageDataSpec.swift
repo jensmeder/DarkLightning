@@ -15,7 +15,7 @@ class USBMuxMessageDataSpec: XCTestCase {
         XCTAssert(
 			USBMuxMessageData(
 				origin: Data()
-			).rawValue.isEmpty
+			).dataValue.isEmpty
 		)
     }
     
@@ -23,7 +23,7 @@ class USBMuxMessageDataSpec: XCTestCase {
         XCTAssert(
 			USBMuxMessageData(
 				origin: "Hello World! Hello World! Hello World!".data(using: .utf8)!
-			).rawValue.isEmpty
+			).dataValue.isEmpty
 		)
     }
     
@@ -35,8 +35,8 @@ class USBMuxMessageDataSpec: XCTestCase {
 					packetType: 1,
 					messageTag: 2,
 					protocolType: 3
-				).rawValue
-			).rawValue == "Hello World!".data(using: .utf8)!
+				).dataValue
+			).dataValue == "Hello World!".data(using: .utf8)!
 		)
     }
 }

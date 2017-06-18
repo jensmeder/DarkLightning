@@ -112,6 +112,9 @@
 		B3F865F0502AED95400C7912 /* AttachMessageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29C812DA5021D84E989133 /* AttachMessageSpec.swift */; };
 		B495CB521EF5CF1100B713A2 /* IncomingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB511EF5CF1100B713A2 /* IncomingMessages.swift */; };
 		B495CB541EF5D6B600B713A2 /* DetachMessageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB531EF5D6B600B713A2 /* DetachMessageSpec.swift */; };
+		B495CB5B1EF6870100B713A2 /* DataWithRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB5A1EF6870100B713A2 /* DataWithRange.swift */; };
+		B495CB5D1EF687FF00B713A2 /* UInt32WithData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB5C1EF687FF00B713A2 /* UInt32WithData.swift */; };
+		B495CB611EF68EF000B713A2 /* UInt32WithDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB601EF68EF000B713A2 /* UInt32WithDataSpec.swift */; };
 		B6D4F7C34D67FA9DC801618F /* SocketConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC5533691487D08D9296E5 /* SocketConnections.swift */; };
 		B74ECE7DF30B846C9CFD8195 /* MemoryDevicesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D200AFE9812251BA6E816 /* MemoryDevicesSpec.swift */; };
 		BC6CD0A5982E69059F51EF60 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013562CAA898ED79380C47B /* Memory.swift */; };
@@ -252,6 +255,9 @@
 		B47332A247BE5DBE8053E113 /* Debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		B495CB511EF5CF1100B713A2 /* IncomingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessages.swift; sourceTree = "<group>"; };
 		B495CB531EF5D6B600B713A2 /* DetachMessageSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetachMessageSpec.swift; sourceTree = "<group>"; };
+		B495CB5A1EF6870100B713A2 /* DataWithRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWithRange.swift; sourceTree = "<group>"; };
+		B495CB5C1EF687FF00B713A2 /* UInt32WithData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt32WithData.swift; sourceTree = "<group>"; };
+		B495CB601EF68EF000B713A2 /* UInt32WithDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt32WithDataSpec.swift; sourceTree = "<group>"; };
 		B59F1AEC4DD558BB972070A7 /* AttachMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AttachMessage.swift; sourceTree = "<group>"; };
 		B7F4FE20A5CEE694832E43B6 /* SocketWriteStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SocketWriteStream.swift; sourceTree = "<group>"; };
 		BE07B77841D3DB729CCE6314 /* DetachMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetachMessage.swift; sourceTree = "<group>"; };
@@ -381,6 +387,8 @@
 				5058EE4D81665E462A44ED8D /* SocketStream.swift */,
 				B7F4FE20A5CEE694832E43B6 /* SocketWriteStream.swift */,
 				DA156390626D2899FE31A44D /* StreamDelegates.swift */,
+				B495CB5A1EF6870100B713A2 /* DataWithRange.swift */,
+				B495CB5C1EF687FF00B713A2 /* UInt32WithData.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -477,6 +485,7 @@
 				8EC56D01C650308531521C01 /* ReadStreamReactionSpec.swift */,
 				EE541492DB8D864E5C20F393 /* SocketWriteStreamSpec.swift */,
 				23DF7631B461EB60F9B7E776 /* StreamDelegatesSpec.swift */,
+				B495CB601EF68EF000B713A2 /* UInt32WithDataSpec.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -801,6 +810,7 @@
 				DF67FE12C08F0589D3DF85D8 /* NetworkUInt32Spec.swift in Sources */,
 				B495CB541EF5D6B600B713A2 /* DetachMessageSpec.swift in Sources */,
 				D1627C160F8F176DF21CEC4E /* RawDataSpec.swift in Sources */,
+				B495CB611EF68EF000B713A2 /* UInt32WithDataSpec.swift in Sources */,
 				54B480DE5D9DB143BE9D3176 /* ReadStreamReactionSpec.swift in Sources */,
 				9525A32253DE8365EDC0225D /* SocketWriteStreamSpec.swift in Sources */,
 				737BFDBE5E5FA1EC1B1FB829 /* StreamDelegatesSpec.swift in Sources */,
@@ -849,6 +859,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DB6546A803A20327EE4FF27 /* AttachMessage.swift in Sources */,
+				B495CB5B1EF6870100B713A2 /* DataWithRange.swift in Sources */,
 				EFDEDC7A86F8B56949F11F01 /* CachedDevices.swift in Sources */,
 				2A73FC606146D441286D9C08 /* CFSocket.swift in Sources */,
 				819261BD6EA326F1003A68AD /* CloseStreamReaction.swift in Sources */,
@@ -859,6 +870,7 @@
 				A7346072C22B817BFC3AABC6 /* DaemonDelegate.swift in Sources */,
 				B2740ADD48B7DF8BB24FB6D5 /* DataDecoding.swift in Sources */,
 				74BB65D8B30A52147E81278A /* DataStream.swift in Sources */,
+				B495CB5D1EF687FF00B713A2 /* UInt32WithData.swift in Sources */,
 				13691F91E4890DFCB8899DD9 /* DataWithUInt32.swift in Sources */,
 				B495CB521EF5CF1100B713A2 /* IncomingMessages.swift in Sources */,
 				5142762B7C6E96150FC958C9 /* DetachMessage.swift in Sources */,

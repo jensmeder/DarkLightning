@@ -32,7 +32,7 @@ internal final class MessengerDelegate: DarkLightning.PortDelegate {
     }
     
     public func port(port: DarkLightning.Port, didReceiveData data: OOData) {
-        textView.rawValue?.text.append(String(data: data.rawValue, encoding: .utf8)!)
+        textView.rawValue?.text.append(String(data: data.dataValue, encoding: .utf8)!)
         textView.rawValue?.text.append("\r")
     }
 }

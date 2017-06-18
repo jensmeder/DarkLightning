@@ -16,7 +16,7 @@ class ReadStreamReactionSpec: XCTestCase {
         stream.open()
         let delegate = DataDecodingFake()
         ReadStreamReaction(delegate: delegate).stream(stream, handle: .hasBytesAvailable)
-        XCTAssert("Hello World!".data(using: .utf8)! == delegate.data!.rawValue)
+        XCTAssert("Hello World!".data(using: .utf8)! == delegate.data!.dataValue)
     }
     
 }

@@ -42,10 +42,10 @@ internal final class ReceivingDataReaction: DataDecoding {
     // MARK: DataDecoding
 	
 	public func decode(data: OOData) {
-        let messages = dataMapping(data.rawValue)
+        let messages = dataMapping(data.dataValue)
         for i in 0..<messages.count {
             do {
-                let plist: [String: Any] = try PropertyListSerialization.propertyList(from: messages[i].rawValue, options: [], format: nil) as! [String : Any]
+                let plist: [String: Any] = try PropertyListSerialization.propertyList(from: messages[i].dataValue, options: [], format: nil) as! [String : Any]
                 let message = mapping(plist)
                 message.decode()
             } catch {

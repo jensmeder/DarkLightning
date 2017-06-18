@@ -13,7 +13,7 @@ class DictDataSpec: XCTestCase {
     
     func test_GIVEN_DictData_WHEN_rawValue_THEN_shouldReturnEncodedValue() {
         XCTAssert(
-			DictData().rawValue.count > 0
+			DictData().dataValue.count > 0
 		)
     }
     

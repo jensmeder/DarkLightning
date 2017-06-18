@@ -29,7 +29,7 @@
 import Foundation
 
 public protocol OOData: class {
-	var rawValue: Data {get}
+	var dataValue: Data {get}
 }
 
 /**
@@ -47,7 +47,7 @@ public final class OODataFake: OOData {
     
     // MARK: - OOData
     
-	public var rawValue: Data {
+	public var dataValue: Data {
 		return Data()
 	}
 }
@@ -68,8 +68,8 @@ public class OODataWrap: OOData {
 	
 	// MARK: OOData
 	
-	public var rawValue: Data {
-		return origin.rawValue
+	public var dataValue: Data {
+		return origin.dataValue
 	}
 }
 

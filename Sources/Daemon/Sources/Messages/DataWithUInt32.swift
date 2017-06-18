@@ -48,12 +48,12 @@ internal final class DataWithUInt32: OOData {
     
     // MARK: OOData
 	
-	var rawValue: Data {
+	var dataValue: Data {
 		var aValue = value
 		var data = withUnsafePointer(to: &aValue) {
 			Data(bytes: UnsafePointer($0), count: MemoryLayout<UInt32>.size)
 		}
-		data.append(origin.rawValue)
+		data.append(origin.dataValue)
 		return data
 	}
 }

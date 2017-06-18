@@ -16,7 +16,7 @@ class ConnectMessageDataSpec: XCTestCase {
 			ConnectMessageData(
 				deviceID: 3,
 				port: 1234
-			).rawValue.count > 0
+			).dataValue.count > 0
 		)
     }
     
