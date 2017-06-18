@@ -9,7 +9,18 @@ import XCTest
 @testable import DarkLightning
 
 class TCPModeSpec: XCTestCase {
-    
+	
+	func test_GIVEN_TCPMode_WHEN_boolValue_THEN_tcpModeShouldReturnUnderlyingValue() {
+		XCTAssertTrue(
+			TCPMode(
+				tcpMode: Memory<Bool>(initialValue: true),
+				queue: DispatchQueue.main,
+				delegate: DeviceDelegateFake(),
+				device: DeviceFake()
+			).boolValue
+		)
+	}
+	
 	func test_GIVEN_TCPMode_WHEN_boolValue_AND_valueIsTrue_THEN_tcpModeShouldBeTrue() {
 		let tcpMode = Memory<Bool>(initialValue: false)
 		TCPMode(
