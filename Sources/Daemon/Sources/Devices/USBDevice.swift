@@ -83,10 +83,7 @@ internal final class USBDevice: DeviceWrap {
 											},
 											dataMapping: { (data: Data) -> (OODataArray) in
 												return USBMuxMessageDataArray(
-													data: data,
-													closure: { (data: Data) -> (OOData) in
-														return RawData(data)
-													}
+													data: data
 												)
 											}
 										)

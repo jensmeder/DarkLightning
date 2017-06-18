@@ -109,10 +109,7 @@ public final class USBDaemon: DaemonWrap {
                                 },
                                 dataMapping: { (data: Data) -> (OODataArray) in
                                     return USBMuxMessageDataArray(
-                                        data: data,
-                                        closure: { (data: Data) -> (OOData) in
-                                            return RawData(data)
-                                        }
+                                        data: data
                                     )
                                 }
                             )

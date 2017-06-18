@@ -33,7 +33,16 @@ internal final class USBMuxMessageDataArray: OODataArray {
 	private let closure: (Data) -> (OOData)
 	
 	// MARK: Init
-    
+	
+	internal convenience init(data: Data) {
+		self.init(
+			data: data,
+			closure: { (data: Data) -> (OOData) in
+				return RawData(data)
+			}
+		)
+	}
+	
     internal required init(data: Data, closure: @escaping (Data) -> (OOData)) {
         self.data = data
 		self.closure = closure
