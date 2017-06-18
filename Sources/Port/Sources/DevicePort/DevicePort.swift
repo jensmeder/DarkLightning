@@ -151,11 +151,6 @@ public final class DevicePort: PortWrap {
                 writeStream: SocketWriteStream(
                     outputStream: outputStream
                 ),
-                stream: SocketStream(
-                    handle: Memory<CFSocketNativeHandle>(initialValue: CFSocketInvalidHandle),
-                    inputStream: inputStream,
-                    outputStream: outputStream
-                ),
 				port: port,
 				queue: queue,
 				connections: connections,

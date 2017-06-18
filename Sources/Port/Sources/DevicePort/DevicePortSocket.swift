@@ -34,17 +34,15 @@ internal final class DevicePortSocket: Port {
 	private let connections: Connections
 	private let socket: Memory<CFSocketNativeHandle>
     private let writeStream: WriteStream
-    private let stream: DataStream
 	
 	// MARK: Init
     
-	internal required init(writeStream: WriteStream, stream: DataStream, port: UInt16, queue: DispatchQueue, connections: Connections, socket: Memory<CFSocketNativeHandle>) {
+	internal required init(writeStream: WriteStream, port: UInt16, queue: DispatchQueue, connections: Connections, socket: Memory<CFSocketNativeHandle>) {
         self.writeStream = writeStream
 		self.port = port
 		self.queue = queue
 		self.connections = connections
 		self.socket = socket
-        self.stream = stream
     }
 	
 	// MARK: Private
@@ -92,7 +90,6 @@ internal final class DevicePortSocket: Port {
 	
 	public func close() {
         if socket.rawValue != CFSocketInvalidHandle {
-            stream.close()
             let socket = CFSocketCreateWithNative(kCFAllocatorDefault, self.socket.rawValue, 0, nil, nil)
             CFSocketInvalidate(socket)
             self.socket.rawValue = CFSocketInvalidHandle
