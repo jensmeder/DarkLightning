@@ -29,7 +29,6 @@
 import Foundation
 
 internal final class TCPMessage: DataDecoding {
-    private let origin: DataDecoding
     private let tcpMode: Memory<Bool>
 	private let delegate: DeviceDelegate
     private let devices: Devices
@@ -38,9 +37,8 @@ internal final class TCPMessage: DataDecoding {
     
 	// MARK: Init
     
-    internal convenience init(origin: DataDecoding, tcpMode: Memory<Bool>, delegate: DeviceDelegate, devices: Devices, deviceID: Int) {
+    internal convenience init(tcpMode: Memory<Bool>, delegate: DeviceDelegate, devices: Devices, deviceID: Int) {
         self.init(
-            origin: origin,
             tcpMode: tcpMode,
             delegate: delegate,
             devices: devices,
@@ -49,8 +47,7 @@ internal final class TCPMessage: DataDecoding {
         )
     }
     
-    internal required init(origin: DataDecoding, tcpMode: Memory<Bool>, delegate: DeviceDelegate, devices: Devices, deviceID: Int, queue: DispatchQueue) {
-        self.origin = origin
+    internal required init(tcpMode: Memory<Bool>, delegate: DeviceDelegate, devices: Devices, deviceID: Int, queue: DispatchQueue) {
         self.tcpMode = tcpMode
 		self.delegate = delegate
 		self.devices = devices
@@ -67,9 +64,6 @@ internal final class TCPMessage: DataDecoding {
                     self.delegate.device(device, didReceiveData: data)
                 }
             }
-        }
-        else {
-            origin.decode(data: data)
         }
     }
 }

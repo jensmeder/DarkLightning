@@ -93,7 +93,7 @@ public final class USBDaemon: DaemonWrap {
                     delegates: [
                         ReadStreamReaction(
                             delegate: ReceivingDataReaction(
-                                mapping: { (plist: [String : Any]) -> (USBMuxMessage) in
+								mapping: { (plist: [String : Any]) -> (USBMuxMessage) in
                                     return IncomingMessages(
 										messages: [
 											AttachMessage(

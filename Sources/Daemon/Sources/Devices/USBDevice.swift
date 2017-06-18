@@ -62,31 +62,36 @@ internal final class USBDevice: DeviceWrap {
                     readReaction: StreamDelegates(
                         delegates: [
                             ReadStreamReaction(
-                                delegate: TCPMessage(
-                                    origin: ReceivingDataReaction(
-                                        mapping: { (plist: [String : Any]) -> (USBMuxMessage) in
-                                            return ResultMessage(
-                                                plist: plist,
-                                                tcpMode: tcpMode,
-                                                delegate: delegate,
-                                                devices: devices,
-                                                deviceID: deviceID
-                                            )
-                                        },
-                                        dataMapping: { (data: Data) -> (OODataArray) in
-                                            return USBMuxMessageDataArray(
-                                                data: data,
-                                                closure: { (data: Data) -> (OOData) in
-                                                    return RawData(data)
-                                                }
-                                            )
-                                        }
-                                    ),
-                                    tcpMode: tcpMode,
-                                    delegate: delegate,
-                                    devices: devices,
-                                    deviceID: deviceID
-                                )
+                                delegate: DataDecodings(
+									decodings: [
+										TCPMessage(
+											tcpMode: tcpMode,
+											delegate: delegate,
+											devices: devices,
+											deviceID: deviceID
+										),
+										ReceivingDataReaction(
+											tcpMode: tcpMode,
+											mapping: { (plist: [String : Any]) -> (USBMuxMessage) in
+												return ResultMessage(
+													plist: plist,
+													tcpMode: tcpMode,
+													delegate: delegate,
+													devices: devices,
+													deviceID: deviceID
+												)
+											},
+											dataMapping: { (data: Data) -> (OODataArray) in
+												return USBMuxMessageDataArray(
+													data: data,
+													closure: { (data: Data) -> (OOData) in
+														return RawData(data)
+													}
+												)
+											}
+										)
+									]
+								)
                             ),
                             EndOfStreamReaction(
                                 origin: StreamDelegates(

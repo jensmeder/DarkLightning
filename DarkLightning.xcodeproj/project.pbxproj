@@ -115,6 +115,9 @@
 		B495CB5B1EF6870100B713A2 /* DataWithRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB5A1EF6870100B713A2 /* DataWithRange.swift */; };
 		B495CB5D1EF687FF00B713A2 /* UInt32WithData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB5C1EF687FF00B713A2 /* UInt32WithData.swift */; };
 		B495CB611EF68EF000B713A2 /* UInt32WithDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB601EF68EF000B713A2 /* UInt32WithDataSpec.swift */; };
+		B495CB631EF6976000B713A2 /* DataDecodings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB621EF6976000B713A2 /* DataDecodings.swift */; };
+		B495CB641EF6976000B713A2 /* DataDecodings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB621EF6976000B713A2 /* DataDecodings.swift */; };
+		B495CB651EF6976000B713A2 /* DataDecodings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB621EF6976000B713A2 /* DataDecodings.swift */; };
 		B6D4F7C34D67FA9DC801618F /* SocketConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC5533691487D08D9296E5 /* SocketConnections.swift */; };
 		B74ECE7DF30B846C9CFD8195 /* MemoryDevicesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D200AFE9812251BA6E816 /* MemoryDevicesSpec.swift */; };
 		BC6CD0A5982E69059F51EF60 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013562CAA898ED79380C47B /* Memory.swift */; };
@@ -258,6 +261,7 @@
 		B495CB5A1EF6870100B713A2 /* DataWithRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWithRange.swift; sourceTree = "<group>"; };
 		B495CB5C1EF687FF00B713A2 /* UInt32WithData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt32WithData.swift; sourceTree = "<group>"; };
 		B495CB601EF68EF000B713A2 /* UInt32WithDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt32WithDataSpec.swift; sourceTree = "<group>"; };
+		B495CB621EF6976000B713A2 /* DataDecodings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecodings.swift; sourceTree = "<group>"; };
 		B59F1AEC4DD558BB972070A7 /* AttachMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AttachMessage.swift; sourceTree = "<group>"; };
 		B7F4FE20A5CEE694832E43B6 /* SocketWriteStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SocketWriteStream.swift; sourceTree = "<group>"; };
 		BE07B77841D3DB729CCE6314 /* DetachMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetachMessage.swift; sourceTree = "<group>"; };
@@ -638,6 +642,7 @@
 				E561BC7B6F18B5FD04F80E72 /* USBMuxMessageData.swift */,
 				37B113CA77849199126F6F60 /* USBMuxMessageDataArray.swift */,
 				B495CB511EF5CF1100B713A2 /* IncomingMessages.swift */,
+				B495CB621EF6976000B713A2 /* DataDecodings.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -827,6 +832,7 @@
 				1A9890E0EE58D298FDB8FF43 /* ConstDataArray.swift in Sources */,
 				4C5C2DE8BAEC5B9D22A06702 /* DataDecoding.swift in Sources */,
 				974B985A71B68D314A490939 /* DataStream.swift in Sources */,
+				B495CB631EF6976000B713A2 /* DataDecodings.swift in Sources */,
 				579971E7DDB5790F5FA95531 /* DevicePort.swift in Sources */,
 				E43738206A7E8261AF112B92 /* DevicePortSocket.swift in Sources */,
 				868F78B7EF5261235D0DBC10 /* DisconnectStreamReaction.swift in Sources */,
@@ -864,6 +870,7 @@
 				2A73FC606146D441286D9C08 /* CFSocket.swift in Sources */,
 				819261BD6EA326F1003A68AD /* CloseStreamReaction.swift in Sources */,
 				4A3DD1AD67836EA5628FDD40 /* Connections.swift in Sources */,
+				B495CB641EF6976000B713A2 /* DataDecodings.swift in Sources */,
 				B097234BCD3218D68DA30EA1 /* ConnectMessageData.swift in Sources */,
 				542DF687CB8DDAAEC878DDE5 /* ConstDataArray.swift in Sources */,
 				D6A9920E990593BC8EFD0254 /* Daemon.swift in Sources */,
@@ -932,6 +939,7 @@
 				8D2674A4B25983A1ACDD0B04 /* ConstDataArray.swift in Sources */,
 				721938881089136E476698E8 /* DataDecoding.swift in Sources */,
 				73037DDA6B3819C5678FD1BC /* DataStream.swift in Sources */,
+				B495CB651EF6976000B713A2 /* DataDecodings.swift in Sources */,
 				232464B778AA3B3954D5F696 /* DevicePort.swift in Sources */,
 				24CACB0988BFC453A840D0A4 /* DevicePortSocket.swift in Sources */,
 				B2B0C328C7DBE543B4C21434 /* DisconnectStreamReaction.swift in Sources */,

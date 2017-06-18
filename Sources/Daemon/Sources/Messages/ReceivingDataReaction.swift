@@ -31,22 +31,33 @@ import Foundation
 internal final class ReceivingDataReaction: DataDecoding {
 	private let mapping: ([String: Any]) -> (USBMuxMessage)
     private let dataMapping: (Data) -> (OODataArray)
+	private let tcpMode: Memory<Bool>
 	
 	// MARK: Init
+	
+	internal convenience init(mapping: @escaping ([String: Any]) -> (USBMuxMessage), dataMapping: @escaping (Data) -> (OODataArray)) {
+		self.init(
+			tcpMode: Memory<Bool>(initialValue: false),
+			mapping: mapping,
+			dataMapping: dataMapping)
+	}
     
-    internal required init(mapping: @escaping ([String: Any]) -> (USBMuxMessage), dataMapping: @escaping (Data) -> (OODataArray)) {
+    internal required init(tcpMode: Memory<Bool>, mapping: @escaping ([String: Any]) -> (USBMuxMessage), dataMapping: @escaping (Data) -> (OODataArray)) {
         self.mapping = mapping
         self.dataMapping = dataMapping
+		self.tcpMode = tcpMode
     }
     
     // MARK: DataDecoding
 	
 	public func decode(data: OOData) {
-        let messages = dataMapping(data.dataValue)
-        for i in 0..<messages.count {
-			let plist: [String: Any] = try! PropertyListSerialization.propertyList(from: messages[i].dataValue, options: [], format: nil) as! [String : Any]
-			let message = mapping(plist)
-			message.decode()
-        }
+		if !tcpMode.rawValue {
+			let messages = dataMapping(data.dataValue)
+			for i in 0..<messages.count {
+				let plist: [String: Any] = try! PropertyListSerialization.propertyList(from: messages[i].dataValue, options: [], format: nil) as! [String : Any]
+				let message = mapping(plist)
+				message.decode()
+			}
+		}
 	}
 }
