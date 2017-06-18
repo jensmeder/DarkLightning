@@ -124,6 +124,7 @@
 		B495CB6B1EF69E1000B713A2 /* BoolValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB6A1EF69E1000B713A2 /* BoolValue.swift */; };
 		B495CB6C1EF69E1000B713A2 /* BoolValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB6A1EF69E1000B713A2 /* BoolValue.swift */; };
 		B495CB6D1EF69E1000B713A2 /* BoolValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB6A1EF69E1000B713A2 /* BoolValue.swift */; };
+		B495CB6F1EF6A32A00B713A2 /* TCPModeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495CB6E1EF6A32A00B713A2 /* TCPModeSpec.swift */; };
 		B6D4F7C34D67FA9DC801618F /* SocketConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC5533691487D08D9296E5 /* SocketConnections.swift */; };
 		B74ECE7DF30B846C9CFD8195 /* MemoryDevicesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450D200AFE9812251BA6E816 /* MemoryDevicesSpec.swift */; };
 		BC6CD0A5982E69059F51EF60 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013562CAA898ED79380C47B /* Memory.swift */; };
@@ -270,6 +271,7 @@
 		B495CB621EF6976000B713A2 /* DataDecodings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecodings.swift; sourceTree = "<group>"; };
 		B495CB661EF69DFE00B713A2 /* TCPMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPMode.swift; sourceTree = "<group>"; };
 		B495CB6A1EF69E1000B713A2 /* BoolValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolValue.swift; sourceTree = "<group>"; };
+		B495CB6E1EF6A32A00B713A2 /* TCPModeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPModeSpec.swift; sourceTree = "<group>"; };
 		B59F1AEC4DD558BB972070A7 /* AttachMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AttachMessage.swift; sourceTree = "<group>"; };
 		B7F4FE20A5CEE694832E43B6 /* SocketWriteStream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SocketWriteStream.swift; sourceTree = "<group>"; };
 		BE07B77841D3DB729CCE6314 /* DetachMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetachMessage.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				CA87ACA2A74BB93C687CA3FD /* USBDeviceSpec.swift */,
 				CDE04020A7A8C9C076E9364F /* USBMuxMessageDataSpec.swift */,
 				B495CB531EF5D6B600B713A2 /* DetachMessageSpec.swift */,
+				B495CB6E1EF6A32A00B713A2 /* TCPModeSpec.swift */,
 			);
 			path = Daemon;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				46ABBE4B2F41092E585AE49E /* USBDeviceSpec.swift in Sources */,
 				732DAF18252CDCC69C149C36 /* USBMuxMessageDataSpec.swift in Sources */,
 				F8016A16D2534AB87AF54260 /* DevicePortSpec.swift in Sources */,
+				B495CB6F1EF6A32A00B713A2 /* TCPModeSpec.swift in Sources */,
 				5A3F1B8915D7D7B77D3BE1F0 /* DisconnectStreamReactionSpec.swift in Sources */,
 				377A31882727E2B175B9AC82 /* IncomingDataReactionSpec.swift in Sources */,
 				3B99BE88670EBDFC9CF69C23 /* InsertConnectionReactionSpec.swift in Sources */,
