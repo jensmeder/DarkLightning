@@ -141,6 +141,10 @@
 		D556E2DD6C7A082A40C2018E /* OOUInt32.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4039B4199A9528F08341A37 /* OOUInt32.swift */; };
 		D6766B87E1E66A571AEC049D /* RawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0AF202B31B1B8D0655F9D /* RawData.swift */; };
 		D6A9920E990593BC8EFD0254 /* Daemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A0FCB5D0CE140D19D699B0 /* Daemon.swift */; };
+		D6CD330B253E1529000630A7 /* DeviceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BDD8CEE88DD8579E1C284 /* DeviceDelegate.swift */; };
+		D6CD330C253E1532000630A7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46467C08905CC62A70BF5D61 /* Device.swift */; };
+		D6CD330D253E1610000630A7 /* DeviceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BDD8CEE88DD8579E1C284 /* DeviceDelegate.swift */; };
+		D6CD330E253E1616000630A7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46467C08905CC62A70BF5D61 /* Device.swift */; };
 		D6FE66864D6536AAE44C0F9C /* Port.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8F4B48CAFFAE3B0B985F0 /* Port.swift */; };
 		D74422097FBBB3B05D4785FF /* OODataArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D00AFD702A59CEE74F12A /* OODataArray.swift */; };
 		D767B574F229C05B05344629 /* SocketStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5058EE4D81665E462A44ED8D /* SocketStream.swift */; };
@@ -850,6 +854,7 @@
 			files = (
 				E1515A1D191DC0C03CE60B06 /* CFSocket.swift in Sources */,
 				3130CBA330FAECDF42F2CD06 /* CloseStreamReaction.swift in Sources */,
+				D6CD330B253E1529000630A7 /* DeviceDelegate.swift in Sources */,
 				6B6AF7CB0A29A21B9FD503E1 /* Connections.swift in Sources */,
 				1A9890E0EE58D298FDB8FF43 /* ConstDataArray.swift in Sources */,
 				4C5C2DE8BAEC5B9D22A06702 /* DataDecoding.swift in Sources */,
@@ -866,6 +871,7 @@
 				BC6CD0A5982E69059F51EF60 /* Memory.swift in Sources */,
 				4EE7BBB11D14B9976F041AC7 /* NetworkUInt16.swift in Sources */,
 				658A0CD0400F1E7CB4819A11 /* NetworkUInt32.swift in Sources */,
+				D6CD330C253E1532000630A7 /* Device.swift in Sources */,
 				F5D9E08E424B99704D18DAEA /* OOData.swift in Sources */,
 				D74422097FBBB3B05D4785FF /* OODataArray.swift in Sources */,
 				6A18574AA4DC0919AD576BF4 /* OOUInt16.swift in Sources */,
@@ -961,6 +967,7 @@
 			files = (
 				0147BFB8ABEA1EFD5222029A /* CFSocket.swift in Sources */,
 				2A7C2E83A8825976037429FB /* CloseStreamReaction.swift in Sources */,
+				D6CD330D253E1610000630A7 /* DeviceDelegate.swift in Sources */,
 				636AA6BEE5D0345F65487C2A /* Connections.swift in Sources */,
 				8D2674A4B25983A1ACDD0B04 /* ConstDataArray.swift in Sources */,
 				721938881089136E476698E8 /* DataDecoding.swift in Sources */,
@@ -977,6 +984,7 @@
 				135CE8D60B03361F1B82164C /* Memory.swift in Sources */,
 				DBC3B132BB2A28D84D3E6AE7 /* NetworkUInt16.swift in Sources */,
 				51F0F276455567A8C60BD973 /* NetworkUInt32.swift in Sources */,
+				D6CD330E253E1616000630A7 /* Device.swift in Sources */,
 				4E13EF874C42AFD077E34FCC /* OOData.swift in Sources */,
 				6EEB6F548F256F70749FDB84 /* OODataArray.swift in Sources */,
 				200E5D63DCB906BA1FD8D7F1 /* OOUInt16.swift in Sources */,
