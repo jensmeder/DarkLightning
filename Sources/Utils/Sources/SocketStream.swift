@@ -83,8 +83,8 @@ internal final class SocketStream: DataStream {
         self.inputStream.rawValue = inputStream!.takeRetainedValue() as InputStream
         self.outputStream.rawValue = outputStream!.takeRetainedValue() as OutputStream
         queue.sync {
-            self.inputStream.rawValue?.schedule(in: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
-            self.outputStream.rawValue?.schedule(in: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+            self.inputStream.rawValue?.schedule(in: RunLoop.current, forMode: RunLoop.Mode.default)
+            self.outputStream.rawValue?.schedule(in: RunLoop.current, forMode: RunLoop.Mode.default)
             self.inputStream.rawValue?.delegate = self.readReaction
             self.outputStream.rawValue?.delegate = self.writeReaction
             self.inputStream.rawValue?.open()

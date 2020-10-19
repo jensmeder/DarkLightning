@@ -771,6 +771,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					62AFD051A581325F8F7B8152 = {
+						LastSwiftMigration = 1010;
+					};
+					F7EF695BB4499C668C942591 = {
+						LastSwiftMigration = 1010;
+					};
+				};
 			};
 			buildConfigurationList = A4E5E594CF6E369645D2D64C /* Build configuration list for PBXProject "DarkLightning" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1003,6 +1011,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09107935092271F1FB036BC6 /* Debug.xcconfig */;
 			buildSettings = {
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1010,6 +1020,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E364FF9FA7466C52CA8C7EB1 /* Debug.xcconfig */;
 			buildSettings = {
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1031,6 +1043,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0B9A97F5DBFCAC0E03539B2 /* Release.xcconfig */;
 			buildSettings = {
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1066,6 +1080,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77D94876D5CB1AABF9DCA48B /* Release.xcconfig */;
 			buildSettings = {
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
